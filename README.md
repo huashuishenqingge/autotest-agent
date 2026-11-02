@@ -8,6 +8,21 @@ Python 3.11+，仅标准库，无安装依赖。使用 frozen dataclass + Protoc
 
 ## 快速开始
 
+### 仓库解析（阶段2新增）
+
+Windows首次创建独立环境：`python -m venv .venv`。本阶段仅使用标准库，无需安装额外依赖。
+
+在项目根运行：
+
+```console
+.venv\Scripts\python.exe -m examples.inspect_repository . --target workflow/state.py --requirement "Validate state transitions and proposal scope"
+.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+解析器不执行目标代码。`repository.parser.parse_repository`返回冻结的源码、测试、符号、近似导入/调用及问题清单；`repository.context.build_context`返回现有`GenerateInput`和额外的只读测试上下文、行范围、被省略文件。目标文件超预算明确失败，不静默截断。模型适配器后续须显式读取`related_tests`，该字段不在现有协议内。
+
+当前只支持UTF-8（含BOM）的Python文件；语法错误、超大文件和非UTF-8文件记录并排除，不加入可写源码。隐藏目录、依赖、构建产物和常见配置脚本被排除；这不是完整业务源码识别器，后续执行器必须再次审核可写白名单。输入应为稳定受控副本；AST调用仅为语法线索，不保证动态解析完整。`analysis-sha256:`是分析文件集合摘要，不是Git提交或执行器工作区摘要。README与配置文件尚不自动加入模型上下文，需求需明确传入；相关测试匹配采用导入及文件名启发式。
+
 在解压后的 autotest-agent 目录运行：
 
 ```console
