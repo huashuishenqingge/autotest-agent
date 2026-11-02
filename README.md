@@ -8,6 +8,12 @@ Python 3.11+，仅标准库，无安装依赖。使用 frozen dataclass + Protoc
 
 ## 快速开始
 
+### 隔离执行与补丁应用（阶段3，真实容器验收待完成）
+
+`execution.proposals.apply_proposal`在调度器独占临时副本中校验并应用提案，返回含diff及原始字节的回滚凭据；`rollback`会先检查文件未被后续修改。禁止在共享、并发写入的目标目录使用。
+
+`execution.docker_runner.run_tests`只使用审核后的不可变本地镜像ID运行固定pytest命令，缺少Docker时返回环境失败，绝不在宿主执行测试。当前仅支持清单内Python文件；不自动安装目标依赖。构建、运行步骤及限制见 [阶段3验证与交接](阶段3_验证与交接.md)。本机WSL尚未安装，当前不能宣称容器执行已验证。
+
 ### 仓库解析（阶段2新增）
 
 Windows首次创建独立环境：`python -m venv .venv`。本阶段仅使用标准库，无需安装额外依赖。
