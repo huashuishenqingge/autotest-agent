@@ -98,6 +98,19 @@ def _redact(text: str, secrets: tuple[str, ...]) -> str:
     return re.sub(r'(?i)((?:api[_-]?key|token|password|secret)\s*[=:]\s*)[^\s,;]+', r'\1[REDACTED]', text)
 
 
+def bounded_log(text: str, limit: int) -> str:
+    """Reserve space for a marker; never split a UTF-8 character."""
+    if limit <= 0:
+        raise ValueError('positive log budget required')
+    raw = text.encode('utf-8')
+    if len(raw) <= limit:
+        return text
+    marker = b'\n[log truncated]'
+    if limit < len(marker):
+        return marker[-limit:].decode('ascii')
+    return raw[:limit - len(marker)].decode('utf-8', errors='ignore') + marker.decode('ascii')
+
+
 def run_tests(root: Path, repository: Repository, *, image_id: str,
               artifact_root: Path, policy: Policy | None = None,
               secrets: tuple[str, ...] = (), docker_executable: str = 'docker') -> ExecutionResult:
@@ -144,7 +157,6 @@ def run_tests(root: Path, repository: Repository, *, image_id: str,
                         log = report['log']
                         if not isinstance(log, str) or len(xml) > 2_000_000:
                             raise ValueError('invalid report')
-                        log = log.encode('utf-8')[:policy.max_output_bytes].decode('utf-8', errors='replace')
                         break
                     if probe.returncode != 3:
                         log = 'Container stopped or result could not be read'
@@ -171,7 +183,7 @@ def run_tests(root: Path, repository: Repository, *, image_id: str,
                 except (OSError, subprocess.TimeoutExpired):
                     cleanup_ok = False
     # Raw logs and XML may contain repository secrets; persist sanitized text only.
-    log = _redact(log, secrets)
+    log = bounded_log(_redact(log, secrets), policy.max_output_bytes)
     sanitized_xml = _redact(xml.decode('utf-8', errors='replace'), secrets)
     (directory / 'log.txt').write_text(log, encoding='utf-8')
     (directory / 'junit.xml').write_text(sanitized_xml, encoding='utf-8')

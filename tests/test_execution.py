@@ -121,6 +121,11 @@ class ResultTests(unittest.TestCase):
         xml = '<testsuite><testcase><failure type="AssertionError"/></testcase></testsuite>'
         self.assertFalse(self.result(0, xml).successful)
 
+    def test_only_skipped_does_not_verify(self):
+        run = self.result(0, '<testsuite><testcase><skipped/></testcase></testsuite>')
+        self.assertFalse(run.successful)
+        self.assertEqual(run.skipped, 1)
+
 
 if __name__ == '__main__':
     unittest.main()

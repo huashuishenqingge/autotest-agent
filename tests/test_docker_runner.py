@@ -9,6 +9,12 @@ from workflow.state import Repository, Policy, FailureKind
 
 
 class DockerRunnerTests(unittest.TestCase):
+    def test_log_limit_preserves_truncation_marker(self):
+        from execution.docker_runner import bounded_log
+        text = bounded_log('x' * 200 + '\n[log truncated]', 64)
+        self.assertLessEqual(len(text.encode('utf-8')), 64)
+        self.assertTrue(text.endswith('[log truncated]'))
+
     def test_staging_freezes_bytes_and_rejects_missing_inventory(self):
         with tempfile.TemporaryDirectory() as source, tempfile.TemporaryDirectory() as staging:
             root, dest = Path(source), Path(staging)
