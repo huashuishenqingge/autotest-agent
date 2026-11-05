@@ -1,4 +1,6 @@
 import hashlib
+import os
+import subprocess
 import tempfile
 import unittest
 from pathlib import Path
@@ -94,6 +96,23 @@ class ProposalTests(unittest.TestCase):
                 self.skipTest('symlink permission unavailable')
             with self.assertRaises(ApplyError):
                 apply_proposal(self.root, self.request, GenerateOutput('t', 'baseline', (FileProposal('tests/generated/test_x.py','x'),)))
+
+    @unittest.skipUnless(os.name == 'nt', 'Windows junction requires Windows')
+    def test_junction_parent_rejected_without_external_write(self):
+        with tempfile.TemporaryDirectory() as outside:
+            junction = self.root / 'tests'
+            created = subprocess.run(['cmd', '/c', 'mklink', '/J', str(junction), outside],
+                                     capture_output=True, timeout=10)
+            self.assertEqual(created.returncode, 0, created.stderr)
+            try:
+                output = GenerateOutput('t', 'baseline', (FileProposal('tests/generated/test_x.py', 'x'),))
+                with self.assertRaises(ApplyError) as caught:
+                    apply_proposal(self.root, self.request, output)
+                self.assertEqual(caught.exception.kind, FailureKind.SECURITY)
+                self.assertEqual(list(Path(outside).iterdir()), [])
+            finally:
+                # Remove only this junction itself, never recursively traverse it.
+                os.rmdir(junction)
 
 
 class ResultTests(unittest.TestCase):
