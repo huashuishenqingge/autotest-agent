@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "origin": "real USTC DeepSeek response; no credentials",
+  "task_id": "a1d1b3625c0b4af489e901222b2a24c1",
+  "base_revision": "analysis-sha256:e4218129877444a22e0816d3edd9e2caf69611a5698f3059b86486f16e3e393f",
+  "prompt_version": "p04-generation-v2",
+  "requirements": [
+    "is_adult(age) accepts integer ages. Ages 18 and above return True; ages 0 through 17 return False.",
+    "Negative ages raise ValueError. Compare booleans with concrete expected values."
+  ],
+  "fixture_files_base64": {
+    "app.py": "ZGVmIGlzX2FkdWx0KGFnZSk6DQogICAgaWYgYWdlIDwgMDoNCiAgICAgICAgcmFpc2UgVmFsdWVFcnJvcigibmVnYXRpdmUgYWdlIikNCiAgICByZXR1cm4gYWdlID4gMTgNCg==",
+    "test_app.py": "ZnJvbSBhcHAgaW1wb3J0IGlzX2FkdWx0DQpkZWYgdGVzdF9leGlzdGluZygpOg0KICAgIGFzc2VydCBpc19hZHVsdCgyMCkgaXMgVHJ1ZQ0K"
+  },
+  "model_candidate": {
+    "task_id": "a1d1b3625c0b4af489e901222b2a24c1",
+    "base_revision": "analysis-sha256:e4218129877444a22e0816d3edd9e2caf69611a5698f3059b86486f16e3e393f",
+    "rationale": "The requirements define adulthood inclusively at age 18: ages 18 and above must return True, while ages 0 through 17 must return False. Negative ages are specified invalid inputs and must raise ValueError. The tests assert concrete boolean results at the lower boundary (0), just below the threshold (17), the threshold itself (18), and above it (19), plus additional representative values. Negative boundary and other negative values are checked with pytest.raises(ValueError). The current source uses age > 18, but the independent requirements are the oracle, so age 18 is expected to be True.",
+    "files": [
+      {
+        "path": "tests/generated/test_is_adult.py",
+        "content": "import pytest\n\nfrom app import is_adult\n\n\n@pytest.mark.parametrize(\n    \"age, expected\",\n    [\n        (0, False),\n        (1, False),\n        (17, False),\n        (18, True),\n        (19, True),\n        (65, True),\n    ],\n)\ndef test_is_adult_returns_expected_boolean(age, expected):\n    assert is_adult(age) is expected\n\n\n@pytest.mark.parametrize(\"age\", [-1, -18, -100])\ndef test_negative_age_raises_value_error(age):\n    with pytest.raises(ValueError):\n        is_adult(age)\n"
+      }
+    ]
+  },
+  "completion": {
+    "model": "deepseek-flash",
+    "usage": {
+      "prompt_tokens": 475,
+      "completion_tokens": 866,
+      "total_tokens": 1341
+    },
+    "usage_available": true
+  },
+  "image_id": "sha256:d2fd63d86e950f5b0d3f5772583b1c0cfa910fbc032b4dfe709612e0368d3741",
+  "observed_baseline": {
+    "passed": 1,
+    "failed": 0
+  },
+  "observed_full": {
+    "passed": 9,
+    "failed": 1,
+    "kind": "test_assertion"
+  },
+  "execution_digest": "deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd"
+}

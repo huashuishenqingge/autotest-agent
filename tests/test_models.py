@@ -129,6 +129,14 @@ class ModelTests(unittest.TestCase):
                 ModelClient(self.config, Budget(self.path, max_attempts=4)).complete([{'role': 'user', 'content': 'x'}])
             send.assert_not_called()
 
+    def test_unlimited_approval_preserves_usage_and_still_counts(self):
+        self.path.write_text('{"version":2,"attempts":4,"approved_limit":4}')
+        with patch('models.adapter.urlopen', side_effect=lambda *a, **k: Response(envelope())) as send:
+            for _ in range(2):
+                ModelClient(self.config, Budget(self.path, max_attempts=None)).complete([{'role': 'user', 'content': 'x'}])
+        self.assertEqual(send.call_count, 2)
+        self.assertEqual(json.loads(self.path.read_text()), {'version': 3, 'attempts': 6, 'approved_limit': None})
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -2,6 +2,8 @@
 
 ## 团队协作与进度入口
 
+P04已完成真实生成验收并等待用户确认：学校DeepSeek生成9例，完整测试9通过1预期边界失败，独立复核及重放通过。真实提案和冻结输入见[evidence/p04-deepseek-generation.json](evidence/p04-deepseek-generation.json)；运行 `python -m examples.replay_p04 --image-id <本机执行镜像sha256 ID>` 可在Docker中复现且不调用模型。用户已取消固定调用次数门槛，仍记录usage和尝试次数；以下3/4次限制为早期历史。
+
 2026-11-06 P04最新：用户已批准的总4次生成已用完；校验器的pytest.raises误拒问题已修复，真实重验尚未完成。HTTP等待上限300秒、输出2048不变；不得重置调用账本。后续以[进度总表](项目计划与进度.md)最新记录为准。
 
 P04已获用户批准并进入实施：模型配置与运行方法见[阶段4记录](阶段4_验证与交接.md)。复制.env.example到本机.env并填写学校词元计划密钥及授权DeepSeek模型ID；真实调用前先预览 `python -m examples.generate_tests --demo`。本机.env忽略提交；首次最多3次生成请求，每次最多2048输出词元。

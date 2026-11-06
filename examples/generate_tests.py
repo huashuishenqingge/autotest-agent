@@ -102,7 +102,7 @@ def main():
         ledger = Path(__file__).resolve().parents[1] / 'artifacts' / 'model-budget.json'
         if args.list_models:
             config = Config.from_env(ledger.parent.parent / '.env')
-            print(json.dumps(ModelClient(config, Budget(ledger, max_attempts=4)).list_models(), ensure_ascii=True))
+            print(json.dumps(ModelClient(config, Budget(ledger, max_attempts=None)).list_models(), ensure_ascii=True))
             return 0
         if args.demo and args.root:
             parser.error('--demo and root are mutually exclusive')
@@ -123,7 +123,7 @@ def main():
             if not args.approve_parser_inventory or not args.image_id:
                 parser.error('real generation requires --approve-parser-inventory and --image-id')
             config = Config.from_env(ledger.parent.parent / '.env')
-            client = ModelClient(config, Budget(ledger, max_attempts=4))
+            client = ModelClient(config, Budget(ledger, max_attempts=None))
             if config.model not in client.list_models():
                 raise ValueError('Configured model is not in this API key authorized model list')
             result = generate_and_run(root, requirements=requirements, targets=targets, client=client,

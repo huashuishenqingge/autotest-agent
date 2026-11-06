@@ -76,9 +76,9 @@ class Config:
 
 class Budget:
     """Durable approved attempts; extending the limit never resets prior usage."""
-    def __init__(self, path: Path, *, max_attempts: int = 3):
-        if type(max_attempts) is not int or max_attempts not in (3, 4):
-            raise ValueError('Only explicitly approved three/four request limits supported')
+    def __init__(self, path: Path, *, max_attempts: int | None = 3):
+        if max_attempts is not None and (type(max_attempts) is not int or max_attempts not in (3, 4)):
+            raise ValueError('Expected approved three/four limit or explicit unlimited approval')
         self.path = Path(path)
         self.max_attempts = max_attempts
 
@@ -105,16 +105,20 @@ class Budget:
                     previous_limit = data['approved_limit']
                     if type(previous_limit) is not int or previous_limit not in (3, 4):
                         raise ValueError('invalid prior approval')
+                elif (data.get('version') == 3 and set(data) == {'version', 'attempts', 'approved_limit'}
+                      and data['approved_limit'] is None):
+                    previous_limit = None
                 else:
                     raise ValueError('invalid ledger schema')
                 attempts = data['attempts']
-                if type(attempts) is not int or not 0 <= attempts <= previous_limit:
+                if type(attempts) is not int or attempts < 0 or (previous_limit is not None and attempts > previous_limit):
                     raise ValueError('invalid count')
-            if attempts >= self.max_attempts:
+            if self.max_attempts is not None and attempts >= self.max_attempts:
                 raise ModelError('budget', 'Approved generation request budget exhausted')
             fd, temporary = tempfile.mkstemp(prefix='budget-', dir=self.path.parent)
             with os.fdopen(fd, 'w', encoding='utf-8') as stream:
-                json.dump({'version': 2, 'attempts': attempts + 1, 'approved_limit': self.max_attempts}, stream)
+                json.dump({'version': 3 if self.max_attempts is None else 2,
+                           'attempts': attempts + 1, 'approved_limit': self.max_attempts}, stream)
                 stream.flush()
                 os.fsync(stream.fileno())
             os.replace(temporary, self.path)
