@@ -117,6 +117,18 @@ class ModelTests(unittest.TestCase):
                 self.client().complete([{'role': 'user', 'content': 'x'}])
         self.assertNotIn('private-key', str(caught.exception))
 
+    def test_approved_fourth_attempt_migrates_without_reset(self):
+        self.path.write_text('{"version":1,"attempts":3}')
+        with patch('models.adapter.urlopen', return_value=Response(envelope())) as send:
+            ModelClient(self.config, Budget(self.path, max_attempts=4)).complete([{'role': 'user', 'content': 'x'}])
+            self.assertEqual(send.call_args.kwargs['timeout'], 300)
+        ledger = json.loads(self.path.read_text())
+        self.assertEqual(ledger, {'version': 2, 'attempts': 4, 'approved_limit': 4})
+        with patch('models.adapter.urlopen') as send:
+            with self.assertRaises(ModelError):
+                ModelClient(self.config, Budget(self.path, max_attempts=4)).complete([{'role': 'user', 'content': 'x'}])
+            send.assert_not_called()
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -46,7 +46,8 @@ def generate_and_run(root, *, requirements, targets, client, image_id, artifact_
     directory.mkdir(parents=True, exist_ok=False)
     record = {'task_id': bundle.request.task_id, 'prompt_version': PROMPT_VERSION,
               'base_revision': snapshot.repository.revision, 'proposal': None,
-              'completion': None, 'baseline': None, 'execution': None,
+              'completion': None, 'baseline': None, 'execution': None, 'format_diagnostic': None,
+              'model_candidate': None,
               'prompt_sha256': hashlib.sha256(json.dumps(messages, ensure_ascii=False).encode()).hexdigest(),
               'targets': list(targets), 'reference_tests': list(reference_tests)}
     try:
@@ -63,6 +64,8 @@ def generate_and_run(root, *, requirements, targets, client, image_id, artifact_
                 raise ValueError('Original tests do not pass; generation was not called')
             generator = Generator(client)
             output = generator.generate(bundle.request, related_tests=related)
+            record['format_diagnostic'] = generator.last_diagnostic
+            record['model_candidate'] = generator.last_safe_candidate
             record['proposal'] = asdict(output)
             completion = generator.last_completion
             if completion:
@@ -99,7 +102,7 @@ def main():
         ledger = Path(__file__).resolve().parents[1] / 'artifacts' / 'model-budget.json'
         if args.list_models:
             config = Config.from_env(ledger.parent.parent / '.env')
-            print(json.dumps(ModelClient(config, Budget(ledger)).list_models(), ensure_ascii=True))
+            print(json.dumps(ModelClient(config, Budget(ledger, max_attempts=4)).list_models(), ensure_ascii=True))
             return 0
         if args.demo and args.root:
             parser.error('--demo and root are mutually exclusive')
@@ -120,7 +123,7 @@ def main():
             if not args.approve_parser_inventory or not args.image_id:
                 parser.error('real generation requires --approve-parser-inventory and --image-id')
             config = Config.from_env(ledger.parent.parent / '.env')
-            client = ModelClient(config, Budget(ledger))
+            client = ModelClient(config, Budget(ledger, max_attempts=4))
             if config.model not in client.list_models():
                 raise ValueError('Configured model is not in this API key authorized model list')
             result = generate_and_run(root, requirements=requirements, targets=targets, client=client,

@@ -75,9 +75,12 @@ class Config:
 
 
 class Budget:
-    """Single-machine, durable three-attempt approval; failures consume attempts."""
-    def __init__(self, path: Path):
+    """Durable approved attempts; extending the limit never resets prior usage."""
+    def __init__(self, path: Path, *, max_attempts: int = 3):
+        if type(max_attempts) is not int or max_attempts not in (3, 4):
+            raise ValueError('Only explicitly approved three/four request limits supported')
         self.path = Path(path)
+        self.max_attempts = max_attempts
 
     def reserve(self):
         self.path.parent.mkdir(parents=True, exist_ok=True)
@@ -94,16 +97,24 @@ class Budget:
                 if self.path.is_symlink() or self.path.stat().st_size > 1024:
                     raise ValueError('invalid ledger')
                 data = strict_json(self.path.read_text(encoding='utf-8'))
-                if not isinstance(data, dict) or set(data) != {'version', 'attempts'} or data['version'] != 1:
+                if not isinstance(data, dict):
                     raise ValueError('invalid ledger')
+                if data.get('version') == 1 and set(data) == {'version', 'attempts'}:
+                    previous_limit = 3
+                elif data.get('version') == 2 and set(data) == {'version', 'attempts', 'approved_limit'}:
+                    previous_limit = data['approved_limit']
+                    if type(previous_limit) is not int or previous_limit not in (3, 4):
+                        raise ValueError('invalid prior approval')
+                else:
+                    raise ValueError('invalid ledger schema')
                 attempts = data['attempts']
-                if type(attempts) is not int or not 0 <= attempts <= 3:
+                if type(attempts) is not int or not 0 <= attempts <= previous_limit:
                     raise ValueError('invalid count')
-            if attempts >= 3:
-                raise ModelError('budget', 'Approved three-generation request budget exhausted')
+            if attempts >= self.max_attempts:
+                raise ModelError('budget', 'Approved generation request budget exhausted')
             fd, temporary = tempfile.mkstemp(prefix='budget-', dir=self.path.parent)
             with os.fdopen(fd, 'w', encoding='utf-8') as stream:
-                json.dump({'version': 1, 'attempts': attempts + 1}, stream)
+                json.dump({'version': 2, 'attempts': attempts + 1, 'approved_limit': self.max_attempts}, stream)
                 stream.flush()
                 os.fsync(stream.fileno())
             os.replace(temporary, self.path)
@@ -147,7 +158,7 @@ class ModelClient:
         request = Request(self.config.base_url + suffix, data=raw, headers={
             'Authorization': 'Bearer ' + self.config.api_key, 'Content-Type': 'application/json'})
         try:
-            with urlopen(request, timeout=120) as response:
+            with urlopen(request, timeout=300) as response:
                 data = response.read(1_000_001)
             if len(data) > 1_000_000:
                 raise ModelError('invalid_output', 'Model response exceeds byte budget')
