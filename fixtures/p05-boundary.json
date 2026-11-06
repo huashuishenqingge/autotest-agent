@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "cases": [
+    {
+      "id": "age_threshold",
+      "requirements": [
+        "is_adult(age) accepts integer ages. Ages 18 and above return True; ages 0 through 17 return False.",
+        "Negative ages raise ValueError. Compare booleans with concrete expected values."
+      ],
+      "sources": {
+        "app.py": "def is_adult(age):\r\n    if age < 0:\r\n        raise ValueError(\"negative age\")\r\n    return age > 18\r\n"
+      },
+      "original_tests": {
+        "test_app.py": "from app import is_adult\r\ndef test_existing():\r\n    assert is_adult(20) is True\r\n"
+      },
+      "new_tests": {
+        "tests/generated/test_is_adult.py": "import pytest\n\nfrom app import is_adult\n\n\n@pytest.mark.parametrize(\n    \"age, expected\",\n    [\n        (0, False),\n        (1, False),\n        (17, False),\n        (18, True),\n        (19, True),\n        (65, True),\n    ],\n)\ndef test_is_adult_returns_expected_boolean(age, expected):\n    assert is_adult(age) is expected\n\n\n@pytest.mark.parametrize(\"age\", [-1, -18, -100])\ndef test_negative_age_raises_value_error(age):\n    with pytest.raises(ValueError):\n        is_adult(age)\n"
+      },
+      "visible_test_origin": "real DeepSeek P04 saved proposal"
+    },
+    {
+      "id": "take_first",
+      "requirements": [
+        "take_first(items, n) returns the first min(n, len(items)) list elements for nonnegative integer n, preserves order, does not mutate the list, and returns [] for n=0. Negative n raises ValueError."
+      ],
+      "sources": {
+        "app.py": "def take_first(items, n):\n    if n < 0:\n        raise ValueError(\"negative count\")\n    return [items[i] for i in range(min(n, len(items)) - 1)]\n"
+      },
+      "original_tests": {
+        "test_original.py": "from app import take_first\ndef test_zero(): assert take_first([1, 2], 0) == []\n"
+      },
+      "new_tests": {
+        "tests/generated/test_take.py": "import pytest\nfrom app import take_first\n@pytest.mark.parametrize(\"items,n,expected\", [([1,2,3],1,[1]),([1,2,3],3,[1,2,3]),([],2,[]),([1,2],5,[1,2])])\ndef test_prefix(items,n,expected): assert take_first(items,n) == expected\ndef test_negative():\n    with pytest.raises(ValueError): take_first([1],-1)\n"
+      },
+      "visible_test_origin": "human reviewed, not model generated"
+    },
+    {
+      "id": "sum_inclusive",
+      "requirements": [
+        "sum_inclusive(n) returns the sum of all integers from 1 through n inclusive for nonnegative integer n. n=0 returns 0. Negative n raises ValueError."
+      ],
+      "sources": {
+        "app.py": "def sum_inclusive(n):\n    if n < 0:\n        raise ValueError(\"negative limit\")\n    return sum(range(1, n))\n"
+      },
+      "original_tests": {
+        "test_original.py": "from app import sum_inclusive\ndef test_zero(): assert sum_inclusive(0) == 0\n"
+      },
+      "new_tests": {
+        "tests/generated/test_sum.py": "import pytest\nfrom app import sum_inclusive\n@pytest.mark.parametrize(\"n,expected\", [(1,1),(2,3),(3,6),(10,55)])\ndef test_sum(n,expected): assert sum_inclusive(n) == expected\ndef test_negative():\n    with pytest.raises(ValueError): sum_inclusive(-1)\n"
+      },
+      "visible_test_origin": "human reviewed, not model generated"
+    }
+  ]
+}

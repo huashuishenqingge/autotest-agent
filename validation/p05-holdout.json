@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "cases": {
+    "age_threshold": {
+      "holdout_tests": {
+        "validation/test_private_age.py": "import pytest\nfrom app import is_adult\n@pytest.mark.parametrize(\"age\", range(0,120))\ndef test_all_ages(age): assert is_adult(age) is (age >= 18)\n@pytest.mark.parametrize(\"age\", [-2,-999])\ndef test_invalid_age(age):\n    with pytest.raises(ValueError): is_adult(age)\n"
+      },
+      "reference_sources": {
+        "app.py": "def is_adult(age):\n    if age < 0:\n        raise ValueError(\"negative age\")\n    return age >= 18\n"
+      }
+    },
+    "take_first": {
+      "holdout_tests": {
+        "validation/test_private_prefix.py": "import pytest\nfrom app import take_first\n@pytest.mark.parametrize(\"items\", [[],[7],[\"a\",\"b\",\"c\"],list(range(8))])\n@pytest.mark.parametrize(\"n\", range(0,12))\ndef test_prefix(items,n):\n    before = list(items)\n    assert take_first(items,n) == items[:n]\n    assert items == before\ndef test_invalid_prefix():\n    with pytest.raises(ValueError): take_first([], -2)\n"
+      },
+      "reference_sources": {
+        "app.py": "def take_first(items, n):\n    if n < 0:\n        raise ValueError(\"negative count\")\n    return items[:n]\n"
+      }
+    },
+    "sum_inclusive": {
+      "holdout_tests": {
+        "validation/test_private_sum.py": "import pytest\nfrom app import sum_inclusive\n@pytest.mark.parametrize(\"n\", range(0,101))\ndef test_closed_form(n): assert sum_inclusive(n) == n*(n+1)//2\ndef test_invalid_sum():\n    with pytest.raises(ValueError): sum_inclusive(-9)\n"
+      },
+      "reference_sources": {
+        "app.py": "def sum_inclusive(n):\n    if n < 0:\n        raise ValueError(\"negative limit\")\n    return n*(n+1)//2\n"
+      }
+    }
+  }
+}
