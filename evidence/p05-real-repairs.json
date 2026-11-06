@@ -1,0 +1,1315 @@
+{
+  "schema": 1,
+  "origin": "real model",
+  "fixture_manifest": {
+    "fixtures/p05-boundary.json": "24646ea99ebb00a1d8268ebbf0a72879824b5e03a24eda47fd40e1f0cf53abf3",
+    "validation/p05-holdout.json": "3eff40d5e1818613ff30bd7eecb8f49279916dc97847c6fba6e775c00a002a83"
+  },
+  "cases": [
+    {
+      "case_id": "age_threshold",
+      "visible_test_origin": "real DeepSeek P04 saved proposal",
+      "reference": {
+        "run": {
+          "run_id": "000b9b3721664de088e693603fff1e9d",
+          "snapshot_digest": "80b3a21902e97a7cbe0b29c161dd0ca06170ec428d5446e72df5ca9c925d5f24",
+          "exit_code": 0,
+          "passed": 132,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "failure": null,
+          "artifacts": [
+            "000b9b3721664de088e693603fff1e9d/log.txt",
+            "000b9b3721664de088e693603fff1e9d/junit.xml",
+            "000b9b3721664de088e693603fff1e9d/manifest.json",
+            "000b9b3721664de088e693603fff1e9d/run.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\references\\000b9b3721664de088e693603fff1e9d",
+        "cleanup_ok": true
+      },
+      "repair": {
+        "task_id": "572b8482e019426bb95cb314e70c8fba",
+        "project_id": "age_threshold",
+        "base_revision": "frozen-sha256:deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+        "prompt_version": "p05-repair-v2",
+        "status": "verified",
+        "attempts": [
+          {
+            "attempt": 1,
+            "based_on_run_id": "21cd613acc6542fa967026a8cbf1f1cc",
+            "input_digest": "deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+            "source_hashes": [
+              [
+                "app.py",
+                "bc5fe50ecaf9bdb9308d58c961c741c90a8847bfa4dad09ebbf609d699d5ed30"
+              ]
+            ],
+            "proposal": {
+              "task_id": "572b8482e019426bb95cb314e70c8fba",
+              "base_revision": "frozen-sha256:deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+              "based_on_run_id": "21cd613acc6542fa967026a8cbf1f1cc",
+              "files": [
+                {
+                  "path": "app.py",
+                  "content": "def is_adult(age):\n    if age < 0:\n        raise ValueError(\"negative age\")\n    return age >= 18\n",
+                  "expected_sha256": "bc5fe50ecaf9bdb9308d58c961c741c90a8847bfa4dad09ebbf609d699d5ed30"
+                }
+              ],
+              "diagnosis": "app.py:4 uses strict comparison `age > 18`, so age 18 returns False, violating the requirement that ages 18 and above return True. Minimal fix: change to `age >= 18`.",
+              "failure": null
+            },
+            "model_candidate": {
+              "task_id": "572b8482e019426bb95cb314e70c8fba",
+              "base_revision": "frozen-sha256:deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+              "based_on_run_id": "21cd613acc6542fa967026a8cbf1f1cc",
+              "diagnosis": "app.py:4 uses strict comparison `age > 18`, so age 18 returns False, violating the requirement that ages 18 and above return True. Minimal fix: change to `age >= 18`.",
+              "files": [
+                {
+                  "path": "app.py",
+                  "content": "def is_adult(age):\n    if age < 0:\n        raise ValueError(\"negative age\")\n    return age >= 18\n"
+                }
+              ]
+            },
+            "completion": {
+              "model": "deepseek-flash",
+              "usage": {
+                "prompt_tokens": 1164,
+                "completion_tokens": 197,
+                "total_tokens": 1361
+              },
+              "usage_available": true
+            },
+            "transport_metadata": {
+              "finish_reason": "stop",
+              "usage": {
+                "prompt_tokens": 1164,
+                "completion_tokens": 197,
+                "total_tokens": 1361
+              },
+              "thinking_mode": "disabled",
+              "content_characters": 533,
+              "reasoning_characters": 0
+            },
+            "patch_diff": "--- a/app.py\n+++ b/app.py\n@@ -1,4 +1,4 @@\n-def is_adult(age):\r\n-    if age < 0:\r\n-        raise ValueError(\"negative age\")\r\n-    return age > 18\r\n+def is_adult(age):\n+    if age < 0:\n+        raise ValueError(\"negative age\")\n+    return age >= 18\n",
+            "visible_run": {
+              "run": {
+                "run_id": "490803e9d24d4526a795db6df8734299",
+                "snapshot_digest": "9b612847c396bcd39d178d07815884b4c28900c2da9a37a3d6e2737e94361dcd",
+                "exit_code": 0,
+                "passed": 10,
+                "failed": 0,
+                "errors": 0,
+                "skipped": 0,
+                "failure": null,
+                "artifacts": [
+                  "490803e9d24d4526a795db6df8734299/log.txt",
+                  "490803e9d24d4526a795db6df8734299/junit.xml",
+                  "490803e9d24d4526a795db6df8734299/manifest.json",
+                  "490803e9d24d4526a795db6df8734299/run.json"
+                ]
+              },
+              "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\age_threshold\\572b8482e019426bb95cb314e70c8fba\\execution\\490803e9d24d4526a795db6df8734299",
+              "cleanup_ok": true
+            },
+            "original_regression_run": null,
+            "rollback_ok": null,
+            "refreshed_failure": null,
+            "elapsed_seconds": 51.453
+          }
+        ],
+        "baseline": {
+          "run": {
+            "run_id": "03555bf52a56447382394cddf9dc6b4d",
+            "snapshot_digest": "e4218129877444a22e0816d3edd9e2caf69611a5698f3059b86486f16e3e393f",
+            "exit_code": 0,
+            "passed": 1,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "03555bf52a56447382394cddf9dc6b4d/log.txt",
+              "03555bf52a56447382394cddf9dc6b4d/junit.xml",
+              "03555bf52a56447382394cddf9dc6b4d/manifest.json",
+              "03555bf52a56447382394cddf9dc6b4d/run.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\age_threshold\\572b8482e019426bb95cb314e70c8fba\\execution\\03555bf52a56447382394cddf9dc6b4d",
+          "cleanup_ok": true
+        },
+        "initial_failure": {
+          "run": {
+            "run_id": "f921c77867454aba94719c7dc5f32466",
+            "snapshot_digest": "deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+            "exit_code": 1,
+            "passed": 9,
+            "failed": 1,
+            "errors": 0,
+            "skipped": 0,
+            "failure": {
+              "kind": "test_assertion",
+              "message": "Run did not verify; inspect sanitized evidence",
+              "evidence": [
+                "f921c77867454aba94719c7dc5f32466/log.txt",
+                "f921c77867454aba94719c7dc5f32466/junit.xml",
+                "f921c77867454aba94719c7dc5f32466/manifest.json",
+                "f921c77867454aba94719c7dc5f32466/run.json"
+              ]
+            },
+            "artifacts": [
+              "f921c77867454aba94719c7dc5f32466/log.txt",
+              "f921c77867454aba94719c7dc5f32466/junit.xml",
+              "f921c77867454aba94719c7dc5f32466/manifest.json",
+              "f921c77867454aba94719c7dc5f32466/run.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\age_threshold\\572b8482e019426bb95cb314e70c8fba\\execution\\f921c77867454aba94719c7dc5f32466",
+          "cleanup_ok": true
+        },
+        "reproduction": {
+          "run": {
+            "run_id": "21cd613acc6542fa967026a8cbf1f1cc",
+            "snapshot_digest": "deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+            "exit_code": 1,
+            "passed": 9,
+            "failed": 1,
+            "errors": 0,
+            "skipped": 0,
+            "failure": {
+              "kind": "test_assertion",
+              "message": "Run did not verify; inspect sanitized evidence",
+              "evidence": [
+                "21cd613acc6542fa967026a8cbf1f1cc/log.txt",
+                "21cd613acc6542fa967026a8cbf1f1cc/junit.xml",
+                "21cd613acc6542fa967026a8cbf1f1cc/manifest.json",
+                "21cd613acc6542fa967026a8cbf1f1cc/run.json"
+              ]
+            },
+            "artifacts": [
+              "21cd613acc6542fa967026a8cbf1f1cc/log.txt",
+              "21cd613acc6542fa967026a8cbf1f1cc/junit.xml",
+              "21cd613acc6542fa967026a8cbf1f1cc/manifest.json",
+              "21cd613acc6542fa967026a8cbf1f1cc/run.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\age_threshold\\572b8482e019426bb95cb314e70c8fba\\execution\\21cd613acc6542fa967026a8cbf1f1cc",
+          "cleanup_ok": true
+        },
+        "independent_validation": {
+          "run": {
+            "run_id": "98a689a5b05c4b99980fc710fa31339f",
+            "snapshot_digest": "80b3a21902e97a7cbe0b29c161dd0ca06170ec428d5446e72df5ca9c925d5f24",
+            "exit_code": 0,
+            "passed": 132,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "98a689a5b05c4b99980fc710fa31339f/log.txt",
+              "98a689a5b05c4b99980fc710fa31339f/junit.xml",
+              "98a689a5b05c4b99980fc710fa31339f/manifest.json",
+              "98a689a5b05c4b99980fc710fa31339f/run.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\age_threshold\\572b8482e019426bb95cb314e70c8fba\\independent\\98a689a5b05c4b99980fc710fa31339f",
+          "cleanup_ok": true
+        },
+        "final_sources": [
+          [
+            "app.py",
+            "def is_adult(age):\n    if age < 0:\n        raise ValueError(\"negative age\")\n    return age >= 18\n"
+          ]
+        ],
+        "elapsed_seconds": 56.656
+      }
+    },
+    {
+      "case_id": "take_first",
+      "visible_test_origin": "human reviewed, not model generated",
+      "reference": {
+        "run": {
+          "run_id": "0c35997c37ad458bb0ecaf2e2a776f85",
+          "snapshot_digest": "bc7c0be6759b720fd3a21418b7384488e1eb7f3991a085200bbe650a21851e21",
+          "exit_code": 0,
+          "passed": 55,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "failure": null,
+          "artifacts": [
+            "0c35997c37ad458bb0ecaf2e2a776f85/log.txt",
+            "0c35997c37ad458bb0ecaf2e2a776f85/junit.xml",
+            "0c35997c37ad458bb0ecaf2e2a776f85/manifest.json",
+            "0c35997c37ad458bb0ecaf2e2a776f85/run.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\references\\0c35997c37ad458bb0ecaf2e2a776f85",
+        "cleanup_ok": true
+      },
+      "repair": {
+        "task_id": "7e2d287aa5af45d293995322295a0f48",
+        "project_id": "take_first",
+        "base_revision": "frozen-sha256:40b70c41782f0046d22c479515eaf6909be098b38a66f7c6047983f5f4d64a6a",
+        "prompt_version": "p05-repair-v2",
+        "status": "verified",
+        "attempts": [
+          {
+            "attempt": 1,
+            "based_on_run_id": "c96452c8697d4663b9f2ca824bd71524",
+            "input_digest": "40b70c41782f0046d22c479515eaf6909be098b38a66f7c6047983f5f4d64a6a",
+            "source_hashes": [
+              [
+                "app.py",
+                "6810ce863c1e6f4ea5abc7a4504976085aa453fd7ab908aeba0a602a1b104a65"
+              ]
+            ],
+            "proposal": {
+              "task_id": "7e2d287aa5af45d293995322295a0f48",
+              "base_revision": "frozen-sha256:40b70c41782f0046d22c479515eaf6909be098b38a66f7c6047983f5f4d64a6a",
+              "based_on_run_id": "c96452c8697d4663b9f2ca824bd71524",
+              "files": [
+                {
+                  "path": "app.py",
+                  "content": "def take_first(items, n):\n    if n < 0:\n        raise ValueError(\"negative count\")\n    return [items[i] for i in range(min(n, len(items)))]\n",
+                  "expected_sha256": "6810ce863c1e6f4ea5abc7a4504976085aa453fd7ab908aeba0a602a1b104a65"
+                }
+              ],
+              "diagnosis": "app.py:4 uses range(min(n, len(items)) - 1), which drops the last element of the requested prefix (and returns [] for n=1). The requirement is to return the first min(n, len(items)) elements, so the range bound must be min(n, len(items)) without the -1.",
+              "failure": null
+            },
+            "model_candidate": {
+              "task_id": "7e2d287aa5af45d293995322295a0f48",
+              "base_revision": "frozen-sha256:40b70c41782f0046d22c479515eaf6909be098b38a66f7c6047983f5f4d64a6a",
+              "based_on_run_id": "c96452c8697d4663b9f2ca824bd71524",
+              "diagnosis": "app.py:4 uses range(min(n, len(items)) - 1), which drops the last element of the requested prefix (and returns [] for n=1). The requirement is to return the first min(n, len(items)) elements, so the range bound must be min(n, len(items)) without the -1.",
+              "files": [
+                {
+                  "path": "app.py",
+                  "content": "def take_first(items, n):\n    if n < 0:\n        raise ValueError(\"negative count\")\n    return [items[i] for i in range(min(n, len(items)))]\n"
+                }
+              ]
+            },
+            "completion": {
+              "model": "deepseek-flash",
+              "usage": {
+                "prompt_tokens": 1398,
+                "completion_tokens": 238,
+                "total_tokens": 1636
+              },
+              "usage_available": true
+            },
+            "transport_metadata": {
+              "finish_reason": "stop",
+              "usage": {
+                "prompt_tokens": 1398,
+                "completion_tokens": 238,
+                "total_tokens": 1636
+              },
+              "thinking_mode": "disabled",
+              "content_characters": 663,
+              "reasoning_characters": 0
+            },
+            "patch_diff": "--- a/app.py\n+++ b/app.py\n@@ -1,4 +1,4 @@\n def take_first(items, n):\n     if n < 0:\n         raise ValueError(\"negative count\")\n-    return [items[i] for i in range(min(n, len(items)) - 1)]\n+    return [items[i] for i in range(min(n, len(items)))]\n",
+            "visible_run": {
+              "run": {
+                "run_id": "0164120814dd4b15b0bad54256080773",
+                "snapshot_digest": "d0aebcd8df2d25f23fc53e905a52c13817827a016bda23b771c070f8a8a64adf",
+                "exit_code": 0,
+                "passed": 6,
+                "failed": 0,
+                "errors": 0,
+                "skipped": 0,
+                "failure": null,
+                "artifacts": [
+                  "0164120814dd4b15b0bad54256080773/log.txt",
+                  "0164120814dd4b15b0bad54256080773/junit.xml",
+                  "0164120814dd4b15b0bad54256080773/manifest.json",
+                  "0164120814dd4b15b0bad54256080773/run.json"
+                ]
+              },
+              "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\take_first\\7e2d287aa5af45d293995322295a0f48\\execution\\0164120814dd4b15b0bad54256080773",
+              "cleanup_ok": true
+            },
+            "original_regression_run": null,
+            "rollback_ok": null,
+            "refreshed_failure": null,
+            "elapsed_seconds": 58.906
+          }
+        ],
+        "baseline": {
+          "run": {
+            "run_id": "04af490c037248ed897d0b4ade109723",
+            "snapshot_digest": "d9c5410e10bcf09d29da77248b8183a590881dfd49c2d475b4c7e2d08b74a879",
+            "exit_code": 0,
+            "passed": 1,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "04af490c037248ed897d0b4ade109723/log.txt",
+              "04af490c037248ed897d0b4ade109723/junit.xml",
+              "04af490c037248ed897d0b4ade109723/manifest.json",
+              "04af490c037248ed897d0b4ade109723/run.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\take_first\\7e2d287aa5af45d293995322295a0f48\\execution\\04af490c037248ed897d0b4ade109723",
+          "cleanup_ok": true
+        },
+        "initial_failure": {
+          "run": {
+            "run_id": "3128b6a9ec2e482181d04eae8aa33da1",
+            "snapshot_digest": "40b70c41782f0046d22c479515eaf6909be098b38a66f7c6047983f5f4d64a6a",
+            "exit_code": 1,
+            "passed": 3,
+            "failed": 3,
+            "errors": 0,
+            "skipped": 0,
+            "failure": {
+              "kind": "test_assertion",
+              "message": "Run did not verify; inspect sanitized evidence",
+              "evidence": [
+                "3128b6a9ec2e482181d04eae8aa33da1/log.txt",
+                "3128b6a9ec2e482181d04eae8aa33da1/junit.xml",
+                "3128b6a9ec2e482181d04eae8aa33da1/manifest.json",
+                "3128b6a9ec2e482181d04eae8aa33da1/run.json"
+              ]
+            },
+            "artifacts": [
+              "3128b6a9ec2e482181d04eae8aa33da1/log.txt",
+              "3128b6a9ec2e482181d04eae8aa33da1/junit.xml",
+              "3128b6a9ec2e482181d04eae8aa33da1/manifest.json",
+              "3128b6a9ec2e482181d04eae8aa33da1/run.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\take_first\\7e2d287aa5af45d293995322295a0f48\\execution\\3128b6a9ec2e482181d04eae8aa33da1",
+          "cleanup_ok": true
+        },
+        "reproduction": {
+          "run": {
+            "run_id": "c96452c8697d4663b9f2ca824bd71524",
+            "snapshot_digest": "40b70c41782f0046d22c479515eaf6909be098b38a66f7c6047983f5f4d64a6a",
+            "exit_code": 1,
+            "passed": 3,
+            "failed": 3,
+            "errors": 0,
+            "skipped": 0,
+            "failure": {
+              "kind": "test_assertion",
+              "message": "Run did not verify; inspect sanitized evidence",
+              "evidence": [
+                "c96452c8697d4663b9f2ca824bd71524/log.txt",
+                "c96452c8697d4663b9f2ca824bd71524/junit.xml",
+                "c96452c8697d4663b9f2ca824bd71524/manifest.json",
+                "c96452c8697d4663b9f2ca824bd71524/run.json"
+              ]
+            },
+            "artifacts": [
+              "c96452c8697d4663b9f2ca824bd71524/log.txt",
+              "c96452c8697d4663b9f2ca824bd71524/junit.xml",
+              "c96452c8697d4663b9f2ca824bd71524/manifest.json",
+              "c96452c8697d4663b9f2ca824bd71524/run.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\take_first\\7e2d287aa5af45d293995322295a0f48\\execution\\c96452c8697d4663b9f2ca824bd71524",
+          "cleanup_ok": true
+        },
+        "independent_validation": {
+          "run": {
+            "run_id": "ae015c1d651c4b85bb4c7eb0555951e2",
+            "snapshot_digest": "534711eb11bc74bda2dac949bcf3bca5c2673d98ddd3f91768c6ac652e060495",
+            "exit_code": 0,
+            "passed": 55,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "ae015c1d651c4b85bb4c7eb0555951e2/log.txt",
+              "ae015c1d651c4b85bb4c7eb0555951e2/junit.xml",
+              "ae015c1d651c4b85bb4c7eb0555951e2/manifest.json",
+              "ae015c1d651c4b85bb4c7eb0555951e2/run.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\take_first\\7e2d287aa5af45d293995322295a0f48\\independent\\ae015c1d651c4b85bb4c7eb0555951e2",
+          "cleanup_ok": true
+        },
+        "final_sources": [
+          [
+            "app.py",
+            "def take_first(items, n):\n    if n < 0:\n        raise ValueError(\"negative count\")\n    return [items[i] for i in range(min(n, len(items)))]\n"
+          ]
+        ],
+        "elapsed_seconds": 64.0
+      }
+    },
+    {
+      "case_id": "sum_inclusive",
+      "visible_test_origin": "human reviewed, not model generated",
+      "reference": {
+        "run": {
+          "run_id": "7d73a2611adb424d8ea2f12aa32d5655",
+          "snapshot_digest": "cee77b900355e6c61ad177a537c2fe3b9a895e9b0711270c17343697959451db",
+          "exit_code": 0,
+          "passed": 108,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "failure": null,
+          "artifacts": [
+            "7d73a2611adb424d8ea2f12aa32d5655/log.txt",
+            "7d73a2611adb424d8ea2f12aa32d5655/junit.xml",
+            "7d73a2611adb424d8ea2f12aa32d5655/manifest.json",
+            "7d73a2611adb424d8ea2f12aa32d5655/run.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\references\\7d73a2611adb424d8ea2f12aa32d5655",
+        "cleanup_ok": true
+      },
+      "repair": {
+        "task_id": "4deff8aace7b4091855a57aed796e1dd",
+        "project_id": "sum_inclusive",
+        "base_revision": "frozen-sha256:806bd36cf53fc9bf9506b3d5c1b54019604888efdef7d1ee6c28b95cba6e342e",
+        "prompt_version": "p05-repair-v2",
+        "status": "verified",
+        "attempts": [
+          {
+            "attempt": 1,
+            "based_on_run_id": "7c404763b4ff4bb99e446f22ec1b5f07",
+            "input_digest": "806bd36cf53fc9bf9506b3d5c1b54019604888efdef7d1ee6c28b95cba6e342e",
+            "source_hashes": [
+              [
+                "app.py",
+                "b67671ff875372ad27715a9d253f7fe0d344aa4a718a31545f0d9fd99c9b0433"
+              ]
+            ],
+            "proposal": {
+              "task_id": "4deff8aace7b4091855a57aed796e1dd",
+              "base_revision": "frozen-sha256:806bd36cf53fc9bf9506b3d5c1b54019604888efdef7d1ee6c28b95cba6e342e",
+              "based_on_run_id": "7c404763b4ff4bb99e446f22ec1b5f07",
+              "files": [
+                {
+                  "path": "app.py",
+                  "content": "def sum_inclusive(n):\n    if n < 0:\n        raise ValueError(\"negative limit\")\n    return sum(range(1, n + 1))\n",
+                  "expected_sha256": "b67671ff875372ad27715a9d253f7fe0d344aa4a718a31545f0d9fd99c9b0433"
+                }
+              ],
+              "diagnosis": "app.py:4 uses range(1, n), which excludes n, so the sum stops at n-1 (e.g. sum_inclusive(1) returns 0 instead of 1). The requirement is to sum 1 through n inclusive; the minimal fix is range(1, n + 1).",
+              "failure": null
+            },
+            "model_candidate": {
+              "task_id": "4deff8aace7b4091855a57aed796e1dd",
+              "base_revision": "frozen-sha256:806bd36cf53fc9bf9506b3d5c1b54019604888efdef7d1ee6c28b95cba6e342e",
+              "based_on_run_id": "7c404763b4ff4bb99e446f22ec1b5f07",
+              "diagnosis": "app.py:4 uses range(1, n), which excludes n, so the sum stops at n-1 (e.g. sum_inclusive(1) returns 0 instead of 1). The requirement is to sum 1 through n inclusive; the minimal fix is range(1, n + 1).",
+              "files": [
+                {
+                  "path": "app.py",
+                  "content": "def sum_inclusive(n):\n    if n < 0:\n        raise ValueError(\"negative limit\")\n    return sum(range(1, n + 1))\n"
+                }
+              ]
+            },
+            "completion": {
+              "model": "deepseek-flash",
+              "usage": {
+                "prompt_tokens": 1373,
+                "completion_tokens": 233,
+                "total_tokens": 1606
+              },
+              "usage_available": true
+            },
+            "transport_metadata": {
+              "finish_reason": "stop",
+              "usage": {
+                "prompt_tokens": 1373,
+                "completion_tokens": 233,
+                "total_tokens": 1606
+              },
+              "thinking_mode": "disabled",
+              "content_characters": 582,
+              "reasoning_characters": 0
+            },
+            "patch_diff": "--- a/app.py\n+++ b/app.py\n@@ -1,4 +1,4 @@\n def sum_inclusive(n):\n     if n < 0:\n         raise ValueError(\"negative limit\")\n-    return sum(range(1, n))\n+    return sum(range(1, n + 1))\n",
+            "visible_run": {
+              "run": {
+                "run_id": "f58f2749a5a94106be25e1c91dec2930",
+                "snapshot_digest": "488bde5e0ac043452b0c7add05bb20e7c0d3f8dd158fa56c8ffa6c86943867f2",
+                "exit_code": 0,
+                "passed": 6,
+                "failed": 0,
+                "errors": 0,
+                "skipped": 0,
+                "failure": null,
+                "artifacts": [
+                  "f58f2749a5a94106be25e1c91dec2930/log.txt",
+                  "f58f2749a5a94106be25e1c91dec2930/junit.xml",
+                  "f58f2749a5a94106be25e1c91dec2930/manifest.json",
+                  "f58f2749a5a94106be25e1c91dec2930/run.json"
+                ]
+              },
+              "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\sum_inclusive\\4deff8aace7b4091855a57aed796e1dd\\execution\\f58f2749a5a94106be25e1c91dec2930",
+              "cleanup_ok": true
+            },
+            "original_regression_run": null,
+            "rollback_ok": null,
+            "refreshed_failure": null,
+            "elapsed_seconds": 42.672
+          }
+        ],
+        "baseline": {
+          "run": {
+            "run_id": "8de8fcf099e34cf2bc5f35e9fb05ba41",
+            "snapshot_digest": "e6dc29980efe5fcc78caa6b31b383c142d070b13da70017f646de3e4369d311c",
+            "exit_code": 0,
+            "passed": 1,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "8de8fcf099e34cf2bc5f35e9fb05ba41/log.txt",
+              "8de8fcf099e34cf2bc5f35e9fb05ba41/junit.xml",
+              "8de8fcf099e34cf2bc5f35e9fb05ba41/manifest.json",
+              "8de8fcf099e34cf2bc5f35e9fb05ba41/run.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\sum_inclusive\\4deff8aace7b4091855a57aed796e1dd\\execution\\8de8fcf099e34cf2bc5f35e9fb05ba41",
+          "cleanup_ok": true
+        },
+        "initial_failure": {
+          "run": {
+            "run_id": "a574103b52d14720a13c8d893ad36a1d",
+            "snapshot_digest": "806bd36cf53fc9bf9506b3d5c1b54019604888efdef7d1ee6c28b95cba6e342e",
+            "exit_code": 1,
+            "passed": 2,
+            "failed": 4,
+            "errors": 0,
+            "skipped": 0,
+            "failure": {
+              "kind": "test_assertion",
+              "message": "Run did not verify; inspect sanitized evidence",
+              "evidence": [
+                "a574103b52d14720a13c8d893ad36a1d/log.txt",
+                "a574103b52d14720a13c8d893ad36a1d/junit.xml",
+                "a574103b52d14720a13c8d893ad36a1d/manifest.json",
+                "a574103b52d14720a13c8d893ad36a1d/run.json"
+              ]
+            },
+            "artifacts": [
+              "a574103b52d14720a13c8d893ad36a1d/log.txt",
+              "a574103b52d14720a13c8d893ad36a1d/junit.xml",
+              "a574103b52d14720a13c8d893ad36a1d/manifest.json",
+              "a574103b52d14720a13c8d893ad36a1d/run.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\sum_inclusive\\4deff8aace7b4091855a57aed796e1dd\\execution\\a574103b52d14720a13c8d893ad36a1d",
+          "cleanup_ok": true
+        },
+        "reproduction": {
+          "run": {
+            "run_id": "7c404763b4ff4bb99e446f22ec1b5f07",
+            "snapshot_digest": "806bd36cf53fc9bf9506b3d5c1b54019604888efdef7d1ee6c28b95cba6e342e",
+            "exit_code": 1,
+            "passed": 2,
+            "failed": 4,
+            "errors": 0,
+            "skipped": 0,
+            "failure": {
+              "kind": "test_assertion",
+              "message": "Run did not verify; inspect sanitized evidence",
+              "evidence": [
+                "7c404763b4ff4bb99e446f22ec1b5f07/log.txt",
+                "7c404763b4ff4bb99e446f22ec1b5f07/junit.xml",
+                "7c404763b4ff4bb99e446f22ec1b5f07/manifest.json",
+                "7c404763b4ff4bb99e446f22ec1b5f07/run.json"
+              ]
+            },
+            "artifacts": [
+              "7c404763b4ff4bb99e446f22ec1b5f07/log.txt",
+              "7c404763b4ff4bb99e446f22ec1b5f07/junit.xml",
+              "7c404763b4ff4bb99e446f22ec1b5f07/manifest.json",
+              "7c404763b4ff4bb99e446f22ec1b5f07/run.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\sum_inclusive\\4deff8aace7b4091855a57aed796e1dd\\execution\\7c404763b4ff4bb99e446f22ec1b5f07",
+          "cleanup_ok": true
+        },
+        "independent_validation": {
+          "run": {
+            "run_id": "7845f899d8f64c5c8fbcbca42dd94d8d",
+            "snapshot_digest": "422638626c93f923894db28887f8e5a8640e9a93fec37c12c4876e05dd59d30c",
+            "exit_code": 0,
+            "passed": 108,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "7845f899d8f64c5c8fbcbca42dd94d8d/log.txt",
+              "7845f899d8f64c5c8fbcbca42dd94d8d/junit.xml",
+              "7845f899d8f64c5c8fbcbca42dd94d8d/manifest.json",
+              "7845f899d8f64c5c8fbcbca42dd94d8d/run.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\sum_inclusive\\4deff8aace7b4091855a57aed796e1dd\\independent\\7845f899d8f64c5c8fbcbca42dd94d8d",
+          "cleanup_ok": true
+        },
+        "final_sources": [
+          [
+            "app.py",
+            "def sum_inclusive(n):\n    if n < 0:\n        raise ValueError(\"negative limit\")\n    return sum(range(1, n + 1))\n"
+          ]
+        ],
+        "elapsed_seconds": 47.516
+      }
+    }
+  ],
+  "prior_runs": [
+    {
+      "label": "initial incomplete service responses",
+      "report": {
+        "schema": 1,
+        "origin": "real model",
+        "fixture_manifest": {
+          "fixtures/p05-boundary.json": "24646ea99ebb00a1d8268ebbf0a72879824b5e03a24eda47fd40e1f0cf53abf3",
+          "validation/p05-holdout.json": "3eff40d5e1818613ff30bd7eecb8f49279916dc97847c6fba6e775c00a002a83"
+        },
+        "cases": [
+          {
+            "case_id": "age_threshold",
+            "visible_test_origin": "real DeepSeek P04 saved proposal",
+            "reference": {
+              "run": {
+                "run_id": "b6766df423cf4102bdf3b36f95091e48",
+                "snapshot_digest": "80b3a21902e97a7cbe0b29c161dd0ca06170ec428d5446e72df5ca9c925d5f24",
+                "exit_code": 0,
+                "passed": 132,
+                "failed": 0,
+                "errors": 0,
+                "skipped": 0,
+                "failure": null,
+                "artifacts": [
+                  "b6766df423cf4102bdf3b36f95091e48/log.txt",
+                  "b6766df423cf4102bdf3b36f95091e48/junit.xml",
+                  "b6766df423cf4102bdf3b36f95091e48/manifest.json",
+                  "b6766df423cf4102bdf3b36f95091e48/run.json"
+                ]
+              },
+              "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\references\\b6766df423cf4102bdf3b36f95091e48",
+              "cleanup_ok": true
+            },
+            "repair": {
+              "task_id": "e8491cefdde941b690b90fc005946c03",
+              "project_id": "age_threshold",
+              "base_revision": "frozen-sha256:deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+              "prompt_version": "p05-repair-v1",
+              "status": "invalid_output",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "based_on_run_id": "4bcb7afadc3a4ecb84fe8e721b27774b",
+                  "input_digest": "deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+                  "source_hashes": [
+                    [
+                      "app.py",
+                      "bc5fe50ecaf9bdb9308d58c961c741c90a8847bfa4dad09ebbf609d699d5ed30"
+                    ]
+                  ],
+                  "proposal": {
+                    "task_id": "e8491cefdde941b690b90fc005946c03",
+                    "base_revision": "frozen-sha256:deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+                    "based_on_run_id": "4bcb7afadc3a4ecb84fe8e721b27774b",
+                    "files": [],
+                    "diagnosis": "",
+                    "failure": {
+                      "kind": "invalid_output",
+                      "message": "Model completion is incomplete or has invalid metadata",
+                      "evidence": []
+                    }
+                  },
+                  "model_candidate": null,
+                  "completion": null,
+                  "patch_diff": null,
+                  "visible_run": null,
+                  "original_regression_run": null,
+                  "rollback_ok": null,
+                  "refreshed_failure": null,
+                  "elapsed_seconds": 196.89
+                }
+              ],
+              "baseline": {
+                "run": {
+                  "run_id": "adf56a3620f04538af08f7e0b3315979",
+                  "snapshot_digest": "e4218129877444a22e0816d3edd9e2caf69611a5698f3059b86486f16e3e393f",
+                  "exit_code": 0,
+                  "passed": 1,
+                  "failed": 0,
+                  "errors": 0,
+                  "skipped": 0,
+                  "failure": null,
+                  "artifacts": [
+                    "adf56a3620f04538af08f7e0b3315979/log.txt",
+                    "adf56a3620f04538af08f7e0b3315979/junit.xml",
+                    "adf56a3620f04538af08f7e0b3315979/manifest.json",
+                    "adf56a3620f04538af08f7e0b3315979/run.json"
+                  ]
+                },
+                "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\age_threshold\\e8491cefdde941b690b90fc005946c03\\execution\\adf56a3620f04538af08f7e0b3315979",
+                "cleanup_ok": true
+              },
+              "initial_failure": {
+                "run": {
+                  "run_id": "3d1af93fa0c54c23905e78c84eba0753",
+                  "snapshot_digest": "deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+                  "exit_code": 1,
+                  "passed": 9,
+                  "failed": 1,
+                  "errors": 0,
+                  "skipped": 0,
+                  "failure": {
+                    "kind": "test_assertion",
+                    "message": "Run did not verify; inspect sanitized evidence",
+                    "evidence": [
+                      "3d1af93fa0c54c23905e78c84eba0753/log.txt",
+                      "3d1af93fa0c54c23905e78c84eba0753/junit.xml",
+                      "3d1af93fa0c54c23905e78c84eba0753/manifest.json",
+                      "3d1af93fa0c54c23905e78c84eba0753/run.json"
+                    ]
+                  },
+                  "artifacts": [
+                    "3d1af93fa0c54c23905e78c84eba0753/log.txt",
+                    "3d1af93fa0c54c23905e78c84eba0753/junit.xml",
+                    "3d1af93fa0c54c23905e78c84eba0753/manifest.json",
+                    "3d1af93fa0c54c23905e78c84eba0753/run.json"
+                  ]
+                },
+                "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\age_threshold\\e8491cefdde941b690b90fc005946c03\\execution\\3d1af93fa0c54c23905e78c84eba0753",
+                "cleanup_ok": true
+              },
+              "reproduction": {
+                "run": {
+                  "run_id": "4bcb7afadc3a4ecb84fe8e721b27774b",
+                  "snapshot_digest": "deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+                  "exit_code": 1,
+                  "passed": 9,
+                  "failed": 1,
+                  "errors": 0,
+                  "skipped": 0,
+                  "failure": {
+                    "kind": "test_assertion",
+                    "message": "Run did not verify; inspect sanitized evidence",
+                    "evidence": [
+                      "4bcb7afadc3a4ecb84fe8e721b27774b/log.txt",
+                      "4bcb7afadc3a4ecb84fe8e721b27774b/junit.xml",
+                      "4bcb7afadc3a4ecb84fe8e721b27774b/manifest.json",
+                      "4bcb7afadc3a4ecb84fe8e721b27774b/run.json"
+                    ]
+                  },
+                  "artifacts": [
+                    "4bcb7afadc3a4ecb84fe8e721b27774b/log.txt",
+                    "4bcb7afadc3a4ecb84fe8e721b27774b/junit.xml",
+                    "4bcb7afadc3a4ecb84fe8e721b27774b/manifest.json",
+                    "4bcb7afadc3a4ecb84fe8e721b27774b/run.json"
+                  ]
+                },
+                "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\age_threshold\\e8491cefdde941b690b90fc005946c03\\execution\\4bcb7afadc3a4ecb84fe8e721b27774b",
+                "cleanup_ok": true
+              },
+              "independent_validation": null,
+              "final_sources": null,
+              "elapsed_seconds": 199.64
+            }
+          },
+          {
+            "case_id": "take_first",
+            "visible_test_origin": "human reviewed, not model generated",
+            "reference": {
+              "run": {
+                "run_id": "072305108a2f4a4f887fb815b3be6559",
+                "snapshot_digest": "bc7c0be6759b720fd3a21418b7384488e1eb7f3991a085200bbe650a21851e21",
+                "exit_code": 0,
+                "passed": 55,
+                "failed": 0,
+                "errors": 0,
+                "skipped": 0,
+                "failure": null,
+                "artifacts": [
+                  "072305108a2f4a4f887fb815b3be6559/log.txt",
+                  "072305108a2f4a4f887fb815b3be6559/junit.xml",
+                  "072305108a2f4a4f887fb815b3be6559/manifest.json",
+                  "072305108a2f4a4f887fb815b3be6559/run.json"
+                ]
+              },
+              "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\references\\072305108a2f4a4f887fb815b3be6559",
+              "cleanup_ok": true
+            },
+            "repair": {
+              "task_id": "fa644d5d24da41fe8139030d1a48a42c",
+              "project_id": "take_first",
+              "base_revision": "frozen-sha256:40b70c41782f0046d22c479515eaf6909be098b38a66f7c6047983f5f4d64a6a",
+              "prompt_version": "p05-repair-v1",
+              "status": "invalid_output",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "based_on_run_id": "3e09b73caa4c4caf87067816390e4799",
+                  "input_digest": "40b70c41782f0046d22c479515eaf6909be098b38a66f7c6047983f5f4d64a6a",
+                  "source_hashes": [
+                    [
+                      "app.py",
+                      "6810ce863c1e6f4ea5abc7a4504976085aa453fd7ab908aeba0a602a1b104a65"
+                    ]
+                  ],
+                  "proposal": {
+                    "task_id": "fa644d5d24da41fe8139030d1a48a42c",
+                    "base_revision": "frozen-sha256:40b70c41782f0046d22c479515eaf6909be098b38a66f7c6047983f5f4d64a6a",
+                    "based_on_run_id": "3e09b73caa4c4caf87067816390e4799",
+                    "files": [],
+                    "diagnosis": "",
+                    "failure": {
+                      "kind": "invalid_output",
+                      "message": "Model completion is incomplete or has invalid metadata",
+                      "evidence": []
+                    }
+                  },
+                  "model_candidate": null,
+                  "completion": null,
+                  "patch_diff": null,
+                  "visible_run": null,
+                  "original_regression_run": null,
+                  "rollback_ok": null,
+                  "refreshed_failure": null,
+                  "elapsed_seconds": 162.453
+                }
+              ],
+              "baseline": {
+                "run": {
+                  "run_id": "e5f05af0b87a4b39b7f7aef702d22e2c",
+                  "snapshot_digest": "d9c5410e10bcf09d29da77248b8183a590881dfd49c2d475b4c7e2d08b74a879",
+                  "exit_code": 0,
+                  "passed": 1,
+                  "failed": 0,
+                  "errors": 0,
+                  "skipped": 0,
+                  "failure": null,
+                  "artifacts": [
+                    "e5f05af0b87a4b39b7f7aef702d22e2c/log.txt",
+                    "e5f05af0b87a4b39b7f7aef702d22e2c/junit.xml",
+                    "e5f05af0b87a4b39b7f7aef702d22e2c/manifest.json",
+                    "e5f05af0b87a4b39b7f7aef702d22e2c/run.json"
+                  ]
+                },
+                "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\take_first\\fa644d5d24da41fe8139030d1a48a42c\\execution\\e5f05af0b87a4b39b7f7aef702d22e2c",
+                "cleanup_ok": true
+              },
+              "initial_failure": {
+                "run": {
+                  "run_id": "2262dc08537c4f4a9cef3b63305563ce",
+                  "snapshot_digest": "40b70c41782f0046d22c479515eaf6909be098b38a66f7c6047983f5f4d64a6a",
+                  "exit_code": 1,
+                  "passed": 3,
+                  "failed": 3,
+                  "errors": 0,
+                  "skipped": 0,
+                  "failure": {
+                    "kind": "test_assertion",
+                    "message": "Run did not verify; inspect sanitized evidence",
+                    "evidence": [
+                      "2262dc08537c4f4a9cef3b63305563ce/log.txt",
+                      "2262dc08537c4f4a9cef3b63305563ce/junit.xml",
+                      "2262dc08537c4f4a9cef3b63305563ce/manifest.json",
+                      "2262dc08537c4f4a9cef3b63305563ce/run.json"
+                    ]
+                  },
+                  "artifacts": [
+                    "2262dc08537c4f4a9cef3b63305563ce/log.txt",
+                    "2262dc08537c4f4a9cef3b63305563ce/junit.xml",
+                    "2262dc08537c4f4a9cef3b63305563ce/manifest.json",
+                    "2262dc08537c4f4a9cef3b63305563ce/run.json"
+                  ]
+                },
+                "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\take_first\\fa644d5d24da41fe8139030d1a48a42c\\execution\\2262dc08537c4f4a9cef3b63305563ce",
+                "cleanup_ok": true
+              },
+              "reproduction": {
+                "run": {
+                  "run_id": "3e09b73caa4c4caf87067816390e4799",
+                  "snapshot_digest": "40b70c41782f0046d22c479515eaf6909be098b38a66f7c6047983f5f4d64a6a",
+                  "exit_code": 1,
+                  "passed": 3,
+                  "failed": 3,
+                  "errors": 0,
+                  "skipped": 0,
+                  "failure": {
+                    "kind": "test_assertion",
+                    "message": "Run did not verify; inspect sanitized evidence",
+                    "evidence": [
+                      "3e09b73caa4c4caf87067816390e4799/log.txt",
+                      "3e09b73caa4c4caf87067816390e4799/junit.xml",
+                      "3e09b73caa4c4caf87067816390e4799/manifest.json",
+                      "3e09b73caa4c4caf87067816390e4799/run.json"
+                    ]
+                  },
+                  "artifacts": [
+                    "3e09b73caa4c4caf87067816390e4799/log.txt",
+                    "3e09b73caa4c4caf87067816390e4799/junit.xml",
+                    "3e09b73caa4c4caf87067816390e4799/manifest.json",
+                    "3e09b73caa4c4caf87067816390e4799/run.json"
+                  ]
+                },
+                "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\take_first\\fa644d5d24da41fe8139030d1a48a42c\\execution\\3e09b73caa4c4caf87067816390e4799",
+                "cleanup_ok": true
+              },
+              "independent_validation": null,
+              "final_sources": null,
+              "elapsed_seconds": 165.188
+            }
+          },
+          {
+            "case_id": "sum_inclusive",
+            "visible_test_origin": "human reviewed, not model generated",
+            "reference": {
+              "run": {
+                "run_id": "021496080e4d4e4880133a0b310f2c4a",
+                "snapshot_digest": "cee77b900355e6c61ad177a537c2fe3b9a895e9b0711270c17343697959451db",
+                "exit_code": 0,
+                "passed": 108,
+                "failed": 0,
+                "errors": 0,
+                "skipped": 0,
+                "failure": null,
+                "artifacts": [
+                  "021496080e4d4e4880133a0b310f2c4a/log.txt",
+                  "021496080e4d4e4880133a0b310f2c4a/junit.xml",
+                  "021496080e4d4e4880133a0b310f2c4a/manifest.json",
+                  "021496080e4d4e4880133a0b310f2c4a/run.json"
+                ]
+              },
+              "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\references\\021496080e4d4e4880133a0b310f2c4a",
+              "cleanup_ok": true
+            },
+            "repair": {
+              "task_id": "45ad44452f11485e9dce42f89d340780",
+              "project_id": "sum_inclusive",
+              "base_revision": "frozen-sha256:806bd36cf53fc9bf9506b3d5c1b54019604888efdef7d1ee6c28b95cba6e342e",
+              "prompt_version": "p05-repair-v1",
+              "status": "invalid_output",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "based_on_run_id": "283486e5eb39467ab51be996a36c4b3f",
+                  "input_digest": "806bd36cf53fc9bf9506b3d5c1b54019604888efdef7d1ee6c28b95cba6e342e",
+                  "source_hashes": [
+                    [
+                      "app.py",
+                      "b67671ff875372ad27715a9d253f7fe0d344aa4a718a31545f0d9fd99c9b0433"
+                    ]
+                  ],
+                  "proposal": {
+                    "task_id": "45ad44452f11485e9dce42f89d340780",
+                    "base_revision": "frozen-sha256:806bd36cf53fc9bf9506b3d5c1b54019604888efdef7d1ee6c28b95cba6e342e",
+                    "based_on_run_id": "283486e5eb39467ab51be996a36c4b3f",
+                    "files": [],
+                    "diagnosis": "",
+                    "failure": {
+                      "kind": "invalid_output",
+                      "message": "Model completion is incomplete or has invalid metadata",
+                      "evidence": []
+                    }
+                  },
+                  "model_candidate": null,
+                  "completion": null,
+                  "patch_diff": null,
+                  "visible_run": null,
+                  "original_regression_run": null,
+                  "rollback_ok": null,
+                  "refreshed_failure": null,
+                  "elapsed_seconds": 144.844
+                }
+              ],
+              "baseline": {
+                "run": {
+                  "run_id": "330881c2756f4b94a60eedb4fbfac3a8",
+                  "snapshot_digest": "e6dc29980efe5fcc78caa6b31b383c142d070b13da70017f646de3e4369d311c",
+                  "exit_code": 0,
+                  "passed": 1,
+                  "failed": 0,
+                  "errors": 0,
+                  "skipped": 0,
+                  "failure": null,
+                  "artifacts": [
+                    "330881c2756f4b94a60eedb4fbfac3a8/log.txt",
+                    "330881c2756f4b94a60eedb4fbfac3a8/junit.xml",
+                    "330881c2756f4b94a60eedb4fbfac3a8/manifest.json",
+                    "330881c2756f4b94a60eedb4fbfac3a8/run.json"
+                  ]
+                },
+                "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\sum_inclusive\\45ad44452f11485e9dce42f89d340780\\execution\\330881c2756f4b94a60eedb4fbfac3a8",
+                "cleanup_ok": true
+              },
+              "initial_failure": {
+                "run": {
+                  "run_id": "1741a8a122a042398b5002dfd48d986d",
+                  "snapshot_digest": "806bd36cf53fc9bf9506b3d5c1b54019604888efdef7d1ee6c28b95cba6e342e",
+                  "exit_code": 1,
+                  "passed": 2,
+                  "failed": 4,
+                  "errors": 0,
+                  "skipped": 0,
+                  "failure": {
+                    "kind": "test_assertion",
+                    "message": "Run did not verify; inspect sanitized evidence",
+                    "evidence": [
+                      "1741a8a122a042398b5002dfd48d986d/log.txt",
+                      "1741a8a122a042398b5002dfd48d986d/junit.xml",
+                      "1741a8a122a042398b5002dfd48d986d/manifest.json",
+                      "1741a8a122a042398b5002dfd48d986d/run.json"
+                    ]
+                  },
+                  "artifacts": [
+                    "1741a8a122a042398b5002dfd48d986d/log.txt",
+                    "1741a8a122a042398b5002dfd48d986d/junit.xml",
+                    "1741a8a122a042398b5002dfd48d986d/manifest.json",
+                    "1741a8a122a042398b5002dfd48d986d/run.json"
+                  ]
+                },
+                "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\sum_inclusive\\45ad44452f11485e9dce42f89d340780\\execution\\1741a8a122a042398b5002dfd48d986d",
+                "cleanup_ok": true
+              },
+              "reproduction": {
+                "run": {
+                  "run_id": "283486e5eb39467ab51be996a36c4b3f",
+                  "snapshot_digest": "806bd36cf53fc9bf9506b3d5c1b54019604888efdef7d1ee6c28b95cba6e342e",
+                  "exit_code": 1,
+                  "passed": 2,
+                  "failed": 4,
+                  "errors": 0,
+                  "skipped": 0,
+                  "failure": {
+                    "kind": "test_assertion",
+                    "message": "Run did not verify; inspect sanitized evidence",
+                    "evidence": [
+                      "283486e5eb39467ab51be996a36c4b3f/log.txt",
+                      "283486e5eb39467ab51be996a36c4b3f/junit.xml",
+                      "283486e5eb39467ab51be996a36c4b3f/manifest.json",
+                      "283486e5eb39467ab51be996a36c4b3f/run.json"
+                    ]
+                  },
+                  "artifacts": [
+                    "283486e5eb39467ab51be996a36c4b3f/log.txt",
+                    "283486e5eb39467ab51be996a36c4b3f/junit.xml",
+                    "283486e5eb39467ab51be996a36c4b3f/manifest.json",
+                    "283486e5eb39467ab51be996a36c4b3f/run.json"
+                  ]
+                },
+                "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\sum_inclusive\\45ad44452f11485e9dce42f89d340780\\execution\\283486e5eb39467ab51be996a36c4b3f",
+                "cleanup_ok": true
+              },
+              "independent_validation": null,
+              "final_sources": null,
+              "elapsed_seconds": 147.61
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "age complete source rejected for invented hash",
+      "report": {
+        "schema": 1,
+        "origin": "real model",
+        "fixture_manifest": {
+          "fixtures/p05-boundary.json": "24646ea99ebb00a1d8268ebbf0a72879824b5e03a24eda47fd40e1f0cf53abf3",
+          "validation/p05-holdout.json": "3eff40d5e1818613ff30bd7eecb8f49279916dc97847c6fba6e775c00a002a83"
+        },
+        "cases": [
+          {
+            "case_id": "age_threshold",
+            "visible_test_origin": "real DeepSeek P04 saved proposal",
+            "reference": {
+              "run": {
+                "run_id": "14b6c2f158564e2daab5f367a69c11bf",
+                "snapshot_digest": "80b3a21902e97a7cbe0b29c161dd0ca06170ec428d5446e72df5ca9c925d5f24",
+                "exit_code": 0,
+                "passed": 132,
+                "failed": 0,
+                "errors": 0,
+                "skipped": 0,
+                "failure": null,
+                "artifacts": [
+                  "14b6c2f158564e2daab5f367a69c11bf/log.txt",
+                  "14b6c2f158564e2daab5f367a69c11bf/junit.xml",
+                  "14b6c2f158564e2daab5f367a69c11bf/manifest.json",
+                  "14b6c2f158564e2daab5f367a69c11bf/run.json"
+                ]
+              },
+              "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\references\\14b6c2f158564e2daab5f367a69c11bf",
+              "cleanup_ok": true
+            },
+            "repair": {
+              "task_id": "678cf210e45446c1aa1a344c7e16b132",
+              "project_id": "age_threshold",
+              "base_revision": "frozen-sha256:deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+              "prompt_version": "p05-repair-v1",
+              "status": "invalid_output",
+              "attempts": [
+                {
+                  "attempt": 1,
+                  "based_on_run_id": "bd05e30d51a14489ab378a34d0e061fe",
+                  "input_digest": "deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+                  "source_hashes": [
+                    [
+                      "app.py",
+                      "bc5fe50ecaf9bdb9308d58c961c741c90a8847bfa4dad09ebbf609d699d5ed30"
+                    ]
+                  ],
+                  "proposal": {
+                    "task_id": "678cf210e45446c1aa1a344c7e16b132",
+                    "base_revision": "frozen-sha256:deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+                    "based_on_run_id": "bd05e30d51a14489ab378a34d0e061fe",
+                    "files": [],
+                    "diagnosis": "",
+                    "failure": {
+                      "kind": "invalid_output",
+                      "message": "Repair context or proposal is invalid",
+                      "evidence": []
+                    }
+                  },
+                  "model_candidate": {
+                    "task_id": "678cf210e45446c1aa1a344c7e16b132",
+                    "base_revision": "frozen-sha256:deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+                    "based_on_run_id": "bd05e30d51a14489ab378a34d0e061fe",
+                    "diagnosis": "app.py:4 uses `age > 18`, which excludes 18, but the requirement states ages 18 and above return True. Change to `age >= 18`.",
+                    "files": [
+                      {
+                        "path": "app.py",
+                        "content": "def is_adult(age):\n    if age < 0:\n        raise ValueError(\"negative age\")\n    return age >= 18\n",
+                        "expected_sha256": "d5d0e5b8f5e5c5e5f5e5c5e5f5e5c5e5f5e5c5e5f5e5c5e5f5e5c5e5f5e5c5e5"
+                      }
+                    ]
+                  },
+                  "completion": {
+                    "model": "deepseek-flash",
+                    "usage": {
+                      "prompt_tokens": 1168,
+                      "completion_tokens": 264,
+                      "total_tokens": 1432
+                    },
+                    "usage_available": true
+                  },
+                  "transport_metadata": {
+                    "finish_reason": "stop",
+                    "usage": {
+                      "prompt_tokens": 1168,
+                      "completion_tokens": 264,
+                      "total_tokens": 1432
+                    },
+                    "thinking_mode": "disabled",
+                    "content_characters": 579,
+                    "reasoning_characters": 0
+                  },
+                  "patch_diff": null,
+                  "visible_run": null,
+                  "original_regression_run": null,
+                  "rollback_ok": null,
+                  "refreshed_failure": null,
+                  "elapsed_seconds": 65.031
+                }
+              ],
+              "baseline": {
+                "run": {
+                  "run_id": "046c3f65c1e6471a9b71edc4386c5372",
+                  "snapshot_digest": "e4218129877444a22e0816d3edd9e2caf69611a5698f3059b86486f16e3e393f",
+                  "exit_code": 0,
+                  "passed": 1,
+                  "failed": 0,
+                  "errors": 0,
+                  "skipped": 0,
+                  "failure": null,
+                  "artifacts": [
+                    "046c3f65c1e6471a9b71edc4386c5372/log.txt",
+                    "046c3f65c1e6471a9b71edc4386c5372/junit.xml",
+                    "046c3f65c1e6471a9b71edc4386c5372/manifest.json",
+                    "046c3f65c1e6471a9b71edc4386c5372/run.json"
+                  ]
+                },
+                "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\age_threshold\\678cf210e45446c1aa1a344c7e16b132\\execution\\046c3f65c1e6471a9b71edc4386c5372",
+                "cleanup_ok": true
+              },
+              "initial_failure": {
+                "run": {
+                  "run_id": "5da3027910b24e41a3f7b9ea919c676d",
+                  "snapshot_digest": "deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+                  "exit_code": 1,
+                  "passed": 9,
+                  "failed": 1,
+                  "errors": 0,
+                  "skipped": 0,
+                  "failure": {
+                    "kind": "test_assertion",
+                    "message": "Run did not verify; inspect sanitized evidence",
+                    "evidence": [
+                      "5da3027910b24e41a3f7b9ea919c676d/log.txt",
+                      "5da3027910b24e41a3f7b9ea919c676d/junit.xml",
+                      "5da3027910b24e41a3f7b9ea919c676d/manifest.json",
+                      "5da3027910b24e41a3f7b9ea919c676d/run.json"
+                    ]
+                  },
+                  "artifacts": [
+                    "5da3027910b24e41a3f7b9ea919c676d/log.txt",
+                    "5da3027910b24e41a3f7b9ea919c676d/junit.xml",
+                    "5da3027910b24e41a3f7b9ea919c676d/manifest.json",
+                    "5da3027910b24e41a3f7b9ea919c676d/run.json"
+                  ]
+                },
+                "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\age_threshold\\678cf210e45446c1aa1a344c7e16b132\\execution\\5da3027910b24e41a3f7b9ea919c676d",
+                "cleanup_ok": true
+              },
+              "reproduction": {
+                "run": {
+                  "run_id": "bd05e30d51a14489ab378a34d0e061fe",
+                  "snapshot_digest": "deaea04e362937d3783f69e7babc7b622ff341034623f5f681d968788a81b2bd",
+                  "exit_code": 1,
+                  "passed": 9,
+                  "failed": 1,
+                  "errors": 0,
+                  "skipped": 0,
+                  "failure": {
+                    "kind": "test_assertion",
+                    "message": "Run did not verify; inspect sanitized evidence",
+                    "evidence": [
+                      "bd05e30d51a14489ab378a34d0e061fe/log.txt",
+                      "bd05e30d51a14489ab378a34d0e061fe/junit.xml",
+                      "bd05e30d51a14489ab378a34d0e061fe/manifest.json",
+                      "bd05e30d51a14489ab378a34d0e061fe/run.json"
+                    ]
+                  },
+                  "artifacts": [
+                    "bd05e30d51a14489ab378a34d0e061fe/log.txt",
+                    "bd05e30d51a14489ab378a34d0e061fe/junit.xml",
+                    "bd05e30d51a14489ab378a34d0e061fe/manifest.json",
+                    "bd05e30d51a14489ab378a34d0e061fe/run.json"
+                  ]
+                },
+                "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p05-repair\\age_threshold\\678cf210e45446c1aa1a344c7e16b132\\execution\\bd05e30d51a14489ab378a34d0e061fe",
+                "cleanup_ok": true
+              },
+              "independent_validation": null,
+              "final_sources": null,
+              "elapsed_seconds": 68.203
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "request_counts_including_prior_runs": {
+    "age_threshold": 3,
+    "take_first": 2,
+    "sum_inclusive": 2
+  },
+  "scope_note": "P05 repair module only. take_first/sum_inclusive visible tests are human-reviewed; P06 must add real generation and complete orchestration."
+}

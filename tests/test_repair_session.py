@@ -36,6 +36,8 @@ class SessionTests(unittest.TestCase):
         directory = Path(artifact_root) / run.run_id
         directory.mkdir(parents=True)
         (directory / 'log.txt').write_text('visible assertion')
+        (directory / 'junit.xml').write_text('<testsuite><testcase classname="test_new" name="test_new">'
+            '<failure message="assert False">AssertionError: assert False</failure></testcase></testsuite>')
         return ExecutionResult(run, str(directory), True)
 
     def client(self, *, wrong=False):
@@ -114,6 +116,19 @@ class SessionTests(unittest.TestCase):
             result = self.run_session(self.client(wrong=True))
         self.assertEqual(result['status'], 'budget_exhausted')
         self.assertTrue(all(a['classification'] == 'regression' and a['rollback_ok'] for a in result['attempts']))
+
+    def test_alternating_failure_identity_with_same_counts_is_not_reproducible(self):
+        def execute(root, repo, **kwargs):
+            result = self.runner(root, repo, **kwargs)
+            if self.sequence == 3:
+                path = Path(result.artifact_directory) / 'junit.xml'
+                path.write_text('<testsuite><testcase classname="test_other" name="test_other">'
+                    '<failure message="assert False">AssertionError: assert False</failure></testcase></testsuite>')
+            return result
+        with patch('repair.session.run_tests', side_effect=execute):
+            result = self.run_session(self.client())
+        self.assertEqual(result['status'], 'not_reproducible')
+        self.assertEqual(self.calls, [])
 
 
 if __name__ == '__main__':

@@ -140,9 +140,13 @@ class Completion:
 
 
 class ModelClient:
-    def __init__(self, config: Config, budget: Budget):
+    def __init__(self, config: Config, budget: Budget, *, thinking_mode: str | None = None):
+        if thinking_mode not in (None, 'disabled', 'enabled'):
+            raise ValueError('invalid thinking mode')
         self.config = config
         self.budget = budget
+        self.thinking_mode = thinking_mode
+        self.last_metadata = None
 
     def ensure_safe(self, payload):
         """Check decoded fields, including dictionary keys, without logging them."""
@@ -193,6 +197,7 @@ class ModelClient:
             raise ModelError('invalid_output', 'Model listing is invalid') from None
 
     def complete(self, messages: list[dict]) -> Completion:
+        self.last_metadata = None
         if (not messages or any(set(m) != {'role', 'content'} or m['role'] not in {'system', 'user', 'assistant'}
                                 or not isinstance(m['content'], str) for m in messages)):
             raise ModelError('invalid_output', 'Invalid prompt messages')
@@ -201,11 +206,24 @@ class ModelClient:
         if any(self.config.api_key in m['content'] for m in messages):
             raise ModelError('invalid_output', 'Prompt contains credential material')
         self.budget.reserve()
-        payload = self._request('/chat/completions', {'model': self.config.model, 'messages': messages,
-            'max_tokens': 2048, 'temperature': 0.2, 'stream': False})
+        body = {'model': self.config.model, 'messages': messages,
+                'max_tokens': 2048, 'temperature': 0.2, 'stream': False}
+        if self.thinking_mode:
+            body['thinking'] = {'type': self.thinking_mode}
+        payload = self._request('/chat/completions', body)
         try:
             choice = payload['choices'][0]
             message = choice['message']
+            usage = payload.get('usage')
+            safe_usage = None
+            if isinstance(usage, dict) and all(type(usage.get(k)) is int and usage[k] >= 0
+                                               for k in ('prompt_tokens', 'completion_tokens', 'total_tokens')):
+                safe_usage = {k: usage[k] for k in ('prompt_tokens', 'completion_tokens', 'total_tokens')}
+            reason = choice.get('finish_reason')
+            self.last_metadata = {'finish_reason': reason if reason in ('stop', 'length', 'content_filter', 'tool_calls') else 'unknown',
+                                  'usage': safe_usage, 'thinking_mode': self.thinking_mode,
+                                  'content_characters': len(message.get('content') or ''),
+                                  'reasoning_characters': len(message.get('reasoning_content') or '')}
             if (choice['finish_reason'] != 'stop' or message.get('refusal') or message.get('tool_calls')
                     or not isinstance(message['content'], str) or not message['content'].strip()):
                 raise ValueError('incomplete completion')
@@ -219,5 +237,5 @@ class ModelClient:
                     raise ValueError('invalid usage')
                 usage = {k: usage[k] for k in fields}
             return Completion(message['content'], model, usage)
-        except (KeyError, IndexError, TypeError, ValueError):
+        except (KeyError, IndexError, TypeError, ValueError, AttributeError):
             raise ModelError('invalid_output', 'Model completion is incomplete or has invalid metadata') from None

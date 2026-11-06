@@ -72,6 +72,16 @@ class ModelTests(unittest.TestCase):
                             ModelClient(self.config, Budget(Path(folder) / 'b.json')).complete([{'role': 'user', 'content': 'x'}])
                     self.assertNotIn('private-key', str(caught.exception))
 
+    def test_incomplete_response_retains_safe_finish_and_usage_metadata(self):
+        usage = {'prompt_tokens': 10, 'completion_tokens': 2048, 'total_tokens': 2058}
+        client = self.client()
+        with patch('models.adapter.urlopen', return_value=Response(envelope(content='', finish='length', usage=usage))):
+            with self.assertRaises(ModelError):
+                client.complete([{'role': 'user', 'content': 'x'}])
+        self.assertEqual(client.last_metadata['finish_reason'], 'length')
+        self.assertEqual(client.last_metadata['usage'], usage)
+        self.assertNotIn('private-key', json.dumps(client.last_metadata))
+
     def test_bad_config_and_oversized_prompt_do_not_send(self):
         for url in ('http://api.llm.ustc.edu.cn/v1', 'https://user:pw@example.com/v1',
                     'https://example.com/v1?token=secret', 'https://example.com/v1#x'):

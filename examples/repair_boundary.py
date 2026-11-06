@@ -52,7 +52,8 @@ def main():
     saved = None
     if args.call:
         config = Config.from_env(PROJECT_ROOT / '.env')
-        client = ModelClient(config, Budget(PROJECT_ROOT / 'artifacts/model-budget.json', max_attempts=None))
+        client = ModelClient(config, Budget(PROJECT_ROOT / 'artifacts/model-budget.json', max_attempts=None),
+                             thinking_mode='disabled')
         if config.model not in client.list_models():
             raise ValueError('Configured model is not authorized')
     if args.replay:

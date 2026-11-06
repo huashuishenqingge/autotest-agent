@@ -6,6 +6,7 @@ from pathlib import Path
 import tempfile
 import time
 import uuid
+import xml.etree.ElementTree as ET
 
 from agents.repairer import RepairContext, Repairer, PROMPT_VERSION
 from execution.docker_runner import run_tests, stage_snapshot
@@ -13,10 +14,35 @@ from execution.proposals import ApplyError, apply_proposal, checked_path, rollba
 from workflow.state import FailureKind, Policy, RepairInput
 
 
+def _failure_evidence(result):
+    path = Path(result.artifact_directory) / 'junit.xml'
+    if not path.is_file() or path.stat().st_size > 2_000_000:
+        raise ValueError('missing or excessive failure evidence')
+    xml = path.read_bytes()
+    if b'<!DOCTYPE' in xml.upper() or b'<!ENTITY' in xml.upper():
+        raise ValueError('unsafe failure evidence')
+    try:
+        tree = ET.fromstring(xml)
+    except ET.ParseError:
+        raise ValueError('invalid failure evidence') from None
+    failures = []
+    for case in tree.iter('testcase'):
+        failure = case.find('failure')
+        if failure is not None:
+            if not case.get('name'):
+                raise ValueError('failure testcase identity required')
+            failures.append((case.get('classname', ''), case.get('name'),
+                             ' '.join(failure.get('message', '').split()),
+                             ' '.join(''.join(failure.itertext()).split())))
+    if len(failures) != result.run.failed or not failures:
+        raise ValueError('failure evidence count mismatch')
+    return tuple(sorted(failures))
+
+
 def _signature(result):
     run = result.run
     return (run.snapshot_digest, run.exit_code, run.passed, run.failed, run.errors, run.skipped,
-            run.failure.kind if run.failure else None, result.cleanup_ok)
+            run.failure.kind if run.failure else None, result.cleanup_ok, _failure_evidence(result))
 
 
 def run_repair_session(root, repository, *, original_tests, requirements, holdout_tests,
@@ -68,7 +94,8 @@ def run_repair_session(root, repository, *, original_tests, requirements, holdou
                 return record
             reproduced = execute(repository)
             record['reproduction'] = asdict(reproduced)
-            if _signature(failed) != _signature(reproduced):
+            initial_signature = _signature(failed)
+            if initial_signature != _signature(reproduced):
                 record['status'] = 'not_reproducible'
                 return record
             failed = reproduced
@@ -90,6 +117,7 @@ def run_repair_session(root, repository, *, original_tests, requirements, holdou
                         'completion': None if completion is None else {
                             'model': completion.model, 'usage': completion.usage,
                             'usage_available': completion.usage is not None},
+                        'transport_metadata': getattr(client, 'last_metadata', None),
                         'patch_diff': None, 'visible_run': None, 'original_regression_run': None,
                         'rollback_ok': None, 'refreshed_failure': None,
                         'elapsed_seconds': round(time.monotonic() - attempt_started, 3)}
@@ -140,6 +168,9 @@ def run_repair_session(root, repository, *, original_tests, requirements, holdou
                 if (not failed.cleanup_ok or not failed.run.failure
                         or failed.run.failure.kind != FailureKind.TEST_ASSERTION):
                     record['status'] = 'restored_state_not_repairable'
+                    return record
+                if _signature(failed) != initial_signature:
+                    record['status'] = 'not_reproducible'
                     return record
             record['status'] = 'budget_exhausted'
     except ApplyError as error:
