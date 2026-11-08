@@ -46,7 +46,7 @@ def _signature(result):
 
 
 def run_repair_session(root, repository, *, original_tests, requirements, holdout_tests,
-                       client, image_id, artifact_root, policy=None):
+                       client, image_id, artifact_root, policy=None, task_id=None, event_hook=None):
     policy = policy or Policy()
     root = Path(root).resolve(strict=True)
     if not original_tests or not set(original_tests).issubset(repository.test_files):
@@ -56,7 +56,7 @@ def run_repair_session(root, repository, *, original_tests, requirements, holdou
     if (not holdout_tests or len({p.casefold() for p, _ in holdout_tests}) != len(holdout_tests)
             or any(p.casefold() in known for p, _ in holdout_tests)):
         raise ValueError('nonoverlapping independent test inventory required')
-    task_id = uuid.uuid4().hex
+    task_id = task_id or uuid.uuid4().hex
     directory = Path(artifact_root).resolve() / task_id
     directory.mkdir(parents=True, exist_ok=False)
     record = {'task_id': task_id, 'project_id': repository.project_id, 'base_revision': repository.revision,
@@ -100,6 +100,8 @@ def run_repair_session(root, repository, *, original_tests, requirements, holdou
                 return record
             failed = reproduced
             for attempt in range(1, min(3, policy.max_fix_attempts) + 1):
+                if event_hook:
+                    event_hook('current_failure', failed.run)
                 sources = tuple((p, checked_path(working, p).read_bytes().decode('utf-8')) for p in repository.source_files)
                 hashes = tuple((p, hashlib.sha256(checked_path(working, p).read_bytes()).hexdigest()) for p in repository.source_files)
                 tests = tuple((p, checked_path(working, p).read_bytes().decode('utf-8')) for p in repository.test_files)
@@ -125,11 +127,15 @@ def run_repair_session(root, repository, *, original_tests, requirements, holdou
                 if output.failure:
                     record['status'] = output.failure.kind.value
                     return record
+                if event_hook:
+                    event_hook('proposal', request, output)
                 receipt = apply_proposal(working, request, output)
                 item['patch_diff'] = receipt.diff
                 (directory / f'attempt-{attempt}.diff').write_text(receipt.diff, encoding='utf-8')
                 visible = execute(repository)
                 item['visible_run'] = asdict(visible)
+                if event_hook:
+                    event_hook('tested', visible.run)
                 if visible.run.successful and visible.cleanup_ok:
                     # Add private tests only to a separate evaluation copy.
                     with tempfile.TemporaryDirectory(prefix='autotest-validation-') as validation_folder:

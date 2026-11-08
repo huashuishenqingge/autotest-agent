@@ -1,5 +1,5 @@
 """Validated transition journal used by the P06 orchestrator."""
-from dataclasses import asdict
+from dataclasses import asdict, replace
 
 from workflow.state import (WorkflowState, Phase, Failure, FailureKind, advance,
                             validate_proposal, RepairInput)
@@ -28,6 +28,19 @@ class Journal:
 
     def tested(self, run):
         self._advance(Phase.TESTED, run=run)
+
+    def generated_inventory(self, output):
+        if self.state.phase != Phase.TESTS_PROPOSED:
+            raise ValueError('generation must be accepted before inventory update')
+        repo = replace(self.state.repository, test_files=self.state.repository.test_files + tuple(f.path for f in output.files))
+        self.state = replace(self.state, repository=repo)
+        self.events.append(asdict(self.state))
+
+    def observed_failure(self, run):
+        if self.state.phase != Phase.TESTED or run.failure is None or run.failure.kind != FailureKind.TEST_ASSERTION:
+            raise ValueError('only refreshed assertion evidence may update tested state')
+        self.state = replace(self.state, runs=self.state.runs + (run,))
+        self.events.append(asdict(self.state))
 
     def verify(self, independent_run):
         if self.state.phase != Phase.TESTED or not self.state.runs or not self.state.runs[-1].successful:
