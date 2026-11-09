@@ -1,6 +1,6 @@
 """Local P07 task service. Run: python -m web.server --port 8765."""
 import argparse
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 from pathlib import Path
@@ -23,6 +23,10 @@ class Store:
         self.path = str(path)
         Path(path).parent.mkdir(parents=True, exist_ok=True)
         with self.connect() as db:
+            version = db.execute('PRAGMA user_version').fetchone()[0]
+            if version not in (0, 1):
+                raise ValueError('unsupported task database schema')
+            db.execute('PRAGMA user_version=1')
             db.execute('CREATE TABLE IF NOT EXISTS tasks (id TEXT PRIMARY KEY, case_id TEXT, mode TEXT, status TEXT, cancel INTEGER, created REAL, updated REAL, result TEXT)')
             db.execute("UPDATE tasks SET status='interrupted',updated=? WHERE status IN ('queued','running')", (time.time(),))
 
@@ -87,18 +91,30 @@ def demo_runner(task, cancelled):
             'coverage': None}
 
 
-def real_runner(image_id, artifact_root):
+def real_runner(image_id, artifact_root, *, model=None, feedback=False):
     from models.adapter import Config, Budget, ModelClient
-    from workflow.orchestrator import run_case
+    from workflow.orchestrator import run_case, feedback_case
     cases, validation, _ = load_cases()
     by_id = {c['id']: c for c in cases}
 
     def run(task, cancelled):
-        client = ModelClient(Config.from_env(PROJECT_ROOT / '.env'),
+        if cancelled():
+            return {'status': 'cancelled', 'evidence': 'real', 'coverage': {}}
+        config = Config.from_env(PROJECT_ROOT / '.env')
+        if model:
+            config = replace(config, model=model)
+        client = ModelClient(config,
                              Budget(PROJECT_ROOT / 'artifacts/model-budget.json', max_attempts=None),
                              thinking_mode='disabled')
-        result = run_case(by_id[task['case_id']], validation[task['case_id']], client=client,
+        if client.config.model not in client.list_models():
+            raise ValueError('model not authorized')
+        case = dict(by_id[task['case_id']], require_coverage=feedback)
+        result = run_case(case, validation[task['case_id']], client=client,
                           image_id=image_id, artifact_root=artifact_root, cancelled=cancelled)
+        child = None
+        if feedback and result['status'] == 'verified' and not cancelled():
+            child = run_case(feedback_case(case, result), validation[task['case_id']], client=client,
+                             image_id=image_id, artifact_root=artifact_root, cancelled=cancelled)
         logs = []
         base = Path(artifact_root).resolve()
         def collect(value):
@@ -121,8 +137,10 @@ def real_runner(image_id, artifact_root):
                 for child in value:
                     collect(child)
         collect(result)
-        output = {'evidence': 'real', 'workflow': result, 'status': result['status'],
-                  'coverage': None, 'logs': logs}
+        if child:
+            collect(child)
+        output = {'evidence': 'real', 'workflow': result, 'status': child['status'] if child else result['status'],
+                  'coverage': result.get('coverage', {}), 'feedback_child': child, 'logs': logs}
         client.ensure_safe(output)
         return output
     return run
@@ -140,6 +158,8 @@ class Application:
         self.submit_lock = threading.Lock()
 
     def submit(self, body):
+        if self.mode == 'evidence':
+            raise ValueError('历史证据模式只读，请用演示或真实模式创建任务')
         if not isinstance(body, dict) or set(body) != {'case_id'} or body['case_id'] not in self.cases:
             raise ValueError('请选择已审核的任务，不接受路径、命令或密钥')
         with self.submit_lock:
@@ -214,7 +234,7 @@ def handler(app):
                 mime = {'/': 'text/html; charset=utf-8', '/app.js': 'text/javascript; charset=utf-8', '/style.css': 'text/css; charset=utf-8'}[path]
                 return self.send(200, (STATIC / name).read_bytes(), mime)
             if path == '/api/info':
-                return self.send(200, {'schema': 1, 'mode': app.mode, 'cases': app.cases, 'token': app.token})
+                return self.send(200, {'schema': 1, 'mode': app.mode, 'cases': app.cases, 'token': app.token, 'can_submit': app.mode != 'evidence'})
             if path == '/api/tasks':
                 return self.send(200, {'tasks': app.store.list()})
             match = re.fullmatch(r'/api/tasks/([a-f0-9]{32})(/download)?', path)
@@ -248,13 +268,46 @@ def handler(app):
     return Handler
 
 
+
+def import_saved_evidence(store):
+    """Import only the reviewed, frozen P06 bundle; never fetch browser paths."""
+    import hashlib
+    data = (PROJECT_ROOT / 'evidence/p06-real-workflow.json').read_bytes()
+    saved = json.loads(data)
+    if saved.get('schema') != 1 or saved['fixture_manifest'] != load_cases()[2]:
+        raise ValueError('saved evidence schema or fixture manifest mismatch')
+    digest = hashlib.sha256(data).hexdigest()
+    rows = saved['cases'] + ([saved['feedback_child']] if saved.get('feedback_child') else [])
+    for row in rows:
+        if row['status'] != 'verified' or not re.fullmatch(r'[a-f0-9]{32}', row['task_id']):
+            raise ValueError('invalid reviewed evidence identity')
+        output = {'status': row['status'], 'evidence': 'saved-real', 'workflow': row,
+                  'coverage': row.get('coverage', {}), 'bundle_sha256': digest,
+                  'notice': 'P06历史真实运行证据，只读展示，本机未重新执行。',
+                  'logs': ['已载入P06历史真实证据。原执行日志位于原开发机，不将其宿主路径作为可下载文件。']}
+        now = time.time()
+        with store.connect() as db:
+            existing = db.execute('SELECT mode FROM tasks WHERE id=?', (row['task_id'],)).fetchone()
+            if existing and existing[0] != 'evidence':
+                raise ValueError('saved evidence ID conflicts with an existing task')
+            db.execute('INSERT OR REPLACE INTO tasks VALUES (?,?,?,?,?,?,?,?)',
+                       (row['task_id'], row['case_id'], 'evidence', 'succeeded', 0, now, now, json.dumps(output)))
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--port', type=int, default=8765)
     p.add_argument('--data', type=Path, default=PROJECT_ROOT / 'artifacts/web')
     p.add_argument('--enable-real', action='store_true')
     p.add_argument('--image-id')
+    p.add_argument('--model', help='explicit authorized model override; does not change .env')
+    p.add_argument('--feedback', action='store_true', help='run a coverage child after a verified parent')
+    p.add_argument('--evidence', action='store_true', help='view fixed saved real P06 evidence without executing')
     args = p.parse_args()
+    if args.enable_real and args.evidence:
+        p.error('--enable-real and --evidence are mutually exclusive')
+    if args.feedback and not args.enable_real:
+        p.error('--feedback requires --enable-real')
     if args.enable_real and not re.fullmatch(r'sha256:[0-9a-f]{64}', args.image_id or ''):
         p.error('真实模式需要 --image-id sha256:<64位镜像摘要>')
     # Prevent two processes from executing paid tasks from the same database.
@@ -268,10 +321,13 @@ def main():
     app = None
     try:
         os.write(fd, str(os.getpid()).encode())
-        app = Application(Store(args.data / 'tasks.sqlite3'), mode='real' if args.enable_real else 'demo',
-                          runner=real_runner(args.image_id, args.data / 'runs') if args.enable_real else None)
+        app = Application(Store(args.data / 'tasks.sqlite3'), mode='evidence' if args.evidence else ('real' if args.enable_real else 'demo'),
+                          runner=real_runner(args.image_id, args.data / 'runs', model=args.model, feedback=args.feedback) if args.enable_real else None)
         server = ThreadingHTTPServer(('127.0.0.1', args.port), handler(app))
-        app.start()
+        if args.evidence:
+            import_saved_evidence(app.store)
+        else:
+            app.start()
         print(f'http://127.0.0.1:{server.server_port}  mode={app.mode}', flush=True)
         try:
             server.serve_forever()

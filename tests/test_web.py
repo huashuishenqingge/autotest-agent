@@ -9,7 +9,7 @@ from urllib.error import HTTPError
 from http.server import ThreadingHTTPServer
 from unittest.mock import patch
 
-from web.server import Application, Store, handler, real_runner
+from web.server import Application, Store, handler, real_runner, import_saved_evidence
 
 
 class WebTests(unittest.TestCase):
@@ -117,6 +117,8 @@ class WebTests(unittest.TestCase):
     def test_real_adapter_reuses_orchestrator_and_safety_check(self):
         # Adapter wiring only, no paid model or Docker execution.
         with patch('models.adapter.Config.from_env'), patch('models.adapter.ModelClient') as client, patch('workflow.orchestrator.run_case') as run:
+            client.return_value.config.model = 'approved'
+            client.return_value.list_models.return_value = ['approved']
             run.return_value = {'status': 'verified', 'events': []}
             callback = lambda: False
             result = real_runner('sha256:'+'a'*64, Path(self.tmp.name))(
@@ -124,6 +126,54 @@ class WebTests(unittest.TestCase):
             self.assertEqual(result['evidence'], 'real')
             self.assertIs(run.call_args.kwargs['cancelled'], callback)
             client.return_value.ensure_safe.assert_called_once_with(result)
+
+    def test_saved_real_bundle_preserves_coverage_and_parent(self):
+        import_saved_evidence(self.store)
+        rows = self.store.list()
+        self.assertEqual(len(rows), 4)
+        parent = next(t for t in rows if t['case_id'] == 'age_threshold')
+        child = next(t for t in rows if t['case_id'].endswith('-coverage-child'))
+        self.assertEqual(parent['result']['evidence'], 'saved-real')
+        self.assertEqual(parent['result']['coverage']['baseline']['lines'], {'covered': 3, 'total': 4})
+        self.assertEqual(child['result']['workflow']['parent_task_id'], parent['result']['workflow']['task_id'])
+        self.assertEqual(child['result']['coverage']['baseline']['lines']['covered'], 4)
+        self.assertEqual(child['result']['coverage']['full-before']['lines']['covered'], 4)
+        import_saved_evidence(self.store)
+        self.assertEqual(len(self.store.list()), 4)
+
+    def test_evidence_mode_rejects_writes(self):
+        self.app.mode = 'evidence'
+        self.assertEqual(self.request('/api/tasks', {'case_id': self.app.cases[0]})[0], 400)
+        self.assertFalse(json.loads(self.request('/api/info')[1])['can_submit'])
+
+    def test_unknown_database_version_rejected(self):
+        with self.store.connect() as db:
+            db.execute('PRAGMA user_version=99')
+        with self.assertRaises(ValueError):
+            Store(self.store.path)
+
+    def test_cancel_before_real_adapter_does_not_read_credentials(self):
+        with patch('models.adapter.Config.from_env') as config:
+            result = real_runner('sha256:'+'a'*64, Path(self.tmp.name))(
+                {'case_id': self.app.cases[0]}, lambda: True)
+            self.assertEqual(result['status'], 'cancelled')
+            config.assert_not_called()
+
+    def test_feedback_adapter_uses_parent_and_propagates_child_failure(self):
+        with patch('models.adapter.Config.from_env'), patch('models.adapter.ModelClient') as client, patch('workflow.orchestrator.run_case') as run, patch('workflow.orchestrator.feedback_case') as child:
+            client.return_value.config.model = 'approved'
+            client.return_value.list_models.return_value = ['approved']
+            parent = {'status': 'verified', 'coverage': {'baseline': {'lines': {'covered': 3, 'total': 4}}}}
+            failed_child = {'status': 'cancelled'}
+            run.side_effect = [parent, failed_child]
+            result = real_runner('sha256:'+'a'*64, Path(self.tmp.name), feedback=True)(
+                {'case_id': self.app.cases[0]}, lambda: False)
+            child.assert_called_once()
+            self.assertIs(child.call_args.args[1], parent)
+            self.assertTrue(run.call_args_list[0].args[0]['require_coverage'])
+            self.assertEqual(result['status'], 'cancelled')
+            self.assertEqual(result['coverage'], parent['coverage'])
+            self.assertEqual(result['feedback_child'], failed_child)
 
 
 if __name__ == '__main__':

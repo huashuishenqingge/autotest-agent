@@ -148,3 +148,23 @@ python -m web.server --port 8765 --enable-real --image-id sha256:<64位实际镜
 `<64位实际镜像ID>`须替换。真实模式复用P06 `run_case` 和既有调用账本，会产生模型费用。首期只支持三个冻结任务，不支持浏览器上传任意仓库；覆盖率在P06B完成前显示无数据。仅监听127.0.0.1，必须使用该地址而非localhost访问。用户身份认证、远程部署、多用户权限不在本期范围。不要将本服务代理到公网。
 
 同一数据目录一次只允许一个服务。异常退出留下server.lock时，先确认旧进程已停止再删除该锁。测试：`python -m unittest discover -s tests -v`，HTTP测试需要允许本机回环监听。P07实际验收证据和限制见 `阶段7_验证与交接.md`。
+
+### P06完成后的P07补充
+
+Web已同步P06最终接口，支持 `--model deepseek-v4-flash-ascend` 显式覆盖授权模型、`--feedback` 执行覆盖率反馈子任务（参数与 `--enable-real` 同用）。不修改 `.env`。模型授权列表校验和阶段边界取消沿用P06，父任务成功后才创建反馈子任务。
+
+无Docker或密钥时可查看仓库内已保存的P06真实证据：
+
+```console
+python -m web.server --port 8766 --evidence --data artifacts/web-evidence
+```
+
+打开 `http://127.0.0.1:8766`，可查看三项历史真实任务及一个反馈子任务、实际生成测试、诊断与diff、覆盖率分子/分母和百分点、父子任务关联，下载含证据包SHA256的JSON。该模式只读，不启动模型/容器、不接受提交，不声称本机重新运行。历史日志留在原开发机，页面不会据其绝对路径读取本机文件。原有“覆盖率待P06B”的首版说明已由本段取代，缺失覆盖率仍显示无数据，零分母N/A。反馈前后均满覆盖时显示0个百分点。
+
+真实运行示例（先准备本机审核镜像及 `.env`）：
+
+```console
+python -m web.server --port 8765 --enable-real --model deepseek-v4-flash-ascend --feedback --image-id sha256:<本机64位实际镜像ID>
+```
+
+若已有首版服务，请先Ctrl+C停止后再用新代码启动；不要将另一个电脑上的镜像ID误认为本机已有镜像。
