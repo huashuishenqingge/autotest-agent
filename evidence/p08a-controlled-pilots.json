@@ -1,0 +1,2084 @@
+{
+  "schema": 1,
+  "scope": "controlled-pilot-only, excluded from P08B",
+  "manifest": {
+    "visible": "7cda8fbab141799c9c7d56136ca4d087fd430de1602113bff44b7798bb909732",
+    "validation": "54d26512a9dfd5895d323adbc3a3dc47e6620138ec1eb8eaddfdc06cb7e4e901"
+  },
+  "image_id": "sha256:fa0bf12db21a77915cb1c9c9b250978ce25ef6c27520086d14ef68a748dc89a4",
+  "cases": [
+    {
+      "task_id": "842d3689cd1d41bcbefc56072a48f4d1",
+      "case_id": "pilot_null_type",
+      "status": "verified",
+      "events": [
+        {
+          "task_id": "842d3689cd1d41bcbefc56072a48f4d1",
+          "phase": "created",
+          "repository": null,
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 0,
+          "runs": [],
+          "failure": null,
+          "event_type": "created"
+        },
+        {
+          "task_id": "842d3689cd1d41bcbefc56072a48f4d1",
+          "phase": "parsed",
+          "repository": {
+            "project_id": "pilot_null_type",
+            "revision": "workflow-sha256:d930ba1d04eb853e1bd7e98dd00b96cc5c6e1008881db8e822843f2cfe8c4181",
+            "source_files": [
+              "app.py"
+            ],
+            "test_files": [
+              "tests/test_original.py"
+            ],
+            "symbols": [
+              "app.normalize_optional_text",
+              "tests.test_original.test_normal"
+            ]
+          },
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 0,
+          "runs": [],
+          "failure": null,
+          "event_type": "transition"
+        },
+        {
+          "task_id": "842d3689cd1d41bcbefc56072a48f4d1",
+          "phase": "tests_proposed",
+          "repository": {
+            "project_id": "pilot_null_type",
+            "revision": "workflow-sha256:d930ba1d04eb853e1bd7e98dd00b96cc5c6e1008881db8e822843f2cfe8c4181",
+            "source_files": [
+              "app.py"
+            ],
+            "test_files": [
+              "tests/test_original.py"
+            ],
+            "symbols": [
+              "app.normalize_optional_text",
+              "tests.test_original.test_normal"
+            ]
+          },
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 0,
+          "runs": [],
+          "failure": null,
+          "event_type": "transition"
+        },
+        {
+          "task_id": "842d3689cd1d41bcbefc56072a48f4d1",
+          "phase": "tests_proposed",
+          "repository": {
+            "project_id": "pilot_null_type",
+            "revision": "workflow-sha256:d930ba1d04eb853e1bd7e98dd00b96cc5c6e1008881db8e822843f2cfe8c4181",
+            "source_files": [
+              "app.py"
+            ],
+            "test_files": [
+              "tests/test_original.py",
+              "tests/generated/test_normalize_optional_text.py"
+            ],
+            "symbols": [
+              "app.normalize_optional_text",
+              "tests.test_original.test_normal"
+            ]
+          },
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 0,
+          "runs": [],
+          "failure": null,
+          "event_type": "inventory_update"
+        },
+        {
+          "task_id": "842d3689cd1d41bcbefc56072a48f4d1",
+          "phase": "tested",
+          "repository": {
+            "project_id": "pilot_null_type",
+            "revision": "workflow-sha256:d930ba1d04eb853e1bd7e98dd00b96cc5c6e1008881db8e822843f2cfe8c4181",
+            "source_files": [
+              "app.py"
+            ],
+            "test_files": [
+              "tests/test_original.py",
+              "tests/generated/test_normalize_optional_text.py"
+            ],
+            "symbols": [
+              "app.normalize_optional_text",
+              "tests.test_original.test_normal"
+            ]
+          },
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 0,
+          "runs": [
+            {
+              "run_id": "510c0279a05643559fabb832ef34f393",
+              "snapshot_digest": "5a80f8f97e535a1d8c5d3480857317a819813104d9bd9363f1f2f04e684f3160",
+              "exit_code": 1,
+              "passed": 20,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "510c0279a05643559fabb832ef34f393/log.txt",
+                  "510c0279a05643559fabb832ef34f393/junit.xml",
+                  "510c0279a05643559fabb832ef34f393/manifest.json",
+                  "510c0279a05643559fabb832ef34f393/run.json",
+                  "510c0279a05643559fabb832ef34f393/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "510c0279a05643559fabb832ef34f393/log.txt",
+                "510c0279a05643559fabb832ef34f393/junit.xml",
+                "510c0279a05643559fabb832ef34f393/manifest.json",
+                "510c0279a05643559fabb832ef34f393/run.json",
+                "510c0279a05643559fabb832ef34f393/coverage.json"
+              ]
+            }
+          ],
+          "failure": null,
+          "event_type": "transition"
+        },
+        {
+          "task_id": "842d3689cd1d41bcbefc56072a48f4d1",
+          "phase": "tested",
+          "repository": {
+            "project_id": "pilot_null_type",
+            "revision": "workflow-sha256:d930ba1d04eb853e1bd7e98dd00b96cc5c6e1008881db8e822843f2cfe8c4181",
+            "source_files": [
+              "app.py"
+            ],
+            "test_files": [
+              "tests/test_original.py",
+              "tests/generated/test_normalize_optional_text.py"
+            ],
+            "symbols": [
+              "app.normalize_optional_text",
+              "tests.test_original.test_normal"
+            ]
+          },
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 0,
+          "runs": [
+            {
+              "run_id": "510c0279a05643559fabb832ef34f393",
+              "snapshot_digest": "5a80f8f97e535a1d8c5d3480857317a819813104d9bd9363f1f2f04e684f3160",
+              "exit_code": 1,
+              "passed": 20,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "510c0279a05643559fabb832ef34f393/log.txt",
+                  "510c0279a05643559fabb832ef34f393/junit.xml",
+                  "510c0279a05643559fabb832ef34f393/manifest.json",
+                  "510c0279a05643559fabb832ef34f393/run.json",
+                  "510c0279a05643559fabb832ef34f393/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "510c0279a05643559fabb832ef34f393/log.txt",
+                "510c0279a05643559fabb832ef34f393/junit.xml",
+                "510c0279a05643559fabb832ef34f393/manifest.json",
+                "510c0279a05643559fabb832ef34f393/run.json",
+                "510c0279a05643559fabb832ef34f393/coverage.json"
+              ]
+            },
+            {
+              "run_id": "906b1685bc9d4da3b14f8dac736b77b9",
+              "snapshot_digest": "5a80f8f97e535a1d8c5d3480857317a819813104d9bd9363f1f2f04e684f3160",
+              "exit_code": 1,
+              "passed": 20,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "906b1685bc9d4da3b14f8dac736b77b9/log.txt",
+                  "906b1685bc9d4da3b14f8dac736b77b9/junit.xml",
+                  "906b1685bc9d4da3b14f8dac736b77b9/manifest.json",
+                  "906b1685bc9d4da3b14f8dac736b77b9/run.json",
+                  "906b1685bc9d4da3b14f8dac736b77b9/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "906b1685bc9d4da3b14f8dac736b77b9/log.txt",
+                "906b1685bc9d4da3b14f8dac736b77b9/junit.xml",
+                "906b1685bc9d4da3b14f8dac736b77b9/manifest.json",
+                "906b1685bc9d4da3b14f8dac736b77b9/run.json",
+                "906b1685bc9d4da3b14f8dac736b77b9/coverage.json"
+              ]
+            }
+          ],
+          "failure": null,
+          "event_type": "failure_refresh"
+        },
+        {
+          "task_id": "842d3689cd1d41bcbefc56072a48f4d1",
+          "phase": "fix_proposed",
+          "repository": {
+            "project_id": "pilot_null_type",
+            "revision": "workflow-sha256:d930ba1d04eb853e1bd7e98dd00b96cc5c6e1008881db8e822843f2cfe8c4181",
+            "source_files": [
+              "app.py"
+            ],
+            "test_files": [
+              "tests/test_original.py",
+              "tests/generated/test_normalize_optional_text.py"
+            ],
+            "symbols": [
+              "app.normalize_optional_text",
+              "tests.test_original.test_normal"
+            ]
+          },
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 1,
+          "runs": [
+            {
+              "run_id": "510c0279a05643559fabb832ef34f393",
+              "snapshot_digest": "5a80f8f97e535a1d8c5d3480857317a819813104d9bd9363f1f2f04e684f3160",
+              "exit_code": 1,
+              "passed": 20,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "510c0279a05643559fabb832ef34f393/log.txt",
+                  "510c0279a05643559fabb832ef34f393/junit.xml",
+                  "510c0279a05643559fabb832ef34f393/manifest.json",
+                  "510c0279a05643559fabb832ef34f393/run.json",
+                  "510c0279a05643559fabb832ef34f393/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "510c0279a05643559fabb832ef34f393/log.txt",
+                "510c0279a05643559fabb832ef34f393/junit.xml",
+                "510c0279a05643559fabb832ef34f393/manifest.json",
+                "510c0279a05643559fabb832ef34f393/run.json",
+                "510c0279a05643559fabb832ef34f393/coverage.json"
+              ]
+            },
+            {
+              "run_id": "906b1685bc9d4da3b14f8dac736b77b9",
+              "snapshot_digest": "5a80f8f97e535a1d8c5d3480857317a819813104d9bd9363f1f2f04e684f3160",
+              "exit_code": 1,
+              "passed": 20,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "906b1685bc9d4da3b14f8dac736b77b9/log.txt",
+                  "906b1685bc9d4da3b14f8dac736b77b9/junit.xml",
+                  "906b1685bc9d4da3b14f8dac736b77b9/manifest.json",
+                  "906b1685bc9d4da3b14f8dac736b77b9/run.json",
+                  "906b1685bc9d4da3b14f8dac736b77b9/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "906b1685bc9d4da3b14f8dac736b77b9/log.txt",
+                "906b1685bc9d4da3b14f8dac736b77b9/junit.xml",
+                "906b1685bc9d4da3b14f8dac736b77b9/manifest.json",
+                "906b1685bc9d4da3b14f8dac736b77b9/run.json",
+                "906b1685bc9d4da3b14f8dac736b77b9/coverage.json"
+              ]
+            }
+          ],
+          "failure": null,
+          "event_type": "transition"
+        },
+        {
+          "task_id": "842d3689cd1d41bcbefc56072a48f4d1",
+          "phase": "tested",
+          "repository": {
+            "project_id": "pilot_null_type",
+            "revision": "workflow-sha256:d930ba1d04eb853e1bd7e98dd00b96cc5c6e1008881db8e822843f2cfe8c4181",
+            "source_files": [
+              "app.py"
+            ],
+            "test_files": [
+              "tests/test_original.py",
+              "tests/generated/test_normalize_optional_text.py"
+            ],
+            "symbols": [
+              "app.normalize_optional_text",
+              "tests.test_original.test_normal"
+            ]
+          },
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 1,
+          "runs": [
+            {
+              "run_id": "510c0279a05643559fabb832ef34f393",
+              "snapshot_digest": "5a80f8f97e535a1d8c5d3480857317a819813104d9bd9363f1f2f04e684f3160",
+              "exit_code": 1,
+              "passed": 20,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "510c0279a05643559fabb832ef34f393/log.txt",
+                  "510c0279a05643559fabb832ef34f393/junit.xml",
+                  "510c0279a05643559fabb832ef34f393/manifest.json",
+                  "510c0279a05643559fabb832ef34f393/run.json",
+                  "510c0279a05643559fabb832ef34f393/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "510c0279a05643559fabb832ef34f393/log.txt",
+                "510c0279a05643559fabb832ef34f393/junit.xml",
+                "510c0279a05643559fabb832ef34f393/manifest.json",
+                "510c0279a05643559fabb832ef34f393/run.json",
+                "510c0279a05643559fabb832ef34f393/coverage.json"
+              ]
+            },
+            {
+              "run_id": "906b1685bc9d4da3b14f8dac736b77b9",
+              "snapshot_digest": "5a80f8f97e535a1d8c5d3480857317a819813104d9bd9363f1f2f04e684f3160",
+              "exit_code": 1,
+              "passed": 20,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "906b1685bc9d4da3b14f8dac736b77b9/log.txt",
+                  "906b1685bc9d4da3b14f8dac736b77b9/junit.xml",
+                  "906b1685bc9d4da3b14f8dac736b77b9/manifest.json",
+                  "906b1685bc9d4da3b14f8dac736b77b9/run.json",
+                  "906b1685bc9d4da3b14f8dac736b77b9/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "906b1685bc9d4da3b14f8dac736b77b9/log.txt",
+                "906b1685bc9d4da3b14f8dac736b77b9/junit.xml",
+                "906b1685bc9d4da3b14f8dac736b77b9/manifest.json",
+                "906b1685bc9d4da3b14f8dac736b77b9/run.json",
+                "906b1685bc9d4da3b14f8dac736b77b9/coverage.json"
+              ]
+            },
+            {
+              "run_id": "8e1d4a9ee2f1414e84faf8b3600a8c0a",
+              "snapshot_digest": "b903f2e7258efc11967efce509618d77befc87dd030ce6bf4c9701b8fa2a95c2",
+              "exit_code": 0,
+              "passed": 21,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "failure": null,
+              "artifacts": [
+                "8e1d4a9ee2f1414e84faf8b3600a8c0a/log.txt",
+                "8e1d4a9ee2f1414e84faf8b3600a8c0a/junit.xml",
+                "8e1d4a9ee2f1414e84faf8b3600a8c0a/manifest.json",
+                "8e1d4a9ee2f1414e84faf8b3600a8c0a/run.json",
+                "8e1d4a9ee2f1414e84faf8b3600a8c0a/coverage.json"
+              ]
+            }
+          ],
+          "failure": null,
+          "event_type": "transition"
+        },
+        {
+          "task_id": "842d3689cd1d41bcbefc56072a48f4d1",
+          "phase": "verified",
+          "repository": {
+            "project_id": "pilot_null_type",
+            "revision": "workflow-sha256:d930ba1d04eb853e1bd7e98dd00b96cc5c6e1008881db8e822843f2cfe8c4181",
+            "source_files": [
+              "app.py"
+            ],
+            "test_files": [
+              "tests/test_original.py",
+              "tests/generated/test_normalize_optional_text.py"
+            ],
+            "symbols": [
+              "app.normalize_optional_text",
+              "tests.test_original.test_normal"
+            ]
+          },
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 1,
+          "runs": [
+            {
+              "run_id": "510c0279a05643559fabb832ef34f393",
+              "snapshot_digest": "5a80f8f97e535a1d8c5d3480857317a819813104d9bd9363f1f2f04e684f3160",
+              "exit_code": 1,
+              "passed": 20,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "510c0279a05643559fabb832ef34f393/log.txt",
+                  "510c0279a05643559fabb832ef34f393/junit.xml",
+                  "510c0279a05643559fabb832ef34f393/manifest.json",
+                  "510c0279a05643559fabb832ef34f393/run.json",
+                  "510c0279a05643559fabb832ef34f393/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "510c0279a05643559fabb832ef34f393/log.txt",
+                "510c0279a05643559fabb832ef34f393/junit.xml",
+                "510c0279a05643559fabb832ef34f393/manifest.json",
+                "510c0279a05643559fabb832ef34f393/run.json",
+                "510c0279a05643559fabb832ef34f393/coverage.json"
+              ]
+            },
+            {
+              "run_id": "906b1685bc9d4da3b14f8dac736b77b9",
+              "snapshot_digest": "5a80f8f97e535a1d8c5d3480857317a819813104d9bd9363f1f2f04e684f3160",
+              "exit_code": 1,
+              "passed": 20,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "906b1685bc9d4da3b14f8dac736b77b9/log.txt",
+                  "906b1685bc9d4da3b14f8dac736b77b9/junit.xml",
+                  "906b1685bc9d4da3b14f8dac736b77b9/manifest.json",
+                  "906b1685bc9d4da3b14f8dac736b77b9/run.json",
+                  "906b1685bc9d4da3b14f8dac736b77b9/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "906b1685bc9d4da3b14f8dac736b77b9/log.txt",
+                "906b1685bc9d4da3b14f8dac736b77b9/junit.xml",
+                "906b1685bc9d4da3b14f8dac736b77b9/manifest.json",
+                "906b1685bc9d4da3b14f8dac736b77b9/run.json",
+                "906b1685bc9d4da3b14f8dac736b77b9/coverage.json"
+              ]
+            },
+            {
+              "run_id": "8e1d4a9ee2f1414e84faf8b3600a8c0a",
+              "snapshot_digest": "b903f2e7258efc11967efce509618d77befc87dd030ce6bf4c9701b8fa2a95c2",
+              "exit_code": 0,
+              "passed": 21,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "failure": null,
+              "artifacts": [
+                "8e1d4a9ee2f1414e84faf8b3600a8c0a/log.txt",
+                "8e1d4a9ee2f1414e84faf8b3600a8c0a/junit.xml",
+                "8e1d4a9ee2f1414e84faf8b3600a8c0a/manifest.json",
+                "8e1d4a9ee2f1414e84faf8b3600a8c0a/run.json",
+                "8e1d4a9ee2f1414e84faf8b3600a8c0a/coverage.json"
+              ]
+            }
+          ],
+          "failure": null,
+          "event_type": "transition",
+          "independent_run": {
+            "run_id": "b5cb9a8c7111436ca34568847ca99a44",
+            "snapshot_digest": "ec0ba6889737ca751f0533fcbada995b36fa9f7b25e6aa2f94116c8578e95c0f",
+            "exit_code": 0,
+            "passed": 33,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": []
+          },
+          "source_binding": {
+            "visible": {
+              "app.py": "10e8562d6f8859214a6f36ee85edd2b3ccd00dd04f8394a07ce6cfc710a81945"
+            },
+            "independent": {
+              "app.py": "10e8562d6f8859214a6f36ee85edd2b3ccd00dd04f8394a07ce6cfc710a81945"
+            }
+          }
+        }
+      ],
+      "baseline": {
+        "run": {
+          "run_id": "1037ef7fafde42f2b6a8a0563586896d",
+          "snapshot_digest": "d930ba1d04eb853e1bd7e98dd00b96cc5c6e1008881db8e822843f2cfe8c4181",
+          "exit_code": 0,
+          "passed": 1,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "failure": null,
+          "artifacts": [
+            "1037ef7fafde42f2b6a8a0563586896d/log.txt",
+            "1037ef7fafde42f2b6a8a0563586896d/junit.xml",
+            "1037ef7fafde42f2b6a8a0563586896d/manifest.json",
+            "1037ef7fafde42f2b6a8a0563586896d/run.json",
+            "1037ef7fafde42f2b6a8a0563586896d/coverage.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\842d3689cd1d41bcbefc56072a48f4d1\\baseline\\1037ef7fafde42f2b6a8a0563586896d",
+        "cleanup_ok": true
+      },
+      "generation": {
+        "task_id": "842d3689cd1d41bcbefc56072a48f4d1",
+        "base_revision": "workflow-sha256:d930ba1d04eb853e1bd7e98dd00b96cc5c6e1008881db8e822843f2cfe8c4181",
+        "files": [
+          {
+            "path": "tests/generated/test_normalize_optional_text.py",
+            "content": "import pytest\n\nfrom app import normalize_optional_text\n\n\ndef test_none_returns_empty_string():\n    assert normalize_optional_text(None) == \"\"\n\n\ndef test_plain_string_returned_unchanged():\n    assert normalize_optional_text(\"hello\") == \"hello\"\n\n\ndef test_string_is_stripped():\n    assert normalize_optional_text(\"  hi  \") == \"hi\"\n\n\ndef test_whitespace_only_string_returns_empty():\n    assert normalize_optional_text(\"   \\t\\n \") == \"\"\n\n\ndef test_empty_string_returns_empty():\n    assert normalize_optional_text(\"\") == \"\"\n\n\ndef test_leading_and_trailing_whitespace_removed():\n    assert normalize_optional_text(\"\\n\\t padded \\t\\n\") == \"padded\"\n\n\ndef test_internal_whitespace_preserved():\n    assert normalize_optional_text(\"  a  b  \") == \"a  b\"\n\n\ndef test_input_string_not_modified():\n    original = \"  keep me  \"\n    normalize_optional_text(original)\n    assert original == \"  keep me  \"\n\n\n@pytest.mark.parametrize(\"value\", [0, 1, -5, 3.14, True, False, [], [\"a\"], {}, {\"a\": 1}, b\"bytes\", (1, 2)])\ndef test_non_string_non_none_raises_type_error(value):\n    with pytest.raises(TypeError):\n        normalize_optional_text(value)\n",
+            "expected_sha256": null
+          }
+        ],
+        "rationale": "Requirements state None must return the empty string (implementation incorrectly returns 'None'), strings return value.strip(), and any non-str/non-None type raises TypeError. Tests cover normal strings, whitespace-only and empty strings, None boundary, non-mutation of input, and invalid types (int, float, list, dict, bool, bytes) expecting TypeError.",
+        "failure": null
+      },
+      "reference": {
+        "run": {
+          "run_id": "79cebf3935344f158861b1e65235b76a",
+          "snapshot_digest": "b903f2e7258efc11967efce509618d77befc87dd030ce6bf4c9701b8fa2a95c2",
+          "exit_code": 0,
+          "passed": 21,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "failure": null,
+          "artifacts": [
+            "79cebf3935344f158861b1e65235b76a/log.txt",
+            "79cebf3935344f158861b1e65235b76a/junit.xml",
+            "79cebf3935344f158861b1e65235b76a/manifest.json",
+            "79cebf3935344f158861b1e65235b76a/run.json",
+            "79cebf3935344f158861b1e65235b76a/coverage.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\842d3689cd1d41bcbefc56072a48f4d1\\reference\\79cebf3935344f158861b1e65235b76a",
+        "cleanup_ok": true
+      },
+      "generated_only": {
+        "run": {
+          "run_id": "25e2ba9d631340ac89284c3b0dc5a168",
+          "snapshot_digest": "95d2c29fcf1d48d3884a819edd8f37711779b9bb3779059b88efabe32d80a2b8",
+          "exit_code": 1,
+          "passed": 19,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "failure": {
+            "kind": "test_assertion",
+            "message": "Run did not verify; inspect sanitized evidence",
+            "evidence": [
+              "25e2ba9d631340ac89284c3b0dc5a168/log.txt",
+              "25e2ba9d631340ac89284c3b0dc5a168/junit.xml",
+              "25e2ba9d631340ac89284c3b0dc5a168/manifest.json",
+              "25e2ba9d631340ac89284c3b0dc5a168/run.json",
+              "25e2ba9d631340ac89284c3b0dc5a168/coverage.json"
+            ]
+          },
+          "artifacts": [
+            "25e2ba9d631340ac89284c3b0dc5a168/log.txt",
+            "25e2ba9d631340ac89284c3b0dc5a168/junit.xml",
+            "25e2ba9d631340ac89284c3b0dc5a168/manifest.json",
+            "25e2ba9d631340ac89284c3b0dc5a168/run.json",
+            "25e2ba9d631340ac89284c3b0dc5a168/coverage.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\842d3689cd1d41bcbefc56072a48f4d1\\generated-only\\25e2ba9d631340ac89284c3b0dc5a168",
+        "cleanup_ok": true
+      },
+      "full_before": {
+        "run": {
+          "run_id": "510c0279a05643559fabb832ef34f393",
+          "snapshot_digest": "5a80f8f97e535a1d8c5d3480857317a819813104d9bd9363f1f2f04e684f3160",
+          "exit_code": 1,
+          "passed": 20,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "failure": {
+            "kind": "test_assertion",
+            "message": "Run did not verify; inspect sanitized evidence",
+            "evidence": [
+              "510c0279a05643559fabb832ef34f393/log.txt",
+              "510c0279a05643559fabb832ef34f393/junit.xml",
+              "510c0279a05643559fabb832ef34f393/manifest.json",
+              "510c0279a05643559fabb832ef34f393/run.json",
+              "510c0279a05643559fabb832ef34f393/coverage.json"
+            ]
+          },
+          "artifacts": [
+            "510c0279a05643559fabb832ef34f393/log.txt",
+            "510c0279a05643559fabb832ef34f393/junit.xml",
+            "510c0279a05643559fabb832ef34f393/manifest.json",
+            "510c0279a05643559fabb832ef34f393/run.json",
+            "510c0279a05643559fabb832ef34f393/coverage.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\842d3689cd1d41bcbefc56072a48f4d1\\full-before\\510c0279a05643559fabb832ef34f393",
+        "cleanup_ok": true
+      },
+      "repair": {
+        "task_id": "842d3689cd1d41bcbefc56072a48f4d1",
+        "project_id": "pilot_null_type",
+        "base_revision": "workflow-sha256:d930ba1d04eb853e1bd7e98dd00b96cc5c6e1008881db8e822843f2cfe8c4181",
+        "prompt_version": "p05-repair-v2",
+        "status": "verified",
+        "attempts": [
+          {
+            "attempt": 1,
+            "based_on_run_id": "906b1685bc9d4da3b14f8dac736b77b9",
+            "input_digest": "5a80f8f97e535a1d8c5d3480857317a819813104d9bd9363f1f2f04e684f3160",
+            "source_hashes": [
+              [
+                "app.py",
+                "3a25b764fb8ff99c563003aaeac5ad2ae74c99686b541eb6acf83d2658524814"
+              ]
+            ],
+            "proposal": {
+              "task_id": "842d3689cd1d41bcbefc56072a48f4d1",
+              "base_revision": "workflow-sha256:d930ba1d04eb853e1bd7e98dd00b96cc5c6e1008881db8e822843f2cfe8c4181",
+              "based_on_run_id": "906b1685bc9d4da3b14f8dac736b77b9",
+              "files": [
+                {
+                  "path": "app.py",
+                  "content": "def normalize_optional_text(value):\n    if value is None:\n        return \"\"\n    if not isinstance(value, str):\n        raise TypeError(\"value must be str or None\")\n    return value.strip()\n",
+                  "expected_sha256": "3a25b764fb8ff99c563003aaeac5ad2ae74c99686b541eb6acf83d2658524814"
+                }
+              ],
+              "diagnosis": "app.py:3 returns the literal string \"None\" for None input, violating the requirement that None must return the empty string. Minimal change: return \"\" instead.",
+              "failure": null
+            },
+            "model_candidate": {
+              "task_id": "842d3689cd1d41bcbefc56072a48f4d1",
+              "base_revision": "workflow-sha256:d930ba1d04eb853e1bd7e98dd00b96cc5c6e1008881db8e822843f2cfe8c4181",
+              "based_on_run_id": "906b1685bc9d4da3b14f8dac736b77b9",
+              "diagnosis": "app.py:3 returns the literal string \"None\" for None input, violating the requirement that None must return the empty string. Minimal change: return \"\" instead.",
+              "files": [
+                {
+                  "path": "app.py",
+                  "content": "def normalize_optional_text(value):\n    if value is None:\n        return \"\"\n    if not isinstance(value, str):\n        raise TypeError(\"value must be str or None\")\n    return value.strip()\n"
+                }
+              ]
+            },
+            "completion": {
+              "model": "deepseek-v4-flash-ascend",
+              "usage": {
+                "prompt_tokens": 1516,
+                "completion_tokens": 205,
+                "total_tokens": 1721
+              },
+              "usage_available": true
+            },
+            "transport_metadata": {
+              "finish_reason": "stop",
+              "usage": {
+                "prompt_tokens": 1516,
+                "completion_tokens": 205,
+                "total_tokens": 1721
+              },
+              "thinking_mode": "disabled",
+              "content_characters": 616,
+              "reasoning_characters": 0
+            },
+            "patch_diff": "--- a/app.py\n+++ b/app.py\n@@ -1,6 +1,6 @@\n def normalize_optional_text(value):\n     if value is None:\n-        return \"None\"\n+        return \"\"\n     if not isinstance(value, str):\n         raise TypeError(\"value must be str or None\")\n     return value.strip()\n",
+            "visible_run": {
+              "run": {
+                "run_id": "8e1d4a9ee2f1414e84faf8b3600a8c0a",
+                "snapshot_digest": "b903f2e7258efc11967efce509618d77befc87dd030ce6bf4c9701b8fa2a95c2",
+                "exit_code": 0,
+                "passed": 21,
+                "failed": 0,
+                "errors": 0,
+                "skipped": 0,
+                "failure": null,
+                "artifacts": [
+                  "8e1d4a9ee2f1414e84faf8b3600a8c0a/log.txt",
+                  "8e1d4a9ee2f1414e84faf8b3600a8c0a/junit.xml",
+                  "8e1d4a9ee2f1414e84faf8b3600a8c0a/manifest.json",
+                  "8e1d4a9ee2f1414e84faf8b3600a8c0a/run.json",
+                  "8e1d4a9ee2f1414e84faf8b3600a8c0a/coverage.json"
+                ]
+              },
+              "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\842d3689cd1d41bcbefc56072a48f4d1\\repair\\842d3689cd1d41bcbefc56072a48f4d1\\execution\\8e1d4a9ee2f1414e84faf8b3600a8c0a",
+              "cleanup_ok": true
+            },
+            "original_regression_run": null,
+            "rollback_ok": null,
+            "refreshed_failure": null,
+            "elapsed_seconds": 11.75
+          }
+        ],
+        "baseline": {
+          "run": {
+            "run_id": "e02352f81779415e99269f0f622b5530",
+            "snapshot_digest": "d930ba1d04eb853e1bd7e98dd00b96cc5c6e1008881db8e822843f2cfe8c4181",
+            "exit_code": 0,
+            "passed": 1,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "e02352f81779415e99269f0f622b5530/log.txt",
+              "e02352f81779415e99269f0f622b5530/junit.xml",
+              "e02352f81779415e99269f0f622b5530/manifest.json",
+              "e02352f81779415e99269f0f622b5530/run.json",
+              "e02352f81779415e99269f0f622b5530/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\842d3689cd1d41bcbefc56072a48f4d1\\repair\\842d3689cd1d41bcbefc56072a48f4d1\\execution\\e02352f81779415e99269f0f622b5530",
+          "cleanup_ok": true
+        },
+        "initial_failure": {
+          "run": {
+            "run_id": "0c51874b63f34add84474541499024fb",
+            "snapshot_digest": "5a80f8f97e535a1d8c5d3480857317a819813104d9bd9363f1f2f04e684f3160",
+            "exit_code": 1,
+            "passed": 20,
+            "failed": 1,
+            "errors": 0,
+            "skipped": 0,
+            "failure": {
+              "kind": "test_assertion",
+              "message": "Run did not verify; inspect sanitized evidence",
+              "evidence": [
+                "0c51874b63f34add84474541499024fb/log.txt",
+                "0c51874b63f34add84474541499024fb/junit.xml",
+                "0c51874b63f34add84474541499024fb/manifest.json",
+                "0c51874b63f34add84474541499024fb/run.json",
+                "0c51874b63f34add84474541499024fb/coverage.json"
+              ]
+            },
+            "artifacts": [
+              "0c51874b63f34add84474541499024fb/log.txt",
+              "0c51874b63f34add84474541499024fb/junit.xml",
+              "0c51874b63f34add84474541499024fb/manifest.json",
+              "0c51874b63f34add84474541499024fb/run.json",
+              "0c51874b63f34add84474541499024fb/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\842d3689cd1d41bcbefc56072a48f4d1\\repair\\842d3689cd1d41bcbefc56072a48f4d1\\execution\\0c51874b63f34add84474541499024fb",
+          "cleanup_ok": true
+        },
+        "reproduction": {
+          "run": {
+            "run_id": "906b1685bc9d4da3b14f8dac736b77b9",
+            "snapshot_digest": "5a80f8f97e535a1d8c5d3480857317a819813104d9bd9363f1f2f04e684f3160",
+            "exit_code": 1,
+            "passed": 20,
+            "failed": 1,
+            "errors": 0,
+            "skipped": 0,
+            "failure": {
+              "kind": "test_assertion",
+              "message": "Run did not verify; inspect sanitized evidence",
+              "evidence": [
+                "906b1685bc9d4da3b14f8dac736b77b9/log.txt",
+                "906b1685bc9d4da3b14f8dac736b77b9/junit.xml",
+                "906b1685bc9d4da3b14f8dac736b77b9/manifest.json",
+                "906b1685bc9d4da3b14f8dac736b77b9/run.json",
+                "906b1685bc9d4da3b14f8dac736b77b9/coverage.json"
+              ]
+            },
+            "artifacts": [
+              "906b1685bc9d4da3b14f8dac736b77b9/log.txt",
+              "906b1685bc9d4da3b14f8dac736b77b9/junit.xml",
+              "906b1685bc9d4da3b14f8dac736b77b9/manifest.json",
+              "906b1685bc9d4da3b14f8dac736b77b9/run.json",
+              "906b1685bc9d4da3b14f8dac736b77b9/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\842d3689cd1d41bcbefc56072a48f4d1\\repair\\842d3689cd1d41bcbefc56072a48f4d1\\execution\\906b1685bc9d4da3b14f8dac736b77b9",
+          "cleanup_ok": true
+        },
+        "independent_validation": {
+          "run": {
+            "run_id": "b5cb9a8c7111436ca34568847ca99a44",
+            "snapshot_digest": "ec0ba6889737ca751f0533fcbada995b36fa9f7b25e6aa2f94116c8578e95c0f",
+            "exit_code": 0,
+            "passed": 33,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "b5cb9a8c7111436ca34568847ca99a44/log.txt",
+              "b5cb9a8c7111436ca34568847ca99a44/junit.xml",
+              "b5cb9a8c7111436ca34568847ca99a44/manifest.json",
+              "b5cb9a8c7111436ca34568847ca99a44/run.json",
+              "b5cb9a8c7111436ca34568847ca99a44/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\842d3689cd1d41bcbefc56072a48f4d1\\repair\\842d3689cd1d41bcbefc56072a48f4d1\\independent\\b5cb9a8c7111436ca34568847ca99a44",
+          "cleanup_ok": true
+        },
+        "final_sources": [
+          [
+            "app.py",
+            "def normalize_optional_text(value):\n    if value is None:\n        return \"\"\n    if not isinstance(value, str):\n        raise TypeError(\"value must be str or None\")\n    return value.strip()\n"
+          ]
+        ],
+        "elapsed_seconds": 19.922
+      },
+      "generation_completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 504,
+          "completion_tokens": 564,
+          "total_tokens": 1068
+        }
+      },
+      "parent_task_id": null,
+      "coverage": {
+        "baseline": {
+          "lines": {
+            "covered": 4,
+            "total": 6
+          },
+          "branches": {
+            "covered": 2,
+            "total": 4
+          },
+          "files": {
+            "app.py": {
+              "missing_lines": [
+                3,
+                5
+              ],
+              "missing_branches": [
+                [
+                  2,
+                  3
+                ],
+                [
+                  4,
+                  5
+                ]
+              ]
+            }
+          }
+        },
+        "reference": {
+          "lines": {
+            "covered": 6,
+            "total": 6
+          },
+          "branches": {
+            "covered": 4,
+            "total": 4
+          },
+          "files": {
+            "app.py": {
+              "missing_lines": [],
+              "missing_branches": []
+            }
+          }
+        },
+        "generated-only": {
+          "lines": {
+            "covered": 6,
+            "total": 6
+          },
+          "branches": {
+            "covered": 4,
+            "total": 4
+          },
+          "files": {
+            "app.py": {
+              "missing_lines": [],
+              "missing_branches": []
+            }
+          }
+        },
+        "full-before": {
+          "lines": {
+            "covered": 6,
+            "total": 6
+          },
+          "branches": {
+            "covered": 4,
+            "total": 4
+          },
+          "files": {
+            "app.py": {
+              "missing_lines": [],
+              "missing_branches": []
+            }
+          }
+        },
+        "repaired-visible": {
+          "lines": {
+            "covered": 6,
+            "total": 6
+          },
+          "branches": {
+            "covered": 4,
+            "total": 4
+          },
+          "files": {
+            "app.py": {
+              "missing_lines": [],
+              "missing_branches": []
+            }
+          }
+        }
+      },
+      "generation_transport_metadata": {
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 504,
+          "completion_tokens": 564,
+          "total_tokens": 1068
+        },
+        "thinking_mode": "disabled",
+        "content_characters": 1816,
+        "reasoning_characters": 0
+      },
+      "generation_diagnostic": {
+        "characters": 1816,
+        "markdown_fence": false,
+        "json_valid": true,
+        "object": true,
+        "required_fields_exact": true,
+        "files": [
+          {
+            "fields_valid": true,
+            "syntax_valid": true,
+            "assertions_per_test": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0
+            ]
+          }
+        ],
+        "file_count": 1
+      },
+      "generation_candidate": {
+        "task_id": "842d3689cd1d41bcbefc56072a48f4d1",
+        "base_revision": "workflow-sha256:d930ba1d04eb853e1bd7e98dd00b96cc5c6e1008881db8e822843f2cfe8c4181",
+        "rationale": "Requirements state None must return the empty string (implementation incorrectly returns 'None'), strings return value.strip(), and any non-str/non-None type raises TypeError. Tests cover normal strings, whitespace-only and empty strings, None boundary, non-mutation of input, and invalid types (int, float, list, dict, bool, bytes) expecting TypeError.",
+        "files": [
+          {
+            "path": "tests/generated/test_normalize_optional_text.py",
+            "content": "import pytest\n\nfrom app import normalize_optional_text\n\n\ndef test_none_returns_empty_string():\n    assert normalize_optional_text(None) == \"\"\n\n\ndef test_plain_string_returned_unchanged():\n    assert normalize_optional_text(\"hello\") == \"hello\"\n\n\ndef test_string_is_stripped():\n    assert normalize_optional_text(\"  hi  \") == \"hi\"\n\n\ndef test_whitespace_only_string_returns_empty():\n    assert normalize_optional_text(\"   \\t\\n \") == \"\"\n\n\ndef test_empty_string_returns_empty():\n    assert normalize_optional_text(\"\") == \"\"\n\n\ndef test_leading_and_trailing_whitespace_removed():\n    assert normalize_optional_text(\"\\n\\t padded \\t\\n\") == \"padded\"\n\n\ndef test_internal_whitespace_preserved():\n    assert normalize_optional_text(\"  a  b  \") == \"a  b\"\n\n\ndef test_input_string_not_modified():\n    original = \"  keep me  \"\n    normalize_optional_text(original)\n    assert original == \"  keep me  \"\n\n\n@pytest.mark.parametrize(\"value\", [0, 1, -5, 3.14, True, False, [], [\"a\"], {}, {\"a\": 1}, b\"bytes\", (1, 2)])\ndef test_non_string_non_none_raises_type_error(value):\n    with pytest.raises(TypeError):\n        normalize_optional_text(value)\n"
+          }
+        ]
+      },
+      "elapsed_seconds": 48.813
+    },
+    {
+      "task_id": "c1634e68a2e34a7099b40a47c975d3cc",
+      "case_id": "pilot_exception",
+      "status": "verified",
+      "events": [
+        {
+          "task_id": "c1634e68a2e34a7099b40a47c975d3cc",
+          "phase": "created",
+          "repository": null,
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 0,
+          "runs": [],
+          "failure": null,
+          "event_type": "created"
+        },
+        {
+          "task_id": "c1634e68a2e34a7099b40a47c975d3cc",
+          "phase": "parsed",
+          "repository": {
+            "project_id": "pilot_exception",
+            "revision": "workflow-sha256:12af0b70324e8b85c6ff41fc602d680e080f0064d4c2fbae8d1d4453f7d14c2e",
+            "source_files": [
+              "app.py"
+            ],
+            "test_files": [
+              "tests/test_original.py"
+            ],
+            "symbols": [
+              "app.parse_count",
+              "tests.test_original.test_normal"
+            ]
+          },
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 0,
+          "runs": [],
+          "failure": null,
+          "event_type": "transition"
+        },
+        {
+          "task_id": "c1634e68a2e34a7099b40a47c975d3cc",
+          "phase": "tests_proposed",
+          "repository": {
+            "project_id": "pilot_exception",
+            "revision": "workflow-sha256:12af0b70324e8b85c6ff41fc602d680e080f0064d4c2fbae8d1d4453f7d14c2e",
+            "source_files": [
+              "app.py"
+            ],
+            "test_files": [
+              "tests/test_original.py"
+            ],
+            "symbols": [
+              "app.parse_count",
+              "tests.test_original.test_normal"
+            ]
+          },
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 0,
+          "runs": [],
+          "failure": null,
+          "event_type": "transition"
+        },
+        {
+          "task_id": "c1634e68a2e34a7099b40a47c975d3cc",
+          "phase": "tests_proposed",
+          "repository": {
+            "project_id": "pilot_exception",
+            "revision": "workflow-sha256:12af0b70324e8b85c6ff41fc602d680e080f0064d4c2fbae8d1d4453f7d14c2e",
+            "source_files": [
+              "app.py"
+            ],
+            "test_files": [
+              "tests/test_original.py",
+              "tests/generated/test_parse_count.py"
+            ],
+            "symbols": [
+              "app.parse_count",
+              "tests.test_original.test_normal"
+            ]
+          },
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 0,
+          "runs": [],
+          "failure": null,
+          "event_type": "inventory_update"
+        },
+        {
+          "task_id": "c1634e68a2e34a7099b40a47c975d3cc",
+          "phase": "tested",
+          "repository": {
+            "project_id": "pilot_exception",
+            "revision": "workflow-sha256:12af0b70324e8b85c6ff41fc602d680e080f0064d4c2fbae8d1d4453f7d14c2e",
+            "source_files": [
+              "app.py"
+            ],
+            "test_files": [
+              "tests/test_original.py",
+              "tests/generated/test_parse_count.py"
+            ],
+            "symbols": [
+              "app.parse_count",
+              "tests.test_original.test_normal"
+            ]
+          },
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 0,
+          "runs": [
+            {
+              "run_id": "4e703fb938b1488ea39bc02700e5b9c6",
+              "snapshot_digest": "77d192e4ae0a6d9277b4a9dd189b47eb40daa48988b7ced8624bf01f2c84ec3b",
+              "exit_code": 1,
+              "passed": 11,
+              "failed": 5,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "4e703fb938b1488ea39bc02700e5b9c6/log.txt",
+                  "4e703fb938b1488ea39bc02700e5b9c6/junit.xml",
+                  "4e703fb938b1488ea39bc02700e5b9c6/manifest.json",
+                  "4e703fb938b1488ea39bc02700e5b9c6/run.json",
+                  "4e703fb938b1488ea39bc02700e5b9c6/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "4e703fb938b1488ea39bc02700e5b9c6/log.txt",
+                "4e703fb938b1488ea39bc02700e5b9c6/junit.xml",
+                "4e703fb938b1488ea39bc02700e5b9c6/manifest.json",
+                "4e703fb938b1488ea39bc02700e5b9c6/run.json",
+                "4e703fb938b1488ea39bc02700e5b9c6/coverage.json"
+              ]
+            }
+          ],
+          "failure": null,
+          "event_type": "transition"
+        },
+        {
+          "task_id": "c1634e68a2e34a7099b40a47c975d3cc",
+          "phase": "tested",
+          "repository": {
+            "project_id": "pilot_exception",
+            "revision": "workflow-sha256:12af0b70324e8b85c6ff41fc602d680e080f0064d4c2fbae8d1d4453f7d14c2e",
+            "source_files": [
+              "app.py"
+            ],
+            "test_files": [
+              "tests/test_original.py",
+              "tests/generated/test_parse_count.py"
+            ],
+            "symbols": [
+              "app.parse_count",
+              "tests.test_original.test_normal"
+            ]
+          },
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 0,
+          "runs": [
+            {
+              "run_id": "4e703fb938b1488ea39bc02700e5b9c6",
+              "snapshot_digest": "77d192e4ae0a6d9277b4a9dd189b47eb40daa48988b7ced8624bf01f2c84ec3b",
+              "exit_code": 1,
+              "passed": 11,
+              "failed": 5,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "4e703fb938b1488ea39bc02700e5b9c6/log.txt",
+                  "4e703fb938b1488ea39bc02700e5b9c6/junit.xml",
+                  "4e703fb938b1488ea39bc02700e5b9c6/manifest.json",
+                  "4e703fb938b1488ea39bc02700e5b9c6/run.json",
+                  "4e703fb938b1488ea39bc02700e5b9c6/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "4e703fb938b1488ea39bc02700e5b9c6/log.txt",
+                "4e703fb938b1488ea39bc02700e5b9c6/junit.xml",
+                "4e703fb938b1488ea39bc02700e5b9c6/manifest.json",
+                "4e703fb938b1488ea39bc02700e5b9c6/run.json",
+                "4e703fb938b1488ea39bc02700e5b9c6/coverage.json"
+              ]
+            },
+            {
+              "run_id": "ce9a5175ccdc427dba9bfe093b6bc351",
+              "snapshot_digest": "77d192e4ae0a6d9277b4a9dd189b47eb40daa48988b7ced8624bf01f2c84ec3b",
+              "exit_code": 1,
+              "passed": 11,
+              "failed": 5,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "ce9a5175ccdc427dba9bfe093b6bc351/log.txt",
+                  "ce9a5175ccdc427dba9bfe093b6bc351/junit.xml",
+                  "ce9a5175ccdc427dba9bfe093b6bc351/manifest.json",
+                  "ce9a5175ccdc427dba9bfe093b6bc351/run.json",
+                  "ce9a5175ccdc427dba9bfe093b6bc351/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "ce9a5175ccdc427dba9bfe093b6bc351/log.txt",
+                "ce9a5175ccdc427dba9bfe093b6bc351/junit.xml",
+                "ce9a5175ccdc427dba9bfe093b6bc351/manifest.json",
+                "ce9a5175ccdc427dba9bfe093b6bc351/run.json",
+                "ce9a5175ccdc427dba9bfe093b6bc351/coverage.json"
+              ]
+            }
+          ],
+          "failure": null,
+          "event_type": "failure_refresh"
+        },
+        {
+          "task_id": "c1634e68a2e34a7099b40a47c975d3cc",
+          "phase": "fix_proposed",
+          "repository": {
+            "project_id": "pilot_exception",
+            "revision": "workflow-sha256:12af0b70324e8b85c6ff41fc602d680e080f0064d4c2fbae8d1d4453f7d14c2e",
+            "source_files": [
+              "app.py"
+            ],
+            "test_files": [
+              "tests/test_original.py",
+              "tests/generated/test_parse_count.py"
+            ],
+            "symbols": [
+              "app.parse_count",
+              "tests.test_original.test_normal"
+            ]
+          },
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 1,
+          "runs": [
+            {
+              "run_id": "4e703fb938b1488ea39bc02700e5b9c6",
+              "snapshot_digest": "77d192e4ae0a6d9277b4a9dd189b47eb40daa48988b7ced8624bf01f2c84ec3b",
+              "exit_code": 1,
+              "passed": 11,
+              "failed": 5,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "4e703fb938b1488ea39bc02700e5b9c6/log.txt",
+                  "4e703fb938b1488ea39bc02700e5b9c6/junit.xml",
+                  "4e703fb938b1488ea39bc02700e5b9c6/manifest.json",
+                  "4e703fb938b1488ea39bc02700e5b9c6/run.json",
+                  "4e703fb938b1488ea39bc02700e5b9c6/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "4e703fb938b1488ea39bc02700e5b9c6/log.txt",
+                "4e703fb938b1488ea39bc02700e5b9c6/junit.xml",
+                "4e703fb938b1488ea39bc02700e5b9c6/manifest.json",
+                "4e703fb938b1488ea39bc02700e5b9c6/run.json",
+                "4e703fb938b1488ea39bc02700e5b9c6/coverage.json"
+              ]
+            },
+            {
+              "run_id": "ce9a5175ccdc427dba9bfe093b6bc351",
+              "snapshot_digest": "77d192e4ae0a6d9277b4a9dd189b47eb40daa48988b7ced8624bf01f2c84ec3b",
+              "exit_code": 1,
+              "passed": 11,
+              "failed": 5,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "ce9a5175ccdc427dba9bfe093b6bc351/log.txt",
+                  "ce9a5175ccdc427dba9bfe093b6bc351/junit.xml",
+                  "ce9a5175ccdc427dba9bfe093b6bc351/manifest.json",
+                  "ce9a5175ccdc427dba9bfe093b6bc351/run.json",
+                  "ce9a5175ccdc427dba9bfe093b6bc351/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "ce9a5175ccdc427dba9bfe093b6bc351/log.txt",
+                "ce9a5175ccdc427dba9bfe093b6bc351/junit.xml",
+                "ce9a5175ccdc427dba9bfe093b6bc351/manifest.json",
+                "ce9a5175ccdc427dba9bfe093b6bc351/run.json",
+                "ce9a5175ccdc427dba9bfe093b6bc351/coverage.json"
+              ]
+            }
+          ],
+          "failure": null,
+          "event_type": "transition"
+        },
+        {
+          "task_id": "c1634e68a2e34a7099b40a47c975d3cc",
+          "phase": "tested",
+          "repository": {
+            "project_id": "pilot_exception",
+            "revision": "workflow-sha256:12af0b70324e8b85c6ff41fc602d680e080f0064d4c2fbae8d1d4453f7d14c2e",
+            "source_files": [
+              "app.py"
+            ],
+            "test_files": [
+              "tests/test_original.py",
+              "tests/generated/test_parse_count.py"
+            ],
+            "symbols": [
+              "app.parse_count",
+              "tests.test_original.test_normal"
+            ]
+          },
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 1,
+          "runs": [
+            {
+              "run_id": "4e703fb938b1488ea39bc02700e5b9c6",
+              "snapshot_digest": "77d192e4ae0a6d9277b4a9dd189b47eb40daa48988b7ced8624bf01f2c84ec3b",
+              "exit_code": 1,
+              "passed": 11,
+              "failed": 5,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "4e703fb938b1488ea39bc02700e5b9c6/log.txt",
+                  "4e703fb938b1488ea39bc02700e5b9c6/junit.xml",
+                  "4e703fb938b1488ea39bc02700e5b9c6/manifest.json",
+                  "4e703fb938b1488ea39bc02700e5b9c6/run.json",
+                  "4e703fb938b1488ea39bc02700e5b9c6/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "4e703fb938b1488ea39bc02700e5b9c6/log.txt",
+                "4e703fb938b1488ea39bc02700e5b9c6/junit.xml",
+                "4e703fb938b1488ea39bc02700e5b9c6/manifest.json",
+                "4e703fb938b1488ea39bc02700e5b9c6/run.json",
+                "4e703fb938b1488ea39bc02700e5b9c6/coverage.json"
+              ]
+            },
+            {
+              "run_id": "ce9a5175ccdc427dba9bfe093b6bc351",
+              "snapshot_digest": "77d192e4ae0a6d9277b4a9dd189b47eb40daa48988b7ced8624bf01f2c84ec3b",
+              "exit_code": 1,
+              "passed": 11,
+              "failed": 5,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "ce9a5175ccdc427dba9bfe093b6bc351/log.txt",
+                  "ce9a5175ccdc427dba9bfe093b6bc351/junit.xml",
+                  "ce9a5175ccdc427dba9bfe093b6bc351/manifest.json",
+                  "ce9a5175ccdc427dba9bfe093b6bc351/run.json",
+                  "ce9a5175ccdc427dba9bfe093b6bc351/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "ce9a5175ccdc427dba9bfe093b6bc351/log.txt",
+                "ce9a5175ccdc427dba9bfe093b6bc351/junit.xml",
+                "ce9a5175ccdc427dba9bfe093b6bc351/manifest.json",
+                "ce9a5175ccdc427dba9bfe093b6bc351/run.json",
+                "ce9a5175ccdc427dba9bfe093b6bc351/coverage.json"
+              ]
+            },
+            {
+              "run_id": "3ef439e7cebe41bcbe8f7ff29b87f8d9",
+              "snapshot_digest": "41cfd702cdd1c23b8995f7a700b9c4c520c19e56be5cff7298573bdf648215f9",
+              "exit_code": 0,
+              "passed": 16,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "failure": null,
+              "artifacts": [
+                "3ef439e7cebe41bcbe8f7ff29b87f8d9/log.txt",
+                "3ef439e7cebe41bcbe8f7ff29b87f8d9/junit.xml",
+                "3ef439e7cebe41bcbe8f7ff29b87f8d9/manifest.json",
+                "3ef439e7cebe41bcbe8f7ff29b87f8d9/run.json",
+                "3ef439e7cebe41bcbe8f7ff29b87f8d9/coverage.json"
+              ]
+            }
+          ],
+          "failure": null,
+          "event_type": "transition"
+        },
+        {
+          "task_id": "c1634e68a2e34a7099b40a47c975d3cc",
+          "phase": "verified",
+          "repository": {
+            "project_id": "pilot_exception",
+            "revision": "workflow-sha256:12af0b70324e8b85c6ff41fc602d680e080f0064d4c2fbae8d1d4453f7d14c2e",
+            "source_files": [
+              "app.py"
+            ],
+            "test_files": [
+              "tests/test_original.py",
+              "tests/generated/test_parse_count.py"
+            ],
+            "symbols": [
+              "app.parse_count",
+              "tests.test_original.test_normal"
+            ]
+          },
+          "policy": {
+            "test_prefix": "tests/generated/",
+            "max_fix_attempts": 3,
+            "timeout_seconds": 60,
+            "max_output_bytes": 65536,
+            "max_file_bytes": 100000
+          },
+          "attempts": 1,
+          "runs": [
+            {
+              "run_id": "4e703fb938b1488ea39bc02700e5b9c6",
+              "snapshot_digest": "77d192e4ae0a6d9277b4a9dd189b47eb40daa48988b7ced8624bf01f2c84ec3b",
+              "exit_code": 1,
+              "passed": 11,
+              "failed": 5,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "4e703fb938b1488ea39bc02700e5b9c6/log.txt",
+                  "4e703fb938b1488ea39bc02700e5b9c6/junit.xml",
+                  "4e703fb938b1488ea39bc02700e5b9c6/manifest.json",
+                  "4e703fb938b1488ea39bc02700e5b9c6/run.json",
+                  "4e703fb938b1488ea39bc02700e5b9c6/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "4e703fb938b1488ea39bc02700e5b9c6/log.txt",
+                "4e703fb938b1488ea39bc02700e5b9c6/junit.xml",
+                "4e703fb938b1488ea39bc02700e5b9c6/manifest.json",
+                "4e703fb938b1488ea39bc02700e5b9c6/run.json",
+                "4e703fb938b1488ea39bc02700e5b9c6/coverage.json"
+              ]
+            },
+            {
+              "run_id": "ce9a5175ccdc427dba9bfe093b6bc351",
+              "snapshot_digest": "77d192e4ae0a6d9277b4a9dd189b47eb40daa48988b7ced8624bf01f2c84ec3b",
+              "exit_code": 1,
+              "passed": 11,
+              "failed": 5,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "ce9a5175ccdc427dba9bfe093b6bc351/log.txt",
+                  "ce9a5175ccdc427dba9bfe093b6bc351/junit.xml",
+                  "ce9a5175ccdc427dba9bfe093b6bc351/manifest.json",
+                  "ce9a5175ccdc427dba9bfe093b6bc351/run.json",
+                  "ce9a5175ccdc427dba9bfe093b6bc351/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "ce9a5175ccdc427dba9bfe093b6bc351/log.txt",
+                "ce9a5175ccdc427dba9bfe093b6bc351/junit.xml",
+                "ce9a5175ccdc427dba9bfe093b6bc351/manifest.json",
+                "ce9a5175ccdc427dba9bfe093b6bc351/run.json",
+                "ce9a5175ccdc427dba9bfe093b6bc351/coverage.json"
+              ]
+            },
+            {
+              "run_id": "3ef439e7cebe41bcbe8f7ff29b87f8d9",
+              "snapshot_digest": "41cfd702cdd1c23b8995f7a700b9c4c520c19e56be5cff7298573bdf648215f9",
+              "exit_code": 0,
+              "passed": 16,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "failure": null,
+              "artifacts": [
+                "3ef439e7cebe41bcbe8f7ff29b87f8d9/log.txt",
+                "3ef439e7cebe41bcbe8f7ff29b87f8d9/junit.xml",
+                "3ef439e7cebe41bcbe8f7ff29b87f8d9/manifest.json",
+                "3ef439e7cebe41bcbe8f7ff29b87f8d9/run.json",
+                "3ef439e7cebe41bcbe8f7ff29b87f8d9/coverage.json"
+              ]
+            }
+          ],
+          "failure": null,
+          "event_type": "transition",
+          "independent_run": {
+            "run_id": "532663ac15b84d35a7a05e0330360a2d",
+            "snapshot_digest": "bddd09aecf1979c3016a59061843e21b28d158a1a5bf6aaf2193065e4c52fd85",
+            "exit_code": 0,
+            "passed": 29,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": []
+          },
+          "source_binding": {
+            "visible": {
+              "app.py": "df09e4059bd313eaf03d488a7309930af5c2a4ed1482830789705b75b0cfd0ae"
+            },
+            "independent": {
+              "app.py": "df09e4059bd313eaf03d488a7309930af5c2a4ed1482830789705b75b0cfd0ae"
+            }
+          }
+        }
+      ],
+      "baseline": {
+        "run": {
+          "run_id": "f5c00281c07845e288a77c9837c68bb6",
+          "snapshot_digest": "12af0b70324e8b85c6ff41fc602d680e080f0064d4c2fbae8d1d4453f7d14c2e",
+          "exit_code": 0,
+          "passed": 1,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "failure": null,
+          "artifacts": [
+            "f5c00281c07845e288a77c9837c68bb6/log.txt",
+            "f5c00281c07845e288a77c9837c68bb6/junit.xml",
+            "f5c00281c07845e288a77c9837c68bb6/manifest.json",
+            "f5c00281c07845e288a77c9837c68bb6/run.json",
+            "f5c00281c07845e288a77c9837c68bb6/coverage.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\c1634e68a2e34a7099b40a47c975d3cc\\baseline\\f5c00281c07845e288a77c9837c68bb6",
+        "cleanup_ok": true
+      },
+      "generation": {
+        "task_id": "c1634e68a2e34a7099b40a47c975d3cc",
+        "base_revision": "workflow-sha256:12af0b70324e8b85c6ff41fc602d680e080f0064d4c2fbae8d1d4453f7d14c2e",
+        "files": [
+          {
+            "path": "tests/generated/test_parse_count.py",
+            "content": "import pytest\n\nfrom app import parse_count\n\n\ndef test_parses_plain_integer():\n    assert parse_count(\"42\", 7) == 42\n\n\ndef test_parses_with_leading_and_trailing_whitespace():\n    assert parse_count(\"  42  \", 7) == 42\n\n\ndef test_parses_positive_sign():\n    assert parse_count(\"+15\", 0) == 15\n\n\ndef test_parses_negative_sign():\n    assert parse_count(\"-15\", 0) == -15\n\n\ndef test_parses_zero():\n    assert parse_count(\"0\", 99) == 0\n\n\ndef test_invalid_returns_supplied_default():\n    assert parse_count(\"bad\", 7) == 7\n\n\ndef test_invalid_returns_supplied_default_negative():\n    assert parse_count(\"not-a-number\", -3) == -3\n\n\ndef test_invalid_returns_zero_when_default_omitted():\n    assert parse_count(\"bad\") == 0\n\n\ndef test_empty_string_returns_default():\n    assert parse_count(\"\", 5) == 5\n\n\ndef test_whitespace_only_returns_default():\n    assert parse_count(\"   \", 5) == 5\n\n\ndef test_float_like_string_returns_default():\n    assert parse_count(\"3.5\", 11) == 11\n\n\ndef test_non_str_int_raises_type_error():\n    with pytest.raises(TypeError):\n        parse_count(42, 7)\n\n\ndef test_non_str_none_raises_type_error():\n    with pytest.raises(TypeError):\n        parse_count(None)\n\n\ndef test_non_str_float_raises_type_error():\n    with pytest.raises(TypeError):\n        parse_count(3.5, 1)\n\n\ndef test_non_str_list_raises_type_error():\n    with pytest.raises(TypeError):\n        parse_count([\"1\"], 1)\n",
+            "expected_sha256": null
+          }
+        ],
+        "rationale": "Requirements state parse_count must raise TypeError for non-str input, use int(text) semantics (signs, whitespace), and return the caller-supplied default unchanged on ValueError (0 when omitted). The current implementation returns 0 instead of the supplied default on ValueError, so tests assert the required default-preserving behavior. Boundary cases include empty/whitespace-only strings (ValueError -> default), signed values, and surrounding whitespace. Invalid inputs (non-str types) must raise TypeError, including when default is supplied.",
+        "failure": null
+      },
+      "reference": {
+        "run": {
+          "run_id": "0b841881bbff4e8091aec85a46c2418a",
+          "snapshot_digest": "41cfd702cdd1c23b8995f7a700b9c4c520c19e56be5cff7298573bdf648215f9",
+          "exit_code": 0,
+          "passed": 16,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "failure": null,
+          "artifacts": [
+            "0b841881bbff4e8091aec85a46c2418a/log.txt",
+            "0b841881bbff4e8091aec85a46c2418a/junit.xml",
+            "0b841881bbff4e8091aec85a46c2418a/manifest.json",
+            "0b841881bbff4e8091aec85a46c2418a/run.json",
+            "0b841881bbff4e8091aec85a46c2418a/coverage.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\c1634e68a2e34a7099b40a47c975d3cc\\reference\\0b841881bbff4e8091aec85a46c2418a",
+        "cleanup_ok": true
+      },
+      "generated_only": {
+        "run": {
+          "run_id": "e13085f624224004b8110134f904f6d9",
+          "snapshot_digest": "3fd0cefde4857eb838b00dee77cd44ac3a9678784870e4e19d35e4d0749250df",
+          "exit_code": 1,
+          "passed": 10,
+          "failed": 5,
+          "errors": 0,
+          "skipped": 0,
+          "failure": {
+            "kind": "test_assertion",
+            "message": "Run did not verify; inspect sanitized evidence",
+            "evidence": [
+              "e13085f624224004b8110134f904f6d9/log.txt",
+              "e13085f624224004b8110134f904f6d9/junit.xml",
+              "e13085f624224004b8110134f904f6d9/manifest.json",
+              "e13085f624224004b8110134f904f6d9/run.json",
+              "e13085f624224004b8110134f904f6d9/coverage.json"
+            ]
+          },
+          "artifacts": [
+            "e13085f624224004b8110134f904f6d9/log.txt",
+            "e13085f624224004b8110134f904f6d9/junit.xml",
+            "e13085f624224004b8110134f904f6d9/manifest.json",
+            "e13085f624224004b8110134f904f6d9/run.json",
+            "e13085f624224004b8110134f904f6d9/coverage.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\c1634e68a2e34a7099b40a47c975d3cc\\generated-only\\e13085f624224004b8110134f904f6d9",
+        "cleanup_ok": true
+      },
+      "full_before": {
+        "run": {
+          "run_id": "4e703fb938b1488ea39bc02700e5b9c6",
+          "snapshot_digest": "77d192e4ae0a6d9277b4a9dd189b47eb40daa48988b7ced8624bf01f2c84ec3b",
+          "exit_code": 1,
+          "passed": 11,
+          "failed": 5,
+          "errors": 0,
+          "skipped": 0,
+          "failure": {
+            "kind": "test_assertion",
+            "message": "Run did not verify; inspect sanitized evidence",
+            "evidence": [
+              "4e703fb938b1488ea39bc02700e5b9c6/log.txt",
+              "4e703fb938b1488ea39bc02700e5b9c6/junit.xml",
+              "4e703fb938b1488ea39bc02700e5b9c6/manifest.json",
+              "4e703fb938b1488ea39bc02700e5b9c6/run.json",
+              "4e703fb938b1488ea39bc02700e5b9c6/coverage.json"
+            ]
+          },
+          "artifacts": [
+            "4e703fb938b1488ea39bc02700e5b9c6/log.txt",
+            "4e703fb938b1488ea39bc02700e5b9c6/junit.xml",
+            "4e703fb938b1488ea39bc02700e5b9c6/manifest.json",
+            "4e703fb938b1488ea39bc02700e5b9c6/run.json",
+            "4e703fb938b1488ea39bc02700e5b9c6/coverage.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\c1634e68a2e34a7099b40a47c975d3cc\\full-before\\4e703fb938b1488ea39bc02700e5b9c6",
+        "cleanup_ok": true
+      },
+      "repair": {
+        "task_id": "c1634e68a2e34a7099b40a47c975d3cc",
+        "project_id": "pilot_exception",
+        "base_revision": "workflow-sha256:12af0b70324e8b85c6ff41fc602d680e080f0064d4c2fbae8d1d4453f7d14c2e",
+        "prompt_version": "p05-repair-v2",
+        "status": "verified",
+        "attempts": [
+          {
+            "attempt": 1,
+            "based_on_run_id": "ce9a5175ccdc427dba9bfe093b6bc351",
+            "input_digest": "77d192e4ae0a6d9277b4a9dd189b47eb40daa48988b7ced8624bf01f2c84ec3b",
+            "source_hashes": [
+              [
+                "app.py",
+                "4371ef8092be004357e6e677f8e953d9474a84a9ef2a4599cb80035dd897e5a2"
+              ]
+            ],
+            "proposal": {
+              "task_id": "c1634e68a2e34a7099b40a47c975d3cc",
+              "base_revision": "workflow-sha256:12af0b70324e8b85c6ff41fc602d680e080f0064d4c2fbae8d1d4453f7d14c2e",
+              "based_on_run_id": "ce9a5175ccdc427dba9bfe093b6bc351",
+              "files": [
+                {
+                  "path": "app.py",
+                  "content": "def parse_count(text, default=0):\n    if not isinstance(text, str):\n        raise TypeError(\"text must be str\")\n    try:\n        return int(text)\n    except ValueError:\n        return default\n",
+                  "expected_sha256": "4371ef8092be004357e6e677f8e953d9474a84a9ef2a4599cb80035dd897e5a2"
+                }
+              ],
+              "diagnosis": "app.py:7 returns the literal 0 on ValueError instead of the caller-supplied default, violating the requirement that invalid input returns default unchanged. Minimal fix: return default.",
+              "failure": null
+            },
+            "model_candidate": {
+              "task_id": "c1634e68a2e34a7099b40a47c975d3cc",
+              "base_revision": "workflow-sha256:12af0b70324e8b85c6ff41fc602d680e080f0064d4c2fbae8d1d4453f7d14c2e",
+              "based_on_run_id": "ce9a5175ccdc427dba9bfe093b6bc351",
+              "diagnosis": "app.py:7 returns the literal 0 on ValueError instead of the caller-supplied default, violating the requirement that invalid input returns default unchanged. Minimal fix: return default.",
+              "files": [
+                {
+                  "path": "app.py",
+                  "content": "def parse_count(text, default=0):\n    if not isinstance(text, str):\n        raise TypeError(\"text must be str\")\n    try:\n        return int(text)\n    except ValueError:\n        return default\n"
+                }
+              ]
+            },
+            "completion": {
+              "model": "deepseek-v4-flash-ascend",
+              "usage": {
+                "prompt_tokens": 2077,
+                "completion_tokens": 219,
+                "total_tokens": 2296
+              },
+              "usage_available": true
+            },
+            "transport_metadata": {
+              "finish_reason": "stop",
+              "usage": {
+                "prompt_tokens": 2077,
+                "completion_tokens": 219,
+                "total_tokens": 2296
+              },
+              "thinking_mode": "disabled",
+              "content_characters": 652,
+              "reasoning_characters": 0
+            },
+            "patch_diff": "--- a/app.py\n+++ b/app.py\n@@ -4,4 +4,4 @@\n     try:\n         return int(text)\n     except ValueError:\n-        return 0\n+        return default\n",
+            "visible_run": {
+              "run": {
+                "run_id": "3ef439e7cebe41bcbe8f7ff29b87f8d9",
+                "snapshot_digest": "41cfd702cdd1c23b8995f7a700b9c4c520c19e56be5cff7298573bdf648215f9",
+                "exit_code": 0,
+                "passed": 16,
+                "failed": 0,
+                "errors": 0,
+                "skipped": 0,
+                "failure": null,
+                "artifacts": [
+                  "3ef439e7cebe41bcbe8f7ff29b87f8d9/log.txt",
+                  "3ef439e7cebe41bcbe8f7ff29b87f8d9/junit.xml",
+                  "3ef439e7cebe41bcbe8f7ff29b87f8d9/manifest.json",
+                  "3ef439e7cebe41bcbe8f7ff29b87f8d9/run.json",
+                  "3ef439e7cebe41bcbe8f7ff29b87f8d9/coverage.json"
+                ]
+              },
+              "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\c1634e68a2e34a7099b40a47c975d3cc\\repair\\c1634e68a2e34a7099b40a47c975d3cc\\execution\\3ef439e7cebe41bcbe8f7ff29b87f8d9",
+              "cleanup_ok": true
+            },
+            "original_regression_run": null,
+            "rollback_ok": null,
+            "refreshed_failure": null,
+            "elapsed_seconds": 10.141
+          }
+        ],
+        "baseline": {
+          "run": {
+            "run_id": "75e45da3129d434dbc237f70076e272a",
+            "snapshot_digest": "12af0b70324e8b85c6ff41fc602d680e080f0064d4c2fbae8d1d4453f7d14c2e",
+            "exit_code": 0,
+            "passed": 1,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "75e45da3129d434dbc237f70076e272a/log.txt",
+              "75e45da3129d434dbc237f70076e272a/junit.xml",
+              "75e45da3129d434dbc237f70076e272a/manifest.json",
+              "75e45da3129d434dbc237f70076e272a/run.json",
+              "75e45da3129d434dbc237f70076e272a/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\c1634e68a2e34a7099b40a47c975d3cc\\repair\\c1634e68a2e34a7099b40a47c975d3cc\\execution\\75e45da3129d434dbc237f70076e272a",
+          "cleanup_ok": true
+        },
+        "initial_failure": {
+          "run": {
+            "run_id": "fd0ea6a4d835444693dc34cb3ef4ec1c",
+            "snapshot_digest": "77d192e4ae0a6d9277b4a9dd189b47eb40daa48988b7ced8624bf01f2c84ec3b",
+            "exit_code": 1,
+            "passed": 11,
+            "failed": 5,
+            "errors": 0,
+            "skipped": 0,
+            "failure": {
+              "kind": "test_assertion",
+              "message": "Run did not verify; inspect sanitized evidence",
+              "evidence": [
+                "fd0ea6a4d835444693dc34cb3ef4ec1c/log.txt",
+                "fd0ea6a4d835444693dc34cb3ef4ec1c/junit.xml",
+                "fd0ea6a4d835444693dc34cb3ef4ec1c/manifest.json",
+                "fd0ea6a4d835444693dc34cb3ef4ec1c/run.json",
+                "fd0ea6a4d835444693dc34cb3ef4ec1c/coverage.json"
+              ]
+            },
+            "artifacts": [
+              "fd0ea6a4d835444693dc34cb3ef4ec1c/log.txt",
+              "fd0ea6a4d835444693dc34cb3ef4ec1c/junit.xml",
+              "fd0ea6a4d835444693dc34cb3ef4ec1c/manifest.json",
+              "fd0ea6a4d835444693dc34cb3ef4ec1c/run.json",
+              "fd0ea6a4d835444693dc34cb3ef4ec1c/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\c1634e68a2e34a7099b40a47c975d3cc\\repair\\c1634e68a2e34a7099b40a47c975d3cc\\execution\\fd0ea6a4d835444693dc34cb3ef4ec1c",
+          "cleanup_ok": true
+        },
+        "reproduction": {
+          "run": {
+            "run_id": "ce9a5175ccdc427dba9bfe093b6bc351",
+            "snapshot_digest": "77d192e4ae0a6d9277b4a9dd189b47eb40daa48988b7ced8624bf01f2c84ec3b",
+            "exit_code": 1,
+            "passed": 11,
+            "failed": 5,
+            "errors": 0,
+            "skipped": 0,
+            "failure": {
+              "kind": "test_assertion",
+              "message": "Run did not verify; inspect sanitized evidence",
+              "evidence": [
+                "ce9a5175ccdc427dba9bfe093b6bc351/log.txt",
+                "ce9a5175ccdc427dba9bfe093b6bc351/junit.xml",
+                "ce9a5175ccdc427dba9bfe093b6bc351/manifest.json",
+                "ce9a5175ccdc427dba9bfe093b6bc351/run.json",
+                "ce9a5175ccdc427dba9bfe093b6bc351/coverage.json"
+              ]
+            },
+            "artifacts": [
+              "ce9a5175ccdc427dba9bfe093b6bc351/log.txt",
+              "ce9a5175ccdc427dba9bfe093b6bc351/junit.xml",
+              "ce9a5175ccdc427dba9bfe093b6bc351/manifest.json",
+              "ce9a5175ccdc427dba9bfe093b6bc351/run.json",
+              "ce9a5175ccdc427dba9bfe093b6bc351/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\c1634e68a2e34a7099b40a47c975d3cc\\repair\\c1634e68a2e34a7099b40a47c975d3cc\\execution\\ce9a5175ccdc427dba9bfe093b6bc351",
+          "cleanup_ok": true
+        },
+        "independent_validation": {
+          "run": {
+            "run_id": "532663ac15b84d35a7a05e0330360a2d",
+            "snapshot_digest": "bddd09aecf1979c3016a59061843e21b28d158a1a5bf6aaf2193065e4c52fd85",
+            "exit_code": 0,
+            "passed": 29,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "532663ac15b84d35a7a05e0330360a2d/log.txt",
+              "532663ac15b84d35a7a05e0330360a2d/junit.xml",
+              "532663ac15b84d35a7a05e0330360a2d/manifest.json",
+              "532663ac15b84d35a7a05e0330360a2d/run.json",
+              "532663ac15b84d35a7a05e0330360a2d/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\pilots\\c1634e68a2e34a7099b40a47c975d3cc\\repair\\c1634e68a2e34a7099b40a47c975d3cc\\independent\\532663ac15b84d35a7a05e0330360a2d",
+          "cleanup_ok": true
+        },
+        "final_sources": [
+          [
+            "app.py",
+            "def parse_count(text, default=0):\n    if not isinstance(text, str):\n        raise TypeError(\"text must be str\")\n    try:\n        return int(text)\n    except ValueError:\n        return default\n"
+          ]
+        ],
+        "elapsed_seconds": 18.406
+      },
+      "generation_completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 537,
+          "completion_tokens": 707,
+          "total_tokens": 1244
+        }
+      },
+      "parent_task_id": null,
+      "coverage": {
+        "baseline": {
+          "lines": {
+            "covered": 6,
+            "total": 7
+          },
+          "branches": {
+            "covered": 1,
+            "total": 2
+          },
+          "files": {
+            "app.py": {
+              "missing_lines": [
+                3
+              ],
+              "missing_branches": [
+                [
+                  2,
+                  3
+                ]
+              ]
+            }
+          }
+        },
+        "reference": {
+          "lines": {
+            "covered": 7,
+            "total": 7
+          },
+          "branches": {
+            "covered": 2,
+            "total": 2
+          },
+          "files": {
+            "app.py": {
+              "missing_lines": [],
+              "missing_branches": []
+            }
+          }
+        },
+        "generated-only": {
+          "lines": {
+            "covered": 7,
+            "total": 7
+          },
+          "branches": {
+            "covered": 2,
+            "total": 2
+          },
+          "files": {
+            "app.py": {
+              "missing_lines": [],
+              "missing_branches": []
+            }
+          }
+        },
+        "full-before": {
+          "lines": {
+            "covered": 7,
+            "total": 7
+          },
+          "branches": {
+            "covered": 2,
+            "total": 2
+          },
+          "files": {
+            "app.py": {
+              "missing_lines": [],
+              "missing_branches": []
+            }
+          }
+        },
+        "repaired-visible": {
+          "lines": {
+            "covered": 7,
+            "total": 7
+          },
+          "branches": {
+            "covered": 2,
+            "total": 2
+          },
+          "files": {
+            "app.py": {
+              "missing_lines": [],
+              "missing_branches": []
+            }
+          }
+        }
+      },
+      "generation_transport_metadata": {
+        "finish_reason": "stop",
+        "usage": {
+          "prompt_tokens": 537,
+          "completion_tokens": 707,
+          "total_tokens": 1244
+        },
+        "thinking_mode": "disabled",
+        "content_characters": 2269,
+        "reasoning_characters": 0
+      },
+      "generation_diagnostic": {
+        "characters": 2269,
+        "markdown_fence": false,
+        "json_valid": true,
+        "object": true,
+        "required_fields_exact": true,
+        "files": [
+          {
+            "fields_valid": true,
+            "syntax_valid": true,
+            "assertions_per_test": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "file_count": 1
+      },
+      "generation_candidate": {
+        "task_id": "c1634e68a2e34a7099b40a47c975d3cc",
+        "base_revision": "workflow-sha256:12af0b70324e8b85c6ff41fc602d680e080f0064d4c2fbae8d1d4453f7d14c2e",
+        "rationale": "Requirements state parse_count must raise TypeError for non-str input, use int(text) semantics (signs, whitespace), and return the caller-supplied default unchanged on ValueError (0 when omitted). The current implementation returns 0 instead of the supplied default on ValueError, so tests assert the required default-preserving behavior. Boundary cases include empty/whitespace-only strings (ValueError -> default), signed values, and surrounding whitespace. Invalid inputs (non-str types) must raise TypeError, including when default is supplied.",
+        "files": [
+          {
+            "path": "tests/generated/test_parse_count.py",
+            "content": "import pytest\n\nfrom app import parse_count\n\n\ndef test_parses_plain_integer():\n    assert parse_count(\"42\", 7) == 42\n\n\ndef test_parses_with_leading_and_trailing_whitespace():\n    assert parse_count(\"  42  \", 7) == 42\n\n\ndef test_parses_positive_sign():\n    assert parse_count(\"+15\", 0) == 15\n\n\ndef test_parses_negative_sign():\n    assert parse_count(\"-15\", 0) == -15\n\n\ndef test_parses_zero():\n    assert parse_count(\"0\", 99) == 0\n\n\ndef test_invalid_returns_supplied_default():\n    assert parse_count(\"bad\", 7) == 7\n\n\ndef test_invalid_returns_supplied_default_negative():\n    assert parse_count(\"not-a-number\", -3) == -3\n\n\ndef test_invalid_returns_zero_when_default_omitted():\n    assert parse_count(\"bad\") == 0\n\n\ndef test_empty_string_returns_default():\n    assert parse_count(\"\", 5) == 5\n\n\ndef test_whitespace_only_returns_default():\n    assert parse_count(\"   \", 5) == 5\n\n\ndef test_float_like_string_returns_default():\n    assert parse_count(\"3.5\", 11) == 11\n\n\ndef test_non_str_int_raises_type_error():\n    with pytest.raises(TypeError):\n        parse_count(42, 7)\n\n\ndef test_non_str_none_raises_type_error():\n    with pytest.raises(TypeError):\n        parse_count(None)\n\n\ndef test_non_str_float_raises_type_error():\n    with pytest.raises(TypeError):\n        parse_count(3.5, 1)\n\n\ndef test_non_str_list_raises_type_error():\n    with pytest.raises(TypeError):\n        parse_count([\"1\"], 1)\n"
+          }
+        ]
+      },
+      "elapsed_seconds": 51.672
+    }
+  ],
+  "usage_summary": {
+    "requests": 4,
+    "known_tokens": 6329,
+    "unknown_usage": 0,
+    "global_attempts_after": 41
+  }
+}

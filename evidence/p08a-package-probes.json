@@ -1,0 +1,190 @@
+{
+  "schema": 1,
+  "kind": "new container import and admission probes, NOT upstream full regression or defect repair",
+  "image_id": "sha256:fa0bf12db21a77915cb1c9c9b250978ce25ef6c27520086d14ef68a748dc89a4",
+  "model_calls": 0,
+  "projects": [
+    {
+      "project_id": "click",
+      "commit": "934813e4d421071a1b3db3973c02fe2721359a6e",
+      "support_project_ids": [],
+      "probe_source": "from pathlib import Path\nimport click\ndef test_working_copy_origin():\n    assert Path(click.__file__).resolve().is_relative_to(Path('/workspace/src/click'))\n\nimport click\nfrom click.testing import CliRunner\ndef test_range():\n    kind = click.IntRange(1, 3)\n    assert kind.convert('1', None, None) == 1\n    assert kind.convert('3', None, None) == 3\ndef test_command():\n    @click.command()\n    def hello():\n        click.echo('hello')\n    result = CliRunner().invoke(hello)\n    assert result.exit_code == 0\n    assert result.output == 'hello\\n'\n",
+      "test_scope": "three assistant-authored admission probes only",
+      "execution": {
+        "run": {
+          "run_id": "63b3e5d979254ffda57c4d3a4e701ba6",
+          "snapshot_digest": "f568ca40c1829f9c2e0a653e9df83b82d6b3c26db2d72fb4da0426d3529a0a91",
+          "exit_code": 0,
+          "passed": 3,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "failure": null,
+          "artifacts": [
+            "63b3e5d979254ffda57c4d3a4e701ba6/log.txt",
+            "63b3e5d979254ffda57c4d3a4e701ba6/junit.xml",
+            "63b3e5d979254ffda57c4d3a4e701ba6/manifest.json",
+            "63b3e5d979254ffda57c4d3a4e701ba6/run.json",
+            "63b3e5d979254ffda57c4d3a4e701ba6/coverage.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\probes\\63b3e5d979254ffda57c4d3a4e701ba6",
+        "cleanup_ok": true
+      }
+    },
+    {
+      "project_id": "jinja",
+      "commit": "15206881c006c79667fe5154fe80c01c65410679",
+      "support_project_ids": [
+        "markupsafe"
+      ],
+      "probe_source": "from pathlib import Path\nimport jinja2\ndef test_working_copy_origin():\n    assert Path(jinja2.__file__).resolve().is_relative_to(Path('/workspace/src/jinja2'))\n    import markupsafe\n    assert Path(markupsafe.__file__).resolve().is_relative_to(Path('/workspace/src/markupsafe'))\n\nimport jinja2, markupsafe\ndef test_render():\n    assert jinja2.Environment().from_string('Hello {{ name }}').render(name='Ada') == 'Hello Ada'\ndef test_autoescape():\n    assert jinja2.Environment(autoescape=True).from_string('{{ value }}').render(value='<b>') == '&lt;b&gt;'\n    assert markupsafe._escape_inner.__module__ == 'markupsafe._native'\n",
+      "test_scope": "three assistant-authored admission probes only",
+      "execution": {
+        "run": {
+          "run_id": "be701a30b33f4cf280d5d29110dba09c",
+          "snapshot_digest": "0c932ce4153f83ed3acde64073c0465af3469ddc0c6a233187996ac0115c2f87",
+          "exit_code": 0,
+          "passed": 3,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "failure": null,
+          "artifacts": [
+            "be701a30b33f4cf280d5d29110dba09c/log.txt",
+            "be701a30b33f4cf280d5d29110dba09c/junit.xml",
+            "be701a30b33f4cf280d5d29110dba09c/manifest.json",
+            "be701a30b33f4cf280d5d29110dba09c/run.json",
+            "be701a30b33f4cf280d5d29110dba09c/coverage.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\probes\\be701a30b33f4cf280d5d29110dba09c",
+        "cleanup_ok": true
+      }
+    },
+    {
+      "project_id": "itsdangerous",
+      "commit": "096c8d42545d3b68ea21a4f890fb2b2d8979c0bd",
+      "support_project_ids": [],
+      "probe_source": "from pathlib import Path\nimport itsdangerous\ndef test_working_copy_origin():\n    assert Path(itsdangerous.__file__).resolve().is_relative_to(Path('/workspace/src/itsdangerous'))\n\nimport itsdangerous, pytest\ndef test_roundtrip():\n    signer = itsdangerous.URLSafeSerializer('probe-key')\n    assert signer.loads(signer.dumps({'n': 1})) == {'n': 1}\ndef test_wrong_key_rejected():\n    text = itsdangerous.URLSafeSerializer('probe-key').dumps('hello')\n    with pytest.raises(itsdangerous.BadSignature):\n        itsdangerous.URLSafeSerializer('different-key').loads(text)\n",
+      "test_scope": "three assistant-authored admission probes only",
+      "execution": {
+        "run": {
+          "run_id": "9af3341937cc433b80def9d4aa8a4cc3",
+          "snapshot_digest": "ebfd5a8e8ee844422e4292377071847c5c52ed661057dabf5c975fcc9db9ed58",
+          "exit_code": 0,
+          "passed": 3,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "failure": null,
+          "artifacts": [
+            "9af3341937cc433b80def9d4aa8a4cc3/log.txt",
+            "9af3341937cc433b80def9d4aa8a4cc3/junit.xml",
+            "9af3341937cc433b80def9d4aa8a4cc3/manifest.json",
+            "9af3341937cc433b80def9d4aa8a4cc3/run.json",
+            "9af3341937cc433b80def9d4aa8a4cc3/coverage.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\probes\\9af3341937cc433b80def9d4aa8a4cc3",
+        "cleanup_ok": true
+      }
+    },
+    {
+      "project_id": "markupsafe",
+      "commit": "297fc8e356e6836a62087949245d09a28e9f1b13",
+      "support_project_ids": [],
+      "probe_source": "from pathlib import Path\nimport markupsafe\ndef test_working_copy_origin():\n    assert Path(markupsafe.__file__).resolve().is_relative_to(Path('/workspace/src/markupsafe'))\n\nimport markupsafe\ndef test_python_backend():\n    assert markupsafe._escape_inner.__module__ == 'markupsafe._native'\n    assert str(markupsafe.escape('<a>')) == '&lt;a&gt;'\ndef test_none_semantics():\n    assert str(markupsafe.escape(None)) == 'None'\n    assert str(markupsafe.escape_silent(None)) == ''\n",
+      "test_scope": "three assistant-authored admission probes only",
+      "execution": {
+        "run": {
+          "run_id": "afda23e2f32c4093a8bdf4a8af2ea88a",
+          "snapshot_digest": "c1622a306f4a95d728246a42dc3dc39b14006b5afa9a169a4a2f48e53f22b95f",
+          "exit_code": 0,
+          "passed": 3,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "failure": null,
+          "artifacts": [
+            "afda23e2f32c4093a8bdf4a8af2ea88a/log.txt",
+            "afda23e2f32c4093a8bdf4a8af2ea88a/junit.xml",
+            "afda23e2f32c4093a8bdf4a8af2ea88a/manifest.json",
+            "afda23e2f32c4093a8bdf4a8af2ea88a/run.json",
+            "afda23e2f32c4093a8bdf4a8af2ea88a/coverage.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\probes\\afda23e2f32c4093a8bdf4a8af2ea88a",
+        "cleanup_ok": true
+      }
+    },
+    {
+      "project_id": "dateutil",
+      "commit": "1ae807774053c071acc9e7d3d27778fba0a7773e",
+      "support_project_ids": [],
+      "probe_source": "from pathlib import Path\nimport dateutil\ndef test_working_copy_origin():\n    assert Path(dateutil.__file__).resolve().is_relative_to(Path('/workspace/src/dateutil'))\n    from dateutil import easter as easter_module\n    assert Path(easter_module.__file__).resolve().is_relative_to(Path('/workspace/src/dateutil'))\n\nimport datetime, pytest\nfrom dateutil.easter import easter\ndef test_known_dates():\n    assert easter(2024) == datetime.date(2024, 3, 31)\n    assert easter(2025) == datetime.date(2025, 4, 20)\ndef test_invalid_method():\n    with pytest.raises(ValueError):\n        easter(2024, method=0)\n",
+      "test_scope": "three assistant-authored admission probes only",
+      "execution": {
+        "run": {
+          "run_id": "d0b64addb5084d05916381cf367fddd4",
+          "snapshot_digest": "30ec6b95e1caf2951abecd4b587f2bb43ddedf85c08cba7960d51f78cd8c9764",
+          "exit_code": 0,
+          "passed": 3,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "failure": null,
+          "artifacts": [
+            "d0b64addb5084d05916381cf367fddd4/log.txt",
+            "d0b64addb5084d05916381cf367fddd4/junit.xml",
+            "d0b64addb5084d05916381cf367fddd4/manifest.json",
+            "d0b64addb5084d05916381cf367fddd4/run.json",
+            "d0b64addb5084d05916381cf367fddd4/coverage.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\probes\\d0b64addb5084d05916381cf367fddd4",
+        "cleanup_ok": true
+      }
+    }
+  ],
+  "prior_probe_attempts": [
+    {
+      "project_id": "dateutil",
+      "commit": "1ae807774053c071acc9e7d3d27778fba0a7773e",
+      "support_project_ids": [],
+      "probe_source": "from pathlib import Path\nimport dateutil\ndef test_working_copy_origin():\n    assert Path(dateutil.__file__).resolve().is_relative_to(Path('/workspace/src/dateutil'))\n    import dateutil.easter\n    assert Path(dateutil.easter.__file__).resolve().is_relative_to(Path('/workspace/src/dateutil'))\n\nimport datetime, pytest\nfrom dateutil.easter import easter\ndef test_known_dates():\n    assert easter(2024) == datetime.date(2024, 3, 31)\n    assert easter(2025) == datetime.date(2025, 4, 20)\ndef test_invalid_method():\n    with pytest.raises(ValueError):\n        easter(2024, method=0)\n",
+      "test_scope": "three assistant-authored admission probes only",
+      "execution": {
+        "run": {
+          "run_id": "7079f60dba184321a2043d4625b3b094",
+          "snapshot_digest": "600e79fd417aeccbd2c0a7cda2cd1cb986fff4bc615bdf838c277c25555ff00c",
+          "exit_code": 1,
+          "passed": 2,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "failure": {
+            "kind": "test_assertion",
+            "message": "Run did not verify; inspect sanitized evidence",
+            "evidence": [
+              "7079f60dba184321a2043d4625b3b094/log.txt",
+              "7079f60dba184321a2043d4625b3b094/junit.xml",
+              "7079f60dba184321a2043d4625b3b094/manifest.json",
+              "7079f60dba184321a2043d4625b3b094/run.json",
+              "7079f60dba184321a2043d4625b3b094/coverage.json"
+            ]
+          },
+          "artifacts": [
+            "7079f60dba184321a2043d4625b3b094/log.txt",
+            "7079f60dba184321a2043d4625b3b094/junit.xml",
+            "7079f60dba184321a2043d4625b3b094/manifest.json",
+            "7079f60dba184321a2043d4625b3b094/run.json",
+            "7079f60dba184321a2043d4625b3b094/coverage.json"
+          ]
+        },
+        "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08a\\probes\\7079f60dba184321a2043d4625b3b094",
+        "cleanup_ok": true
+      }
+    }
+  ]
+}

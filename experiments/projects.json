@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "projects": [
+    {"id":"click","url":"https://github.com/pallets/click.git","tag":"8.1.8","commit":"934813e4d421071a1b3db3973c02fe2721359a6e","package_root":"src/click","license_files":["LICENSE.txt"],"config_files":["pyproject.toml"]},
+    {"id":"jinja","url":"https://github.com/pallets/jinja.git","tag":"3.1.6","commit":"15206881c006c79667fe5154fe80c01c65410679","package_root":"src/jinja2","license_files":["LICENSE.txt"],"config_files":["pyproject.toml"]},
+    {"id":"itsdangerous","url":"https://github.com/pallets/itsdangerous.git","tag":"2.2.0","commit":"096c8d42545d3b68ea21a4f890fb2b2d8979c0bd","package_root":"src/itsdangerous","license_files":["LICENSE.txt"],"config_files":["pyproject.toml"]},
+    {"id":"markupsafe","url":"https://github.com/pallets/markupsafe.git","tag":"3.0.3","commit":"297fc8e356e6836a62087949245d09a28e9f1b13","package_root":"src/markupsafe","license_files":["LICENSE.txt"],"config_files":["pyproject.toml","setup.py"]},
+    {"id":"dateutil","url":"https://github.com/dateutil/dateutil.git","tag":"2.9.0.post0","commit":"1ae807774053c071acc9e7d3d27778fba0a7773e","package_root":"src/dateutil","license_files":["LICENSE","AUTHORS.md"],"config_files":["pyproject.toml","setup.cfg","setup.py"]}
+  ]
+}

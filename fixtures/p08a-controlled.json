@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "scope": "controlled-pilot-only",
+  "cases": [
+    {
+      "id": "pilot_null_type",
+      "defect_type": "null_type",
+      "requirements": [
+        "normalize_optional_text(value) accepts None or a string. None must return the empty string, strings return value.strip(). Any other type must raise TypeError. Do not modify input."
+      ],
+      "sources": {
+        "app.py": "def normalize_optional_text(value):\n    if value is None:\n        return \"None\"\n    if not isinstance(value, str):\n        raise TypeError(\"value must be str or None\")\n    return value.strip()\n"
+      },
+      "original_tests": {
+        "tests/test_original.py": "from app import normalize_optional_text\ndef test_normal():\n    assert normalize_optional_text(\" hi \") == \"hi\"\n"
+      }
+    },
+    {
+      "id": "pilot_exception",
+      "defect_type": "exception_handling",
+      "requirements": [
+        "parse_count(text, default=0) requires text to be a string; other types raise TypeError. Parse using Python int(text), including signs and whitespace. If int(text) raises ValueError, return the caller-supplied default unchanged (zero when omitted). Do not swallow TypeError."
+      ],
+      "sources": {
+        "app.py": "def parse_count(text, default=0):\n    if not isinstance(text, str):\n        raise TypeError(\"text must be str\")\n    try:\n        return int(text)\n    except ValueError:\n        return 0\n"
+      },
+      "original_tests": {
+        "tests/test_original.py": "from app import parse_count\ndef test_normal():\n    assert parse_count(\"42\", 7) == 42\n    assert parse_count(\"bad\") == 0\n"
+      }
+    }
+  ]
+}

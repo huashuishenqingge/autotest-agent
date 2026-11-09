@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "cases": {
+    "pilot_null_type": {
+      "reference_sources": {
+        "app.py": "def normalize_optional_text(value):\n    if value is None:\n        return \"\"\n    if not isinstance(value, str):\n        raise TypeError(\"value must be str or None\")\n    return value.strip()\n"
+      },
+      "holdout_tests": {
+        "tests/test_holdout.py": "import pytest\nfrom app import normalize_optional_text\n@pytest.mark.parametrize(\"value,expected\", [(None,\"\"),(\"\",\"\"),(\" \",\"\"),(\" a \",\"a\"),(\"你好\",\"你好\"),(\"\\ta\\n\",\"a\")])\ndef test_values(value, expected):\n    assert normalize_optional_text(value) == expected\n@pytest.mark.parametrize(\"value\", [0,1,False,[],{},b\"a\"])\ndef test_wrong_types(value):\n    with pytest.raises(TypeError):\n        normalize_optional_text(value)\n"
+      }
+    },
+    "pilot_exception": {
+      "reference_sources": {
+        "app.py": "def parse_count(text, default=0):\n    if not isinstance(text, str):\n        raise TypeError(\"text must be str\")\n    try:\n        return int(text)\n    except ValueError:\n        return default\n"
+      },
+      "holdout_tests": {
+        "tests/test_holdout.py": "import pytest\nfrom app import parse_count\n@pytest.mark.parametrize(\"text,default,expected\", [(\"0\",9,0),(\"+12\",9,12),(\" -5 \",7,-5),(\"bad\",7,7),(\"\",-3,-3),(\"1.5\",None,None),(\"0x10\",44,44),(\" \",99,99)])\ndef test_parse(text, default, expected):\n    assert parse_count(text, default) == expected\n@pytest.mark.parametrize(\"value\", [None,1,False,[],{}])\ndef test_wrong_types(value):\n    with pytest.raises(TypeError):\n        parse_count(value, 7)\n"
+      }
+    }
+  }
+}
