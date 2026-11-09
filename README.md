@@ -113,3 +113,23 @@ relative_path 拒绝绝对路径、盘符、反斜线、空段、点段、父目
 可用包含 `snapshot: WorkflowState` 的 TypedDict 作为图状态，每个串行节点返回 `{"snapshot": new_snapshot}`；只允许调度节点调用 advance，避免两个 Agent 并行覆盖同一快照。不要把本 reducer 当作 LangGraph 的列表拼接 reducer。
 
 当前是同进程 Python 契约，不提供 JSON 自动反序列化。跨进程接入时用显式 schema（例如 Pydantic v2）重建对象、枚举和 tuple，拒绝未知字段，检查 CONTRACT_VERSION 与输入内容路径/大小/完整性；不要直接用未经验证的 dict 或 pickle。dataclasses.asdict 可用于导出快照，但不等于安全的输入解析器。
+
+## P07 本机任务中心
+
+在项目根目录启动（Python 3.11+，无额外Web依赖）：
+
+```console
+python -m web.server --port 8765
+```
+
+打开 `http://127.0.0.1:8765`。默认演示模式无需密钥及Docker，页面、下载和结果都标注模拟证据。可提交三种冻结边界任务、查询状态、取消、查看测试/日志/诊断/补丁差异、下载JSON。SQLite和产物保存在忽略的 `artifacts/web`。一次一个任务，排队上限10。取消在阶段边界生效，不保证中断在途模型请求；任务重启后显示interrupted，不自动重试收费调用。当前轮询状态为任务级，详细执行日志在任务返回后展示，不提供实时容器日志流。
+
+真实模式使用本机 `.env` 和已审核的不可变本地Docker镜像：
+
+```console
+python -m web.server --port 8765 --enable-real --image-id sha256:<64位实际镜像ID>
+```
+
+`<64位实际镜像ID>`须替换。真实模式复用P06 `run_case` 和既有调用账本，会产生模型费用。首期只支持三个冻结任务，不支持浏览器上传任意仓库；覆盖率在P06B完成前显示无数据。仅监听127.0.0.1，必须使用该地址而非localhost访问。用户身份认证、远程部署、多用户权限不在本期范围。不要将本服务代理到公网。
+
+同一数据目录一次只允许一个服务。异常退出留下server.lock时，先确认旧进程已停止再删除该锁。测试：`python -m unittest discover -s tests -v`，HTTP测试需要允许本机回环监听。P07实际验收证据和限制见 `阶段7_验证与交接.md`。
