@@ -315,12 +315,13 @@ def main():
             client.ensure_safe(report)
         (args.artifacts / 'latest-summary.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
         print(child['id'] + ': ' + result['status'], flush=True)
-        if result['status'] != 'verified':
-            return 1
     if args.export:
         args.export.parent.mkdir(parents=True, exist_ok=True)
         args.export.write_text(json.dumps(report, indent=2), encoding='utf-8')
-    return 0 if all(c['status'] == 'verified' for c in report['cases']) else 1
+    successful = all(c['status'] == 'verified' for c in report['cases'])
+    if 'feedback_child' in report:
+        successful = successful and report['feedback_child']['status'] == 'verified'
+    return 0 if successful else 1
 
 
 if __name__ == '__main__':

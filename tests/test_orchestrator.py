@@ -1,3 +1,4 @@
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -28,6 +29,28 @@ class OrchestratorTests(unittest.TestCase):
                 result = run_case(dict(self.case(), expected_parent_snapshot='parent-snapshot'), {}, client=None,
                                   image_id='unused', artifact_root=Path(folder))
         self.assertEqual(result['status'], 'parent_snapshot_mismatch')
+
+    def test_feedback_failure_and_cancellation_export_current_report(self):
+        for status in ('feedback_tests_failed', 'cancelled'):
+            with self.subTest(status=status), tempfile.TemporaryDirectory() as folder:
+                root = Path(folder)
+                export = root / 'export.json'
+                export.write_text('{"stale": true}', encoding='utf-8')
+                parent = {'case_id': 'age_threshold', 'task_id': 'parent', 'status': 'verified'}
+                child = {'case_id': 'age_threshold-coverage-child', 'status': status}
+                with patch('sys.argv', ['orchestrator', '--call', '--image-id', 'unused',
+                           '--feedback', '--artifacts', str(root), '--export', str(export)]), \
+                     patch('workflow.orchestrator.load_cases', return_value=(
+                         [{'id': 'age_threshold'}], {'age_threshold': {}}, {})), \
+                     patch('workflow.orchestrator.Config.from_env'), \
+                     patch('workflow.orchestrator.ModelClient') as client, \
+                     patch('workflow.orchestrator.feedback_case', return_value={'id': child['case_id']}), \
+                     patch('workflow.orchestrator.run_case', side_effect=[parent, child]):
+                    client.return_value.list_models.return_value = [client.return_value.config.model]
+                    self.assertEqual(main(), 1)
+                report = json.loads(export.read_text(encoding='utf-8'))
+                self.assertEqual(report['feedback_child']['status'], status)
+                self.assertEqual(report, json.loads((root / 'latest-summary.json').read_text(encoding='utf-8')))
 
     def case(self):
         return {'id': 'sample', 'sources': {'app.py': 'def f(x): return x > 1\n'},

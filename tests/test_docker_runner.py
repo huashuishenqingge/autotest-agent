@@ -31,6 +31,32 @@ class DockerRunnerTests(unittest.TestCase):
             self.assertFalse(metadata['cleanup_ok'])
             self.assertEqual((source / 'app.py').read_bytes(), b'x=1')
 
+    def test_sanitized_junit_remains_usable_for_failure_reproduction(self):
+        from repair.session import _failure_evidence
+        import xml.etree.ElementTree as ET
+        for assignment in ('token=abc', 'password=x'):
+            with self.subTest(assignment=assignment), tempfile.TemporaryDirectory() as root, tempfile.TemporaryDirectory() as artifacts:
+                source = Path(root)
+                (source / 'app.py').write_bytes(b'x=1')
+                xml = ('<testsuite><testcase classname="test_app" name="test_boundary">'
+                       '<failure type="AssertionError" message="' + assignment + '">'
+                       'AssertionError: assert False; key=a&amp;b</failure>'
+                       '<system-out>' + assignment + '</system-out></testcase></testsuite>')
+                report = json.dumps({'exit_code': 1, 'junit': xml, 'log': assignment}).encode()
+                responses = [subprocess.CompletedProcess([], 0, b'container', b''),
+                             subprocess.CompletedProcess([], 0, report, b''),
+                             subprocess.CompletedProcess([], 0, b'', b'')]
+                with patch('execution.docker_runner.subprocess.run', side_effect=responses):
+                    result = run_tests(source, Repository('p', 'r', ('app.py',)),
+                        image_id='sha256:'+'a'*64, artifact_root=Path(artifacts), secrets=('a&b',))
+                saved = (Path(result.artifact_directory) / 'junit.xml').read_text(encoding='utf-8')
+                tree = ET.fromstring(saved)
+                self.assertEqual(result.run.failure.kind, FailureKind.TEST_ASSERTION)
+                self.assertEqual(tree.find('.//failure').get('message'), assignment.split('=')[0] + '=[REDACTED]')
+                self.assertNotIn('a&b', ''.join(tree.itertext()))
+                self.assertNotIn(assignment, saved)
+                self.assertEqual(len(_failure_evidence(result)), 1)
+
     def test_log_limit_preserves_truncation_marker(self):
         from execution.docker_runner import bounded_log
         text = bounded_log('x' * 200 + '\n[log truncated]', 64)

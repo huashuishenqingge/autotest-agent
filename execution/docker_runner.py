@@ -98,6 +98,29 @@ def _redact(text: str, secrets: tuple[str, ...]) -> str:
     return re.sub(r'(?i)((?:api[_-]?key|token|password|secret)\s*[=:]\s*)[^\s,;]+', r'\1[REDACTED]', text)
 
 
+def sanitized_junit(xml: bytes, secrets: tuple[str, ...]) -> bytes:
+    """Redact decoded XML values without treating markup as log text."""
+    import xml.etree.ElementTree as ET
+    if len(xml) > 2_000_000 or b'<!DOCTYPE' in xml.upper() or b'<!ENTITY' in xml.upper():
+        return b''
+    try:
+        root = ET.fromstring(xml)
+        for node in root.iter():
+            for key, value in node.attrib.items():
+                node.set(key, _redact(value, secrets))
+            if node.text:
+                node.text = _redact(node.text, secrets)
+            if node.tail:
+                node.tail = _redact(node.tail, secrets)
+        result = ET.tostring(root, encoding='utf-8')
+        # Credentials in element/attribute names cannot be replaced safely.
+        if len(result) > 2_000_000 or any(secret and secret in result.decode('utf-8') for secret in secrets):
+            return b''
+        return result
+    except (ET.ParseError, ValueError, RecursionError):
+        return b''
+
+
 def bounded_log(text: str, limit: int) -> str:
     """Reserve space for a marker; never split a UTF-8 character."""
     if limit <= 0:
@@ -186,7 +209,7 @@ def run_tests(root: Path, repository: Repository, *, image_id: str,
                     cleanup_ok = False
     # Raw logs and XML may contain repository secrets; persist sanitized text only.
     log = bounded_log(_redact(log, secrets), policy.max_output_bytes)
-    sanitized_xml = _redact(xml.decode('utf-8', errors='replace'), secrets)
+    xml = sanitized_junit(xml, secrets)
     if coverage_report is not None:
         try:
             coverage_text = json.dumps(coverage_report)
@@ -195,7 +218,7 @@ def run_tests(root: Path, repository: Repository, *, image_id: str,
         except (TypeError, ValueError, RecursionError):
             pass  # No measurement evidence; coverage-required workflows fail closed.
     (directory / 'log.txt').write_text(log, encoding='utf-8')
-    (directory / 'junit.xml').write_text(sanitized_xml, encoding='utf-8')
+    (directory / 'junit.xml').write_bytes(xml)
     artifacts = tuple(f'{run_id}/{name}' for name in ('log.txt', 'junit.xml', 'manifest.json', 'run.json'))
     if (directory / 'coverage.json').is_file():
         artifacts += (f'{run_id}/coverage.json',)
