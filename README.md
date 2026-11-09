@@ -2,7 +2,9 @@
 
 ## 团队协作与进度入口
 
-P05边界修复模块已通过真实验收，待用户确认：三个冻结函数完整验证132/55/108项全部通过，独立语义及Docker重放通过。用 `python -m examples.repair_boundary --replay evidence/p05-real-repairs.json --image-id <本机执行镜像sha256 ID>` 无需密钥即可重放真实补丁；详见[阶段5记录](阶段5_验证与交接.md)。后两个样例可见测试为人工审查，统一真实生成—修复闭环仍在P06实施。
+P06已完成真实单命令闭环及覆盖率反馈技术验收，待用户确认：三个任务全部重新生成测试，修复后含保留130/61/110项通过；独立语义与重放通过。正确反馈子任务继承父全部测试，19项可见/141项完整通过，覆盖率保持满覆盖，无增量。命令与限制见[阶段6记录](阶段6_验证与交接.md)，真实证据见[evidence/p06-real-workflow.json](evidence/p06-real-workflow.json)。P07尚未开始。
+
+P05已获用户验收：三个冻结函数完整验证132/55/108项通过。用 `python -m examples.repair_boundary --replay evidence/p05-real-repairs.json --image-id <本机执行镜像sha256 ID>` 可重放历史补丁；P05后两例使用人工可见测试，P06已补齐三个任务的真实生成。
 
 P04已获用户验收：学校DeepSeek生成9例，完整测试9通过1预期边界失败，独立复核及重放通过。真实提案和输入见[evidence/p04-deepseek-generation.json](evidence/p04-deepseek-generation.json)；`python -m examples.replay_p04 --image-id <本机执行镜像sha256 ID>` 可无模型调用复现。
 
@@ -12,13 +14,26 @@ P03已获用户验收。先按[阶段3记录](阶段3_验证与交接.md)构建�
 
 最新开发范围见 [任务书](任务书.md)：先完成边界条件缺陷的真实测试—修复闭环，用户验收后再扩展空值/类型及异常处理。最终三类缺陷、Web与五项目目标保留。
 
-采用Spec驱动协作，先阅读 [Spec入口](specs/README.md)、[需求规格](specs/需求规格.md)、[接口契约](specs/接口契约.md)和当前阶段 [P05规格](specs/P05-定位与修复.md)。规格批准、实现自测、独立复核及用户验收分别记录。
+采用Spec驱动协作，先阅读 [Spec入口](specs/README.md)、[需求规格](specs/需求规格.md)、[接口契约](specs/接口契约.md)和当前阶段 [P06规格](specs/P06-完整闭环.md)。规格批准、实现自测、独立复核及用户验收分别记录。
 
 请先阅读 [项目计划与进度](项目计划与进度.md)，其中包含阶段计划、两人分工、任务依赖、验收标准、当前状态和交接记录。每次领取或完成任务都必须同步更新该清单；每阶段交付后等待用户确认。智能体接手同时遵守 [AGENTS.md](AGENTS.md)。环境与方案依据见 [阶段1_技术方案与验收](阶段1_技术方案与验收.md)。
 
-宿主代码使用Python 3.11+标准库与frozen dataclass/Protocol，不依赖Pydantic或LangGraph；容器镜像另固定Python及pytest。已实现仓库解析、真实模型适配、测试生成、隔离执行及边界修复模块；统一调度、覆盖率、Web与五项目实验仍按进度表推进。
+宿主代码使用Python 3.11+标准库与frozen dataclass/Protocol，不依赖Pydantic或LangGraph；容器镜像固定Python、pytest及coverage。已实现解析、真实模型生成、隔离执行、边界修复、统一调度及受控覆盖率反馈；Web与五项目实验仍按进度表推进。
 
 ## 快速开始
+
+### 单命令闭环及覆盖率（P06）
+
+```powershell
+docker build -t autotest-executor:phase6 execution
+$executionImage = docker image inspect autotest-executor:phase6 --format '{{.Id}}'
+# 无需密钥，重放真实测试和补丁：
+python -m workflow.orchestrator --replay evidence/p06-real-workflow.json --feedback --image-id $executionImage
+# 配置学校密钥后，重新真实生成与修复（模型须在自己授权列表内）：
+python -m workflow.orchestrator --call --model deepseek-v4-flash-ascend --feedback --image-id $executionImage
+```
+
+不加--call/--replay只预览；--case可选固定任务；--cancel-file指定本机取消标记。重放不调用模型，输入/独立摘要须一致。固定样例以外的复杂项目、依赖及业务数据仍需另行适配。
 
 ### 隔离执行与补丁应用（阶段3已验收）
 

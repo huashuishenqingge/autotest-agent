@@ -177,8 +177,11 @@ class ModelClient:
             self.ensure_safe(payload)
             return payload
         except HTTPError as error:
+            self.last_metadata = {'http_status': error.code}
             raise ModelError('environment', f'Model service returned HTTP {error.code}; no retry was made') from None
-        except (URLError, OSError, TimeoutError):
+        except (URLError, OSError, TimeoutError) as error:
+            self.last_metadata = {'network_error_type': type(error).__name__,
+                                  'cause_type': type(getattr(error, 'reason', None)).__name__}
             raise ModelError('environment', 'Model service connection failed or timed out; no retry was made') from None
         except (UnicodeError, ValueError, RecursionError) as error:
             if isinstance(error, ModelError):
