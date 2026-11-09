@@ -124,6 +124,7 @@ def run_tests(root: Path, repository: Repository, *, image_id: str,
     timed_out = False
     log = ''
     cleanup_ok = True
+    coverage_report = None
     manifest = ()
     digest = 'unavailable'
     command = []
@@ -150,6 +151,7 @@ def run_tests(root: Path, repository: Repository, *, image_id: str,
                         if len(probe.stdout) > 12_000_000:
                             raise ValueError('result envelope exceeds budget')
                         report = json.loads(probe.stdout)
+                        coverage_report = report.get('coverage')
                         code = report['exit_code']
                         if type(code) is not int:
                             raise ValueError('invalid exit code')
@@ -170,7 +172,7 @@ def run_tests(root: Path, repository: Repository, *, image_id: str,
             timed_out = True
             code = 124
             log = 'Docker operation exceeded time budget'
-        except (OSError, ValueError, KeyError, TypeError, AttributeError):
+        except (OSError, ValueError, KeyError, TypeError, AttributeError, RecursionError):
             code = 125
             log = 'Execution unavailable or invalid evidence; no host fallback was used'
         finally:
@@ -185,9 +187,18 @@ def run_tests(root: Path, repository: Repository, *, image_id: str,
     # Raw logs and XML may contain repository secrets; persist sanitized text only.
     log = bounded_log(_redact(log, secrets), policy.max_output_bytes)
     sanitized_xml = _redact(xml.decode('utf-8', errors='replace'), secrets)
+    if coverage_report is not None:
+        try:
+            coverage_text = json.dumps(coverage_report)
+            if len(coverage_text.encode('utf-8')) <= 2_000_000:
+                (directory / 'coverage.json').write_text(_redact(coverage_text, secrets), encoding='utf-8')
+        except (TypeError, ValueError, RecursionError):
+            pass  # No measurement evidence; coverage-required workflows fail closed.
     (directory / 'log.txt').write_text(log, encoding='utf-8')
     (directory / 'junit.xml').write_text(sanitized_xml, encoding='utf-8')
     artifacts = tuple(f'{run_id}/{name}' for name in ('log.txt', 'junit.xml', 'manifest.json', 'run.json'))
+    if (directory / 'coverage.json').is_file():
+        artifacts += (f'{run_id}/coverage.json',)
     run = classify_result(run_id, digest, code, xml, timed_out=timed_out, artifacts=artifacts)
     if not cleanup_ok and run.successful:
         run = classify_result(run_id, digest, 125, b'', artifacts=artifacts)
