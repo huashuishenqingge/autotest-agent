@@ -77,10 +77,11 @@ class Store:
                 db.execute("UPDATE tasks SET status='running',updated=? WHERE id=?", (time.time(), row[0]))
         return self.get(row[0]) if row else None
 
-    def finish(self, task_id, result):
+    def finish(self, task_id, result, *, interrupted=False):
         with self.connect() as db:
             row = db.execute('SELECT cancel FROM tasks WHERE id=?', (task_id,)).fetchone()
-            status = 'cancelled' if row[0] else ('succeeded' if result.get('status') == 'verified' else 'failed')
+            status = ('cancelled' if row[0] else 'succeeded' if result.get('status') == 'verified'
+                      else 'interrupted' if interrupted else 'failed')
             db.execute('UPDATE tasks SET status=?,result=?,updated=? WHERE id=?',
                        (status, json.dumps(result, ensure_ascii=False), time.time(), task_id))
 
@@ -192,7 +193,7 @@ class Application:
             except Exception:
                 result = {'status': 'failed', 'evidence': self.mode,
                           'error': '任务执行失败，请检查本机模型配置、镜像和执行产物。异常原文未公开。'}
-            self.store.finish(task['id'], result)
+            self.store.finish(task['id'], result, interrupted=self.stop.is_set())
 
     def close(self):
         self.stop.set()

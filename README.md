@@ -168,3 +168,6 @@ python -m web.server --port 8765 --enable-real --model deepseek-v4-flash-ascend 
 ```
 
 若已有首版服务，请先Ctrl+C停止后再用新代码启动；不要将另一个电脑上的镜像ID误认为本机已有镜像。
+
+
+P07本机真实验收已补齐：三父任务及三个反馈子任务、取消/下载/重启持久化和Chrome桌面移动结果通过，待用户确认。新运行证据为`evidence/p07-real-web.json`，当前`--evidence`仍只读展示原P06冻结包。完整范围、模型用量和停服状态修正见`阶段7_验证与交接.md`最新节；不将本机验收计作五项目实验。

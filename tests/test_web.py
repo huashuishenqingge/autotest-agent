@@ -105,6 +105,24 @@ class WebTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.app.submit({'case_id': self.app.cases[0]})
 
+    def test_service_stop_records_interrupted_without_user_cancellation(self):
+        ready = threading.Event()
+        def run(task, cancelled):
+            ready.set()
+            while not cancelled():
+                time.sleep(.01)
+            return {'status': 'cancelled'}
+        self.app.runner = run
+        task = self.app.submit({'case_id': self.app.cases[0]})
+        self.app.start()
+        self.assertTrue(ready.wait(2))
+        self.app.close()
+        saved = self.store.get(task['id'])
+        self.assertEqual(saved['cancel'], 0)
+        self.assertEqual(saved['status'], 'interrupted')
+        reopened = Store(self.store.path)
+        self.assertEqual(reopened.get(task['id'])['status'], 'interrupted')
+
     def test_static_and_info(self):
         for path in ('/', '/app.js', '/style.css', '/api/info'):
             status, body, headers = self.request(path)
