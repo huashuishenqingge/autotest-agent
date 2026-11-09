@@ -145,6 +145,14 @@ class ResultTests(unittest.TestCase):
         self.assertFalse(run.successful)
         self.assertEqual(run.skipped, 1)
 
+    def test_pytest_raises_missing_exception_is_a_test_expectation_failure(self):
+        xml = ('<testsuite><testcase><failure message="Failed: DID NOT RAISE &lt;class &apos;ValueError&apos;&gt;">'
+               'with pytest.raises(ValueError):\nFailed: DID NOT RAISE &lt;class &apos;ValueError&apos;&gt;'
+               '</failure></testcase></testsuite>')
+        self.assertEqual(self.result(1, xml).failure.kind, FailureKind.TEST_ASSERTION)
+        runtime = '<testsuite><testcase><failure message="ValueError: DID NOT RAISE">ValueError: DID NOT RAISE</failure></testcase></testsuite>'
+        self.assertEqual(self.result(1, runtime).failure.kind, FailureKind.ENVIRONMENT)
+
 
 if __name__ == '__main__':
     unittest.main()

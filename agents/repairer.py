@@ -8,6 +8,7 @@ import re
 from models.adapter import ModelError, strict_json
 from workflow.state import (Failure, FailureKind, FileProposal, RepairInput,
                             RepairOutput, validate_proposal)
+from workflow.state import relative_path
 
 PROMPT_VERSION = 'p05-repair-v2'
 SYSTEM = '''You diagnose and minimally repair Python boundary defects.
@@ -29,15 +30,18 @@ class RepairContext:
     requirements: tuple[str, ...]
     source_hashes: tuple[tuple[str, str], ...]
     visible_tests: tuple[tuple[str, str], ...]
+    support_hashes: tuple[tuple[str, str], ...] = ()
 
 
-def context_digest(sources, tests):
-    entries = tuple(sources) + tuple(tests)
+def context_digest(sources, tests, support_hashes=()):
+    entries = tuple((p, hashlib.sha256(t.encode('utf-8')).hexdigest()) for p, t in tuple(sources) + tuple(tests)) + tuple(support_hashes)
     if len({p.casefold() for p, _ in entries}) != len(entries):
         raise ValueError('duplicate context paths')
     digest = hashlib.sha256()
-    for path, content in sorted(entries):
-        hashed = hashlib.sha256(content.encode('utf-8')).hexdigest()
+    for path, hashed in sorted(entries):
+        relative_path(path)
+        if not isinstance(hashed, str) or not re.fullmatch('[0-9a-f]{64}', hashed):
+            raise ValueError('invalid input byte hash')
         digest.update(path.encode() + b'\0' + hashed.encode() + b'\0')
     return digest.hexdigest()
 
@@ -58,7 +62,7 @@ def _validate_context(request: RepairInput, context: RepairContext):
     for path, text in sources.items():
         if not isinstance(text, str) or hashlib.sha256(text.encode('utf-8')).hexdigest() != hashes[path]:
             raise ValueError('source byte hash mismatch')
-    if context_digest(request.source_texts, context.visible_tests) != request.failed_run.snapshot_digest:
+    if context_digest(request.source_texts, context.visible_tests, context.support_hashes) != request.failed_run.snapshot_digest:
         raise ValueError('failure evidence does not match current source and tests')
 
 

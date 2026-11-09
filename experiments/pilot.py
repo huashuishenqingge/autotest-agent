@@ -26,6 +26,11 @@ def main():
         return 0
     if not args.image_id:
         parser.error('--call requires --image-id')
+    if args.export.exists():
+        raise FileExistsError('preserve prior pilot evidence; select an explicitly new export')
+    args.export.parent.mkdir(parents=True, exist_ok=True)
+    with args.export.open('x',encoding='utf-8') as stream:
+        json.dump({'schema':1,'status':'claimed','scope':'controlled-pilot-only'},stream)
     cancelled = lambda: bool(args.cancel_file and args.cancel_file.exists())
     client = None
     if not cancelled():

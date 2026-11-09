@@ -14,6 +14,10 @@ from execution.proposals import ApplyError, apply_proposal, checked_path, rollba
 from workflow.state import FailureKind, Policy, RepairInput
 
 
+class SessionCancelled(Exception):
+    pass
+
+
 def _failure_evidence(result):
     path = Path(result.artifact_directory) / 'junit.xml'
     if not path.is_file() or path.stat().st_size > 2_000_000:
@@ -46,13 +50,15 @@ def _signature(result):
 
 
 def run_repair_session(root, repository, *, original_tests, requirements, holdout_tests,
-                       client, image_id, artifact_root, policy=None, task_id=None, event_hook=None):
+                       client, image_id, artifact_root, policy=None, task_id=None, event_hook=None,
+                       support_files=(), repairer_factory=None, cancelled=lambda: False):
     policy = policy or Policy()
     root = Path(root).resolve(strict=True)
     if not original_tests or not set(original_tests).issubset(repository.test_files):
         raise ValueError('explicit nonempty original test inventory required')
     holdout_tests = tuple(holdout_tests)
-    known = {p.casefold() for p in repository.source_files + repository.test_files}
+    support_files = tuple(support_files)
+    known = {p.casefold() for p in repository.source_files + repository.test_files + support_files}
     if (not holdout_tests or len({p.casefold() for p, _ in holdout_tests}) != len(holdout_tests)
             or any(p.casefold() in known for p, _ in holdout_tests)):
         raise ValueError('nonoverlapping independent test inventory required')
@@ -60,16 +66,20 @@ def run_repair_session(root, repository, *, original_tests, requirements, holdou
     directory = Path(artifact_root).resolve() / task_id
     directory.mkdir(parents=True, exist_ok=False)
     record = {'task_id': task_id, 'project_id': repository.project_id, 'base_revision': repository.revision,
-              'prompt_version': PROMPT_VERSION, 'status': 'failed', 'attempts': [],
+              'prompt_version': PROMPT_VERSION if repairer_factory is None else 'factory-defined; see attempts', 'status': 'failed', 'attempts': [],
               'baseline': None, 'initial_failure': None, 'reproduction': None,
               'independent_validation': None, 'final_sources': None, 'elapsed_seconds': None}
     started = time.monotonic()
     secret = getattr(getattr(client, 'config', None), 'api_key', '')
     secrets = (secret,) if secret else ()
+    def checkpoint():
+        if cancelled():
+            raise SessionCancelled()
     try:
+        checkpoint()
         with tempfile.TemporaryDirectory(prefix='autotest-repair-') as folder:
             working = Path(folder).resolve()
-            stage_snapshot(root, working, repository)
+            stage_snapshot(root, working, repository, support_files=support_files)
             # Stage input is read-only. Only approved source files in this owned
             # copy become writable for atomic replacement, never the user's root.
             for path in repository.source_files:
@@ -78,8 +88,9 @@ def run_repair_session(root, repository, *, original_tests, requirements, holdou
                 checked_path(working, path)  # validate before any model call
 
             def execute(repo):
+                checkpoint()
                 return run_tests(working, repo, image_id=image_id, artifact_root=directory / 'execution',
-                                 policy=policy, secrets=secrets)
+                                 policy=policy, secrets=secrets, support_files=support_files)
 
             baseline_repo = replace(repository, test_files=tuple(original_tests))
             baseline = execute(baseline_repo)
@@ -100,16 +111,19 @@ def run_repair_session(root, repository, *, original_tests, requirements, holdou
                 return record
             failed = reproduced
             for attempt in range(1, min(3, policy.max_fix_attempts) + 1):
+                checkpoint()
                 if event_hook:
                     event_hook('current_failure', failed.run)
                 sources = tuple((p, checked_path(working, p).read_bytes().decode('utf-8')) for p in repository.source_files)
                 hashes = tuple((p, hashlib.sha256(checked_path(working, p).read_bytes()).hexdigest()) for p in repository.source_files)
                 tests = tuple((p, checked_path(working, p).read_bytes().decode('utf-8')) for p in repository.test_files)
-                context = RepairContext(tuple(requirements), hashes, tests)
+                support_hashes = tuple((p, hashlib.sha256(checked_path(working, p).read_bytes()).hexdigest()) for p in support_files)
+                context = RepairContext(tuple(requirements), hashes, tests, support_hashes)
                 log_path = Path(failed.artifact_directory) / 'log.txt'
                 log = log_path.read_text(encoding='utf-8')
                 request = RepairInput(task_id, repository, policy, failed.run, attempt, sources, log)
-                agent = Repairer(client, context)
+                agent = (Repairer(client, context) if repairer_factory is None else
+                         repairer_factory(client, context, failure_evidence=_failure_evidence(failed)))
                 attempt_started = time.monotonic()
                 output = agent.repair(request)
                 completion = agent.last_completion
@@ -123,7 +137,10 @@ def run_repair_session(root, repository, *, original_tests, requirements, holdou
                         'patch_diff': None, 'visible_run': None, 'original_regression_run': None,
                         'rollback_ok': None, 'refreshed_failure': None,
                         'elapsed_seconds': round(time.monotonic() - attempt_started, 3)}
+                item['context_audit'] = getattr(agent, 'context_audit', None)
+                item['prompt_version'] = getattr(agent, 'prompt_version', PROMPT_VERSION)
                 record['attempts'].append(item)
+                checkpoint()  # Retain returned usage/proposal before cancellation.
                 if output.failure:
                     record['status'] = output.failure.kind.value
                     return record
@@ -140,15 +157,16 @@ def run_repair_session(root, repository, *, original_tests, requirements, holdou
                     # Add private tests only to a separate evaluation copy.
                     with tempfile.TemporaryDirectory(prefix='autotest-validation-') as validation_folder:
                         validation = Path(validation_folder).resolve()
-                        stage_snapshot(working, validation, repository)
+                        stage_snapshot(working, validation, repository, support_files=support_files)
                         for path, content in holdout_tests:
                             target = checked_path(validation, path)
                             target.parent.mkdir(parents=True, exist_ok=True)
                             target.write_bytes(content.encode('utf-8'))
                         independent_repo = replace(repository, test_files=repository.test_files + tuple(p for p, _ in holdout_tests))
                         independent = run_tests(validation, independent_repo, image_id=image_id,
-                            artifact_root=directory / 'independent', policy=policy, secrets=secrets)
+                            artifact_root=directory / 'independent', policy=policy, secrets=secrets, support_files=support_files)
                     record['independent_validation'] = asdict(independent)
+                    checkpoint()
                     if independent.run.successful and independent.cleanup_ok:
                         record['final_sources'] = tuple((p, checked_path(working, p).read_bytes().decode('utf-8'))
                                                         for p in repository.source_files)
@@ -179,6 +197,8 @@ def run_repair_session(root, repository, *, original_tests, requirements, holdou
                     record['status'] = 'not_reproducible'
                     return record
             record['status'] = 'budget_exhausted'
+    except (SessionCancelled, KeyboardInterrupt):
+        record['status'] = 'cancelled'
     except ApplyError as error:
         record['status'] = error.kind.value
     except (OSError, ValueError, UnicodeError):

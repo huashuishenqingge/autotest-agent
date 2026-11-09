@@ -26,7 +26,9 @@ def classify_result(run_id: str, digest: str, exit_code: int, junit: bytes,
                     failed += 1
                     failure = case.find('failure')
                     detail = (failure.get('type', '') + ' ' + failure.get('message', '') + ' ' + (failure.text or ''))
-                    assertions_only &= 'AssertionError' in detail or 'assert ' in detail
+                    missing_expected_exception = (failure.get('message', '').startswith('Failed: DID NOT RAISE ')
+                                                  and 'pytest.raises' in ''.join(failure.itertext()))
+                    assertions_only &= 'AssertionError' in detail or 'assert ' in detail or missing_expected_exception
                 elif case.find('skipped') is not None:
                     skipped += 1
                 else:

@@ -170,10 +170,24 @@ python -m web.server --port 8765 --enable-real --model deepseek-v4-flash-ascend 
 若已有首版服务，请先Ctrl+C停止后再用新代码启动；不要将另一个电脑上的镜像ID误认为本机已有镜像。
 
 
-P07本机真实验收已补齐：三父任务及三个反馈子任务、取消/下载/重启持久化和Chrome桌面移动结果通过，待用户确认。新运行证据为`evidence/p07-real-web.json`，当前`--evidence`仍只读展示原P06冻结包。完整范围、模型用量和停服状态修正见`阶段7_验证与交接.md`最新节；不将本机验收计作五项目实验。
+P07真实Web验收已获用户接受。当前分支feature/experiments-p08，P08A技术检查点通过、待用户确认；P08B正式30任务尚未开始。总进度见`项目计划与进度.md`，真实结果、排除和失败历史见`阶段8_验证与交接.md`。
 
+五项目审核回归及来源/固定依赖校验通过；资源库存、确定性函数上下文与可信回填已实现。非正式MarkupSafe B1/B2/A0真实修复含保留22/35/39通过，第二轮覆盖率无增量。不能将单函数预跑写成五项目正式实验结论。Windows132项127通过5跳过；Linux核心116通过1跳过，Web由Windows完整回归覆盖。
 
-用户已验收P07；当前P08先准备规格，采用“先注入缺陷，真实历史缺陷另列”。见`specs/P08-五项目实验.md`草案：先补真实项目/三类缺陷适配与预跑，经检查点确认，再冻结30任务和正式对照实验。尚未执行新实验，不将候选源码元数据核对记为运行成功。
+无需模型的入口：
 
+```powershell
+python -m experiments.preflight --export artifacts/p08a-preflight-new.json
+python -m experiments.pilot
+python -m experiments.admission
+```
 
-P08A首轮已完成固定五仓来源/大小盘点、容器基础探针及两类受控预跑（非正式30样本）。静态检查：`python -m experiments.preflight --export artifacts/p08a-preflight.json`；受控任务预览：`python -m experiments.pilot`（默认无模型/容器调用）。真实pilot须显式`--call --image-id`，沿用累计账本。报告见`阶段8_验证与交接.md`；现有输入/整文件补丁不足以直接处理整包，具体`specs/P08A-真实项目适配.md`待确认，P08A整体未完成。
+`admission`默认只核对冻结工作副本并预览来源。真实项目准入公共清单在`fixtures/p08a-project-admission.json`，评估侧清单在`validation/p08a-project-admission.json`；评估内容不进入模型。仅支持P08A准入，不是正式任务冻结器。
+
+保存提案免费重放（需本机拥有下列已审镜像和固定reference副本）：
+
+```powershell
+python -m experiments.admission --replay evidence/p08a-markupsafe-admission.json --group B1 --image-id sha256:a150efa0a707a0bac2ed4ca74df6f5dad4fa9a8cfdf6b9d50ce60c6281d20df2 --artifacts artifacts/p08a/my-replay --export artifacts/p08a/my-replay.json
+```
+
+导出路径必须全新，已有campaign拒绝重用；不会自动收费重跑。新真实调用须显式`--call`，使用本机.env和累计账本。Git不会同步.env、参考克隆、下载wheel、Docker镜像或本地artifacts；搭档需按`experiments/projects.json`取得固定tag/SHA。当前证据按Windows CRLF字节冻结，复现克隆使用仓库局部`--config core.autocrlf=true`并核对盘点摘要。镜像可由持有者导出/导入同一审查镜像；依赖锁及离线构建说明见阶段8交接，另一机器是否可直接复现由P09干净环境验证，尚未宣称通过。

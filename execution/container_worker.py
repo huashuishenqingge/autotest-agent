@@ -22,9 +22,14 @@ def main():
     limit = min(max(int(sys.argv[1]), 1), 1_000_000)
     env = dict(os.environ, PYTHONPATH='/workspace:/workspace/src',
                PYTEST_DISABLE_PLUGIN_AUTOLOAD='1', PYTHONDONTWRITEBYTECODE='1')
+    targets = json.loads(sys.argv[2]) if len(sys.argv) == 3 else []
+    if (not isinstance(targets, list) or any(not isinstance(p, str) or not p.endswith('.py')
+            or any(part in ('', '.', '..') for part in p.split('/')) or p.startswith('/')
+            or '\\' in p or ':' in p or any(ord(c) < 32 for c in p) for p in targets)):
+        return 5
     pytest_args = ['-c', '/opt/autotest/pytest.ini',
         '-p', 'no:cacheprovider', '--tb=short', '-q', '--junitxml=/tmp/junit.xml',
-        '/workspace']
+        *(['/workspace/' + p for p in targets] if targets else ['/workspace'])]
     measured = importlib.util.find_spec('coverage') is not None
     if measured:
         # Import the trusted coverage package in isolated mode before adding

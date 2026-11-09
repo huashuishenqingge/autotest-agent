@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "scope": "P08A-admission-only",
+  "id": "admission_markupsafe_escape_silent",
+  "project_id": "markupsafe",
+  "dependency_project_ids": [],
+  "target": {
+    "path": "src/markupsafe/__init__.py",
+    "qualified_name": "escape_silent"
+  },
+  "defect_type": "null_type",
+  "requirements": [
+    "The specified API is markupsafe.escape_silent(s). Return an empty Markup for s is None. For every other value, including False and 0, behave exactly like markupsafe.escape(s), returning Markup. Preserve the __html__ protocol and do not double escape an existing Markup. This is the existing original module API, not a new standalone function."
+  ],
+  "original_tests": {
+    "tests/test_admission_original.py": "from pathlib import Path\nimport json\nimport pytest\nimport markupsafe\nfrom markupsafe import Markup, escape_silent\ndef test_source_origin_and_python_backend():\n    assert Path(markupsafe.__file__).resolve().is_relative_to(Path('/workspace/src/markupsafe'))\n    assert markupsafe._escape_inner.__module__ == 'markupsafe._native'\ndef test_reviewed_non_none_cases():\n    for value, expected in json.loads(Path('/workspace/data/admission-visible.json').read_text()):\n        result = escape_silent(value)\n        assert isinstance(result, Markup)\n        assert str(result) == expected\ndef test_support_cannot_be_written():\n    with pytest.raises(OSError):\n        Path('/workspace/data/admission-visible.json').write_text('changed')\n"
+  },
+  "baseline_origin": "three assistant-authored admission tests, NOT upstream regression suite",
+  "support": {
+    "data/admission-visible.json": {
+      "encoding": "utf8",
+      "content": "[[\"<b>\", \"&lt;b&gt;\"], [\"a&b\", \"a&amp;b\"], [\"ok\", \"ok\"]]",
+      "sha256": "6b56d64b76bdd975df729a8fed87f7720c687b7160a25b67f1624a60e7cc48e9"
+    }
+  }
+}

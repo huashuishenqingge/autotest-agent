@@ -73,7 +73,7 @@ class PreflightTests(unittest.TestCase):
                     inspect_project(root, self.spec())
 
     def test_cli_accepts_relative_reference_directory(self):
-        with tempfile.TemporaryDirectory(dir=Path.cwd()) as folder:
+        with tempfile.TemporaryDirectory(dir=Path.cwd() if os.name == 'nt' else None) as folder:
             root = Path(folder)
             checkout = root / 'demo'
             checkout.mkdir()

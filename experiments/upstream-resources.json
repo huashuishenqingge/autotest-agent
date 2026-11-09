@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "note": "exact reviewed resource bytes for fixed admission checkouts; not directory auto-approval",
+  "projects": {
+    "click": {
+      "pyproject.toml": {
+        "sha256": "7b14aea9727c9beb26f759157f18c599b41b3f931a8e499579c2675e566760dc",
+        "source": "fixed checkout",
+        "role": "non-executed test data; pytest uses fixed /opt config"
+      },
+      "docs/conf.py": {
+        "sha256": "eb7fd16e72eed3ef1a2eb7ec3469607a3e363ca4631f45db9a6f9abbc52c0f7e",
+        "source": "fixed checkout",
+        "role": "approved Python auxiliary inventory; presence-only glob fixture, not imported"
+      }
+    },
+    "jinja": {
+      "tests/res/templates/broken.html": {
+        "sha256": "bdda5fe8cb2d1b445671738fc3697ccc91a2a6501873e6a9c370c4989f1459e9",
+        "source": "fixed checkout",
+        "role": "non-executed test data; pytest uses fixed /opt config"
+      },
+      "tests/res/templates/mojibake.txt": {
+        "sha256": "cd76a961904db90398e3971356428b96b0439ffce8a668f5dd394e1048b9c953",
+        "source": "fixed checkout",
+        "role": "non-executed test data; pytest uses fixed /opt config"
+      },
+      "tests/res/templates/syntaxerror.html": {
+        "sha256": "f499d663926017604e544fb1b10720a8fde19278ff7eea0e07361b9d7677cb39",
+        "source": "fixed checkout",
+        "role": "non-executed test data; pytest uses fixed /opt config"
+      },
+      "tests/res/templates/test.html": {
+        "sha256": "8b726e89c9d87d0067a558c3fe09d8fe500b5fa29604444df050954e0c7c8190",
+        "source": "fixed checkout",
+        "role": "non-executed test data; pytest uses fixed /opt config"
+      },
+      "tests/res/templates/foo/test.html": {
+        "sha256": "376ffb3607cf81a46f9734fb7f363b25e1fe31ff703b70e87910afe7a701159c",
+        "source": "fixed checkout",
+        "role": "non-executed test data; pytest uses fixed /opt config"
+      },
+      "tests/res/templates2/foo": {
+        "sha256": "3a028d7266c6d7492e7791a701c98c3e3788411cda04cf16dc628bbd90986e72",
+        "source": "fixed checkout",
+        "role": "non-executed test data; pytest uses fixed /opt config"
+      }
+    },
+    "itsdangerous": {},
+    "markupsafe": {},
+    "dateutil": {
+      "src/dateutil/zoneinfo/dateutil-zoneinfo.tar.gz": {
+        "sha256": "d3ea52e7b6e968de0d884df1288193596fa95b803db4f92a18279a7398004475",
+        "source": "approved wheel data",
+        "wheel_filename": "python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
+        "wheel_sha256": "a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427",
+        "member": "dateutil/zoneinfo/dateutil-zoneinfo.tar.gz",
+        "role": "timezone data archive; inspected member names; no host extraction"
+      }
+    }
+  }
+}

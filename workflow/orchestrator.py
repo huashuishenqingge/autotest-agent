@@ -197,7 +197,6 @@ def run_case(case, validation, *, client, image_id, artifact_root, cancelled=lam
                 return stop('full_suite_not_repairable', FailureKind.ENVIRONMENT)
 
             def repair_event(event, *values):
-                checkpoint()
                 if event == 'current_failure':
                     journal.observed_failure(values[0])
                 elif event == 'proposal':
@@ -208,7 +207,7 @@ def run_case(case, validation, *, client, image_id, artifact_root, cancelled=lam
             repair = run_repair_session(root, full_repo, original_tests=repo.test_files,
                 requirements=tuple(case['requirements']), holdout_tests=tuple(validation['holdout_tests'].items()),
                 client=client, image_id=image_id, artifact_root=directory / 'repair',
-                task_id=task_id, event_hook=repair_event)
+                task_id=task_id, event_hook=repair_event, cancelled=cancelled)
             record['repair'] = repair
             checkpoint()
             if repair['status'] != 'verified':

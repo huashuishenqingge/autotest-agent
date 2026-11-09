@@ -7,8 +7,8 @@ from workflow.state import (WorkflowState, Phase, Failure, FailureKind, advance,
 
 
 class Journal:
-    def __init__(self, task_id):
-        self.state = WorkflowState(task_id)
+    def __init__(self, task_id, *, policy=None):
+        self.state = WorkflowState(task_id) if policy is None else WorkflowState(task_id, policy=policy)
         self.events = [dict(asdict(self.state), event_type='created')]
         self._accepted_generation = None
 

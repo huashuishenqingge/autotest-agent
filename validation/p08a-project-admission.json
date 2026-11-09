@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "id": "admission_markupsafe_escape_silent",
+  "mutation": {
+    "old": "return Markup()",
+    "new": "return Markup(\"None\")"
+  },
+  "description": "escape_silent None case returns Markup(\"None\") instead of empty Markup",
+  "holdout_tests": {
+    "tests/test_admission_holdout.py": "import pytest\nfrom markupsafe import Markup, escape_silent\n@pytest.mark.parametrize('value,expected', [(None,''),('',''),('<b>','&lt;b&gt;'),('a&b','a&amp;b'),(False,'False'),(0,'0'),('中文','中文')])\ndef test_values(value,expected):\n    result = escape_silent(value)\n    assert isinstance(result,Markup)\n    assert str(result)==expected\ndef test_html_protocol_preserved():\n    class HasHTML:\n        def __html__(self):\n            return '<strong>safe</strong>'\n    assert escape_silent(HasHTML()) == Markup('<strong>safe</strong>')\ndef test_safe_markup_not_double_escaped():\n    assert escape_silent(Markup('<b>safe</b>')) == Markup('<b>safe</b>')\n"
+  }
+}

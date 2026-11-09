@@ -16,7 +16,7 @@ import uuid
 
 from execution.proposals import checked_path
 from execution.results import classify_result
-from workflow.state import Policy, Repository, TestRun
+from workflow.state import Policy, Repository, TestRun, relative_path
 
 
 @dataclass(frozen=True)
@@ -27,7 +27,7 @@ class ExecutionResult:
 
 
 def stage_snapshot(root: Path, destination: Path, repository: Repository,
-                   *, max_total_bytes: int = 10_000_000) -> tuple[str, tuple[tuple[str, str], ...]]:
+                   *, max_total_bytes: int = 10_000_000, support_files=()) -> tuple[str, tuple[tuple[str, str], ...]]:
     """Copy the full approved inventory, no .git, config or arbitrary dependencies.
 
     Missing files fail closed instead of silently running a smaller test suite.
@@ -37,14 +37,20 @@ def stage_snapshot(root: Path, destination: Path, repository: Repository,
     root, destination = root.resolve(strict=True), destination.resolve(strict=True)
     # TemporaryDirectory defaults to 0700 on POSIX; the container uses nobody.
     destination.chmod(0o755)
-    paths = repository.source_files + repository.test_files
+    support_files = tuple(support_files)
+    paths = repository.source_files + repository.test_files + support_files
     if len(paths) > 2000 or len({p.casefold() for p in paths}) != len(paths):
         raise ValueError('invalid or excessive inventory')
     entries = []
     total = 0
     for path in sorted(paths):
         target = checked_path(root, path)
-        if not target.is_file() or not path.endswith('.py'):
+        is_support = path in support_files
+        denied = {'.py', '.pyw', '.pyc', '.pyo', '.exe', '.dll', '.so', '.pyd', '.dylib',
+                  '.sh', '.bash', '.ps1', '.bat', '.cmd', '.com', '.js', '.mjs', '.cjs',
+                  '.jar', '.class', '.wasm', '.pth', '.ipynb'}
+        if (not target.is_file() or (not is_support and not path.endswith('.py'))
+                or (is_support and Path(path).suffix.lower() in denied)):
             raise ValueError('approved Python file missing or unsupported')
         size = target.stat().st_size
         total += size
@@ -54,6 +60,8 @@ def stage_snapshot(root: Path, destination: Path, repository: Repository,
             data = stream.read(1_000_001)
         if len(data) != size:
             raise ValueError('file changed during snapshot')
+        if is_support and data.startswith((b'MZ', b'\x7fELF', b'#!', b'\xcf\xfa\xed\xfe', b'\xfe\xed\xfa\xcf')):
+            raise ValueError('executable cannot be declared as support data')
         entries.append((path, data))
     digest = hashlib.sha256()
     manifest = []
@@ -72,14 +80,21 @@ def stage_snapshot(root: Path, destination: Path, repository: Repository,
     return digest.hexdigest(), tuple(manifest)
 
 
-def docker_command(snapshot: Path, name: str, image_id: str, policy: Policy) -> list[str]:
+def docker_command(snapshot: Path, name: str, image_id: str, policy: Policy, *, test_targets=()) -> list[str]:
     if not re.fullmatch(r'sha256:[0-9a-f]{64}', image_id):
         raise ValueError('reviewed immutable local image ID required')
     if not re.fullmatch(r'autotest-[0-9a-z]+', name):
         raise ValueError('invalid container name')
     if ',' in str(snapshot):
         raise ValueError('comma in mount path unsupported')
-    return ['docker', 'run', '--detach', '--pull=never', '--name', name,
+    test_targets = tuple(test_targets)
+    if len(set(p.casefold() for p in test_targets)) != len(test_targets):
+        raise ValueError('duplicate collection targets')
+    for path in test_targets:
+        relative_path(path)
+        if not path.endswith('.py'):
+            raise ValueError('collection targets must be explicit Python files')
+    command = ['docker', 'run', '--detach', '--pull=never', '--name', name,
             '--network=none', '--read-only', '--cap-drop=ALL',
             '--security-opt=no-new-privileges', '--user=65534:65534',
             '--pids-limit=64', '--memory=256m', '--memory-swap=256m', '--cpus=1',
@@ -89,6 +104,9 @@ def docker_command(snapshot: Path, name: str, image_id: str, policy: Policy) -> 
             '--env=PYTEST_DISABLE_PLUGIN_AUTOLOAD=1', '--env=HOME=/tmp',
             image_id, 'python', '-I', '/opt/autotest/container_worker.py',
             str(policy.max_output_bytes)]
+    if test_targets:
+        command.append(json.dumps(test_targets))
+    return command
 
 
 def _redact(text: str, secrets: tuple[str, ...]) -> str:
@@ -136,7 +154,7 @@ def bounded_log(text: str, limit: int) -> str:
 
 def run_tests(root: Path, repository: Repository, *, image_id: str,
               artifact_root: Path, policy: Policy | None = None,
-              secrets: tuple[str, ...] = (), docker_executable: str = 'docker') -> ExecutionResult:
+              secrets: tuple[str, ...] = (), docker_executable: str = 'docker', support_files=(), test_targets=()) -> ExecutionResult:
     policy = policy or Policy()
     run_id = uuid.uuid4().hex
     directory = artifact_root.resolve() / run_id
@@ -155,14 +173,27 @@ def run_tests(root: Path, repository: Repository, *, image_id: str,
     with tempfile.TemporaryDirectory(prefix='autotest-snapshot-') as folder:
         snapshot = Path(folder)
         try:
-            digest, manifest = stage_snapshot(Path(root), snapshot, repository)
-            command = docker_command(snapshot, name, image_id, policy)
+            test_targets = tuple(test_targets)
+            if not set(test_targets).issubset(repository.test_files):
+                raise ValueError('collection targets not in approved test inventory')
+            digest, manifest = stage_snapshot(Path(root), snapshot, repository, support_files=support_files)
+            command = docker_command(snapshot, name, image_id, policy, test_targets=test_targets)
             command[0] = docker_executable
             container_may_exist = True
             launched = subprocess.run(command, capture_output=True, timeout=15, shell=False)
             if launched.returncode:
                 log = 'Docker container launch failed; check engine and reviewed image'
             else:
+                if test_targets:
+                    # Older reviewed images ignore extra arguments. Do not infer
+                    # targeted collection from a successful legacy report.
+                    fingerprint_code = ("import hashlib,pathlib; print(hashlib.sha256(pathlib.Path('/opt/autotest/container_worker.py')"
+                                        ".read_bytes().replace(b'\\r\\n',b'\\n')).hexdigest())")
+                    fingerprint = subprocess.run([docker_executable, 'exec', name, 'python', '-I', '-c', fingerprint_code],
+                                                 capture_output=True, timeout=5, shell=False)
+                    expected = hashlib.sha256(Path(__file__).with_name('container_worker.py').read_bytes().replace(b'\r\n', b'\n')).hexdigest().encode()
+                    if fingerprint.returncode or fingerprint.stdout.strip() != expected:
+                        raise ValueError('target collection requires current reviewed worker')
                 deadline = time.monotonic() + policy.timeout_seconds
                 while time.monotonic() < deadline:
                     probe = subprocess.run([docker_executable, 'exec', name, 'python', '-I',

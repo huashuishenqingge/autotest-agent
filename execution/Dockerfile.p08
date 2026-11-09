@@ -1,0 +1,12 @@
+# Before building, verify the local phase6 tag equals the approved base ID.
+# The admission build report records both base and resulting immutable IDs.
+FROM autotest-executor:phase6
+USER 0
+COPY wheels /opt/autotest/wheels
+COPY requirements-p08.lock /opt/autotest/requirements-p08.lock
+RUN python -m pip install --no-index --no-deps --require-hashes --find-links=/opt/autotest/wheels -r /opt/autotest/requirements-p08.lock
+COPY pytest-p08.ini /opt/autotest/pytest.ini
+COPY container_worker.py /opt/autotest/container_worker.py
+ENV HYPOTHESIS_STORAGE_DIRECTORY=/tmp/hypothesis
+USER 65534:65534
+WORKDIR /workspace
