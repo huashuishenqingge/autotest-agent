@@ -1,5 +1,6 @@
 """Local P07 task service. Run: python -m web.server --port 8765."""
 import argparse
+from contextlib import contextmanager
 from dataclasses import asdict, replace
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
@@ -30,8 +31,14 @@ class Store:
             db.execute('CREATE TABLE IF NOT EXISTS tasks (id TEXT PRIMARY KEY, case_id TEXT, mode TEXT, status TEXT, cancel INTEGER, created REAL, updated REAL, result TEXT)')
             db.execute("UPDATE tasks SET status='interrupted',updated=? WHERE status IN ('queued','running')", (time.time(),))
 
+    @contextmanager
     def connect(self):
-        return sqlite3.connect(self.path, timeout=10)
+        db = sqlite3.connect(self.path, timeout=10)
+        try:
+            with db:
+                yield db
+        finally:
+            db.close()
 
     def create(self, case_id, mode):
         task_id = uuid.uuid4().hex
