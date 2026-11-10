@@ -200,3 +200,6 @@ P08B T2首池结果：固定30候选中10合格、20被原有测试检出；140�
 
 
 P08B T2第二池已完成：累计24个不同合格函数，按五项目三类配额可填22/30槽，还差8；正式冻结/模型实验尚未开始。见[第二批筛选与累计缺口](阶段8_第二批筛选与累计缺口.md)。第二池入口为`python -m experiments.screening --pool validation/p08b-candidates-v2.json --export <全新路径> --artifacts <全新目录>`，已有运行禁止覆盖。语义否决仅记档不执行；原池和全部排除保留，不能靠重跑或改类别凑数。累计证据为`evidence/p08b-screening-cumulative-v2.json`；Windows143通过5跳过、Linux核心132通过1跳过。
+
+
+P08B T2第三池完成：累计29个不同合格函数，但按固定项目/类别只可填25/30槽，还差ItsDangerous3、dateutil2。见[第三批筛选与累计缺口](阶段8_第三批筛选与累计缺口.md)及`evidence/p08b-screening-cumulative-v3.json`。候选代码入口不变，第三池索引为`validation/p08b-candidates-v3.json`；原输入/排除保留，复验版本不重复算函数，仍未正式冻结或调用模型。

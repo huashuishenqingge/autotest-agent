@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "scope": "Third-pool input and runtime verification; data-only change",
+  "formal_loader": {
+    "declarations": 14,
+    "strictly_loaded": 14
+  },
+  "semantic_review": {
+    "approved": 13,
+    "rejected_without_execution": 1,
+    "evidence": "evidence/p08b-candidate-v3-review.json"
+  },
+  "new_container_executions": 64,
+  "actual_manifest_checks": 64,
+  "survivors_with_two_full_rounds": 5,
+  "implementation_unchanged_sha256_lf": {
+    "experiments/screening.py": "80b03fb212cc530ce85f882d70989e106a57213fc3aa5b1f7ce965aef08384e9",
+    "tests/test_screening.py": "597917c5bf07e0f38a1c60ff22bf5230a80fc826d6fd3fe5a2a2f9ffbf11c802"
+  },
+  "prior_implementation_verification": {
+    "path": "evidence/p08b-t2-v2-verification.json",
+    "sha256": "66a0a9c438d8f7fb5b046f75a25e3c4e0ca80959cf43d901622e12a9038f2cae"
+  },
+  "tests_note": "No product code changed in v3; full unit/Linux core suites not rerun. Referenced v2 results are historical implementation verification, not new executions. New data got strict load, semantic review and real Docker screening.",
+  "prior_native_full": {
+    "passed": 143,
+    "skipped": 5,
+    "total": 148
+  },
+  "prior_linux_core": {
+    "passed": 132,
+    "skipped": 1,
+    "excluded_test_files": [
+      "tests/test_web.py"
+    ]
+  },
+  "source_hash_policy": "Cumulative bindings computed from actual persisted report bytes after writing, not pre-serialization text.",
+  "result_review": {
+    "reviewer": "review_p08b_t2_v3",
+    "method": "read-only source-byte hash, totals, lineage and quota verification; no new container or implementation test execution",
+    "result": "all three source-report hashes and historical implementation verification hash match; 69 declarations/66 functions/29 eligible/25 slots and 357 executions consistent; old unstable retained and function counted once; no inflated rerun or infrastructure claims"
+  }
+}
