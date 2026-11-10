@@ -79,7 +79,9 @@ def locate_function(source, qualified_name):
     indent = lines[node.lineno-1][:node.col_offset]
     if indent.strip(b' \t'):
         raise ValueError('target definition must start its own line')
-    code = textwrap.dedent((indent + raw[start:end]).decode('utf-8'))
+    # CR in an otherwise empty line prevents textwrap from finding indentation.
+    definition = (indent + raw[start:end]).decode('utf-8').replace('\r\n', '\n').replace('\r', '\n')
+    code = textwrap.dedent(definition)
     return {'node': node, 'tree': tree, 'start': start, 'end': end, 'indent': indent,
             'line': node.lineno, 'end_line': node.end_lineno, 'code': code,
             'newline': '\r\n' if lines[node.lineno-1].endswith(b'\r\n') else '\n',
@@ -91,7 +93,7 @@ def replace_function(source, qualified_name, candidate):
     scope = locate_function(source, qualified_name)
     if not isinstance(candidate, str):
         raise ValueError('function proposal must be text')
-    candidate = textwrap.dedent(candidate).strip('\r\n').rstrip()
+    candidate = textwrap.dedent(candidate.replace('\r\n', '\n').replace('\r', '\n')).strip('\n').rstrip()
     if not candidate.startswith(('def ', 'async def ')):
         raise ValueError('proposal starts at undecorated def')
     tree = ast.parse(candidate)
@@ -110,7 +112,8 @@ def replace_function(source, qualified_name, candidate):
     if _offset(raw_candidate.splitlines(keepends=True), new.end_lineno, new.end_col_offset) != len(raw_candidate):
         raise ValueError('trailing statements or comments outside function')
     normalized = candidate.replace('\r\n', '\n').replace('\r', '\n').split('\n')
-    inserted = (scope['newline'] + scope['indent'].decode()).join(normalized).encode('utf-8')
+    inserted = (normalized[0] + ''.join(scope['newline'] + (scope['indent'].decode() + line if line else '')
+                                       for line in normalized[1:])).encode('utf-8')
     raw = source.encode('utf-8')
     result = (raw[:scope['start']] + inserted + raw[scope['end']:]).decode('utf-8')
     ast.parse(result)

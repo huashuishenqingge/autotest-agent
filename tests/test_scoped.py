@@ -10,6 +10,13 @@ from workflow.state import Repository, Policy, RepairInput, TestRun, Failure, Fa
 
 
 class ScopedTests(unittest.TestCase):
+    def test_crlf_method_with_empty_lines_is_dedented_and_preserves_outer_bytes(self):
+        source='class C:\r\n    def f(self, value):\r\n\r\n        return value - 1\r\n\r\nAFTER = 1\r\n'
+        scope=locate_function(source,'C.f')
+        self.assertTrue(scope['code'].startswith('def f('))
+        fixed=replace_function(source,'C.f',scope['code'].replace('value - 1','value + 1'))
+        self.assertEqual(fixed,source.replace('value - 1','value + 1'))
+
     def test_utf8_method_crlf_decorators_tail_and_other_bytes_preserved(self):
         source = '# 中文\r\nclass C:\r\n    @staticmethod\r\n    def f(值: int = 1) -> int:\r\n        return 值 - 1  # keep\r\n\r\nOUTSIDE = "不变"\r\n'
         scope = locate_function(source, 'C.f')

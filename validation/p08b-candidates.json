@@ -1,0 +1,219 @@
+{
+  "schema": "p08-candidate-pool-v1",
+  "public_manifest": "experiments/p08b-candidates-public.json",
+  "evaluator_manifest": "validation/p08b-candidates-evaluation.json",
+  "candidate_order": [
+    "click_intrange__clamp",
+    "click_numberrangebase_convert",
+    "click_choice_convert",
+    "click_datetime_convert",
+    "click_boolparamtype_convert",
+    "click_paramtype___call",
+    "dateutil_relativedelta__fix",
+    "dateutil_rrulebase_before",
+    "dateutil_easter",
+    "dateutil_relativedelta___mul",
+    "dateutil_relativedelta___add",
+    "dateutil_relativedelta___eq",
+    "itsdangerous_base64_encode",
+    "itsdangerous_timestampsigner_get_timestamp",
+    "itsdangerous_serializer_load_payload",
+    "itsdangerous_signer_validate",
+    "itsdangerous_serializer_iter_unsigners",
+    "itsdangerous_signer_derive_key",
+    "jinja_do_batch",
+    "jinja_sync_do_slice",
+    "jinja_do_float",
+    "jinja_do_int",
+    "jinja_do_default",
+    "jinja_do_striptags",
+    "markupsafe_markup___getitem",
+    "markupsafe_markup_split",
+    "markupsafe_markup___add",
+    "markupsafe_markup___html_format",
+    "markupsafe_markup___new",
+    "markupsafe_soft_str"
+  ],
+  "semantic_reviews": {
+    "click_intrange__clamp": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "ec890c2ff70ff92aaefdf99dee1f69ae41ad7a9b9e0835f29c3198bfb678a6bf",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "click_numberrangebase_convert": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "659775081ca10e3c878376c1cf9c98d70447fc517722471fafe74920ed7d16d2",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "click_choice_convert": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "7d02e8d700c2c7de1fd7c5b4e42ff798528c617c075aea18dda2af62f1371318",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "click_datetime_convert": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "6da8457fd1b935a9c4757a2c1a5ddcf6edae29065ae6d16fb8cd5adf5f71ae31",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "click_boolparamtype_convert": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "97be4ede9c78f2be1834ad615e82bad94e7eebd2b4ce57d4c9b2676db05a2212",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "click_paramtype___call": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "e0bdd73cdc4fb7a5531e923785af0b9833b7b6931ec245195475cd5715893a6e",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "dateutil_relativedelta__fix": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "7bc82625ceae587d1227d3ef7dea5b8376b336008941935d39e0327bf5185c77",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "dateutil_rrulebase_before": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "ad002f07a30f76ad3e1976242e59e4ddb0bcf2550a9fa0db0fae5283c78fd676",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "dateutil_easter": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "ad573856f17ec8d001de71915f422fee5e556a3101c2e12763b5e38ce66d37d7",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "dateutil_relativedelta___mul": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "027c6d7881fcaf5aced694db5d6876a6fbaf97bb856260f3ecdc7b68e3dedbc0",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "dateutil_relativedelta___add": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "0bd5cda45367b7fb9c3aba30d2434e04faeb72af62c833cefeed390c0417a86f",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "dateutil_relativedelta___eq": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "23cf92d6fd10def7a22ac40b972bd56ce0ab7a80cb06712ec2569ccdae6efdc3",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "itsdangerous_base64_encode": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "f1e639ef6830ea012381458130813ec746767b2e0b17a511de6d04f28c83224b",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "itsdangerous_timestampsigner_get_timestamp": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "7a1cfe5a812b00023f7e65314bed72da6595ea4bbc72f539a671ceac122ff46d",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "itsdangerous_serializer_load_payload": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "c17074180df3f6c10126bdfdd301005a961b411d88d85b74702ced39aad046bd",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "itsdangerous_signer_validate": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "03f9a546666a18dedb37d7a5c0d5656a59dc85abb3a4f8d7d93c9077a923ac2c",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "itsdangerous_serializer_iter_unsigners": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "4799ef613d531dcbb161891cd315c8272e964982287d47859727e558ee4d1b3a",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "itsdangerous_signer_derive_key": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "f25b43b20823971f7342fdc82647bccc6679aa60915f79110e3f496d9d320717",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "jinja_do_batch": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "1423d2a59882fa9898460b3ad635916eea54e2326e8898ff430dc5e5e116ee77",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "jinja_sync_do_slice": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "7b34653f088132359a2dcc159bd6ea410b9feaf2f0558fbc05b945a8ed2265ce",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "jinja_do_float": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "093c8c5bcf1f39871a7a784e7ee02ccc41f3601fcd6f527b61a0e3fd07561b52",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "jinja_do_int": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "3dccef8a143ef42b56f51fd218fab9d0fa35546e0710fb3ee3e3f27f1631020d",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "jinja_do_default": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "64c6cecbf6bbc19c8af5b07f635eb7bdeb42459d7a571a09ff6b5b7dcc6a1939",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "jinja_do_striptags": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "8eba119dd092069163e81b8341a58209ec0ac62d3e5702dfb3c501f57a7ee153",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "markupsafe_markup___getitem": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "79e07aa9ad1b023d09c7ecea0dc3c3531d3f3e13af300c372d38407218f8d62f",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "markupsafe_markup_split": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "a3075f0c78dce882385d0c39a208e64643ee1d3db8088409048f487815255667",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "markupsafe_markup___add": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "c0f5a7f81e287d4e5543324c12c73465e526157e620b1912f93a3d3b9a52011b",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "markupsafe_markup___html_format": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "d07ee7d9338bdc94499ffc33103ece7f1bbbadbe4ccff4407fa5262665535864",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "markupsafe_markup___new": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "b0d5cbb26edbb06b870517fbcf1db9fd9ebb891d9beee422bffcb2a0360894ed",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    },
+    "markupsafe_soft_str": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2",
+      "input_sha256": "8bcbe694357f913e666768d7d918bbef526b18f41f7d4be18840c50f44115321",
+      "notes": "Independent review approved the API/docstring or standard protocol requirement, defect category, single behavior mutation and deterministic holdout; see evidence/p08b-candidate-review.json. This is not a survivor verdict."
+    }
+  }
+}
