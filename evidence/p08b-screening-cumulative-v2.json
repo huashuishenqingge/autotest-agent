@@ -1,0 +1,767 @@
+{
+  "schema": 1,
+  "scope": "T2 cumulative screening only, not frozen formal experiments",
+  "date": "2026-11-10",
+  "source_reports": [
+    {
+      "path": "evidence/p08b-screening.json",
+      "sha256": "bed620291a8a658bd7ba2f265236ba958de2d770bc8fb252562db5a42a93b4a6"
+    },
+    {
+      "path": "evidence/p08b-screening-v2.json",
+      "sha256": "963fff45c4317682af7874ec30506da3040e4e823d4cd9a1003bbca8d647eb26"
+    }
+  ],
+  "candidate_declarations": 55,
+  "distinct_functions_proposed": 54,
+  "result_counts": {
+    "detected_by_original": 27,
+    "eligible": 24,
+    "unstable": 2,
+    "holdout_not_detected": 1,
+    "semantic_rejected": 1
+  },
+  "eligible_distinct_functions": 24,
+  "quota_usable_slots": 22,
+  "quota_shortfall": 8,
+  "quota_matrix": [
+    {
+      "project_id": "click",
+      "defect_type": "boundary",
+      "required": 2,
+      "eligible_candidates": 1,
+      "eligible_unique": 1,
+      "shortfall": 1
+    },
+    {
+      "project_id": "click",
+      "defect_type": "null_type",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "click",
+      "defect_type": "exception_handling",
+      "required": 2,
+      "eligible_candidates": 3,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "jinja",
+      "defect_type": "boundary",
+      "required": 2,
+      "eligible_candidates": 1,
+      "eligible_unique": 1,
+      "shortfall": 1
+    },
+    {
+      "project_id": "jinja",
+      "defect_type": "null_type",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "jinja",
+      "defect_type": "exception_handling",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "itsdangerous",
+      "defect_type": "boundary",
+      "required": 2,
+      "eligible_candidates": 0,
+      "eligible_unique": 0,
+      "shortfall": 2
+    },
+    {
+      "project_id": "itsdangerous",
+      "defect_type": "null_type",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "itsdangerous",
+      "defect_type": "exception_handling",
+      "required": 2,
+      "eligible_candidates": 0,
+      "eligible_unique": 0,
+      "shortfall": 2
+    },
+    {
+      "project_id": "markupsafe",
+      "defect_type": "boundary",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "markupsafe",
+      "defect_type": "null_type",
+      "required": 2,
+      "eligible_candidates": 3,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "markupsafe",
+      "defect_type": "exception_handling",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "dateutil",
+      "defect_type": "boundary",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "dateutil",
+      "defect_type": "null_type",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "dateutil",
+      "defect_type": "exception_handling",
+      "required": 2,
+      "eligible_candidates": 0,
+      "eligible_unique": 0,
+      "shortfall": 2
+    }
+  ],
+  "container_executions": 293,
+  "model_calls": 0,
+  "formal_tasks_frozen": 0,
+  "formal_experiment_records": 0,
+  "freeze_recommended": false,
+  "result_index": [
+    {
+      "candidate_id": "click_intrange__clamp",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "IntRange._clamp"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original",
+      "review_input_sha256": "ec890c2ff70ff92aaefdf99dee1f69ae41ad7a9b9e0835f29c3198bfb678a6bf"
+    },
+    {
+      "candidate_id": "click_numberrangebase_convert",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "_NumberRangeBase.convert"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original",
+      "review_input_sha256": "659775081ca10e3c878376c1cf9c98d70447fc517722471fafe74920ed7d16d2"
+    },
+    {
+      "candidate_id": "click_choice_convert",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "Choice.convert"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original",
+      "review_input_sha256": "7d02e8d700c2c7de1fd7c5b4e42ff798528c617c075aea18dda2af62f1371318"
+    },
+    {
+      "candidate_id": "click_datetime_convert",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "DateTime.convert"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original",
+      "review_input_sha256": "6da8457fd1b935a9c4757a2c1a5ddcf6edae29065ae6d16fb8cd5adf5f71ae31"
+    },
+    {
+      "candidate_id": "click_boolparamtype_convert",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "BoolParamType.convert"
+      ],
+      "defect_type": "null_type",
+      "status": "detected_by_original",
+      "review_input_sha256": "97be4ede9c78f2be1834ad615e82bad94e7eebd2b4ce57d4c9b2676db05a2212"
+    },
+    {
+      "candidate_id": "click_paramtype___call",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "ParamType.__call__"
+      ],
+      "defect_type": "null_type",
+      "status": "detected_by_original",
+      "review_input_sha256": "e0bdd73cdc4fb7a5531e923785af0b9833b7b6931ec245195475cd5715893a6e"
+    },
+    {
+      "candidate_id": "dateutil_relativedelta__fix",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/relativedelta.py",
+        "relativedelta._fix"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible",
+      "review_input_sha256": "7bc82625ceae587d1227d3ef7dea5b8376b336008941935d39e0327bf5185c77"
+    },
+    {
+      "candidate_id": "dateutil_rrulebase_before",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/rrule.py",
+        "rrulebase.before"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original",
+      "review_input_sha256": "ad002f07a30f76ad3e1976242e59e4ddb0bcf2550a9fa0db0fae5283c78fd676"
+    },
+    {
+      "candidate_id": "dateutil_easter",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/easter.py",
+        "easter"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original",
+      "review_input_sha256": "ad573856f17ec8d001de71915f422fee5e556a3101c2e12763b5e38ce66d37d7"
+    },
+    {
+      "candidate_id": "dateutil_relativedelta___mul",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/relativedelta.py",
+        "relativedelta.__mul__"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original",
+      "review_input_sha256": "027c6d7881fcaf5aced694db5d6876a6fbaf97bb856260f3ecdc7b68e3dedbc0"
+    },
+    {
+      "candidate_id": "dateutil_relativedelta___add",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/relativedelta.py",
+        "relativedelta.__add__"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible",
+      "review_input_sha256": "0bd5cda45367b7fb9c3aba30d2434e04faeb72af62c833cefeed390c0417a86f"
+    },
+    {
+      "candidate_id": "dateutil_relativedelta___eq",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/relativedelta.py",
+        "relativedelta.__eq__"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible",
+      "review_input_sha256": "23cf92d6fd10def7a22ac40b972bd56ce0ab7a80cb06712ec2569ccdae6efdc3"
+    },
+    {
+      "candidate_id": "itsdangerous_base64_encode",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/encoding.py",
+        "base64_encode"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original",
+      "review_input_sha256": "f1e639ef6830ea012381458130813ec746767b2e0b17a511de6d04f28c83224b"
+    },
+    {
+      "candidate_id": "itsdangerous_timestampsigner_get_timestamp",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/timed.py",
+        "TimestampSigner.get_timestamp"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original",
+      "review_input_sha256": "7a1cfe5a812b00023f7e65314bed72da6595ea4bbc72f539a671ceac122ff46d"
+    },
+    {
+      "candidate_id": "itsdangerous_serializer_load_payload",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/serializer.py",
+        "Serializer.load_payload"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original",
+      "review_input_sha256": "c17074180df3f6c10126bdfdd301005a961b411d88d85b74702ced39aad046bd"
+    },
+    {
+      "candidate_id": "itsdangerous_signer_validate",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/signer.py",
+        "Signer.validate"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original",
+      "review_input_sha256": "03f9a546666a18dedb37d7a5c0d5656a59dc85abb3a4f8d7d93c9077a923ac2c"
+    },
+    {
+      "candidate_id": "itsdangerous_serializer_iter_unsigners",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/serializer.py",
+        "Serializer.iter_unsigners"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible",
+      "review_input_sha256": "4799ef613d531dcbb161891cd315c8272e964982287d47859727e558ee4d1b3a"
+    },
+    {
+      "candidate_id": "itsdangerous_signer_derive_key",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/signer.py",
+        "Signer.derive_key"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible",
+      "review_input_sha256": "f25b43b20823971f7342fdc82647bccc6679aa60915f79110e3f496d9d320717"
+    },
+    {
+      "candidate_id": "jinja_do_batch",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_batch"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original",
+      "review_input_sha256": "1423d2a59882fa9898460b3ad635916eea54e2326e8898ff430dc5e5e116ee77"
+    },
+    {
+      "candidate_id": "jinja_sync_do_slice",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "sync_do_slice"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original",
+      "review_input_sha256": "7b34653f088132359a2dcc159bd6ea410b9feaf2f0558fbc05b945a8ed2265ce"
+    },
+    {
+      "candidate_id": "jinja_do_float",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_float"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original",
+      "review_input_sha256": "093c8c5bcf1f39871a7a784e7ee02ccc41f3601fcd6f527b61a0e3fd07561b52"
+    },
+    {
+      "candidate_id": "jinja_do_int",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_int"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original",
+      "review_input_sha256": "3dccef8a143ef42b56f51fd218fab9d0fa35546e0710fb3ee3e3f27f1631020d"
+    },
+    {
+      "candidate_id": "jinja_do_default",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_default"
+      ],
+      "defect_type": "null_type",
+      "status": "detected_by_original",
+      "review_input_sha256": "64c6cecbf6bbc19c8af5b07f635eb7bdeb42459d7a571a09ff6b5b7dcc6a1939"
+    },
+    {
+      "candidate_id": "jinja_do_striptags",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_striptags"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible",
+      "review_input_sha256": "8eba119dd092069163e81b8341a58209ec0ac62d3e5702dfb3c501f57a7ee153"
+    },
+    {
+      "candidate_id": "markupsafe_markup___getitem",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "Markup.__getitem__"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible",
+      "review_input_sha256": "79e07aa9ad1b023d09c7ecea0dc3c3531d3f3e13af300c372d38407218f8d62f"
+    },
+    {
+      "candidate_id": "markupsafe_markup_split",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "Markup.split"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible",
+      "review_input_sha256": "a3075f0c78dce882385d0c39a208e64643ee1d3db8088409048f487815255667"
+    },
+    {
+      "candidate_id": "markupsafe_markup___add",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "Markup.__add__"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible",
+      "review_input_sha256": "c0f5a7f81e287d4e5543324c12c73465e526157e620b1912f93a3d3b9a52011b"
+    },
+    {
+      "candidate_id": "markupsafe_markup___html_format",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "Markup.__html_format__"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible",
+      "review_input_sha256": "d07ee7d9338bdc94499ffc33103ece7f1bbbadbe4ccff4407fa5262665535864"
+    },
+    {
+      "candidate_id": "markupsafe_markup___new",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "Markup.__new__"
+      ],
+      "defect_type": "null_type",
+      "status": "detected_by_original",
+      "review_input_sha256": "b0d5cbb26edbb06b870517fbcf1db9fd9ebb891d9beee422bffcb2a0360894ed"
+    },
+    {
+      "candidate_id": "markupsafe_soft_str",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "soft_str"
+      ],
+      "defect_type": "null_type",
+      "status": "detected_by_original",
+      "review_input_sha256": "8bcbe694357f913e666768d7d918bbef526b18f41f7d4be18840c50f44115321"
+    },
+    {
+      "candidate_id": "v2_click_helpformatter_write_dl",
+      "project_id": "click",
+      "target": [
+        "src/click/formatting.py",
+        "HelpFormatter.write_dl"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original",
+      "review_input_sha256": "73584e317b2eedff28fe413ebeb7eeee3df2e5c2f72126821bd4565947d11e91"
+    },
+    {
+      "candidate_id": "v2_click_tuple_convert",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "Tuple.convert"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible",
+      "review_input_sha256": "fc395217c5d27b61a668484611a5cc29a5317a42a34a54522218913e252cac27"
+    },
+    {
+      "candidate_id": "v2_click_stringparamtype_convert",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "StringParamType.convert"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible",
+      "review_input_sha256": "864a45d7cae264a2a87171553edd589cc514b82db85babf488f1533a14088b15"
+    },
+    {
+      "candidate_id": "v2_click_pacifyflushwrapper_flush",
+      "project_id": "click",
+      "target": [
+        "src/click/utils.py",
+        "PacifyFlushWrapper.flush"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible",
+      "review_input_sha256": "9d102ef28584148ddc5d8e4bac48c279175474c1f6a0f1371be6b07980108421"
+    },
+    {
+      "candidate_id": "v2_click_make_str",
+      "project_id": "click",
+      "target": [
+        "src/click/utils.py",
+        "make_str"
+      ],
+      "defect_type": "exception_handling",
+      "status": "unstable",
+      "review_input_sha256": "50ab1facdf0385b90e1b03e47c319ac6f4631f23a9c6dc62d6573ca64c684293"
+    },
+    {
+      "candidate_id": "v2_click_safecall",
+      "project_id": "click",
+      "target": [
+        "src/click/utils.py",
+        "safecall"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible",
+      "review_input_sha256": "2940a1621aafc0c5427fe226b5823444169cbe1153966c4252ab74d1e27215b1"
+    },
+    {
+      "candidate_id": "v2_click_datetime_convert",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "DateTime.convert"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible",
+      "review_input_sha256": "d36cf3a876c178cbb7a2813b2943b3124f8558bcfedd53a5ce8d0890fe12d02c"
+    },
+    {
+      "candidate_id": "v2_click_uuidparametertype_convert",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "UUIDParameterType.convert"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible",
+      "review_input_sha256": "387813aa64d9dda759bc3519a59c4600739668b737c547e0511e6f20120321d8"
+    },
+    {
+      "candidate_id": "v2_dateutil_relativedelta__set_months",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/relativedelta.py",
+        "relativedelta._set_months"
+      ],
+      "defect_type": "boundary",
+      "status": "holdout_not_detected",
+      "review_input_sha256": "03779e5fb5c83ba85d6fbebb8b61d28617bbf69d51dbad6ff43f37f6f28c849d"
+    },
+    {
+      "candidate_id": "v2_dateutil_rrulebase_xafter",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/rrule.py",
+        "rrulebase.xafter"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible",
+      "review_input_sha256": "7641c0cffac2b6e08c06782ffccae2c8c7407af88d785125691350767b98c3e8"
+    },
+    {
+      "candidate_id": "v2_dateutil_isoparser__parse_tzstr",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/parser/isoparser.py",
+        "isoparser._parse_tzstr"
+      ],
+      "defect_type": "exception_handling",
+      "status": "semantic_rejected",
+      "review_input_sha256": "d88e7c18b034bfddc24022d65a3f18576a20b860ebfa16896c07a6d8f8a23223"
+    },
+    {
+      "candidate_id": "v2_dateutil_weekday___init",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/rrule.py",
+        "weekday.__init__"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original",
+      "review_input_sha256": "fcfe85937d3dc60f720db0a481c672ce6c950cbf02a77ae1d816009ff6b74570"
+    },
+    {
+      "candidate_id": "v2_itsdangerous_bytes_to_int",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/encoding.py",
+        "bytes_to_int"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original",
+      "review_input_sha256": "12171645449c0f2ca1ba7da3f698c96e838993e953aae0f93a3669c1164269d8"
+    },
+    {
+      "candidate_id": "v2_itsdangerous_int_to_bytes",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/encoding.py",
+        "int_to_bytes"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original",
+      "review_input_sha256": "a4def9182ac04b3f59eb4531b3ebac2afa070b5cd52a83eedcf46c577ad01277"
+    },
+    {
+      "candidate_id": "v2_itsdangerous_signer_verify_signature",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/signer.py",
+        "Signer.verify_signature"
+      ],
+      "defect_type": "exception_handling",
+      "status": "unstable",
+      "review_input_sha256": "730a09e748eb78cb45f245b2c68739c28f848ea00d70f12be279243434290db5"
+    },
+    {
+      "candidate_id": "v2_itsdangerous_timestampsigner_validate",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/timed.py",
+        "TimestampSigner.validate"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original",
+      "review_input_sha256": "75b7bd033bb188aebcb5014688a563ef13923bf9765ce417ac74ba0f413f80ba"
+    },
+    {
+      "candidate_id": "v2_itsdangerous_urlsafeserializermixin_load_payload",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/url_safe.py",
+        "URLSafeSerializerMixin.load_payload"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original",
+      "review_input_sha256": "5834bddf2abb77fd69b87f6971e010d8f8a758d4787ead9944a601b2b91a0cf9"
+    },
+    {
+      "candidate_id": "v2_jinja_do_filesizeformat",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_filesizeformat"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original",
+      "review_input_sha256": "dae8fc07397a823921564e2b45c327d98d2b4cc662af2d631455265beb002fb5"
+    },
+    {
+      "candidate_id": "v2_jinja_do_truncate",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_truncate"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible",
+      "review_input_sha256": "7f6c570097cc9e08af2a69935bcb04536a67aee9cf4a70e6b39531c2150c6062"
+    },
+    {
+      "candidate_id": "v2_jinja_do_dictsort",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_dictsort"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible",
+      "review_input_sha256": "b1b6eb3658eeb75b0a65f1c3eef1246db978ffdc5da13e5036f542263e517ae6"
+    },
+    {
+      "candidate_id": "v2_jinja_do_round",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_round"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible",
+      "review_input_sha256": "53ac6845c37117fd53f43f5eb30329c760d7ffdc6308a73e7a5af5373062a054"
+    },
+    {
+      "candidate_id": "v2_jinja_sync_do_sum",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "sync_do_sum"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible",
+      "review_input_sha256": "d2e61b64c5349d204f8d3fccc1d1fd1b27e1478fdc38af0324d3f5ddc5224c82"
+    },
+    {
+      "candidate_id": "v2_markupsafe_markup_escape",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "Markup.escape"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible",
+      "review_input_sha256": "a790910db022c8af8e75d076d979477ee86cb861acca899108c3cbb633b6365c"
+    },
+    {
+      "candidate_id": "v2_markupsafe_markup_format_map",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "Markup.format_map"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible",
+      "review_input_sha256": "cf7080bf4e37f03cf126156327605f3d276f0bf17ff7752e8269ae035996c88a"
+    },
+    {
+      "candidate_id": "v2_markupsafe_markup_join",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "Markup.join"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible",
+      "review_input_sha256": "8a76307e27e2da722f788cc9cff0b941324e89bdc85434441463308970d08600"
+    }
+  ],
+  "limitations": [
+    "24 unique eligible functions cannot fill 30 slots: category/project surplus leaves only 22 usable slots",
+    "All 55 declarations and negative outcomes retained; one function was proposed in both pools but only its eligible version counts once",
+    "Two strict signature exclusions differ only in object-address diagnostics, remain excluded; behavior randomness is not established",
+    "No claim of exhaustive feasibility of all five projects; no model-dependent sample selection"
+  ]
+}

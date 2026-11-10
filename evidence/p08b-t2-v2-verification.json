@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "scope": "second-pool screening implementation verification",
+  "native_full": {
+    "total": 148,
+    "passed": 143,
+    "skipped": 5,
+    "exit_code": 0
+  },
+  "screening_tests": {
+    "passed": 7,
+    "skipped": 0
+  },
+  "linux_core": {
+    "scope": "Linux Python core; Web tests excluded, covered by Windows full suite",
+    "excluded_test_files": [
+      "tests/test_web.py"
+    ],
+    "execution": {
+      "run": {
+        "run_id": "119e80f13b824622abf46686f93d79ca",
+        "snapshot_digest": "bb2b87441addc360afdb1d98743c0238962da56c2b920347296fb326915afcf9",
+        "exit_code": 0,
+        "passed": 132,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 1,
+        "failure": null,
+        "artifacts": [
+          "119e80f13b824622abf46686f93d79ca/log.txt",
+          "119e80f13b824622abf46686f93d79ca/junit.xml",
+          "119e80f13b824622abf46686f93d79ca/manifest.json",
+          "119e80f13b824622abf46686f93d79ca/run.json",
+          "119e80f13b824622abf46686f93d79ca/coverage.json"
+        ]
+      },
+      "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\linux-core-v2\\119e80f13b824622abf46686f93d79ca",
+      "cleanup_ok": true
+    }
+  },
+  "red_green": [
+    "Explicit semantic rejection previously reported pending_review; new test failed, then semantic_rejected branch passed without execution"
+  ],
+  "code_and_semantic_review": "evidence/p08b-candidate-v2-review.json",
+  "diagnostic_ruling": "Keep both strict signature exclusions unchanged and disclose address-only difference; new candidate/test versions would need review and rerun",
+  "reviewer": "review_p08b_t2_v2",
+  "review_scope": "static source binding/code review and ruling on strict diagnostic exclusion; no independent container rerun",
+  "implementation_sha256_lf": {
+    "experiments/screening.py": "80b03fb212cc530ce85f882d70989e106a57213fc3aa5b1f7ce965aef08384e9",
+    "tests/test_screening.py": "597917c5bf07e0f38a1c60ff22bf5230a80fc826d6fd3fe5a2a2f9ffbf11c802"
+  },
+  "report_hash_fix": "Cumulative second-report binding initially hashed serialized LF text before Windows newline conversion. Recomputed from persisted report bytes, then reread and verified both source bindings. Candidate records/counts unchanged.",
+  "result_review": {
+    "reviewer": "review_p08b_t2_v2",
+    "method": "read-only shared-result and source-binding verification, no independent container execution",
+    "result": "second-pool and cumulative counts/quota consistent; strict address exclusions disclosed, no inflated eligibility; both persisted source hashes match after correction"
+  }
+}

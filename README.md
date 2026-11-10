@@ -197,3 +197,6 @@ python -m experiments.admission --replay evidence/p08a-markupsafe-admission.json
 
 
 P08B T2首池结果：固定30候选中10合格、20被原有测试检出；140次无模型候选容器完成，正式配额还差20，尚未冻结或启动正式实验。见[候选筛选与缺口](阶段8_候选筛选与缺口.md)。筛选入口`python -m experiments.screening --export <全新导出路径> --artifacts <全新产物目录>`需要本机固定reference副本、已审wheel数据与722765…镜像；本次已有目录拒绝复用。重跑不增加独立函数数，扩池应先做新版本语义审核并提交，保留原排除历史。
+
+
+P08B T2第二池已完成：累计24个不同合格函数，按五项目三类配额可填22/30槽，还差8；正式冻结/模型实验尚未开始。见[第二批筛选与累计缺口](阶段8_第二批筛选与累计缺口.md)。第二池入口为`python -m experiments.screening --pool validation/p08b-candidates-v2.json --export <全新路径> --artifacts <全新目录>`，已有运行禁止覆盖。语义否决仅记档不执行；原池和全部排除保留，不能靠重跑或改类别凑数。累计证据为`evidence/p08b-screening-cumulative-v2.json`；Windows143通过5跳过、Linux核心132通过1跳过。
