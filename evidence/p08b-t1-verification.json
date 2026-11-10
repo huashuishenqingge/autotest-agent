@@ -1,0 +1,769 @@
+{
+  "schema": 1,
+  "scope": "P08B T1 formal-loader and shared-inventory verification; no formal candidate screening or model calls",
+  "date": "2026-11-10",
+  "base_commit": "bdbf36c",
+  "status": "technical_pass_pending_user_acceptance",
+  "native_full": {
+    "command": ".venv/Scripts/python.exe -m unittest discover -s tests -q",
+    "total": 140,
+    "passed": 135,
+    "skipped": 5,
+    "exit_code": 0
+  },
+  "targeted": {
+    "command": ".venv/Scripts/python.exe -m unittest tests.test_formal_tasks tests.test_upstream_inventory -v",
+    "total": 8,
+    "passed": 8,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  "red_green_history": [
+    "Missing formal_tasks module and build_reviewed_inventory import failed before implementation",
+    "Relative reference_root reproduced ApplyError(path escapes working copy); normalized roots after rejecting links; targeted test passed"
+  ],
+  "linux_core": {
+    "scope": "Linux Python core; Web tests excluded, covered by native Windows full suite",
+    "excluded_test_files": [
+      "tests/test_web.py"
+    ],
+    "execution": {
+      "run": {
+        "run_id": "1f13e3aae9a54856b1adb47e1d5107dc",
+        "snapshot_digest": "0d746a4e05d20c816f5bb089f304dac27fbdbd53bca6c5ec9ca9151efadea418",
+        "exit_code": 0,
+        "passed": 124,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 1,
+        "failure": null,
+        "artifacts": [
+          "1f13e3aae9a54856b1adb47e1d5107dc/log.txt",
+          "1f13e3aae9a54856b1adb47e1d5107dc/junit.xml",
+          "1f13e3aae9a54856b1adb47e1d5107dc/manifest.json",
+          "1f13e3aae9a54856b1adb47e1d5107dc/run.json",
+          "1f13e3aae9a54856b1adb47e1d5107dc/coverage.json"
+        ]
+      },
+      "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t1\\linux-core\\1f13e3aae9a54856b1adb47e1d5107dc",
+      "cleanup_ok": true
+    }
+  },
+  "upstream_execution": {
+    "schema": 1,
+    "kind": "new real upstream admission, no model calls",
+    "image_id": "sha256:7227650ec06570ea9a532bfb669d0888a4a92f7f179d2d442878f353b27ecd66",
+    "projects": [
+      {
+        "project": {
+          "id": "jinja",
+          "url": "https://github.com/pallets/jinja.git",
+          "tag": "3.1.6",
+          "commit": "15206881c006c79667fe5154fe80c01c65410679",
+          "package_root": "src/jinja2",
+          "license_files": [
+            "LICENSE.txt"
+          ],
+          "config_files": [
+            "pyproject.toml"
+          ]
+        },
+        "scope": "upstream pytest under fixed controlled harness; not tox/type-check/doc build",
+        "excluded": [
+          {
+            "path": "tests/res/package.zip",
+            "reason": "ZIP fixture contains executable Python; not an approved ordinary support resource",
+            "sha256": "0cb88c14f3feebd186620a3d065e567c15d937695d80715c2894e2de2cec6659"
+          },
+          {
+            "path": "tests/test_loader.py",
+            "reason": "ZIP fixture contains executable Python; not an approved ordinary support resource",
+            "sha256": "22a480c1248e25c23749ca02fa5e86fbba3d2f26e95423f20f45a92926fc04d9"
+          }
+        ],
+        "source_files": [
+          "src/jinja2/__init__.py",
+          "src/jinja2/_identifier.py",
+          "src/jinja2/async_utils.py",
+          "src/jinja2/bccache.py",
+          "src/jinja2/compiler.py",
+          "src/jinja2/constants.py",
+          "src/jinja2/debug.py",
+          "src/jinja2/defaults.py",
+          "src/jinja2/environment.py",
+          "src/jinja2/exceptions.py",
+          "src/jinja2/ext.py",
+          "src/jinja2/filters.py",
+          "src/jinja2/idtracking.py",
+          "src/jinja2/lexer.py",
+          "src/jinja2/loaders.py",
+          "src/jinja2/meta.py",
+          "src/jinja2/nativetypes.py",
+          "src/jinja2/nodes.py",
+          "src/jinja2/optimizer.py",
+          "src/jinja2/parser.py",
+          "src/jinja2/runtime.py",
+          "src/jinja2/sandbox.py",
+          "src/jinja2/tests.py",
+          "src/jinja2/utils.py",
+          "src/jinja2/visitor.py",
+          "src/markupsafe/__init__.py",
+          "src/markupsafe/_native.py"
+        ],
+        "test_files": [
+          "tests/conftest.py",
+          "tests/res/__init__.py",
+          "tests/test_api.py",
+          "tests/test_async.py",
+          "tests/test_async_filters.py",
+          "tests/test_bytecode_cache.py",
+          "tests/test_compile.py",
+          "tests/test_core_tags.py",
+          "tests/test_debug.py",
+          "tests/test_ext.py",
+          "tests/test_filters.py",
+          "tests/test_idtracking.py",
+          "tests/test_imports.py",
+          "tests/test_inheritance.py",
+          "tests/test_lexnparse.py",
+          "tests/test_nativetypes.py",
+          "tests/test_nodes.py",
+          "tests/test_pickle.py",
+          "tests/test_regression.py",
+          "tests/test_runtime.py",
+          "tests/test_security.py",
+          "tests/test_tests.py",
+          "tests/test_utils.py",
+          "tests/test_p08_working_copy_origin.py"
+        ],
+        "support_hashes": {
+          "tests/res/templates/broken.html": "bdda5fe8cb2d1b445671738fc3697ccc91a2a6501873e6a9c370c4989f1459e9",
+          "tests/res/templates/mojibake.txt": "cd76a961904db90398e3971356428b96b0439ffce8a668f5dd394e1048b9c953",
+          "tests/res/templates/syntaxerror.html": "f499d663926017604e544fb1b10720a8fde19278ff7eea0e07361b9d7677cb39",
+          "tests/res/templates/test.html": "8b726e89c9d87d0067a558c3fe09d8fe500b5fa29604444df050954e0c7c8190",
+          "tests/res/templates/foo/test.html": "376ffb3607cf81a46f9734fb7f363b25e1fe31ff703b70e87910afe7a701159c",
+          "tests/res/templates2/foo": "3a028d7266c6d7492e7791a701c98c3e3788411cda04cf16dc628bbd90986e72"
+        },
+        "execution": {
+          "run": {
+            "run_id": "f203d0cda5014012a3e32290b2a90be1",
+            "snapshot_digest": "b474d5e913783eee51cc10abe173ca3dec492a2322ee679fdac7b923d401ea40",
+            "exit_code": 0,
+            "passed": 867,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "f203d0cda5014012a3e32290b2a90be1/log.txt",
+              "f203d0cda5014012a3e32290b2a90be1/junit.xml",
+              "f203d0cda5014012a3e32290b2a90be1/manifest.json",
+              "f203d0cda5014012a3e32290b2a90be1/run.json",
+              "f203d0cda5014012a3e32290b2a90be1/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t1\\upstream\\f203d0cda5014012a3e32290b2a90be1",
+          "cleanup_ok": true
+        }
+      },
+      {
+        "project": {
+          "id": "dateutil",
+          "url": "https://github.com/dateutil/dateutil.git",
+          "tag": "2.9.0.post0",
+          "commit": "1ae807774053c071acc9e7d3d27778fba0a7773e",
+          "package_root": "src/dateutil",
+          "license_files": [
+            "LICENSE",
+            "AUTHORS.md"
+          ],
+          "config_files": [
+            "pyproject.toml",
+            "setup.cfg",
+            "setup.py"
+          ]
+        },
+        "scope": "upstream pytest under fixed controlled harness; not tox/type-check/doc build",
+        "excluded": [],
+        "source_files": [
+          "src/dateutil/__init__.py",
+          "src/dateutil/_common.py",
+          "src/dateutil/easter.py",
+          "src/dateutil/relativedelta.py",
+          "src/dateutil/rrule.py",
+          "src/dateutil/tzwin.py",
+          "src/dateutil/utils.py",
+          "src/dateutil/parser/__init__.py",
+          "src/dateutil/parser/_parser.py",
+          "src/dateutil/parser/isoparser.py",
+          "src/dateutil/tz/__init__.py",
+          "src/dateutil/tz/_common.py",
+          "src/dateutil/tz/_factories.py",
+          "src/dateutil/tz/tz.py",
+          "src/dateutil/tz/win.py",
+          "src/dateutil/zoneinfo/__init__.py",
+          "src/dateutil/zoneinfo/rebuild.py"
+        ],
+        "test_files": [
+          "tests/__init__.py",
+          "tests/_common.py",
+          "tests/conftest.py",
+          "tests/property/test_isoparse_prop.py",
+          "tests/property/test_parser_prop.py",
+          "tests/property/test_tz_prop.py",
+          "tests/test_easter.py",
+          "tests/test_import_star.py",
+          "tests/test_imports.py",
+          "tests/test_internals.py",
+          "tests/test_isoparser.py",
+          "tests/test_parser.py",
+          "tests/test_relativedelta.py",
+          "tests/test_rrule.py",
+          "tests/test_tz.py",
+          "tests/test_utils.py",
+          "tests/test_p08_working_copy_origin.py"
+        ],
+        "support_hashes": {
+          "src/dateutil/zoneinfo/dateutil-zoneinfo.tar.gz": "d3ea52e7b6e968de0d884df1288193596fa95b803db4f92a18279a7398004475"
+        },
+        "execution": {
+          "run": {
+            "run_id": "86805da410fa40fbb2d5dd5a972eeec7",
+            "snapshot_digest": "8e0bc05785c0a40eedf2b82e667c8af1fc06010b654a476393e1395dd5bdf9a6",
+            "exit_code": 0,
+            "passed": 2032,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 64,
+            "failure": null,
+            "artifacts": [
+              "86805da410fa40fbb2d5dd5a972eeec7/log.txt",
+              "86805da410fa40fbb2d5dd5a972eeec7/junit.xml",
+              "86805da410fa40fbb2d5dd5a972eeec7/manifest.json",
+              "86805da410fa40fbb2d5dd5a972eeec7/run.json",
+              "86805da410fa40fbb2d5dd5a972eeec7/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t1\\upstream\\86805da410fa40fbb2d5dd5a972eeec7",
+          "cleanup_ok": true
+        }
+      }
+    ]
+  },
+  "accepted_input_comparisons": [
+    {
+      "project_id": "jinja",
+      "accepted_P08A_digest": "b474d5e913783eee51cc10abe173ca3dec492a2322ee679fdac7b923d401ea40",
+      "current_T1_digest": "b474d5e913783eee51cc10abe173ca3dec492a2322ee679fdac7b923d401ea40",
+      "identical": true
+    },
+    {
+      "project_id": "dateutil",
+      "accepted_P08A_digest": "8e0bc05785c0a40eedf2b82e667c8af1fc06010b654a476393e1395dd5bdf9a6",
+      "current_T1_digest": "8e0bc05785c0a40eedf2b82e667c8af1fc06010b654a476393e1395dd5bdf9a6",
+      "identical": true
+    }
+  ],
+  "five_project_static_inventories": [
+    {
+      "project_id": "click",
+      "source_files": 16,
+      "test_files": 31,
+      "support_files": 1,
+      "coverage_sources": [
+        "src/click/__init__.py",
+        "src/click/_compat.py",
+        "src/click/_termui_impl.py",
+        "src/click/_textwrap.py",
+        "src/click/_winconsole.py",
+        "src/click/core.py",
+        "src/click/decorators.py",
+        "src/click/exceptions.py",
+        "src/click/formatting.py",
+        "src/click/globals.py",
+        "src/click/parser.py",
+        "src/click/shell_completion.py",
+        "src/click/termui.py",
+        "src/click/testing.py",
+        "src/click/types.py",
+        "src/click/utils.py"
+      ],
+      "manifest": {
+        "sources": {
+          "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+          "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+          "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+          "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+          "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+          "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+          "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+          "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+          "src/click/formatting.py": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+          "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+          "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+          "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+          "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+          "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+          "src/click/types.py": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+          "src/click/utils.py": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090"
+        },
+        "tests": {
+          "tests/conftest.py": "b0c4189c83125946326c1f2a864a4d02a8ba47f09ac878aa149c83832be8f566",
+          "tests/test_arguments.py": "66ccc76b0e355885eaf39682df89932a512b5c3bccc8dd0f125c0e525e9e7245",
+          "tests/test_basic.py": "ead98f8bda8f60ba3ec89a3994dab9be54660ff9e36e19b310fd689784d437dd",
+          "tests/test_chain.py": "95a740bd27175d5b5893f4d69e2e69ee67235db632b8e869622bc3642e70a6c8",
+          "tests/test_command_decorators.py": "182a6f1b4bb4f5a2588391b6f3bed2310693ebf159d9e5565f75577ac7345527",
+          "tests/test_commands.py": "4093b50f002a733d1832604ba03502fb7e4f64d1b11dd3ab3f7c1913fe03d46a",
+          "tests/test_compat.py": "8c7a61d2129e0973cf7db6da32aab3aef6ec67372bc15e9407f6f4e5826a9dc7",
+          "tests/test_context.py": "309d0c40c528874d519b0c1c30da1fece245211a4255439293046b3c6a130027",
+          "tests/test_custom_classes.py": "65c8807cd81d0fca9dd708cd7e71e011ee653efea3da05f59628d42df456400d",
+          "tests/test_defaults.py": "29393afac8ba948fca489a03a070ce5e4b7947662c6b63ec2425c163f045586d",
+          "tests/test_formatting.py": "65aae004c8346a4f048698a83674c8fa8c935c75a17a6ec5c358455cf48b461b",
+          "tests/test_imports.py": "21362ea67a7cc2be10fce1b320e74e8b6799a900d20e919916066d75cc30a8ab",
+          "tests/test_info_dict.py": "bfb3ff9c744ce1b75ba0d54519adf8587d13d701bfa2d74a615bc2ee3e69798a",
+          "tests/test_normalization.py": "01e7399710fe60645f0925b559bb6a9b7a909580ec00208b316aa0208a4daec4",
+          "tests/test_options.py": "efa730d49ee0fdf6104a9c798952c8dcbcca883a500bf481901c9c64f7d3ad68",
+          "tests/test_parser.py": "d6e35fd010d049e64c9b276eeed9bf98a045b62e9957d78b3da77f3ca3c18c0d",
+          "tests/test_shell_completion.py": "5b1187cab4b27725608d6ca0c03b6aa9f01219fd5c9aba98711e5f9667861650",
+          "tests/test_termui.py": "52a5287ce57ca818a812d8b4d89e99e25ab6e60443eaf6441fb942f75c588fd9",
+          "tests/test_testing.py": "1f813743c89c39a465184653df7d3b6ae79bbf97b4a63c7660201df1a2fd1f70",
+          "tests/test_types.py": "65389d074a48302e77a141131dc5d9b9c42b7090c2294a67cc8996f434187b32",
+          "tests/test_utils.py": "4ef734f2be6810903b1dbfb76fc360329d8b36dda946bee5104230680090e888",
+          "tests/typing/typing_aliased_group.py": "ba2fc5c976c84684f45dd3782f85ca67c40b799fcfbff67f82d6726f27c132b6",
+          "tests/typing/typing_confirmation_option.py": "48ef76baf02b5b4fa5e4e5733a6d0cdebfcf799b7d17333e29cfec6ee2e9f189",
+          "tests/typing/typing_group_kw_options.py": "20d3d9619545e39276b28b13e1dea56c18aaa5e3ba32cf9183b7e6ed1c1fbdb2",
+          "tests/typing/typing_help_option.py": "eae3dccca6776909ec4d7a9fe0e281b9f29decd2db48f5e0af1aff11ec5b02e3",
+          "tests/typing/typing_options.py": "1ce70b1b28cc610c73f95a6e8acab271680ba8ea6297bb43e8fb766fb5d94b63",
+          "tests/typing/typing_password_option.py": "fbdf62834bb6dca2a12bcf8bb0941bac5157d4c5164694bf65be1c0ca34a5612",
+          "tests/typing/typing_simple_example.py": "898170c4850a120690b5017c574f62021fe5ebfe3980db97d8ee38cc53fcc778",
+          "tests/typing/typing_version_option.py": "a4aaa6b8489a35370c5dd8810670676557fd735940854bf7eef41d31009c720a",
+          "docs/conf.py": "eb7fd16e72eed3ef1a2eb7ec3469607a3e363ca4631f45db9a6f9abbc52c0f7e",
+          "tests/test_p08_working_copy_origin.py": "5538cb7fa67cd5e167fb2df2977a77bac1cb33ae84f7e29ff32a8c557f130df1"
+        },
+        "support": {
+          "pyproject.toml": "7b14aea9727c9beb26f759157f18c599b41b3f931a8e499579c2675e566760dc"
+        },
+        "excluded": [],
+        "provenance": {
+          "project": {
+            "id": "click",
+            "url": "https://github.com/pallets/click.git",
+            "tag": "8.1.8",
+            "commit": "934813e4d421071a1b3db3973c02fe2721359a6e",
+            "package_root": "src/click",
+            "license_files": [
+              "LICENSE.txt"
+            ],
+            "config_files": [
+              "pyproject.toml"
+            ]
+          },
+          "dependencies": [],
+          "licenses": {
+            "LICENSE.txt": {
+              "sha256": "757302fe7c41e7026fa46d3315ea8604ed5295fc95c2256d9b38adac43f6fbe5",
+              "bytes": 1503
+            }
+          },
+          "dependency_licenses": {}
+        }
+      }
+    },
+    {
+      "project_id": "jinja",
+      "source_files": 27,
+      "test_files": 24,
+      "support_files": 6,
+      "coverage_sources": [
+        "src/jinja2/__init__.py",
+        "src/jinja2/_identifier.py",
+        "src/jinja2/async_utils.py",
+        "src/jinja2/bccache.py",
+        "src/jinja2/compiler.py",
+        "src/jinja2/constants.py",
+        "src/jinja2/debug.py",
+        "src/jinja2/defaults.py",
+        "src/jinja2/environment.py",
+        "src/jinja2/exceptions.py",
+        "src/jinja2/ext.py",
+        "src/jinja2/filters.py",
+        "src/jinja2/idtracking.py",
+        "src/jinja2/lexer.py",
+        "src/jinja2/loaders.py",
+        "src/jinja2/meta.py",
+        "src/jinja2/nativetypes.py",
+        "src/jinja2/nodes.py",
+        "src/jinja2/optimizer.py",
+        "src/jinja2/parser.py",
+        "src/jinja2/runtime.py",
+        "src/jinja2/sandbox.py",
+        "src/jinja2/tests.py",
+        "src/jinja2/utils.py",
+        "src/jinja2/visitor.py"
+      ],
+      "manifest": {
+        "sources": {
+          "src/jinja2/__init__.py": "86138cd576a7e59771397f81d2efc1a50016127ebc8a1e1676df3f6068e8519a",
+          "src/jinja2/_identifier.py": "0322924a198ad5b1f394c18ce7351c23d9769a7e311ee1cf54053e2fdbdf4955",
+          "src/jinja2/async_utils.py": "8cf740448d2ba5e2a6831db22cbd9cb94034ee492a26d4c965fdab3e3929b310",
+          "src/jinja2/bccache.py": "20296722f965b905b8dfaddb8a0a200125acf23a56750045579b463e2b543ab8",
+          "src/jinja2/compiler.py": "355e90b9ca07533a6c0f6826e9cd2b0ad9b10c57857b6f9c305c6ab94cb76b22",
+          "src/jinja2/constants.py": "d49d443db7b1c91445db88f2f25846947e872fb4ef46081121542b7e2ef67f62",
+          "src/jinja2/debug.py": "cea66094be69b8b6c79b23fc754963015a28b1b179be5c700c0f1b786091c4bb",
+          "src/jinja2/defaults.py": "cc935a01c09cb043da214024f4a3ae377a989c54740599a5f9ea7417af746f76",
+          "src/jinja2/environment.py": "72735118c43c30b3f425acf5b6185542f2615a681b5acf1c4712982b6ff4b496",
+          "src/jinja2/exceptions.py": "3fe0efe27e16f0c19d8085174e8b466ec4489315004fead38b7aef805f7e5be7",
+          "src/jinja2/ext.py": "64907e54ee9718ca88dde875a69745b145341e2e51ac9518bf585ce78962c9a7",
+          "src/jinja2/filters.py": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+          "src/jinja2/idtracking.py": "885e78b2d9ccc408dd42eeb32996fb97883bf802083b5f706a8cea9346506fb8",
+          "src/jinja2/lexer.py": "06a2f10ab3d977c033b633d046013514e288b593fd9811d0d00fcabdf7e3aeac",
+          "src/jinja2/loaders.py": "76b36ee94b02d5cee72d3122d03bfbd83f64766eb2524d6d1612cbdb3fda1aa1",
+          "src/jinja2/meta.py": "0524b1a1b64f0bce678b4d5bca9a8a52658bd3aa1911b077d7a862720bb8aed9",
+          "src/jinja2/nativetypes.py": "37d3f63baaedbb39c97942e4db48047034df64f3608af0d99d1b82e31818e12b",
+          "src/jinja2/nodes.py": "5967088ba73e9175cf05b6d95b98484a59369d417e4f562c50ed1d2f254dd8a2",
+          "src/jinja2/optimizer.py": "f0cfe7e50ec00ce2fc3d9d5e29707e3b328b05529bbf27835eaa30c78998b94f",
+          "src/jinja2/parser.py": "2e27754d7c1a7ef274c0b0e078670a447184b7599e0b83f76014c8a3f7f7bd75",
+          "src/jinja2/runtime.py": "6510a180ba8ea364377fa49989bd4bc1ebae9d0bfbf739557aaf43425476b8d2",
+          "src/jinja2/sandbox.py": "86400dcf3e7aa8eaec9bb7aafa198402818db3da740abe2ac9b943ee6b1c63ca",
+          "src/jinja2/tests.py": "fc8c8bd3208b0a9a82c855e5fcc33c996af3776addf15c37ca1b24053ba99d2e",
+          "src/jinja2/utils.py": "e868b5ae1f2b35fc56ba4364bcabda5c23f3a5c73591b7d2c008ac4edbc72428",
+          "src/jinja2/visitor.py": "2b44629470fdddee65b9facf27eaf84e8bbbe450f2892fb846d6d0b9c6af0e9d",
+          "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+          "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+        },
+        "tests": {
+          "tests/conftest.py": "8224f5d38ba9596419a0f759720a6d83a5464e372d5e216d96f06809fb14231a",
+          "tests/res/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tests/test_api.py": "6c0da64b5d7bbb99d0ccfe0a4fdb328bd591d3bbaf755ad052c41a8f823e9568",
+          "tests/test_async.py": "2dddca50b205881e683266e8ceafef0e1a113e0d3c41a932a2fdd4cfea9ff2e1",
+          "tests/test_async_filters.py": "382784d00032de54b4cd0f7fc0d2f16e9f2415b53e1c08e65aac065ab1015ffa",
+          "tests/test_bytecode_cache.py": "378e6453241b84f1d451d435da3dc08a2df1e6e4eea698142ea0bbe2c11808c5",
+          "tests/test_compile.py": "e910fd8a5eaf11855b9361bbad68403fd53aff4e263924dbd47b90efce93d5bc",
+          "tests/test_core_tags.py": "1c7584f05256c03a13de35a22a6c8ba231dc5ff03d412bcac6b863c38a3e30e2",
+          "tests/test_debug.py": "5cf861dab21ec00ae44022351018792dc42bfa40db864d99e35d34af9a4f99a6",
+          "tests/test_ext.py": "0398a3146c3c0cf7796bb14437ddbee514d93efb7dcd7467542882cddd95c921",
+          "tests/test_filters.py": "95367398fb67f584c9497caf6a2ced6a1cf4d19269604ee408cc0038d9c06011",
+          "tests/test_idtracking.py": "c2170e6de17baab21d91eae31f74a2aa447bb6e7c057b3c904c9cb143b56031e",
+          "tests/test_imports.py": "8548998ee4969193b3771ad9996f574e9c14e49a6fecef04c6167b0377d1de8e",
+          "tests/test_inheritance.py": "cdd4301c2f9add84f40f2f34af8ad2b69b8cd8b8d78c590aa876aff0c0f0b8e0",
+          "tests/test_lexnparse.py": "fbd78d36c69fe7c551ce7839fa1a82465b51a9bee812909262f5e24b453a5c08",
+          "tests/test_nativetypes.py": "f62ddae5ee8c012cae7e7bdf51bf7b48612ffdb3e2d8fc5e946616bbbd22aa63",
+          "tests/test_nodes.py": "b23144e53fad354c0a9227aa7b67b12e130602e8be7aacbef86f35b13cf22180",
+          "tests/test_pickle.py": "0567914d3fcb03e57302189ca49dbe99130049d4d669ed8ff264229d21e26db3",
+          "tests/test_regression.py": "641ace8de19bf833379bf6a5b02104125170070d090dabfec1f72fc0cbabfa71",
+          "tests/test_runtime.py": "a3be7f9f888bfd32bdd68c1d3d72be2a16d03f0ec4658ddbe75f50eca8039383",
+          "tests/test_security.py": "969f8fce3229cd8abd2545b781373d8c7648bd8c6f394cd224ba16c530100a82",
+          "tests/test_tests.py": "473102bd586ca045016b1c3d5ca3dea061df9448a2a6b0a93d3c4a079d3355a9",
+          "tests/test_utils.py": "95a55dcf6175a3f3d429acab8e087d355cb485b7e4797a6643e092ea6b08a958",
+          "tests/test_p08_working_copy_origin.py": "a35e6df163c762d5c7afc0a0a7fdb5c2b06237854e633b4e2841ddd05d9c7eaa"
+        },
+        "support": {
+          "tests/res/templates/broken.html": "bdda5fe8cb2d1b445671738fc3697ccc91a2a6501873e6a9c370c4989f1459e9",
+          "tests/res/templates/mojibake.txt": "cd76a961904db90398e3971356428b96b0439ffce8a668f5dd394e1048b9c953",
+          "tests/res/templates/syntaxerror.html": "f499d663926017604e544fb1b10720a8fde19278ff7eea0e07361b9d7677cb39",
+          "tests/res/templates/test.html": "8b726e89c9d87d0067a558c3fe09d8fe500b5fa29604444df050954e0c7c8190",
+          "tests/res/templates/foo/test.html": "376ffb3607cf81a46f9734fb7f363b25e1fe31ff703b70e87910afe7a701159c",
+          "tests/res/templates2/foo": "3a028d7266c6d7492e7791a701c98c3e3788411cda04cf16dc628bbd90986e72"
+        },
+        "excluded": [
+          {
+            "path": "tests/res/package.zip",
+            "reason": "ZIP fixture contains executable Python; not an approved ordinary support resource",
+            "sha256": "0cb88c14f3feebd186620a3d065e567c15d937695d80715c2894e2de2cec6659"
+          },
+          {
+            "path": "tests/test_loader.py",
+            "reason": "ZIP fixture contains executable Python; not an approved ordinary support resource",
+            "sha256": "22a480c1248e25c23749ca02fa5e86fbba3d2f26e95423f20f45a92926fc04d9"
+          }
+        ],
+        "provenance": {
+          "project": {
+            "id": "jinja",
+            "url": "https://github.com/pallets/jinja.git",
+            "tag": "3.1.6",
+            "commit": "15206881c006c79667fe5154fe80c01c65410679",
+            "package_root": "src/jinja2",
+            "license_files": [
+              "LICENSE.txt"
+            ],
+            "config_files": [
+              "pyproject.toml"
+            ]
+          },
+          "dependencies": [
+            {
+              "id": "markupsafe",
+              "url": "https://github.com/pallets/markupsafe.git",
+              "tag": "3.0.3",
+              "commit": "297fc8e356e6836a62087949245d09a28e9f1b13",
+              "package_root": "src/markupsafe",
+              "license_files": [
+                "LICENSE.txt"
+              ],
+              "config_files": [
+                "pyproject.toml",
+                "setup.py"
+              ]
+            }
+          ],
+          "licenses": {
+            "LICENSE.txt": {
+              "sha256": "648f89f9f453977f9ad8af2b1f06fb313c49b9b73a33f485ab5b436975a04186",
+              "bytes": 1503
+            }
+          },
+          "dependency_licenses": {
+            "markupsafe": {
+              "LICENSE.txt": {
+                "sha256": "4631ec0db5fd90a547e336817264c6798214338146f8ac94b4a57f96ee8c9ec4",
+                "bytes": 1503
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "project_id": "itsdangerous",
+      "source_files": 8,
+      "test_files": 7,
+      "support_files": 0,
+      "coverage_sources": [
+        "src/itsdangerous/__init__.py",
+        "src/itsdangerous/_json.py",
+        "src/itsdangerous/encoding.py",
+        "src/itsdangerous/exc.py",
+        "src/itsdangerous/serializer.py",
+        "src/itsdangerous/signer.py",
+        "src/itsdangerous/timed.py",
+        "src/itsdangerous/url_safe.py"
+      ],
+      "manifest": {
+        "sources": {
+          "src/itsdangerous/__init__.py": "61cea5ce3b81936802738dbbba5cf5da04531e44a546b21c57d7ce271e164bf3",
+          "src/itsdangerous/_json.py": "b38bef90cfcd6ee2fdee115b644921d78e63754aef2e7ddd63a987a86a7c18cf",
+          "src/itsdangerous/encoding.py": "6546d4dcaca3a497dc280795fabd49d76fda2a19f68be6441560ffc5b48bcfac",
+          "src/itsdangerous/exc.py": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+          "src/itsdangerous/serializer.py": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+          "src/itsdangerous/signer.py": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+          "src/itsdangerous/timed.py": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+          "src/itsdangerous/url_safe.py": "4d7db7718099818b3ec71b700d8397e3b5ce12ee9dcb345885b77ade693fb1be"
+        },
+        "tests": {
+          "tests/test_itsdangerous/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tests/test_itsdangerous/test_encoding.py": "09737ba8bfb02128d6559e08f11a1ada45d2b67fe8f54c5b672570074ec7b156",
+          "tests/test_itsdangerous/test_serializer.py": "a300f174492a5ddddd821d67c797af049cf5957740d005762276501397f8b264",
+          "tests/test_itsdangerous/test_signer.py": "5076bbd9be5302c83e94a0510f6fe896b6715c647e9793644f89c357b96e7d58",
+          "tests/test_itsdangerous/test_timed.py": "42d2644a1b6526b263706e4d27a6ea55e09f45e01bffe97a1cf9d803362eb877",
+          "tests/test_itsdangerous/test_url_safe.py": "8cb92b1b36fc18c86f9521257d373a6191040005cd77c4cf5c5714b3ffea5ce5",
+          "tests/test_p08_working_copy_origin.py": "8f2faf29ef499979e566d9eeab254d768fc6dd912271ce58be57759f3cc72218"
+        },
+        "support": {},
+        "excluded": [],
+        "provenance": {
+          "project": {
+            "id": "itsdangerous",
+            "url": "https://github.com/pallets/itsdangerous.git",
+            "tag": "2.2.0",
+            "commit": "096c8d42545d3b68ea21a4f890fb2b2d8979c0bd",
+            "package_root": "src/itsdangerous",
+            "license_files": [
+              "LICENSE.txt"
+            ],
+            "config_files": [
+              "pyproject.toml"
+            ]
+          },
+          "dependencies": [],
+          "licenses": {
+            "LICENSE.txt": {
+              "sha256": "b3f7620467c0781acabb70d6b4932a46949f21aa1dbb932f75a6abdc0221900e",
+              "bytes": 1503
+            }
+          },
+          "dependency_licenses": {}
+        }
+      }
+    },
+    {
+      "project_id": "markupsafe",
+      "source_files": 2,
+      "test_files": 8,
+      "support_files": 0,
+      "coverage_sources": [
+        "src/markupsafe/__init__.py",
+        "src/markupsafe/_native.py"
+      ],
+      "manifest": {
+        "sources": {
+          "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+          "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+        },
+        "tests": {
+          "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tests/conftest.py": "fda05ae06179331ed263b21e454e97b7384f668910844c1d81211b97c0ec6a7b",
+          "tests/test_escape.py": "4ac2de8fdd11b4279e71285da66f15386d790a86c3ea2fccb3501204d90d17d6",
+          "tests/test_exception_custom_html.py": "bd869e9beff132d1ff0d579e84182432df6ea158d80167ea22446af68a7b36ce",
+          "tests/test_ext_init.py": "3941481931cc334c5705066112946a4a6e1db248ab0f8d412aea89214080d523",
+          "tests/test_leak.py": "e80d04a136c6db39e749cb92517992e2c57e35937e7a9f37f9b6dcaaf9b9ed04",
+          "tests/test_markupsafe.py": "964e8cff042d1c09ca857f30e385db45c1a9da4ac00afeda160fe3e6ebb0cb49",
+          "tests/test_p08_working_copy_origin.py": "f9d6876277d2e3da626eb10ae13a71d60cea3a13d1077acc919c6e82b49b19a5"
+        },
+        "support": {},
+        "excluded": [],
+        "provenance": {
+          "project": {
+            "id": "markupsafe",
+            "url": "https://github.com/pallets/markupsafe.git",
+            "tag": "3.0.3",
+            "commit": "297fc8e356e6836a62087949245d09a28e9f1b13",
+            "package_root": "src/markupsafe",
+            "license_files": [
+              "LICENSE.txt"
+            ],
+            "config_files": [
+              "pyproject.toml",
+              "setup.py"
+            ]
+          },
+          "dependencies": [],
+          "licenses": {
+            "LICENSE.txt": {
+              "sha256": "4631ec0db5fd90a547e336817264c6798214338146f8ac94b4a57f96ee8c9ec4",
+              "bytes": 1503
+            }
+          },
+          "dependency_licenses": {}
+        }
+      }
+    },
+    {
+      "project_id": "dateutil",
+      "source_files": 17,
+      "test_files": 17,
+      "support_files": 1,
+      "coverage_sources": [
+        "src/dateutil/__init__.py",
+        "src/dateutil/_common.py",
+        "src/dateutil/easter.py",
+        "src/dateutil/relativedelta.py",
+        "src/dateutil/rrule.py",
+        "src/dateutil/tzwin.py",
+        "src/dateutil/utils.py",
+        "src/dateutil/parser/__init__.py",
+        "src/dateutil/parser/_parser.py",
+        "src/dateutil/parser/isoparser.py",
+        "src/dateutil/tz/__init__.py",
+        "src/dateutil/tz/_common.py",
+        "src/dateutil/tz/_factories.py",
+        "src/dateutil/tz/tz.py",
+        "src/dateutil/tz/win.py",
+        "src/dateutil/zoneinfo/__init__.py",
+        "src/dateutil/zoneinfo/rebuild.py"
+      ],
+      "manifest": {
+        "sources": {
+          "src/dateutil/__init__.py": "b54edff828d0a847178b8b47c766b9f18e8efb41dc4c59bee419bbf18ed4aa42",
+          "src/dateutil/_common.py": "1f4ce4415066989dc06fc6cb65077df786eec4b13f00bc8e5e29d1efbdc9d338",
+          "src/dateutil/easter.py": "3fc0effafdf4f58c21bc5b24798c4722096765280c352164503c196e83b3b038",
+          "src/dateutil/relativedelta.py": "abc031b39e6cf131ae9740be0fd61e2ef7aa0dc56ac17d779a220fd90ef2997e",
+          "src/dateutil/rrule.py": "b3af688f361febc0766eeba4521e10075c8f9e1e9793d8a0af68cf8c54eda332",
+          "src/dateutil/tzwin.py": "6a4c1f60b61d81279d5b6ad86940bd2f45b622c9bc992bff83f05449a18d4d2a",
+          "src/dateutil/utils.py": "33dd64806ee13f2842ce596469d26cb69ff22f3c6044ea4c0edda053683a50c1",
+          "src/dateutil/parser/__init__.py": "9e7efb4b5d521f12b06b7eea85aa47d0969f758b09a66fa1c7abcb8b77604d24",
+          "src/dateutil/parser/_parser.py": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+          "src/dateutil/parser/isoparser.py": "69a2c9806522bcf7e7af7d8795a1d51690f589768a8f0ca6005cd5913d130b7a",
+          "src/dateutil/tz/__init__.py": "0a93d353899482bb821393b835c19dcc54bf01a96400cf06ae63815be4782dcf",
+          "src/dateutil/tz/_common.py": "6f6691a2fcbdf861aeaac226a25c184bb6373d0c74d4475022187520b5058317",
+          "src/dateutil/tz/_factories.py": "090dc8f88bdd4fed042f3aa7afb0cccf33f12cce3ebf1b3a9ae57a9750361317",
+          "src/dateutil/tz/tz.py": "a3d921641d3c0d258764e1edf0e8ddedf3c467be6e2e9dd4e98b316493a66ea1",
+          "src/dateutil/tz/win.py": "990997effc9dba44787bfd227fe2357f9a73b71614faebe64056679c44b5074a",
+          "src/dateutil/zoneinfo/__init__.py": "b40d4a89f4689611d4ab0f9b1779f5198fa1b3611d8c20144b7669f92845198b",
+          "src/dateutil/zoneinfo/rebuild.py": "65f5250627e0e0d15485192ef0fe87f1db670f5a8de396544737e138c27210c0"
+        },
+        "tests": {
+          "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tests/_common.py": "6340d7094af1cf65552b5daf76f617a183a715e624cdb9435950dd96fddce4db",
+          "tests/conftest.py": "fe084758c3b9a881893401eafb96835ce63de8e69bb7ee169f76e84d3d626db9",
+          "tests/property/test_isoparse_prop.py": "c83350ae37aebc3d25433b3f2b211864fd04b1595f56ddf149c008f81fee8f2e",
+          "tests/property/test_parser_prop.py": "d5c495ff2f1a6214903768949e0fb958fc1bc363cf81d6a00e8c7a0a6bc56715",
+          "tests/property/test_tz_prop.py": "70cb2eb561d576dc2b3c2610cd16b8584a26509e88317bc22df8c65b93420ff1",
+          "tests/test_easter.py": "0e16ac62b446e3546a05a0b41580cf767d06fd1f1b02f43fb840a6c3af1a3f71",
+          "tests/test_import_star.py": "f4d7edb5b034bc6417558b7b02cda506df5edcb385e045f55e6961d05b1cd2f6",
+          "tests/test_imports.py": "517dccfad70acdcb6ed4c74fb0c14fc835fe91a6c042e7a00d45f7dabcb1f3b9",
+          "tests/test_internals.py": "d23114890fcb3e090e5cbabb8ad4ddd0b28c24b8b023672ff76d6817ee40deb2",
+          "tests/test_isoparser.py": "f2357df609638643fe2f65b83d4c4401a16dd73944299c2d8fbd372e6885868f",
+          "tests/test_parser.py": "7ae444cfb27749ffe6a041a0c91ae586b1636c834ca8fac4b51f11d1b451ac06",
+          "tests/test_relativedelta.py": "b97bbb3556dfe7d704fe6d7694d2049574bfd989b37faeb3c8b448a39e5d6d8d",
+          "tests/test_rrule.py": "c540f8b1959faa6f21f6362fcf8a3623c94f1f43696d00911dfcab51d3409302",
+          "tests/test_tz.py": "6a255fdeb465ad31bf9b86c6808eee4fa68bef646dea80587022e12a3243a0d4",
+          "tests/test_utils.py": "5b45bebc3c590fff3d39484a9fdd6c65abf313bb38c20c89d32931321ecf0bcd",
+          "tests/test_p08_working_copy_origin.py": "1f441c9f3c5e42c73dd0ff2ea3f4f8953a9b44f97447536590bd7b18e941a11c"
+        },
+        "support": {
+          "src/dateutil/zoneinfo/dateutil-zoneinfo.tar.gz": "d3ea52e7b6e968de0d884df1288193596fa95b803db4f92a18279a7398004475"
+        },
+        "excluded": [],
+        "provenance": {
+          "project": {
+            "id": "dateutil",
+            "url": "https://github.com/dateutil/dateutil.git",
+            "tag": "2.9.0.post0",
+            "commit": "1ae807774053c071acc9e7d3d27778fba0a7773e",
+            "package_root": "src/dateutil",
+            "license_files": [
+              "LICENSE",
+              "AUTHORS.md"
+            ],
+            "config_files": [
+              "pyproject.toml",
+              "setup.cfg",
+              "setup.py"
+            ]
+          },
+          "dependencies": [],
+          "licenses": {
+            "LICENSE": {
+              "sha256": "aedc1c280bcc065a11e10ed8008317c3e91a7371dcae51cc52971243f2577d64",
+              "bytes": 2942
+            },
+            "AUTHORS.md": {
+              "sha256": "6a548b9a9d6b36e57c8bac5933357d6eacff0540c1dd2eaf265d916ae9ca2102",
+              "bytes": 6788
+            }
+          },
+          "dependency_licenses": {}
+        }
+      }
+    }
+  ],
+  "review": {
+    "agent": "review_p08b_t1",
+    "method": "independent static review only; no independent container or model calls",
+    "result": "no blocking or important issues found"
+  },
+  "privacy_probe": {
+    "method": "actual ScopedGenerator.generate and ScopedRepairer.repair request construction, capture client returns invalid empty object, no network",
+    "generation_and_repair_captured": 2,
+    "forbidden_canaries": [
+      "reference implementation replacement marker",
+      "holdout content marker",
+      "evaluator expectation marker"
+    ],
+    "result": "absent from both requests"
+  },
+  "limits": [
+    "Unit formal tasks use synthetic project and mocked inventories; these are consistency/privacy tests, not real defects",
+    "Only Jinja and dateutil upstream suites rerun; other three inventories constructed statically, prior accepted P08A evidence not counted as new execution",
+    "Linux core excludes tests/test_web.py, Windows full suite covers Web",
+    "T1 does not prove defect semantics, survival of original regressions, quotas, or frozen eligibility",
+    "Zero formal tasks frozen, zero formal experiment slots run, zero model calls in this checkpoint"
+  ],
+  "implementation_sha256": {
+    "experiments/formal_tasks.py": "e796b9e5640640b33279f3c06dbfae489015fe8148d81303aaa0d5089ed6a1e6",
+    "experiments/upstream.py": "6981f911f71d2cfcd2d2691cfa20eb2fccded66cbd416eacf159b3e2a8b7be5f",
+    "tests/test_formal_tasks.py": "347b49fbebe8637623b010b0463f27740e1420d594edc29bd49bc501fdd2d22d",
+    "tests/test_upstream_inventory.py": "3cfbc4b22e7e10518ab70d120258c4fdc3054cdc281d8429c3e07bd60da68cf0"
+  }
+}

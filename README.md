@@ -191,3 +191,6 @@ python -m experiments.admission --replay evidence/p08a-markupsafe-admission.json
 ```
 
 导出路径必须全新，已有campaign拒绝重用；不会自动收费重跑。新真实调用须显式`--call`，使用本机.env和累计账本。Git不会同步.env、参考克隆、下载wheel、Docker镜像或本地artifacts；搭档需按`experiments/projects.json`取得固定tag/SHA。当前证据按Windows CRLF字节冻结，复现克隆使用仓库局部`--config core.autocrlf=true`并核对盘点摘要。镜像可由持有者导出/导入同一审查镜像；依赖锁及离线构建说明见阶段8交接，另一机器是否可直接复现由P09干净环境验证，尚未宣称通过。
+
+
+2026-11-10最新：P08B实施计划已确认；T1正式任务清单与统一审核库存技术通过，待用户验收。接口为`experiments.formal_tasks.load_formal_tasks(...)`与`experiments.upstream.build_reviewed_inventory(...)`，格式见`specs/P08B-任务契约.md`。加载只校验输入，不调用模型、不执行目标代码，也不证明候选缺陷成立。Windows135通过5跳过、Linux核心124通过1跳过；Jinja/dateutil新执行摘要与P08A相同。正式清单尚未冻结，无正式任务JSON可直接批量运行；不要把P08A准入清单传入正式加载器。详见`evidence/p08b-t1-verification.json`。
