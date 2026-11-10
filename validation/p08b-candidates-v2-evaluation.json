@@ -1,0 +1,1359 @@
+{
+  "schema": "p08-formal-v1",
+  "tasks": {
+    "v2_click_helpformatter_write_dl": {
+      "defect_type": "boundary",
+      "reference_source_hashes": {
+        "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+        "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+        "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+        "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+        "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+        "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+        "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+        "src/click/formatting.py": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+        "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+        "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+        "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+        "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+        "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+        "src/click/types.py": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+        "src/click/utils.py": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090"
+      },
+      "mutant_source_hashes": {
+        "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+        "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+        "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+        "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+        "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+        "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+        "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+        "src/click/formatting.py": "8d006179ebd4d482d772232a0f7d61c07be6ade78e30de79f89a386e56954ce6",
+        "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+        "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+        "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+        "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+        "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+        "src/click/types.py": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+        "src/click/utils.py": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090"
+      },
+      "mutation": {
+        "old": "term_len(first) <= first_col - col_spacing",
+        "new": "term_len(first) < first_col - col_spacing",
+        "line": 236
+      },
+      "diff": "--- a/src/click/formatting.py\n+++ b/src/click/formatting.py\n@@ -233,7 +233,7 @@\n             if not second:\r\n                 self.write(\"\\n\")\r\n                 continue\r\n-            if term_len(first) <= first_col - col_spacing:\r\n+            if term_len(first) < first_col - col_spacing:\r\n                 self.write(\" \" * (first_col - term_len(first)))\r\n             else:\r\n                 self.write(\"\\n\")\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_click_helpformatter_write_dl.py": {
+          "content": "def test_contract():\n    from click import HelpFormatter\n    f=HelpFormatter(width=40)\n    f.write_dl([('abcd','value')],col_max=4,col_spacing=2)\n    assert f.getvalue()=='abcd  value\\n'\n",
+          "sha256": "54141388164f5a67627463cdd9a7f2751456d56e57ab455ec5b395d3d339a66b"
+        }
+      },
+      "expected_failure": "A definition term exactly at col_max fits on the same line as its description, separated by col_spacing spaces.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_click_tuple_convert": {
+      "defect_type": "boundary",
+      "reference_source_hashes": {
+        "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+        "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+        "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+        "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+        "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+        "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+        "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+        "src/click/formatting.py": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+        "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+        "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+        "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+        "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+        "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+        "src/click/types.py": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+        "src/click/utils.py": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090"
+      },
+      "mutant_source_hashes": {
+        "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+        "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+        "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+        "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+        "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+        "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+        "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+        "src/click/formatting.py": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+        "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+        "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+        "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+        "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+        "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+        "src/click/types.py": "e3e8c352ca872580394c9e65c8e117c9141bb605dd1fe7d1a6a18e5f60a476f0",
+        "src/click/utils.py": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090"
+      },
+      "mutation": {
+        "old": "if len_value != len_type:",
+        "new": "if len_value == 0 or len_value != len_type:",
+        "line": 989
+      },
+      "diff": "--- a/src/click/types.py\n+++ b/src/click/types.py\n@@ -986,7 +986,7 @@\n         len_type = len(self.types)\r\n         len_value = len(value)\r\n \r\n-        if len_value != len_type:\r\n+        if len_value == 0 or len_value != len_type:\r\n             self.fail(\r\n                 ngettext(\r\n                     \"{len_type} values are required, but {len_value} was given.\",\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_click_tuple_convert.py": {
+          "content": "def test_contract():\n    import click\n    try: r=click.Tuple([])([])\n    except Exception as exc: assert False,type(exc).__name__\n    assert r==()\n",
+          "sha256": "42386b748b5766a0d1044faee3cde0a3310bc0e9312aab52741ad5559085f21f"
+        }
+      },
+      "expected_failure": "A tuple converter with an empty sequence of element types accepts an empty value tuple and returns an empty tuple.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_click_uuidparametertype_convert": {
+      "defect_type": "null_type",
+      "reference_source_hashes": {
+        "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+        "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+        "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+        "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+        "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+        "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+        "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+        "src/click/formatting.py": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+        "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+        "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+        "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+        "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+        "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+        "src/click/types.py": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+        "src/click/utils.py": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090"
+      },
+      "mutant_source_hashes": {
+        "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+        "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+        "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+        "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+        "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+        "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+        "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+        "src/click/formatting.py": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+        "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+        "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+        "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+        "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+        "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+        "src/click/types.py": "e7dfaa736f53d61ef04b2e877daa85c42be594cf6fe38f7689470832408ccfb0",
+        "src/click/utils.py": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090"
+      },
+      "mutation": {
+        "old": "return value",
+        "new": "return str(value)",
+        "line": 628
+      },
+      "diff": "--- a/src/click/types.py\n+++ b/src/click/types.py\n@@ -625,7 +625,7 @@\n         import uuid\r\n \r\n         if isinstance(value, uuid.UUID):\r\n-            return value\r\n+            return str(value)\r\n \r\n         value = value.strip()\r\n \r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_click_uuidparametertype_convert.py": {
+          "content": "def test_contract():\n    import click,uuid\n    x=uuid.UUID('12345678-1234-5678-1234-567812345678')\n    assert isinstance(click.UUID(x),uuid.UUID)\n",
+          "sha256": "b0494cb52fe1ef981b0595bd7f447d004d071369236d556118c1b60b8a0fdeaa"
+        }
+      },
+      "expected_failure": "An already-typed UUID input remains a UUID instead of becoming text.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_click_datetime_convert": {
+      "defect_type": "null_type",
+      "reference_source_hashes": {
+        "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+        "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+        "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+        "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+        "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+        "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+        "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+        "src/click/formatting.py": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+        "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+        "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+        "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+        "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+        "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+        "src/click/types.py": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+        "src/click/utils.py": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090"
+      },
+      "mutant_source_hashes": {
+        "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+        "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+        "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+        "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+        "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+        "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+        "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+        "src/click/formatting.py": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+        "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+        "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+        "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+        "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+        "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+        "src/click/types.py": "92de301bf6774627bf33e6bbd9be566ab3dafaf3e68372afb0f1aa04277afc56",
+        "src/click/utils.py": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090"
+      },
+      "mutation": {
+        "old": "return value",
+        "new": "return value.isoformat()",
+        "line": 382
+      },
+      "diff": "--- a/src/click/types.py\n+++ b/src/click/types.py\n@@ -379,7 +379,7 @@\n         self, value: t.Any, param: t.Optional[\"Parameter\"], ctx: t.Optional[\"Context\"]\r\n     ) -> t.Any:\r\n         if isinstance(value, datetime):\r\n-            return value\r\n+            return value.isoformat()\r\n \r\n         for format in self.formats:\r\n             converted = self._try_to_convert_date(value, format)\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_click_datetime_convert.py": {
+          "content": "def test_contract():\n    import click\n    from datetime import datetime\n    x=datetime(2024,1,2,3,4)\n    assert isinstance(click.DateTime()(x),datetime)\n",
+          "sha256": "d4c0a083cdafa397dfbc812efcb05c2b4b94a8828b0928ef073ab183d96bbfa0"
+        }
+      },
+      "expected_failure": "An already-typed datetime input remains a datetime instead of becoming text.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_click_pacifyflushwrapper_flush": {
+      "defect_type": "exception_handling",
+      "reference_source_hashes": {
+        "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+        "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+        "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+        "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+        "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+        "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+        "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+        "src/click/formatting.py": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+        "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+        "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+        "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+        "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+        "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+        "src/click/types.py": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+        "src/click/utils.py": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090"
+      },
+      "mutant_source_hashes": {
+        "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+        "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+        "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+        "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+        "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+        "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+        "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+        "src/click/formatting.py": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+        "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+        "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+        "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+        "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+        "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+        "src/click/types.py": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+        "src/click/utils.py": "bece889a6bec3ddadf47cc60b9c07eda4ee43047cbb86cbc1dcf281887953d75"
+      },
+      "mutation": {
+        "old": "if e.errno != errno.EPIPE:",
+        "new": "if e.errno == errno.EPIPE:",
+        "line": 513
+      },
+      "diff": "--- a/src/click/utils.py\n+++ b/src/click/utils.py\n@@ -510,7 +510,7 @@\n         except OSError as e:\r\n             import errno\r\n \r\n-            if e.errno != errno.EPIPE:\r\n+            if e.errno == errno.EPIPE:\r\n                 raise\r\n \r\n     def __getattr__(self, attr: str) -> t.Any:\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_click_pacifyflushwrapper_flush.py": {
+          "content": "def test_contract():\n    import errno,pytest\n    from click.utils import PacifyFlushWrapper\n    class Broken:\n        def __init__(self,code): self.code=code\n        def flush(self): raise OSError(self.code,'controlled test')\n    try: PacifyFlushWrapper(Broken(errno.EPIPE)).flush()\n    except Exception as exc: assert False,type(exc).__name__\n    with pytest.raises(OSError): PacifyFlushWrapper(Broken(errno.ENOSPC)).flush()\n",
+          "sha256": "f29790e1071b1a51a52f41bdd79e95b0d0ba4201f52a6f6a3c9e554764545946"
+        }
+      },
+      "expected_failure": "The broken-pipe flush wrapper suppresses EPIPE and propagates unrelated OSError values.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_click_safecall": {
+      "defect_type": "exception_handling",
+      "reference_source_hashes": {
+        "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+        "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+        "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+        "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+        "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+        "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+        "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+        "src/click/formatting.py": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+        "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+        "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+        "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+        "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+        "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+        "src/click/types.py": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+        "src/click/utils.py": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090"
+      },
+      "mutant_source_hashes": {
+        "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+        "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+        "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+        "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+        "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+        "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+        "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+        "src/click/formatting.py": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+        "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+        "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+        "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+        "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+        "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+        "src/click/types.py": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+        "src/click/utils.py": "763a6c7e94fae3bb9f959f14ad0ba0c19331d5f57b90f921455a0c14d4111fc8"
+      },
+      "mutation": {
+        "old": "except Exception:",
+        "new": "except OSError:",
+        "line": 39
+      },
+      "diff": "--- a/src/click/utils.py\n+++ b/src/click/utils.py\n@@ -36,7 +36,7 @@\n     def wrapper(*args: \"P.args\", **kwargs: \"P.kwargs\") -> t.Optional[R]:\r\n         try:\r\n             return func(*args, **kwargs)\r\n-        except Exception:\r\n+        except OSError:\r\n             pass\r\n         return None\r\n \r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_click_safecall.py": {
+          "content": "def test_contract():\n    from click.utils import safecall\n    def boom(): raise RuntimeError('controlled test')\n    try: r=safecall(boom)()\n    except Exception as exc: assert False,type(exc).__name__\n    assert r is None\n",
+          "sha256": "b0b43534a584cfd169aa31a0258ec78977e41ff584a976a0ecd219d70f477939"
+        }
+      },
+      "expected_failure": "safecall suppresses exceptions from its wrapped function, including a RuntimeError.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_click_make_str": {
+      "defect_type": "exception_handling",
+      "reference_source_hashes": {
+        "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+        "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+        "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+        "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+        "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+        "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+        "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+        "src/click/formatting.py": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+        "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+        "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+        "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+        "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+        "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+        "src/click/types.py": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+        "src/click/utils.py": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090"
+      },
+      "mutant_source_hashes": {
+        "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+        "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+        "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+        "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+        "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+        "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+        "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+        "src/click/formatting.py": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+        "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+        "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+        "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+        "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+        "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+        "src/click/types.py": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+        "src/click/utils.py": "c4f37cbe7d919a3397fc218c5ce965baec82e67a7f3e93a50889fe8c2ed4645c"
+      },
+      "mutation": {
+        "old": "return value.decode(\"utf-8\", \"replace\")",
+        "new": "return value",
+        "line": 52
+      },
+      "diff": "--- a/src/click/utils.py\n+++ b/src/click/utils.py\n@@ -49,7 +49,7 @@\n         try:\r\n             return value.decode(sys.getfilesystemencoding())\r\n         except UnicodeError:\r\n-            return value.decode(\"utf-8\", \"replace\")\r\n+            return value\r\n     return str(value)\r\n \r\n \r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_click_make_str.py": {
+          "content": "def test_contract():\n    from click.utils import make_str\n    from unittest.mock import patch\n    with patch('click.utils.sys.getfilesystemencoding',return_value='ascii'):\n        assert isinstance(make_str(b'\\xff'),str)\n",
+          "sha256": "c67e9f68298d4d53e57e81ddd96ca1eb7310f644545a1525d261f0911e791ce8"
+        }
+      },
+      "expected_failure": "make_str returns a valid str even when decoding input bytes initially raises UnicodeError.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_click_stringparamtype_convert": {
+      "defect_type": "exception_handling",
+      "reference_source_hashes": {
+        "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+        "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+        "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+        "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+        "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+        "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+        "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+        "src/click/formatting.py": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+        "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+        "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+        "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+        "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+        "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+        "src/click/types.py": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+        "src/click/utils.py": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090"
+      },
+      "mutant_source_hashes": {
+        "src/click/__init__.py": "c2557969f21e75933a5f0c03eafd9a3163884dc4cc47ddc2573d630cfc67f1ff",
+        "src/click/_compat.py": "c4f82746d8fa4236bf24fd79c8d75cb6076a0717b5edd2a8a48e8d640606ff28",
+        "src/click/_termui_impl.py": "e9268840d927a6ee7548b5686ec4e60f14a26fcdc342bc05a9c749027aeb87eb",
+        "src/click/_textwrap.py": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "src/click/_winconsole.py": "905675091284d696bc4e0767bdacbe8dd97d1068434f74dd68bdac84d8bc5eaa",
+        "src/click/core.py": "f1b964f162234962f78f69f893752ebfe9326bd18a5f29cf9352284281c8c223",
+        "src/click/decorators.py": "fb10ea2bcd8e1a13aee5759463a0c269b5744795f750afe7fd1f66cb7ae476af",
+        "src/click/exceptions.py": "839830d5cce2c51cec9f1a862c2070ece6ebba7fa0f5deb4afcb53241c824d26",
+        "src/click/formatting.py": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+        "src/click/globals.py": "4104aad6ed4118f9a3260a3e5a16dbc06dff443c3cc498f69fd5668e4abbb985",
+        "src/click/parser.py": "4904d66d82b4bc386927352da8b44ae9b3f4c9c6d2d56612159045e0935c0041",
+        "src/click/shell_completion.py": "149b0c28f08eb19deb29c0b07e39e8c786e192c5b34a2ab7a8a69b981bd521a3",
+        "src/click/termui.py": "563a7eb0348aa034bcb33f71436b9eb2a7df41aef9fe2f117dc2ace18aecc9c9",
+        "src/click/testing.py": "b1e34b5720364c5a7142c0ca3ec0cecf19f98bff8b63aa369fd68e971ee954ab",
+        "src/click/types.py": "308e95fb48b8a04f05c91caa98d87db0442272ac8a03f489888188470353f6b1",
+        "src/click/utils.py": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090"
+      },
+      "mutation": {
+        "old": "except UnicodeError:\n            fs_enc",
+        "new": "except UnicodeError:\n            return value\n            fs_enc",
+        "line": 211
+      },
+      "diff": "--- a/src/click/types.py\n+++ b/src/click/types.py\n@@ -209,6 +209,7 @@\n             try:\r\n                 value = value.decode(enc)\r\n             except UnicodeError:\r\n+                return value\r\n                 fs_enc = sys.getfilesystemencoding()\r\n                 if fs_enc != enc:\r\n                     try:\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_click_stringparamtype_convert.py": {
+          "content": "def test_contract():\n    import click\n    from unittest.mock import patch\n    with patch('click.types._get_argv_encoding',return_value='ascii'):\n        assert isinstance(click.STRING(b'\\xff'),str)\n",
+          "sha256": "7313694fa3c3acac16e9a0ad05f05f26c692ac88a8a2a2905bfae1a601029a40"
+        }
+      },
+      "expected_failure": "String parameter conversion returns str even for invalid input bytes that need replacement decoding.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_jinja_do_truncate": {
+      "defect_type": "boundary",
+      "reference_source_hashes": {
+        "src/jinja2/__init__.py": "86138cd576a7e59771397f81d2efc1a50016127ebc8a1e1676df3f6068e8519a",
+        "src/jinja2/_identifier.py": "0322924a198ad5b1f394c18ce7351c23d9769a7e311ee1cf54053e2fdbdf4955",
+        "src/jinja2/async_utils.py": "8cf740448d2ba5e2a6831db22cbd9cb94034ee492a26d4c965fdab3e3929b310",
+        "src/jinja2/bccache.py": "20296722f965b905b8dfaddb8a0a200125acf23a56750045579b463e2b543ab8",
+        "src/jinja2/compiler.py": "355e90b9ca07533a6c0f6826e9cd2b0ad9b10c57857b6f9c305c6ab94cb76b22",
+        "src/jinja2/constants.py": "d49d443db7b1c91445db88f2f25846947e872fb4ef46081121542b7e2ef67f62",
+        "src/jinja2/debug.py": "cea66094be69b8b6c79b23fc754963015a28b1b179be5c700c0f1b786091c4bb",
+        "src/jinja2/defaults.py": "cc935a01c09cb043da214024f4a3ae377a989c54740599a5f9ea7417af746f76",
+        "src/jinja2/environment.py": "72735118c43c30b3f425acf5b6185542f2615a681b5acf1c4712982b6ff4b496",
+        "src/jinja2/exceptions.py": "3fe0efe27e16f0c19d8085174e8b466ec4489315004fead38b7aef805f7e5be7",
+        "src/jinja2/ext.py": "64907e54ee9718ca88dde875a69745b145341e2e51ac9518bf585ce78962c9a7",
+        "src/jinja2/filters.py": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+        "src/jinja2/idtracking.py": "885e78b2d9ccc408dd42eeb32996fb97883bf802083b5f706a8cea9346506fb8",
+        "src/jinja2/lexer.py": "06a2f10ab3d977c033b633d046013514e288b593fd9811d0d00fcabdf7e3aeac",
+        "src/jinja2/loaders.py": "76b36ee94b02d5cee72d3122d03bfbd83f64766eb2524d6d1612cbdb3fda1aa1",
+        "src/jinja2/meta.py": "0524b1a1b64f0bce678b4d5bca9a8a52658bd3aa1911b077d7a862720bb8aed9",
+        "src/jinja2/nativetypes.py": "37d3f63baaedbb39c97942e4db48047034df64f3608af0d99d1b82e31818e12b",
+        "src/jinja2/nodes.py": "5967088ba73e9175cf05b6d95b98484a59369d417e4f562c50ed1d2f254dd8a2",
+        "src/jinja2/optimizer.py": "f0cfe7e50ec00ce2fc3d9d5e29707e3b328b05529bbf27835eaa30c78998b94f",
+        "src/jinja2/parser.py": "2e27754d7c1a7ef274c0b0e078670a447184b7599e0b83f76014c8a3f7f7bd75",
+        "src/jinja2/runtime.py": "6510a180ba8ea364377fa49989bd4bc1ebae9d0bfbf739557aaf43425476b8d2",
+        "src/jinja2/sandbox.py": "86400dcf3e7aa8eaec9bb7aafa198402818db3da740abe2ac9b943ee6b1c63ca",
+        "src/jinja2/tests.py": "fc8c8bd3208b0a9a82c855e5fcc33c996af3776addf15c37ca1b24053ba99d2e",
+        "src/jinja2/utils.py": "e868b5ae1f2b35fc56ba4364bcabda5c23f3a5c73591b7d2c008ac4edbc72428",
+        "src/jinja2/visitor.py": "2b44629470fdddee65b9facf27eaf84e8bbbe450f2892fb846d6d0b9c6af0e9d",
+        "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "mutant_source_hashes": {
+        "src/jinja2/__init__.py": "86138cd576a7e59771397f81d2efc1a50016127ebc8a1e1676df3f6068e8519a",
+        "src/jinja2/_identifier.py": "0322924a198ad5b1f394c18ce7351c23d9769a7e311ee1cf54053e2fdbdf4955",
+        "src/jinja2/async_utils.py": "8cf740448d2ba5e2a6831db22cbd9cb94034ee492a26d4c965fdab3e3929b310",
+        "src/jinja2/bccache.py": "20296722f965b905b8dfaddb8a0a200125acf23a56750045579b463e2b543ab8",
+        "src/jinja2/compiler.py": "355e90b9ca07533a6c0f6826e9cd2b0ad9b10c57857b6f9c305c6ab94cb76b22",
+        "src/jinja2/constants.py": "d49d443db7b1c91445db88f2f25846947e872fb4ef46081121542b7e2ef67f62",
+        "src/jinja2/debug.py": "cea66094be69b8b6c79b23fc754963015a28b1b179be5c700c0f1b786091c4bb",
+        "src/jinja2/defaults.py": "cc935a01c09cb043da214024f4a3ae377a989c54740599a5f9ea7417af746f76",
+        "src/jinja2/environment.py": "72735118c43c30b3f425acf5b6185542f2615a681b5acf1c4712982b6ff4b496",
+        "src/jinja2/exceptions.py": "3fe0efe27e16f0c19d8085174e8b466ec4489315004fead38b7aef805f7e5be7",
+        "src/jinja2/ext.py": "64907e54ee9718ca88dde875a69745b145341e2e51ac9518bf585ce78962c9a7",
+        "src/jinja2/filters.py": "5d7299a45f483d56454f6fe0d1cbc7a08af4859a9c86d324742c697332f0c9ee",
+        "src/jinja2/idtracking.py": "885e78b2d9ccc408dd42eeb32996fb97883bf802083b5f706a8cea9346506fb8",
+        "src/jinja2/lexer.py": "06a2f10ab3d977c033b633d046013514e288b593fd9811d0d00fcabdf7e3aeac",
+        "src/jinja2/loaders.py": "76b36ee94b02d5cee72d3122d03bfbd83f64766eb2524d6d1612cbdb3fda1aa1",
+        "src/jinja2/meta.py": "0524b1a1b64f0bce678b4d5bca9a8a52658bd3aa1911b077d7a862720bb8aed9",
+        "src/jinja2/nativetypes.py": "37d3f63baaedbb39c97942e4db48047034df64f3608af0d99d1b82e31818e12b",
+        "src/jinja2/nodes.py": "5967088ba73e9175cf05b6d95b98484a59369d417e4f562c50ed1d2f254dd8a2",
+        "src/jinja2/optimizer.py": "f0cfe7e50ec00ce2fc3d9d5e29707e3b328b05529bbf27835eaa30c78998b94f",
+        "src/jinja2/parser.py": "2e27754d7c1a7ef274c0b0e078670a447184b7599e0b83f76014c8a3f7f7bd75",
+        "src/jinja2/runtime.py": "6510a180ba8ea364377fa49989bd4bc1ebae9d0bfbf739557aaf43425476b8d2",
+        "src/jinja2/sandbox.py": "86400dcf3e7aa8eaec9bb7aafa198402818db3da740abe2ac9b943ee6b1c63ca",
+        "src/jinja2/tests.py": "fc8c8bd3208b0a9a82c855e5fcc33c996af3776addf15c37ca1b24053ba99d2e",
+        "src/jinja2/utils.py": "e868b5ae1f2b35fc56ba4364bcabda5c23f3a5c73591b7d2c008ac4edbc72428",
+        "src/jinja2/visitor.py": "2b44629470fdddee65b9facf27eaf84e8bbbe450f2892fb846d6d0b9c6af0e9d",
+        "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "mutation": {
+        "old": "len(s) <= length + leeway",
+        "new": "len(s) < length + leeway",
+        "line": 911
+      },
+      "diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -908,7 +908,7 @@\n     assert length >= len(end), f\"expected length >= {len(end)}, got {length}\"\r\n     assert leeway >= 0, f\"expected leeway >= 0, got {leeway}\"\r\n \r\n-    if len(s) <= length + leeway:\r\n+    if len(s) < length + leeway:\r\n         return s\r\n \r\n     if killwords:\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_jinja_do_truncate.py": {
+          "content": "def test_contract():\n    from jinja2 import Environment\n    from jinja2.filters import do_truncate\n    assert do_truncate(Environment(),'abcd',4,True,'...',0)=='abcd'\n",
+          "sha256": "d1070956c89f8264ee845172c4e8f1dfc20f81d37755d965038250e5f0058507"
+        }
+      },
+      "expected_failure": "A string at exactly the requested truncation length with zero leeway is not truncated or suffixed.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_jinja_do_filesizeformat": {
+      "defect_type": "boundary",
+      "reference_source_hashes": {
+        "src/jinja2/__init__.py": "86138cd576a7e59771397f81d2efc1a50016127ebc8a1e1676df3f6068e8519a",
+        "src/jinja2/_identifier.py": "0322924a198ad5b1f394c18ce7351c23d9769a7e311ee1cf54053e2fdbdf4955",
+        "src/jinja2/async_utils.py": "8cf740448d2ba5e2a6831db22cbd9cb94034ee492a26d4c965fdab3e3929b310",
+        "src/jinja2/bccache.py": "20296722f965b905b8dfaddb8a0a200125acf23a56750045579b463e2b543ab8",
+        "src/jinja2/compiler.py": "355e90b9ca07533a6c0f6826e9cd2b0ad9b10c57857b6f9c305c6ab94cb76b22",
+        "src/jinja2/constants.py": "d49d443db7b1c91445db88f2f25846947e872fb4ef46081121542b7e2ef67f62",
+        "src/jinja2/debug.py": "cea66094be69b8b6c79b23fc754963015a28b1b179be5c700c0f1b786091c4bb",
+        "src/jinja2/defaults.py": "cc935a01c09cb043da214024f4a3ae377a989c54740599a5f9ea7417af746f76",
+        "src/jinja2/environment.py": "72735118c43c30b3f425acf5b6185542f2615a681b5acf1c4712982b6ff4b496",
+        "src/jinja2/exceptions.py": "3fe0efe27e16f0c19d8085174e8b466ec4489315004fead38b7aef805f7e5be7",
+        "src/jinja2/ext.py": "64907e54ee9718ca88dde875a69745b145341e2e51ac9518bf585ce78962c9a7",
+        "src/jinja2/filters.py": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+        "src/jinja2/idtracking.py": "885e78b2d9ccc408dd42eeb32996fb97883bf802083b5f706a8cea9346506fb8",
+        "src/jinja2/lexer.py": "06a2f10ab3d977c033b633d046013514e288b593fd9811d0d00fcabdf7e3aeac",
+        "src/jinja2/loaders.py": "76b36ee94b02d5cee72d3122d03bfbd83f64766eb2524d6d1612cbdb3fda1aa1",
+        "src/jinja2/meta.py": "0524b1a1b64f0bce678b4d5bca9a8a52658bd3aa1911b077d7a862720bb8aed9",
+        "src/jinja2/nativetypes.py": "37d3f63baaedbb39c97942e4db48047034df64f3608af0d99d1b82e31818e12b",
+        "src/jinja2/nodes.py": "5967088ba73e9175cf05b6d95b98484a59369d417e4f562c50ed1d2f254dd8a2",
+        "src/jinja2/optimizer.py": "f0cfe7e50ec00ce2fc3d9d5e29707e3b328b05529bbf27835eaa30c78998b94f",
+        "src/jinja2/parser.py": "2e27754d7c1a7ef274c0b0e078670a447184b7599e0b83f76014c8a3f7f7bd75",
+        "src/jinja2/runtime.py": "6510a180ba8ea364377fa49989bd4bc1ebae9d0bfbf739557aaf43425476b8d2",
+        "src/jinja2/sandbox.py": "86400dcf3e7aa8eaec9bb7aafa198402818db3da740abe2ac9b943ee6b1c63ca",
+        "src/jinja2/tests.py": "fc8c8bd3208b0a9a82c855e5fcc33c996af3776addf15c37ca1b24053ba99d2e",
+        "src/jinja2/utils.py": "e868b5ae1f2b35fc56ba4364bcabda5c23f3a5c73591b7d2c008ac4edbc72428",
+        "src/jinja2/visitor.py": "2b44629470fdddee65b9facf27eaf84e8bbbe450f2892fb846d6d0b9c6af0e9d",
+        "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "mutant_source_hashes": {
+        "src/jinja2/__init__.py": "86138cd576a7e59771397f81d2efc1a50016127ebc8a1e1676df3f6068e8519a",
+        "src/jinja2/_identifier.py": "0322924a198ad5b1f394c18ce7351c23d9769a7e311ee1cf54053e2fdbdf4955",
+        "src/jinja2/async_utils.py": "8cf740448d2ba5e2a6831db22cbd9cb94034ee492a26d4c965fdab3e3929b310",
+        "src/jinja2/bccache.py": "20296722f965b905b8dfaddb8a0a200125acf23a56750045579b463e2b543ab8",
+        "src/jinja2/compiler.py": "355e90b9ca07533a6c0f6826e9cd2b0ad9b10c57857b6f9c305c6ab94cb76b22",
+        "src/jinja2/constants.py": "d49d443db7b1c91445db88f2f25846947e872fb4ef46081121542b7e2ef67f62",
+        "src/jinja2/debug.py": "cea66094be69b8b6c79b23fc754963015a28b1b179be5c700c0f1b786091c4bb",
+        "src/jinja2/defaults.py": "cc935a01c09cb043da214024f4a3ae377a989c54740599a5f9ea7417af746f76",
+        "src/jinja2/environment.py": "72735118c43c30b3f425acf5b6185542f2615a681b5acf1c4712982b6ff4b496",
+        "src/jinja2/exceptions.py": "3fe0efe27e16f0c19d8085174e8b466ec4489315004fead38b7aef805f7e5be7",
+        "src/jinja2/ext.py": "64907e54ee9718ca88dde875a69745b145341e2e51ac9518bf585ce78962c9a7",
+        "src/jinja2/filters.py": "5b8a89b4c6c8feeec6d6fa2b6e703c9317643922b8dcf7c07f9b6a8a7d2d605a",
+        "src/jinja2/idtracking.py": "885e78b2d9ccc408dd42eeb32996fb97883bf802083b5f706a8cea9346506fb8",
+        "src/jinja2/lexer.py": "06a2f10ab3d977c033b633d046013514e288b593fd9811d0d00fcabdf7e3aeac",
+        "src/jinja2/loaders.py": "76b36ee94b02d5cee72d3122d03bfbd83f64766eb2524d6d1612cbdb3fda1aa1",
+        "src/jinja2/meta.py": "0524b1a1b64f0bce678b4d5bca9a8a52658bd3aa1911b077d7a862720bb8aed9",
+        "src/jinja2/nativetypes.py": "37d3f63baaedbb39c97942e4db48047034df64f3608af0d99d1b82e31818e12b",
+        "src/jinja2/nodes.py": "5967088ba73e9175cf05b6d95b98484a59369d417e4f562c50ed1d2f254dd8a2",
+        "src/jinja2/optimizer.py": "f0cfe7e50ec00ce2fc3d9d5e29707e3b328b05529bbf27835eaa30c78998b94f",
+        "src/jinja2/parser.py": "2e27754d7c1a7ef274c0b0e078670a447184b7599e0b83f76014c8a3f7f7bd75",
+        "src/jinja2/runtime.py": "6510a180ba8ea364377fa49989bd4bc1ebae9d0bfbf739557aaf43425476b8d2",
+        "src/jinja2/sandbox.py": "86400dcf3e7aa8eaec9bb7aafa198402818db3da740abe2ac9b943ee6b1c63ca",
+        "src/jinja2/tests.py": "fc8c8bd3208b0a9a82c855e5fcc33c996af3776addf15c37ca1b24053ba99d2e",
+        "src/jinja2/utils.py": "e868b5ae1f2b35fc56ba4364bcabda5c23f3a5c73591b7d2c008ac4edbc72428",
+        "src/jinja2/visitor.py": "2b44629470fdddee65b9facf27eaf84e8bbbe450f2892fb846d6d0b9c6af0e9d",
+        "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "mutation": {
+        "old": "elif bytes < base:",
+        "new": "elif bytes <= base:",
+        "line": 725
+      },
+      "diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -722,7 +722,7 @@\n \r\n     if bytes == 1:\r\n         return \"1 Byte\"\r\n-    elif bytes < base:\r\n+    elif bytes <= base:\r\n         return f\"{int(bytes)} Bytes\"\r\n     else:\r\n         for i, prefix in enumerate(prefixes):\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_jinja_do_filesizeformat.py": {
+          "content": "def test_contract():\n    from jinja2.filters import do_filesizeformat\n    assert do_filesizeformat(1000)=='1.0 kB'\n",
+          "sha256": "10c3042df858b2bc9367e3b65f424c321afd41532f3fcdd6fde85676078b6832"
+        }
+      },
+      "expected_failure": "Exactly 1000 bytes in decimal filesize formatting is 1.0 kB, at the unit boundary.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_jinja_do_round": {
+      "defect_type": "exception_handling",
+      "reference_source_hashes": {
+        "src/jinja2/__init__.py": "86138cd576a7e59771397f81d2efc1a50016127ebc8a1e1676df3f6068e8519a",
+        "src/jinja2/_identifier.py": "0322924a198ad5b1f394c18ce7351c23d9769a7e311ee1cf54053e2fdbdf4955",
+        "src/jinja2/async_utils.py": "8cf740448d2ba5e2a6831db22cbd9cb94034ee492a26d4c965fdab3e3929b310",
+        "src/jinja2/bccache.py": "20296722f965b905b8dfaddb8a0a200125acf23a56750045579b463e2b543ab8",
+        "src/jinja2/compiler.py": "355e90b9ca07533a6c0f6826e9cd2b0ad9b10c57857b6f9c305c6ab94cb76b22",
+        "src/jinja2/constants.py": "d49d443db7b1c91445db88f2f25846947e872fb4ef46081121542b7e2ef67f62",
+        "src/jinja2/debug.py": "cea66094be69b8b6c79b23fc754963015a28b1b179be5c700c0f1b786091c4bb",
+        "src/jinja2/defaults.py": "cc935a01c09cb043da214024f4a3ae377a989c54740599a5f9ea7417af746f76",
+        "src/jinja2/environment.py": "72735118c43c30b3f425acf5b6185542f2615a681b5acf1c4712982b6ff4b496",
+        "src/jinja2/exceptions.py": "3fe0efe27e16f0c19d8085174e8b466ec4489315004fead38b7aef805f7e5be7",
+        "src/jinja2/ext.py": "64907e54ee9718ca88dde875a69745b145341e2e51ac9518bf585ce78962c9a7",
+        "src/jinja2/filters.py": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+        "src/jinja2/idtracking.py": "885e78b2d9ccc408dd42eeb32996fb97883bf802083b5f706a8cea9346506fb8",
+        "src/jinja2/lexer.py": "06a2f10ab3d977c033b633d046013514e288b593fd9811d0d00fcabdf7e3aeac",
+        "src/jinja2/loaders.py": "76b36ee94b02d5cee72d3122d03bfbd83f64766eb2524d6d1612cbdb3fda1aa1",
+        "src/jinja2/meta.py": "0524b1a1b64f0bce678b4d5bca9a8a52658bd3aa1911b077d7a862720bb8aed9",
+        "src/jinja2/nativetypes.py": "37d3f63baaedbb39c97942e4db48047034df64f3608af0d99d1b82e31818e12b",
+        "src/jinja2/nodes.py": "5967088ba73e9175cf05b6d95b98484a59369d417e4f562c50ed1d2f254dd8a2",
+        "src/jinja2/optimizer.py": "f0cfe7e50ec00ce2fc3d9d5e29707e3b328b05529bbf27835eaa30c78998b94f",
+        "src/jinja2/parser.py": "2e27754d7c1a7ef274c0b0e078670a447184b7599e0b83f76014c8a3f7f7bd75",
+        "src/jinja2/runtime.py": "6510a180ba8ea364377fa49989bd4bc1ebae9d0bfbf739557aaf43425476b8d2",
+        "src/jinja2/sandbox.py": "86400dcf3e7aa8eaec9bb7aafa198402818db3da740abe2ac9b943ee6b1c63ca",
+        "src/jinja2/tests.py": "fc8c8bd3208b0a9a82c855e5fcc33c996af3776addf15c37ca1b24053ba99d2e",
+        "src/jinja2/utils.py": "e868b5ae1f2b35fc56ba4364bcabda5c23f3a5c73591b7d2c008ac4edbc72428",
+        "src/jinja2/visitor.py": "2b44629470fdddee65b9facf27eaf84e8bbbe450f2892fb846d6d0b9c6af0e9d",
+        "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "mutant_source_hashes": {
+        "src/jinja2/__init__.py": "86138cd576a7e59771397f81d2efc1a50016127ebc8a1e1676df3f6068e8519a",
+        "src/jinja2/_identifier.py": "0322924a198ad5b1f394c18ce7351c23d9769a7e311ee1cf54053e2fdbdf4955",
+        "src/jinja2/async_utils.py": "8cf740448d2ba5e2a6831db22cbd9cb94034ee492a26d4c965fdab3e3929b310",
+        "src/jinja2/bccache.py": "20296722f965b905b8dfaddb8a0a200125acf23a56750045579b463e2b543ab8",
+        "src/jinja2/compiler.py": "355e90b9ca07533a6c0f6826e9cd2b0ad9b10c57857b6f9c305c6ab94cb76b22",
+        "src/jinja2/constants.py": "d49d443db7b1c91445db88f2f25846947e872fb4ef46081121542b7e2ef67f62",
+        "src/jinja2/debug.py": "cea66094be69b8b6c79b23fc754963015a28b1b179be5c700c0f1b786091c4bb",
+        "src/jinja2/defaults.py": "cc935a01c09cb043da214024f4a3ae377a989c54740599a5f9ea7417af746f76",
+        "src/jinja2/environment.py": "72735118c43c30b3f425acf5b6185542f2615a681b5acf1c4712982b6ff4b496",
+        "src/jinja2/exceptions.py": "3fe0efe27e16f0c19d8085174e8b466ec4489315004fead38b7aef805f7e5be7",
+        "src/jinja2/ext.py": "64907e54ee9718ca88dde875a69745b145341e2e51ac9518bf585ce78962c9a7",
+        "src/jinja2/filters.py": "f1ce5b428eefa6781543c92549d3ce75652b76d94bda122b84d94930a57e5683",
+        "src/jinja2/idtracking.py": "885e78b2d9ccc408dd42eeb32996fb97883bf802083b5f706a8cea9346506fb8",
+        "src/jinja2/lexer.py": "06a2f10ab3d977c033b633d046013514e288b593fd9811d0d00fcabdf7e3aeac",
+        "src/jinja2/loaders.py": "76b36ee94b02d5cee72d3122d03bfbd83f64766eb2524d6d1612cbdb3fda1aa1",
+        "src/jinja2/meta.py": "0524b1a1b64f0bce678b4d5bca9a8a52658bd3aa1911b077d7a862720bb8aed9",
+        "src/jinja2/nativetypes.py": "37d3f63baaedbb39c97942e4db48047034df64f3608af0d99d1b82e31818e12b",
+        "src/jinja2/nodes.py": "5967088ba73e9175cf05b6d95b98484a59369d417e4f562c50ed1d2f254dd8a2",
+        "src/jinja2/optimizer.py": "f0cfe7e50ec00ce2fc3d9d5e29707e3b328b05529bbf27835eaa30c78998b94f",
+        "src/jinja2/parser.py": "2e27754d7c1a7ef274c0b0e078670a447184b7599e0b83f76014c8a3f7f7bd75",
+        "src/jinja2/runtime.py": "6510a180ba8ea364377fa49989bd4bc1ebae9d0bfbf739557aaf43425476b8d2",
+        "src/jinja2/sandbox.py": "86400dcf3e7aa8eaec9bb7aafa198402818db3da740abe2ac9b943ee6b1c63ca",
+        "src/jinja2/tests.py": "fc8c8bd3208b0a9a82c855e5fcc33c996af3776addf15c37ca1b24053ba99d2e",
+        "src/jinja2/utils.py": "e868b5ae1f2b35fc56ba4364bcabda5c23f3a5c73591b7d2c008ac4edbc72428",
+        "src/jinja2/visitor.py": "2b44629470fdddee65b9facf27eaf84e8bbbe450f2892fb846d6d0b9c6af0e9d",
+        "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "mutation": {
+        "old": "raise FilterArgumentError(\"method must be common, ceil or floor\")",
+        "new": "return value",
+        "line": 1179
+      },
+      "diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -1176,7 +1176,7 @@\n             -> 43\r\n     \"\"\"\r\n     if method not in {\"common\", \"ceil\", \"floor\"}:\r\n-        raise FilterArgumentError(\"method must be common, ceil or floor\")\r\n+        return value\r\n \r\n     if method == \"common\":\r\n         return round(value, precision)\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_jinja_do_round.py": {
+          "content": "def test_contract():\n    from jinja2.filters import do_round\n    from jinja2.exceptions import FilterArgumentError\n    import pytest\n    with pytest.raises(FilterArgumentError): do_round(1.25,1,'invalid')\n",
+          "sha256": "215594261155e8aee3e0cf7b4d0a73d1e121b3b2636cb6a2a1e06cc5d84c3c5e"
+        }
+      },
+      "expected_failure": "An unsupported rounding method raises FilterArgumentError rather than returning an unrounded value.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_jinja_do_dictsort": {
+      "defect_type": "exception_handling",
+      "reference_source_hashes": {
+        "src/jinja2/__init__.py": "86138cd576a7e59771397f81d2efc1a50016127ebc8a1e1676df3f6068e8519a",
+        "src/jinja2/_identifier.py": "0322924a198ad5b1f394c18ce7351c23d9769a7e311ee1cf54053e2fdbdf4955",
+        "src/jinja2/async_utils.py": "8cf740448d2ba5e2a6831db22cbd9cb94034ee492a26d4c965fdab3e3929b310",
+        "src/jinja2/bccache.py": "20296722f965b905b8dfaddb8a0a200125acf23a56750045579b463e2b543ab8",
+        "src/jinja2/compiler.py": "355e90b9ca07533a6c0f6826e9cd2b0ad9b10c57857b6f9c305c6ab94cb76b22",
+        "src/jinja2/constants.py": "d49d443db7b1c91445db88f2f25846947e872fb4ef46081121542b7e2ef67f62",
+        "src/jinja2/debug.py": "cea66094be69b8b6c79b23fc754963015a28b1b179be5c700c0f1b786091c4bb",
+        "src/jinja2/defaults.py": "cc935a01c09cb043da214024f4a3ae377a989c54740599a5f9ea7417af746f76",
+        "src/jinja2/environment.py": "72735118c43c30b3f425acf5b6185542f2615a681b5acf1c4712982b6ff4b496",
+        "src/jinja2/exceptions.py": "3fe0efe27e16f0c19d8085174e8b466ec4489315004fead38b7aef805f7e5be7",
+        "src/jinja2/ext.py": "64907e54ee9718ca88dde875a69745b145341e2e51ac9518bf585ce78962c9a7",
+        "src/jinja2/filters.py": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+        "src/jinja2/idtracking.py": "885e78b2d9ccc408dd42eeb32996fb97883bf802083b5f706a8cea9346506fb8",
+        "src/jinja2/lexer.py": "06a2f10ab3d977c033b633d046013514e288b593fd9811d0d00fcabdf7e3aeac",
+        "src/jinja2/loaders.py": "76b36ee94b02d5cee72d3122d03bfbd83f64766eb2524d6d1612cbdb3fda1aa1",
+        "src/jinja2/meta.py": "0524b1a1b64f0bce678b4d5bca9a8a52658bd3aa1911b077d7a862720bb8aed9",
+        "src/jinja2/nativetypes.py": "37d3f63baaedbb39c97942e4db48047034df64f3608af0d99d1b82e31818e12b",
+        "src/jinja2/nodes.py": "5967088ba73e9175cf05b6d95b98484a59369d417e4f562c50ed1d2f254dd8a2",
+        "src/jinja2/optimizer.py": "f0cfe7e50ec00ce2fc3d9d5e29707e3b328b05529bbf27835eaa30c78998b94f",
+        "src/jinja2/parser.py": "2e27754d7c1a7ef274c0b0e078670a447184b7599e0b83f76014c8a3f7f7bd75",
+        "src/jinja2/runtime.py": "6510a180ba8ea364377fa49989bd4bc1ebae9d0bfbf739557aaf43425476b8d2",
+        "src/jinja2/sandbox.py": "86400dcf3e7aa8eaec9bb7aafa198402818db3da740abe2ac9b943ee6b1c63ca",
+        "src/jinja2/tests.py": "fc8c8bd3208b0a9a82c855e5fcc33c996af3776addf15c37ca1b24053ba99d2e",
+        "src/jinja2/utils.py": "e868b5ae1f2b35fc56ba4364bcabda5c23f3a5c73591b7d2c008ac4edbc72428",
+        "src/jinja2/visitor.py": "2b44629470fdddee65b9facf27eaf84e8bbbe450f2892fb846d6d0b9c6af0e9d",
+        "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "mutant_source_hashes": {
+        "src/jinja2/__init__.py": "86138cd576a7e59771397f81d2efc1a50016127ebc8a1e1676df3f6068e8519a",
+        "src/jinja2/_identifier.py": "0322924a198ad5b1f394c18ce7351c23d9769a7e311ee1cf54053e2fdbdf4955",
+        "src/jinja2/async_utils.py": "8cf740448d2ba5e2a6831db22cbd9cb94034ee492a26d4c965fdab3e3929b310",
+        "src/jinja2/bccache.py": "20296722f965b905b8dfaddb8a0a200125acf23a56750045579b463e2b543ab8",
+        "src/jinja2/compiler.py": "355e90b9ca07533a6c0f6826e9cd2b0ad9b10c57857b6f9c305c6ab94cb76b22",
+        "src/jinja2/constants.py": "d49d443db7b1c91445db88f2f25846947e872fb4ef46081121542b7e2ef67f62",
+        "src/jinja2/debug.py": "cea66094be69b8b6c79b23fc754963015a28b1b179be5c700c0f1b786091c4bb",
+        "src/jinja2/defaults.py": "cc935a01c09cb043da214024f4a3ae377a989c54740599a5f9ea7417af746f76",
+        "src/jinja2/environment.py": "72735118c43c30b3f425acf5b6185542f2615a681b5acf1c4712982b6ff4b496",
+        "src/jinja2/exceptions.py": "3fe0efe27e16f0c19d8085174e8b466ec4489315004fead38b7aef805f7e5be7",
+        "src/jinja2/ext.py": "64907e54ee9718ca88dde875a69745b145341e2e51ac9518bf585ce78962c9a7",
+        "src/jinja2/filters.py": "e7c3f6be7b0577b90b470e2045e1fadbb59f66660b3a0b0b6717a5821dda8087",
+        "src/jinja2/idtracking.py": "885e78b2d9ccc408dd42eeb32996fb97883bf802083b5f706a8cea9346506fb8",
+        "src/jinja2/lexer.py": "06a2f10ab3d977c033b633d046013514e288b593fd9811d0d00fcabdf7e3aeac",
+        "src/jinja2/loaders.py": "76b36ee94b02d5cee72d3122d03bfbd83f64766eb2524d6d1612cbdb3fda1aa1",
+        "src/jinja2/meta.py": "0524b1a1b64f0bce678b4d5bca9a8a52658bd3aa1911b077d7a862720bb8aed9",
+        "src/jinja2/nativetypes.py": "37d3f63baaedbb39c97942e4db48047034df64f3608af0d99d1b82e31818e12b",
+        "src/jinja2/nodes.py": "5967088ba73e9175cf05b6d95b98484a59369d417e4f562c50ed1d2f254dd8a2",
+        "src/jinja2/optimizer.py": "f0cfe7e50ec00ce2fc3d9d5e29707e3b328b05529bbf27835eaa30c78998b94f",
+        "src/jinja2/parser.py": "2e27754d7c1a7ef274c0b0e078670a447184b7599e0b83f76014c8a3f7f7bd75",
+        "src/jinja2/runtime.py": "6510a180ba8ea364377fa49989bd4bc1ebae9d0bfbf739557aaf43425476b8d2",
+        "src/jinja2/sandbox.py": "86400dcf3e7aa8eaec9bb7aafa198402818db3da740abe2ac9b943ee6b1c63ca",
+        "src/jinja2/tests.py": "fc8c8bd3208b0a9a82c855e5fcc33c996af3776addf15c37ca1b24053ba99d2e",
+        "src/jinja2/utils.py": "e868b5ae1f2b35fc56ba4364bcabda5c23f3a5c73591b7d2c008ac4edbc72428",
+        "src/jinja2/visitor.py": "2b44629470fdddee65b9facf27eaf84e8bbbe450f2892fb846d6d0b9c6af0e9d",
+        "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "mutation": {
+        "old": "raise FilterArgumentError('You can only sort by either \"key\" or \"value\"')",
+        "new": "pos = 0",
+        "line": 372
+      },
+      "diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -369,7 +369,7 @@\n     elif by == \"value\":\r\n         pos = 1\r\n     else:\r\n-        raise FilterArgumentError('You can only sort by either \"key\" or \"value\"')\r\n+        pos = 0\r\n \r\n     def sort_func(item: t.Tuple[t.Any, t.Any]) -> t.Any:\r\n         value = item[pos]\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_jinja_do_dictsort.py": {
+          "content": "def test_contract():\n    from jinja2.filters import do_dictsort\n    from jinja2.exceptions import FilterArgumentError\n    import pytest\n    with pytest.raises(FilterArgumentError): do_dictsort({'a':1},by='invalid')\n",
+          "sha256": "2848527a4888a6cac473fbe89328828d14030172c738de8d0a24b670812ad5e6"
+        }
+      },
+      "expected_failure": "dictsort rejects a by parameter other than key or value with FilterArgumentError.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_jinja_sync_do_sum": {
+      "defect_type": "null_type",
+      "reference_source_hashes": {
+        "src/jinja2/__init__.py": "86138cd576a7e59771397f81d2efc1a50016127ebc8a1e1676df3f6068e8519a",
+        "src/jinja2/_identifier.py": "0322924a198ad5b1f394c18ce7351c23d9769a7e311ee1cf54053e2fdbdf4955",
+        "src/jinja2/async_utils.py": "8cf740448d2ba5e2a6831db22cbd9cb94034ee492a26d4c965fdab3e3929b310",
+        "src/jinja2/bccache.py": "20296722f965b905b8dfaddb8a0a200125acf23a56750045579b463e2b543ab8",
+        "src/jinja2/compiler.py": "355e90b9ca07533a6c0f6826e9cd2b0ad9b10c57857b6f9c305c6ab94cb76b22",
+        "src/jinja2/constants.py": "d49d443db7b1c91445db88f2f25846947e872fb4ef46081121542b7e2ef67f62",
+        "src/jinja2/debug.py": "cea66094be69b8b6c79b23fc754963015a28b1b179be5c700c0f1b786091c4bb",
+        "src/jinja2/defaults.py": "cc935a01c09cb043da214024f4a3ae377a989c54740599a5f9ea7417af746f76",
+        "src/jinja2/environment.py": "72735118c43c30b3f425acf5b6185542f2615a681b5acf1c4712982b6ff4b496",
+        "src/jinja2/exceptions.py": "3fe0efe27e16f0c19d8085174e8b466ec4489315004fead38b7aef805f7e5be7",
+        "src/jinja2/ext.py": "64907e54ee9718ca88dde875a69745b145341e2e51ac9518bf585ce78962c9a7",
+        "src/jinja2/filters.py": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+        "src/jinja2/idtracking.py": "885e78b2d9ccc408dd42eeb32996fb97883bf802083b5f706a8cea9346506fb8",
+        "src/jinja2/lexer.py": "06a2f10ab3d977c033b633d046013514e288b593fd9811d0d00fcabdf7e3aeac",
+        "src/jinja2/loaders.py": "76b36ee94b02d5cee72d3122d03bfbd83f64766eb2524d6d1612cbdb3fda1aa1",
+        "src/jinja2/meta.py": "0524b1a1b64f0bce678b4d5bca9a8a52658bd3aa1911b077d7a862720bb8aed9",
+        "src/jinja2/nativetypes.py": "37d3f63baaedbb39c97942e4db48047034df64f3608af0d99d1b82e31818e12b",
+        "src/jinja2/nodes.py": "5967088ba73e9175cf05b6d95b98484a59369d417e4f562c50ed1d2f254dd8a2",
+        "src/jinja2/optimizer.py": "f0cfe7e50ec00ce2fc3d9d5e29707e3b328b05529bbf27835eaa30c78998b94f",
+        "src/jinja2/parser.py": "2e27754d7c1a7ef274c0b0e078670a447184b7599e0b83f76014c8a3f7f7bd75",
+        "src/jinja2/runtime.py": "6510a180ba8ea364377fa49989bd4bc1ebae9d0bfbf739557aaf43425476b8d2",
+        "src/jinja2/sandbox.py": "86400dcf3e7aa8eaec9bb7aafa198402818db3da740abe2ac9b943ee6b1c63ca",
+        "src/jinja2/tests.py": "fc8c8bd3208b0a9a82c855e5fcc33c996af3776addf15c37ca1b24053ba99d2e",
+        "src/jinja2/utils.py": "e868b5ae1f2b35fc56ba4364bcabda5c23f3a5c73591b7d2c008ac4edbc72428",
+        "src/jinja2/visitor.py": "2b44629470fdddee65b9facf27eaf84e8bbbe450f2892fb846d6d0b9c6af0e9d",
+        "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "mutant_source_hashes": {
+        "src/jinja2/__init__.py": "86138cd576a7e59771397f81d2efc1a50016127ebc8a1e1676df3f6068e8519a",
+        "src/jinja2/_identifier.py": "0322924a198ad5b1f394c18ce7351c23d9769a7e311ee1cf54053e2fdbdf4955",
+        "src/jinja2/async_utils.py": "8cf740448d2ba5e2a6831db22cbd9cb94034ee492a26d4c965fdab3e3929b310",
+        "src/jinja2/bccache.py": "20296722f965b905b8dfaddb8a0a200125acf23a56750045579b463e2b543ab8",
+        "src/jinja2/compiler.py": "355e90b9ca07533a6c0f6826e9cd2b0ad9b10c57857b6f9c305c6ab94cb76b22",
+        "src/jinja2/constants.py": "d49d443db7b1c91445db88f2f25846947e872fb4ef46081121542b7e2ef67f62",
+        "src/jinja2/debug.py": "cea66094be69b8b6c79b23fc754963015a28b1b179be5c700c0f1b786091c4bb",
+        "src/jinja2/defaults.py": "cc935a01c09cb043da214024f4a3ae377a989c54740599a5f9ea7417af746f76",
+        "src/jinja2/environment.py": "72735118c43c30b3f425acf5b6185542f2615a681b5acf1c4712982b6ff4b496",
+        "src/jinja2/exceptions.py": "3fe0efe27e16f0c19d8085174e8b466ec4489315004fead38b7aef805f7e5be7",
+        "src/jinja2/ext.py": "64907e54ee9718ca88dde875a69745b145341e2e51ac9518bf585ce78962c9a7",
+        "src/jinja2/filters.py": "fcd5ba158d0464bdfb7acd3872fac67f628765e7319cbf09063cbee18c625246",
+        "src/jinja2/idtracking.py": "885e78b2d9ccc408dd42eeb32996fb97883bf802083b5f706a8cea9346506fb8",
+        "src/jinja2/lexer.py": "06a2f10ab3d977c033b633d046013514e288b593fd9811d0d00fcabdf7e3aeac",
+        "src/jinja2/loaders.py": "76b36ee94b02d5cee72d3122d03bfbd83f64766eb2524d6d1612cbdb3fda1aa1",
+        "src/jinja2/meta.py": "0524b1a1b64f0bce678b4d5bca9a8a52658bd3aa1911b077d7a862720bb8aed9",
+        "src/jinja2/nativetypes.py": "37d3f63baaedbb39c97942e4db48047034df64f3608af0d99d1b82e31818e12b",
+        "src/jinja2/nodes.py": "5967088ba73e9175cf05b6d95b98484a59369d417e4f562c50ed1d2f254dd8a2",
+        "src/jinja2/optimizer.py": "f0cfe7e50ec00ce2fc3d9d5e29707e3b328b05529bbf27835eaa30c78998b94f",
+        "src/jinja2/parser.py": "2e27754d7c1a7ef274c0b0e078670a447184b7599e0b83f76014c8a3f7f7bd75",
+        "src/jinja2/runtime.py": "6510a180ba8ea364377fa49989bd4bc1ebae9d0bfbf739557aaf43425476b8d2",
+        "src/jinja2/sandbox.py": "86400dcf3e7aa8eaec9bb7aafa198402818db3da740abe2ac9b943ee6b1c63ca",
+        "src/jinja2/tests.py": "fc8c8bd3208b0a9a82c855e5fcc33c996af3776addf15c37ca1b24053ba99d2e",
+        "src/jinja2/utils.py": "e868b5ae1f2b35fc56ba4364bcabda5c23f3a5c73591b7d2c008ac4edbc72428",
+        "src/jinja2/visitor.py": "2b44629470fdddee65b9facf27eaf84e8bbbe450f2892fb846d6d0b9c6af0e9d",
+        "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "mutation": {
+        "old": "if attribute is not None:",
+        "new": "if attribute:",
+        "line": 1333
+      },
+      "diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -1330,7 +1330,7 @@\n        The ``attribute`` parameter was added to allow summing up over\r\n        attributes.  Also the ``start`` parameter was moved on to the right.\r\n     \"\"\"\r\n-    if attribute is not None:\r\n+    if attribute:\r\n         iterable = map(make_attrgetter(environment, attribute), iterable)\r\n \r\n     return sum(iterable, start)  # type: ignore[no-any-return, call-overload]\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_jinja_sync_do_sum.py": {
+          "content": "def test_contract():\n    from jinja2 import Environment\n    from jinja2.filters import sync_do_sum\n    try: r=sync_do_sum(Environment(),[(1,10),(3,20)],attribute=0)\n    except Exception as exc: assert False,type(exc).__name__\n    assert r==4\n",
+          "sha256": "d8c7e73cf7abc1956c910da124f5461daeac961b3477a5970390e01aa5292b19"
+        }
+      },
+      "expected_failure": "Attribute index zero is an explicitly specified index for sum, distinct from no attribute.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_itsdangerous_bytes_to_int": {
+      "defect_type": "boundary",
+      "reference_source_hashes": {
+        "src/itsdangerous/__init__.py": "61cea5ce3b81936802738dbbba5cf5da04531e44a546b21c57d7ce271e164bf3",
+        "src/itsdangerous/_json.py": "b38bef90cfcd6ee2fdee115b644921d78e63754aef2e7ddd63a987a86a7c18cf",
+        "src/itsdangerous/encoding.py": "6546d4dcaca3a497dc280795fabd49d76fda2a19f68be6441560ffc5b48bcfac",
+        "src/itsdangerous/exc.py": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+        "src/itsdangerous/serializer.py": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+        "src/itsdangerous/signer.py": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+        "src/itsdangerous/timed.py": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+        "src/itsdangerous/url_safe.py": "4d7db7718099818b3ec71b700d8397e3b5ce12ee9dcb345885b77ade693fb1be"
+      },
+      "mutant_source_hashes": {
+        "src/itsdangerous/__init__.py": "61cea5ce3b81936802738dbbba5cf5da04531e44a546b21c57d7ce271e164bf3",
+        "src/itsdangerous/_json.py": "b38bef90cfcd6ee2fdee115b644921d78e63754aef2e7ddd63a987a86a7c18cf",
+        "src/itsdangerous/encoding.py": "46e9d2983ee4fd6e6af1500ff615c55a8bbdaf209fba4fd0e4ee02e878d2c154",
+        "src/itsdangerous/exc.py": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+        "src/itsdangerous/serializer.py": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+        "src/itsdangerous/signer.py": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+        "src/itsdangerous/timed.py": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+        "src/itsdangerous/url_safe.py": "4d7db7718099818b3ec71b700d8397e3b5ce12ee9dcb345885b77ade693fb1be"
+      },
+      "mutation": {
+        "old": "bytestr.rjust(8, b\"\\x00\")",
+        "new": "(bytestr or b\"\\x01\").rjust(8, b\"\\x00\")",
+        "line": 54
+      },
+      "diff": "--- a/src/itsdangerous/encoding.py\n+++ b/src/itsdangerous/encoding.py\n@@ -51,4 +51,4 @@\n \r\n \r\n def bytes_to_int(bytestr: bytes) -> int:\r\n-    return _bytes_to_int(bytestr.rjust(8, b\"\\x00\"))[0]\r\n+    return _bytes_to_int((bytestr or b\"\\x01\").rjust(8, b\"\\x00\"))[0]\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_itsdangerous_bytes_to_int.py": {
+          "content": "def test_contract():\n    from itsdangerous import TimestampSigner\n    from unittest.mock import patch\n    try:\n        with patch('itsdangerous.timed.time.time',return_value=0):\n            s=TimestampSigner('controlled-key')\n            token=s.sign(b'data')\n            r=s.unsign(token,max_age=0)\n    except Exception as exc: assert False,type(exc).__name__\n    assert r==b'data'\n",
+          "sha256": "bcfa3bb82fc61d7c0286dfd539e61d4326310dc51a6cf825414b94bd9acbc6c4"
+        }
+      },
+      "expected_failure": "TimestampSigner must round-trip a value at Unix timestamp zero with zero maximum age; decoding the compact zero timestamp must not add a second.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_itsdangerous_int_to_bytes": {
+      "defect_type": "boundary",
+      "reference_source_hashes": {
+        "src/itsdangerous/__init__.py": "61cea5ce3b81936802738dbbba5cf5da04531e44a546b21c57d7ce271e164bf3",
+        "src/itsdangerous/_json.py": "b38bef90cfcd6ee2fdee115b644921d78e63754aef2e7ddd63a987a86a7c18cf",
+        "src/itsdangerous/encoding.py": "6546d4dcaca3a497dc280795fabd49d76fda2a19f68be6441560ffc5b48bcfac",
+        "src/itsdangerous/exc.py": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+        "src/itsdangerous/serializer.py": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+        "src/itsdangerous/signer.py": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+        "src/itsdangerous/timed.py": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+        "src/itsdangerous/url_safe.py": "4d7db7718099818b3ec71b700d8397e3b5ce12ee9dcb345885b77ade693fb1be"
+      },
+      "mutant_source_hashes": {
+        "src/itsdangerous/__init__.py": "61cea5ce3b81936802738dbbba5cf5da04531e44a546b21c57d7ce271e164bf3",
+        "src/itsdangerous/_json.py": "b38bef90cfcd6ee2fdee115b644921d78e63754aef2e7ddd63a987a86a7c18cf",
+        "src/itsdangerous/encoding.py": "67d8591823990bc528822629f40d994088591db56cfa2a22cf996f832ba6844b",
+        "src/itsdangerous/exc.py": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+        "src/itsdangerous/serializer.py": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+        "src/itsdangerous/signer.py": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+        "src/itsdangerous/timed.py": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+        "src/itsdangerous/url_safe.py": "4d7db7718099818b3ec71b700d8397e3b5ce12ee9dcb345885b77ade693fb1be"
+      },
+      "mutation": {
+        "old": "_int_to_bytes(num)",
+        "new": "_int_to_bytes(num or 1)",
+        "line": 50
+      },
+      "diff": "--- a/src/itsdangerous/encoding.py\n+++ b/src/itsdangerous/encoding.py\n@@ -47,7 +47,7 @@\n \r\n \r\n def int_to_bytes(num: int) -> bytes:\r\n-    return _int_to_bytes(num).lstrip(b\"\\x00\")\r\n+    return _int_to_bytes(num or 1).lstrip(b\"\\x00\")\r\n \r\n \r\n def bytes_to_int(bytestr: bytes) -> int:\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_itsdangerous_int_to_bytes.py": {
+          "content": "def test_contract():\n    from itsdangerous import TimestampSigner\n    from unittest.mock import patch\n    try:\n        with patch('itsdangerous.timed.time.time',return_value=0):\n            s=TimestampSigner('controlled-key')\n            token=s.sign(b'data')\n            r=s.unsign(token,max_age=0)\n    except Exception as exc: assert False,type(exc).__name__\n    assert r==b'data'\n",
+          "sha256": "bcfa3bb82fc61d7c0286dfd539e61d4326310dc51a6cf825414b94bd9acbc6c4"
+        }
+      },
+      "expected_failure": "TimestampSigner must round-trip a value at Unix timestamp zero with zero maximum age; encoding zero must not substitute a nonzero timestamp.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_itsdangerous_signer_verify_signature": {
+      "defect_type": "exception_handling",
+      "reference_source_hashes": {
+        "src/itsdangerous/__init__.py": "61cea5ce3b81936802738dbbba5cf5da04531e44a546b21c57d7ce271e164bf3",
+        "src/itsdangerous/_json.py": "b38bef90cfcd6ee2fdee115b644921d78e63754aef2e7ddd63a987a86a7c18cf",
+        "src/itsdangerous/encoding.py": "6546d4dcaca3a497dc280795fabd49d76fda2a19f68be6441560ffc5b48bcfac",
+        "src/itsdangerous/exc.py": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+        "src/itsdangerous/serializer.py": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+        "src/itsdangerous/signer.py": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+        "src/itsdangerous/timed.py": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+        "src/itsdangerous/url_safe.py": "4d7db7718099818b3ec71b700d8397e3b5ce12ee9dcb345885b77ade693fb1be"
+      },
+      "mutant_source_hashes": {
+        "src/itsdangerous/__init__.py": "61cea5ce3b81936802738dbbba5cf5da04531e44a546b21c57d7ce271e164bf3",
+        "src/itsdangerous/_json.py": "b38bef90cfcd6ee2fdee115b644921d78e63754aef2e7ddd63a987a86a7c18cf",
+        "src/itsdangerous/encoding.py": "6546d4dcaca3a497dc280795fabd49d76fda2a19f68be6441560ffc5b48bcfac",
+        "src/itsdangerous/exc.py": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+        "src/itsdangerous/serializer.py": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+        "src/itsdangerous/signer.py": "8bb19a6bd054ae2c255b0c3ac31a98e18246a1777e08a2f0ea4457a4f273c2b1",
+        "src/itsdangerous/timed.py": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+        "src/itsdangerous/url_safe.py": "4d7db7718099818b3ec71b700d8397e3b5ce12ee9dcb345885b77ade693fb1be"
+      },
+      "mutation": {
+        "old": "except Exception:\n        return False",
+        "new": "except Exception:\n        return True",
+        "line": 231
+      },
+      "diff": "--- a/src/itsdangerous/signer.py\n+++ b/src/itsdangerous/signer.py\n@@ -229,7 +229,7 @@\n         try:\r\n             sig = base64_decode(sig)\r\n         except Exception:\r\n-            return False\r\n+            return True\r\n \r\n         value = want_bytes(value)\r\n \r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_itsdangerous_signer_verify_signature.py": {
+          "content": "def test_contract():\n    from itsdangerous import Signer\n    assert Signer('controlled-key').verify_signature(b'data',b'a') is False\n",
+          "sha256": "d69b2ec96a28f913a7e30eff7ae03c1858e8cf0a149df383a49587a67fddb741"
+        }
+      },
+      "expected_failure": "Malformed base64 signature bytes must not be accepted as a valid signature.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_itsdangerous_urlsafeserializermixin_load_payload": {
+      "defect_type": "exception_handling",
+      "reference_source_hashes": {
+        "src/itsdangerous/__init__.py": "61cea5ce3b81936802738dbbba5cf5da04531e44a546b21c57d7ce271e164bf3",
+        "src/itsdangerous/_json.py": "b38bef90cfcd6ee2fdee115b644921d78e63754aef2e7ddd63a987a86a7c18cf",
+        "src/itsdangerous/encoding.py": "6546d4dcaca3a497dc280795fabd49d76fda2a19f68be6441560ffc5b48bcfac",
+        "src/itsdangerous/exc.py": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+        "src/itsdangerous/serializer.py": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+        "src/itsdangerous/signer.py": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+        "src/itsdangerous/timed.py": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+        "src/itsdangerous/url_safe.py": "4d7db7718099818b3ec71b700d8397e3b5ce12ee9dcb345885b77ade693fb1be"
+      },
+      "mutant_source_hashes": {
+        "src/itsdangerous/__init__.py": "61cea5ce3b81936802738dbbba5cf5da04531e44a546b21c57d7ce271e164bf3",
+        "src/itsdangerous/_json.py": "b38bef90cfcd6ee2fdee115b644921d78e63754aef2e7ddd63a987a86a7c18cf",
+        "src/itsdangerous/encoding.py": "6546d4dcaca3a497dc280795fabd49d76fda2a19f68be6441560ffc5b48bcfac",
+        "src/itsdangerous/exc.py": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+        "src/itsdangerous/serializer.py": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+        "src/itsdangerous/signer.py": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+        "src/itsdangerous/timed.py": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+        "src/itsdangerous/url_safe.py": "23b0ee2c1b6ab0bc4fcc827ac83cd53ab420a2861d2e57b715b09d83156c63bd"
+      },
+      "mutation": {
+        "old": "original_error=e,\n            ) from e",
+        "new": "original_error=None,\n            ) from e",
+        "line": 50
+      },
+      "diff": "--- a/src/itsdangerous/url_safe.py\n+++ b/src/itsdangerous/url_safe.py\n@@ -47,7 +47,7 @@\n             except Exception as e:\r\n                 raise BadPayload(\r\n                     \"Could not zlib decompress the payload before decoding the payload\",\r\n-                    original_error=e,\r\n+                    original_error=None,\r\n                 ) from e\r\n \r\n         return super().load_payload(json, *args, **kwargs)\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_itsdangerous_urlsafeserializermixin_load_payload.py": {
+          "content": "def test_contract():\n    import zlib,pytest\n    from itsdangerous import URLSafeSerializer,BadPayload\n    from itsdangerous.encoding import base64_encode\n    with pytest.raises(BadPayload) as info:\n        URLSafeSerializer('controlled-key').load_payload(b'.'+base64_encode(b'not compressed'))\n    assert isinstance(info.value.original_error,zlib.error)\n",
+          "sha256": "29daab9eaf920f237f410c935f87c44f355c00a502c4f36306971497771ea024"
+        }
+      },
+      "expected_failure": "BadPayload raised for invalid compressed content preserves the original zlib decompression error.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_itsdangerous_timestampsigner_validate": {
+      "defect_type": "exception_handling",
+      "reference_source_hashes": {
+        "src/itsdangerous/__init__.py": "61cea5ce3b81936802738dbbba5cf5da04531e44a546b21c57d7ce271e164bf3",
+        "src/itsdangerous/_json.py": "b38bef90cfcd6ee2fdee115b644921d78e63754aef2e7ddd63a987a86a7c18cf",
+        "src/itsdangerous/encoding.py": "6546d4dcaca3a497dc280795fabd49d76fda2a19f68be6441560ffc5b48bcfac",
+        "src/itsdangerous/exc.py": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+        "src/itsdangerous/serializer.py": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+        "src/itsdangerous/signer.py": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+        "src/itsdangerous/timed.py": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+        "src/itsdangerous/url_safe.py": "4d7db7718099818b3ec71b700d8397e3b5ce12ee9dcb345885b77ade693fb1be"
+      },
+      "mutant_source_hashes": {
+        "src/itsdangerous/__init__.py": "61cea5ce3b81936802738dbbba5cf5da04531e44a546b21c57d7ce271e164bf3",
+        "src/itsdangerous/_json.py": "b38bef90cfcd6ee2fdee115b644921d78e63754aef2e7ddd63a987a86a7c18cf",
+        "src/itsdangerous/encoding.py": "6546d4dcaca3a497dc280795fabd49d76fda2a19f68be6441560ffc5b48bcfac",
+        "src/itsdangerous/exc.py": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+        "src/itsdangerous/serializer.py": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+        "src/itsdangerous/signer.py": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+        "src/itsdangerous/timed.py": "3c0902938dcd5eb94bb9c621c9e925a4b2fa4448844710252840edaeff1632a1",
+        "src/itsdangerous/url_safe.py": "4d7db7718099818b3ec71b700d8397e3b5ce12ee9dcb345885b77ade693fb1be"
+      },
+      "mutation": {
+        "old": "except BadSignature:",
+        "new": "except SignatureExpired:",
+        "line": 166
+      },
+      "diff": "--- a/src/itsdangerous/timed.py\n+++ b/src/itsdangerous/timed.py\n@@ -163,7 +163,7 @@\n         try:\r\n             self.unsign(signed_value, max_age=max_age)\r\n             return True\r\n-        except BadSignature:\r\n+        except SignatureExpired:\r\n             return False\r\n \r\n \r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_itsdangerous_timestampsigner_validate.py": {
+          "content": "def test_contract():\n    from itsdangerous import TimestampSigner\n    try: r=TimestampSigner('controlled-key').validate(b'unsigned')\n    except Exception as exc: assert False,type(exc).__name__\n    assert r is False\n",
+          "sha256": "bd97f9e3f403ca238ec389199692454ccb9bb6a3d5d0d8b80859b5e1785dd7ee"
+        }
+      },
+      "expected_failure": "TimestampSigner.validate returns False for a missing signature instead of propagating BadSignature.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_dateutil_rrulebase_xafter": {
+      "defect_type": "boundary",
+      "reference_source_hashes": {
+        "src/dateutil/__init__.py": "b54edff828d0a847178b8b47c766b9f18e8efb41dc4c59bee419bbf18ed4aa42",
+        "src/dateutil/_common.py": "1f4ce4415066989dc06fc6cb65077df786eec4b13f00bc8e5e29d1efbdc9d338",
+        "src/dateutil/easter.py": "3fc0effafdf4f58c21bc5b24798c4722096765280c352164503c196e83b3b038",
+        "src/dateutil/relativedelta.py": "abc031b39e6cf131ae9740be0fd61e2ef7aa0dc56ac17d779a220fd90ef2997e",
+        "src/dateutil/rrule.py": "b3af688f361febc0766eeba4521e10075c8f9e1e9793d8a0af68cf8c54eda332",
+        "src/dateutil/tzwin.py": "6a4c1f60b61d81279d5b6ad86940bd2f45b622c9bc992bff83f05449a18d4d2a",
+        "src/dateutil/utils.py": "33dd64806ee13f2842ce596469d26cb69ff22f3c6044ea4c0edda053683a50c1",
+        "src/dateutil/parser/__init__.py": "9e7efb4b5d521f12b06b7eea85aa47d0969f758b09a66fa1c7abcb8b77604d24",
+        "src/dateutil/parser/_parser.py": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+        "src/dateutil/parser/isoparser.py": "69a2c9806522bcf7e7af7d8795a1d51690f589768a8f0ca6005cd5913d130b7a",
+        "src/dateutil/tz/__init__.py": "0a93d353899482bb821393b835c19dcc54bf01a96400cf06ae63815be4782dcf",
+        "src/dateutil/tz/_common.py": "6f6691a2fcbdf861aeaac226a25c184bb6373d0c74d4475022187520b5058317",
+        "src/dateutil/tz/_factories.py": "090dc8f88bdd4fed042f3aa7afb0cccf33f12cce3ebf1b3a9ae57a9750361317",
+        "src/dateutil/tz/tz.py": "a3d921641d3c0d258764e1edf0e8ddedf3c467be6e2e9dd4e98b316493a66ea1",
+        "src/dateutil/tz/win.py": "990997effc9dba44787bfd227fe2357f9a73b71614faebe64056679c44b5074a",
+        "src/dateutil/zoneinfo/__init__.py": "b40d4a89f4689611d4ab0f9b1779f5198fa1b3611d8c20144b7669f92845198b",
+        "src/dateutil/zoneinfo/rebuild.py": "65f5250627e0e0d15485192ef0fe87f1db670f5a8de396544737e138c27210c0"
+      },
+      "mutant_source_hashes": {
+        "src/dateutil/__init__.py": "b54edff828d0a847178b8b47c766b9f18e8efb41dc4c59bee419bbf18ed4aa42",
+        "src/dateutil/_common.py": "1f4ce4415066989dc06fc6cb65077df786eec4b13f00bc8e5e29d1efbdc9d338",
+        "src/dateutil/easter.py": "3fc0effafdf4f58c21bc5b24798c4722096765280c352164503c196e83b3b038",
+        "src/dateutil/relativedelta.py": "abc031b39e6cf131ae9740be0fd61e2ef7aa0dc56ac17d779a220fd90ef2997e",
+        "src/dateutil/rrule.py": "77c16e984402c62c25c32f79046ba43d35a81fefba996e072e7259b37081254b",
+        "src/dateutil/tzwin.py": "6a4c1f60b61d81279d5b6ad86940bd2f45b622c9bc992bff83f05449a18d4d2a",
+        "src/dateutil/utils.py": "33dd64806ee13f2842ce596469d26cb69ff22f3c6044ea4c0edda053683a50c1",
+        "src/dateutil/parser/__init__.py": "9e7efb4b5d521f12b06b7eea85aa47d0969f758b09a66fa1c7abcb8b77604d24",
+        "src/dateutil/parser/_parser.py": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+        "src/dateutil/parser/isoparser.py": "69a2c9806522bcf7e7af7d8795a1d51690f589768a8f0ca6005cd5913d130b7a",
+        "src/dateutil/tz/__init__.py": "0a93d353899482bb821393b835c19dcc54bf01a96400cf06ae63815be4782dcf",
+        "src/dateutil/tz/_common.py": "6f6691a2fcbdf861aeaac226a25c184bb6373d0c74d4475022187520b5058317",
+        "src/dateutil/tz/_factories.py": "090dc8f88bdd4fed042f3aa7afb0cccf33f12cce3ebf1b3a9ae57a9750361317",
+        "src/dateutil/tz/tz.py": "a3d921641d3c0d258764e1edf0e8ddedf3c467be6e2e9dd4e98b316493a66ea1",
+        "src/dateutil/tz/win.py": "990997effc9dba44787bfd227fe2357f9a73b71614faebe64056679c44b5074a",
+        "src/dateutil/zoneinfo/__init__.py": "b40d4a89f4689611d4ab0f9b1779f5198fa1b3611d8c20144b7669f92845198b",
+        "src/dateutil/zoneinfo/rebuild.py": "65f5250627e0e0d15485192ef0fe87f1db670f5a8de396544737e138c27210c0"
+      },
+      "mutation": {
+        "old": "if count is not None:",
+        "new": "if count:",
+        "line": 264
+      },
+      "diff": "--- a/src/dateutil/rrule.py\n+++ b/src/dateutil/rrule.py\n@@ -261,7 +261,7 @@\n         n = 0\r\n         for d in gen:\r\n             if comp(d, dt):\r\n-                if count is not None:\r\n+                if count:\r\n                     n += 1\r\n                     if n > count:\r\n                         break\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_dateutil_rrulebase_xafter.py": {
+          "content": "def test_contract():\n    from dateutil.rrule import rrule,DAILY\n    from datetime import datetime\n    x=datetime(2024,1,1)\n    r=rrule(DAILY,count=3,dtstart=x)\n    assert list(r.xafter(x,count=0,inc=True))==[]\n",
+          "sha256": "429651b4b9267d733b5755b0e121bedb7ad24b918f461909c4c9fea48757cdcc"
+        }
+      },
+      "expected_failure": "xafter with a maximum count of zero produces no recurrences.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_dateutil_relativedelta__set_months": {
+      "defect_type": "boundary",
+      "reference_source_hashes": {
+        "src/dateutil/__init__.py": "b54edff828d0a847178b8b47c766b9f18e8efb41dc4c59bee419bbf18ed4aa42",
+        "src/dateutil/_common.py": "1f4ce4415066989dc06fc6cb65077df786eec4b13f00bc8e5e29d1efbdc9d338",
+        "src/dateutil/easter.py": "3fc0effafdf4f58c21bc5b24798c4722096765280c352164503c196e83b3b038",
+        "src/dateutil/relativedelta.py": "abc031b39e6cf131ae9740be0fd61e2ef7aa0dc56ac17d779a220fd90ef2997e",
+        "src/dateutil/rrule.py": "b3af688f361febc0766eeba4521e10075c8f9e1e9793d8a0af68cf8c54eda332",
+        "src/dateutil/tzwin.py": "6a4c1f60b61d81279d5b6ad86940bd2f45b622c9bc992bff83f05449a18d4d2a",
+        "src/dateutil/utils.py": "33dd64806ee13f2842ce596469d26cb69ff22f3c6044ea4c0edda053683a50c1",
+        "src/dateutil/parser/__init__.py": "9e7efb4b5d521f12b06b7eea85aa47d0969f758b09a66fa1c7abcb8b77604d24",
+        "src/dateutil/parser/_parser.py": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+        "src/dateutil/parser/isoparser.py": "69a2c9806522bcf7e7af7d8795a1d51690f589768a8f0ca6005cd5913d130b7a",
+        "src/dateutil/tz/__init__.py": "0a93d353899482bb821393b835c19dcc54bf01a96400cf06ae63815be4782dcf",
+        "src/dateutil/tz/_common.py": "6f6691a2fcbdf861aeaac226a25c184bb6373d0c74d4475022187520b5058317",
+        "src/dateutil/tz/_factories.py": "090dc8f88bdd4fed042f3aa7afb0cccf33f12cce3ebf1b3a9ae57a9750361317",
+        "src/dateutil/tz/tz.py": "a3d921641d3c0d258764e1edf0e8ddedf3c467be6e2e9dd4e98b316493a66ea1",
+        "src/dateutil/tz/win.py": "990997effc9dba44787bfd227fe2357f9a73b71614faebe64056679c44b5074a",
+        "src/dateutil/zoneinfo/__init__.py": "b40d4a89f4689611d4ab0f9b1779f5198fa1b3611d8c20144b7669f92845198b",
+        "src/dateutil/zoneinfo/rebuild.py": "65f5250627e0e0d15485192ef0fe87f1db670f5a8de396544737e138c27210c0"
+      },
+      "mutant_source_hashes": {
+        "src/dateutil/__init__.py": "b54edff828d0a847178b8b47c766b9f18e8efb41dc4c59bee419bbf18ed4aa42",
+        "src/dateutil/_common.py": "1f4ce4415066989dc06fc6cb65077df786eec4b13f00bc8e5e29d1efbdc9d338",
+        "src/dateutil/easter.py": "3fc0effafdf4f58c21bc5b24798c4722096765280c352164503c196e83b3b038",
+        "src/dateutil/relativedelta.py": "b361b6d4745657c326f7fcf5338bfbf32e7d702dea10bde592de0e9e10379eb4",
+        "src/dateutil/rrule.py": "b3af688f361febc0766eeba4521e10075c8f9e1e9793d8a0af68cf8c54eda332",
+        "src/dateutil/tzwin.py": "6a4c1f60b61d81279d5b6ad86940bd2f45b622c9bc992bff83f05449a18d4d2a",
+        "src/dateutil/utils.py": "33dd64806ee13f2842ce596469d26cb69ff22f3c6044ea4c0edda053683a50c1",
+        "src/dateutil/parser/__init__.py": "9e7efb4b5d521f12b06b7eea85aa47d0969f758b09a66fa1c7abcb8b77604d24",
+        "src/dateutil/parser/_parser.py": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+        "src/dateutil/parser/isoparser.py": "69a2c9806522bcf7e7af7d8795a1d51690f589768a8f0ca6005cd5913d130b7a",
+        "src/dateutil/tz/__init__.py": "0a93d353899482bb821393b835c19dcc54bf01a96400cf06ae63815be4782dcf",
+        "src/dateutil/tz/_common.py": "6f6691a2fcbdf861aeaac226a25c184bb6373d0c74d4475022187520b5058317",
+        "src/dateutil/tz/_factories.py": "090dc8f88bdd4fed042f3aa7afb0cccf33f12cce3ebf1b3a9ae57a9750361317",
+        "src/dateutil/tz/tz.py": "a3d921641d3c0d258764e1edf0e8ddedf3c467be6e2e9dd4e98b316493a66ea1",
+        "src/dateutil/tz/win.py": "990997effc9dba44787bfd227fe2357f9a73b71614faebe64056679c44b5074a",
+        "src/dateutil/zoneinfo/__init__.py": "b40d4a89f4689611d4ab0f9b1779f5198fa1b3611d8c20144b7669f92845198b",
+        "src/dateutil/zoneinfo/rebuild.py": "65f5250627e0e0d15485192ef0fe87f1db670f5a8de396544737e138c27210c0"
+      },
+      "mutation": {
+        "old": "abs(self.months) > 11",
+        "new": "abs(self.months) > 12",
+        "line": 274
+      },
+      "diff": "--- a/src/dateutil/relativedelta.py\n+++ b/src/dateutil/relativedelta.py\n@@ -271,7 +271,7 @@\n \r\n     def _set_months(self, months):\r\n         self.months = months\r\n-        if abs(self.months) > 11:\r\n+        if abs(self.months) > 12:\r\n             s = _sign(self.months)\r\n             div, mod = divmod(self.months * s, 12)\r\n             self.months = mod * s\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_dateutil_relativedelta__set_months.py": {
+          "content": "def test_contract():\n    from dateutil.relativedelta import relativedelta\n    from datetime import datetime\n    r=relativedelta(datetime(2024,1,1),datetime(2023,1,1))\n    assert (r.years,r.months)==(1,0)\n",
+          "sha256": "cc8f3d12c11f5ef484e71c76a04b554347a094334bd12a1991551a7eda2a2cba"
+        }
+      },
+      "expected_failure": "The difference between dates exactly one year apart normalizes twelve months to one year and zero months.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_dateutil_weekday___init": {
+      "defect_type": "exception_handling",
+      "reference_source_hashes": {
+        "src/dateutil/__init__.py": "b54edff828d0a847178b8b47c766b9f18e8efb41dc4c59bee419bbf18ed4aa42",
+        "src/dateutil/_common.py": "1f4ce4415066989dc06fc6cb65077df786eec4b13f00bc8e5e29d1efbdc9d338",
+        "src/dateutil/easter.py": "3fc0effafdf4f58c21bc5b24798c4722096765280c352164503c196e83b3b038",
+        "src/dateutil/relativedelta.py": "abc031b39e6cf131ae9740be0fd61e2ef7aa0dc56ac17d779a220fd90ef2997e",
+        "src/dateutil/rrule.py": "b3af688f361febc0766eeba4521e10075c8f9e1e9793d8a0af68cf8c54eda332",
+        "src/dateutil/tzwin.py": "6a4c1f60b61d81279d5b6ad86940bd2f45b622c9bc992bff83f05449a18d4d2a",
+        "src/dateutil/utils.py": "33dd64806ee13f2842ce596469d26cb69ff22f3c6044ea4c0edda053683a50c1",
+        "src/dateutil/parser/__init__.py": "9e7efb4b5d521f12b06b7eea85aa47d0969f758b09a66fa1c7abcb8b77604d24",
+        "src/dateutil/parser/_parser.py": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+        "src/dateutil/parser/isoparser.py": "69a2c9806522bcf7e7af7d8795a1d51690f589768a8f0ca6005cd5913d130b7a",
+        "src/dateutil/tz/__init__.py": "0a93d353899482bb821393b835c19dcc54bf01a96400cf06ae63815be4782dcf",
+        "src/dateutil/tz/_common.py": "6f6691a2fcbdf861aeaac226a25c184bb6373d0c74d4475022187520b5058317",
+        "src/dateutil/tz/_factories.py": "090dc8f88bdd4fed042f3aa7afb0cccf33f12cce3ebf1b3a9ae57a9750361317",
+        "src/dateutil/tz/tz.py": "a3d921641d3c0d258764e1edf0e8ddedf3c467be6e2e9dd4e98b316493a66ea1",
+        "src/dateutil/tz/win.py": "990997effc9dba44787bfd227fe2357f9a73b71614faebe64056679c44b5074a",
+        "src/dateutil/zoneinfo/__init__.py": "b40d4a89f4689611d4ab0f9b1779f5198fa1b3611d8c20144b7669f92845198b",
+        "src/dateutil/zoneinfo/rebuild.py": "65f5250627e0e0d15485192ef0fe87f1db670f5a8de396544737e138c27210c0"
+      },
+      "mutant_source_hashes": {
+        "src/dateutil/__init__.py": "b54edff828d0a847178b8b47c766b9f18e8efb41dc4c59bee419bbf18ed4aa42",
+        "src/dateutil/_common.py": "1f4ce4415066989dc06fc6cb65077df786eec4b13f00bc8e5e29d1efbdc9d338",
+        "src/dateutil/easter.py": "3fc0effafdf4f58c21bc5b24798c4722096765280c352164503c196e83b3b038",
+        "src/dateutil/relativedelta.py": "abc031b39e6cf131ae9740be0fd61e2ef7aa0dc56ac17d779a220fd90ef2997e",
+        "src/dateutil/rrule.py": "39843075ec024a0fe347f787f2d05150948ea4749f6cbe3f4161bc9d27111893",
+        "src/dateutil/tzwin.py": "6a4c1f60b61d81279d5b6ad86940bd2f45b622c9bc992bff83f05449a18d4d2a",
+        "src/dateutil/utils.py": "33dd64806ee13f2842ce596469d26cb69ff22f3c6044ea4c0edda053683a50c1",
+        "src/dateutil/parser/__init__.py": "9e7efb4b5d521f12b06b7eea85aa47d0969f758b09a66fa1c7abcb8b77604d24",
+        "src/dateutil/parser/_parser.py": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+        "src/dateutil/parser/isoparser.py": "69a2c9806522bcf7e7af7d8795a1d51690f589768a8f0ca6005cd5913d130b7a",
+        "src/dateutil/tz/__init__.py": "0a93d353899482bb821393b835c19dcc54bf01a96400cf06ae63815be4782dcf",
+        "src/dateutil/tz/_common.py": "6f6691a2fcbdf861aeaac226a25c184bb6373d0c74d4475022187520b5058317",
+        "src/dateutil/tz/_factories.py": "090dc8f88bdd4fed042f3aa7afb0cccf33f12cce3ebf1b3a9ae57a9750361317",
+        "src/dateutil/tz/tz.py": "a3d921641d3c0d258764e1edf0e8ddedf3c467be6e2e9dd4e98b316493a66ea1",
+        "src/dateutil/tz/win.py": "990997effc9dba44787bfd227fe2357f9a73b71614faebe64056679c44b5074a",
+        "src/dateutil/zoneinfo/__init__.py": "b40d4a89f4689611d4ab0f9b1779f5198fa1b3611d8c20144b7669f92845198b",
+        "src/dateutil/zoneinfo/rebuild.py": "65f5250627e0e0d15485192ef0fe87f1db670f5a8de396544737e138c27210c0"
+      },
+      "mutation": {
+        "old": "if n == 0:",
+        "new": "if False and n == 0:",
+        "line": 71
+      },
+      "diff": "--- a/src/dateutil/rrule.py\n+++ b/src/dateutil/rrule.py\n@@ -68,7 +68,7 @@\n     This version of weekday does not allow n = 0.\r\n     \"\"\"\r\n     def __init__(self, wkday, n=None):\r\n-        if n == 0:\r\n+        if False and n == 0:\r\n             raise ValueError(\"Can't create weekday with n==0\")\r\n \r\n         super(weekday, self).__init__(wkday, n)\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_dateutil_weekday___init.py": {
+          "content": "def test_contract():\n    from dateutil.rrule import weekday\n    import pytest\n    with pytest.raises(ValueError): weekday(0,n=0)\n",
+          "sha256": "ab25e6498b20d9124c86d12b23701205c270de38faa777ef2f692e090b77966a"
+        }
+      },
+      "expected_failure": "A recurrence weekday cannot have ordinal n=0 and must reject that undefined ordinal with ValueError.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_dateutil_isoparser__parse_tzstr": {
+      "defect_type": "exception_handling",
+      "reference_source_hashes": {
+        "src/dateutil/__init__.py": "b54edff828d0a847178b8b47c766b9f18e8efb41dc4c59bee419bbf18ed4aa42",
+        "src/dateutil/_common.py": "1f4ce4415066989dc06fc6cb65077df786eec4b13f00bc8e5e29d1efbdc9d338",
+        "src/dateutil/easter.py": "3fc0effafdf4f58c21bc5b24798c4722096765280c352164503c196e83b3b038",
+        "src/dateutil/relativedelta.py": "abc031b39e6cf131ae9740be0fd61e2ef7aa0dc56ac17d779a220fd90ef2997e",
+        "src/dateutil/rrule.py": "b3af688f361febc0766eeba4521e10075c8f9e1e9793d8a0af68cf8c54eda332",
+        "src/dateutil/tzwin.py": "6a4c1f60b61d81279d5b6ad86940bd2f45b622c9bc992bff83f05449a18d4d2a",
+        "src/dateutil/utils.py": "33dd64806ee13f2842ce596469d26cb69ff22f3c6044ea4c0edda053683a50c1",
+        "src/dateutil/parser/__init__.py": "9e7efb4b5d521f12b06b7eea85aa47d0969f758b09a66fa1c7abcb8b77604d24",
+        "src/dateutil/parser/_parser.py": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+        "src/dateutil/parser/isoparser.py": "69a2c9806522bcf7e7af7d8795a1d51690f589768a8f0ca6005cd5913d130b7a",
+        "src/dateutil/tz/__init__.py": "0a93d353899482bb821393b835c19dcc54bf01a96400cf06ae63815be4782dcf",
+        "src/dateutil/tz/_common.py": "6f6691a2fcbdf861aeaac226a25c184bb6373d0c74d4475022187520b5058317",
+        "src/dateutil/tz/_factories.py": "090dc8f88bdd4fed042f3aa7afb0cccf33f12cce3ebf1b3a9ae57a9750361317",
+        "src/dateutil/tz/tz.py": "a3d921641d3c0d258764e1edf0e8ddedf3c467be6e2e9dd4e98b316493a66ea1",
+        "src/dateutil/tz/win.py": "990997effc9dba44787bfd227fe2357f9a73b71614faebe64056679c44b5074a",
+        "src/dateutil/zoneinfo/__init__.py": "b40d4a89f4689611d4ab0f9b1779f5198fa1b3611d8c20144b7669f92845198b",
+        "src/dateutil/zoneinfo/rebuild.py": "65f5250627e0e0d15485192ef0fe87f1db670f5a8de396544737e138c27210c0"
+      },
+      "mutant_source_hashes": {
+        "src/dateutil/__init__.py": "b54edff828d0a847178b8b47c766b9f18e8efb41dc4c59bee419bbf18ed4aa42",
+        "src/dateutil/_common.py": "1f4ce4415066989dc06fc6cb65077df786eec4b13f00bc8e5e29d1efbdc9d338",
+        "src/dateutil/easter.py": "3fc0effafdf4f58c21bc5b24798c4722096765280c352164503c196e83b3b038",
+        "src/dateutil/relativedelta.py": "abc031b39e6cf131ae9740be0fd61e2ef7aa0dc56ac17d779a220fd90ef2997e",
+        "src/dateutil/rrule.py": "b3af688f361febc0766eeba4521e10075c8f9e1e9793d8a0af68cf8c54eda332",
+        "src/dateutil/tzwin.py": "6a4c1f60b61d81279d5b6ad86940bd2f45b622c9bc992bff83f05449a18d4d2a",
+        "src/dateutil/utils.py": "33dd64806ee13f2842ce596469d26cb69ff22f3c6044ea4c0edda053683a50c1",
+        "src/dateutil/parser/__init__.py": "9e7efb4b5d521f12b06b7eea85aa47d0969f758b09a66fa1c7abcb8b77604d24",
+        "src/dateutil/parser/_parser.py": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+        "src/dateutil/parser/isoparser.py": "e973500cdd1ffc1aa3e27795a7a867797b8bcb95c5deff760f9c81b0ca00ade7",
+        "src/dateutil/tz/__init__.py": "0a93d353899482bb821393b835c19dcc54bf01a96400cf06ae63815be4782dcf",
+        "src/dateutil/tz/_common.py": "6f6691a2fcbdf861aeaac226a25c184bb6373d0c74d4475022187520b5058317",
+        "src/dateutil/tz/_factories.py": "090dc8f88bdd4fed042f3aa7afb0cccf33f12cce3ebf1b3a9ae57a9750361317",
+        "src/dateutil/tz/tz.py": "a3d921641d3c0d258764e1edf0e8ddedf3c467be6e2e9dd4e98b316493a66ea1",
+        "src/dateutil/tz/win.py": "990997effc9dba44787bfd227fe2357f9a73b71614faebe64056679c44b5074a",
+        "src/dateutil/zoneinfo/__init__.py": "b40d4a89f4689611d4ab0f9b1779f5198fa1b3611d8c20144b7669f92845198b",
+        "src/dateutil/zoneinfo/rebuild.py": "65f5250627e0e0d15485192ef0fe87f1db670f5a8de396544737e138c27210c0"
+      },
+      "mutation": {
+        "old": "if minutes > 59:",
+        "new": "if minutes > 60:",
+        "line": 406
+      },
+      "diff": "--- a/src/dateutil/parser/isoparser.py\n+++ b/src/dateutil/parser/isoparser.py\n@@ -403,7 +403,7 @@\n         if zero_as_utc and hours == 0 and minutes == 0:\r\n             return tz.UTC\r\n         else:\r\n-            if minutes > 59:\r\n+            if minutes > 60:\r\n                 raise ValueError('Invalid minutes in time zone offset')\r\n \r\n             if hours > 23:\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_dateutil_isoparser__parse_tzstr.py": {
+          "content": "def test_contract():\n    from dateutil.parser import isoparse\n    import pytest\n    with pytest.raises(ValueError): isoparse('2024-01-01T00:00+00:60')\n",
+          "sha256": "b4b2c8717a61bc799eaf15ca0cc544e20bfe517f7b09246a436974e6902fd2be"
+        }
+      },
+      "expected_failure": "ISO timezone offsets reject a minute component of 60 with ValueError.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_markupsafe_markup_escape": {
+      "defect_type": "null_type",
+      "reference_source_hashes": {
+        "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "mutant_source_hashes": {
+        "src/markupsafe/__init__.py": "1754f0b1c37353cdec7eb0f9b52a403717f16cbd73072f0170d34bd87670c386",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "mutation": {
+        "old": "if rv.__class__ is not cls:",
+        "new": "if False and rv.__class__ is not cls:",
+        "line": 237
+      },
+      "diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -234,7 +234,7 @@\n         \"\"\"\r\n         rv = escape(s)\r\n \r\n-        if rv.__class__ is not cls:\r\n+        if False and rv.__class__ is not cls:\r\n             return cls(rv)\r\n \r\n         return rv  # type: ignore[return-value]\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_markupsafe_markup_escape.py": {
+          "content": "def test_contract():\n    from markupsafe import Markup\n    class Sub(Markup): pass\n    assert type(Sub.escape('<b>')) is Sub\n",
+          "sha256": "cc8f53317afe3d1fb0edcbf815294abd944e3266c59596e053dcfc89f6607fa2"
+        }
+      },
+      "expected_failure": "Markup.escape on a subclass returns the correct subclass, as its explicit API promises.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_markupsafe_markup_join": {
+      "defect_type": "null_type",
+      "reference_source_hashes": {
+        "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "mutant_source_hashes": {
+        "src/markupsafe/__init__.py": "9222e185e9620017c189ce240a4ee3824e2a04f59ab771192e70c82c9fc2bff9",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "mutation": {
+        "old": "return self.__class__(super().join(map(self.escape, iterable)))",
+        "new": "return super().join(map(self.escape, iterable))",
+        "line": 171
+      },
+      "diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -168,7 +168,7 @@\n         return f\"{self.__class__.__name__}({super().__repr__()})\"\r\n \r\n     def join(self, iterable: cabc.Iterable[str | _HasHTML], /) -> te.Self:\r\n-        return self.__class__(super().join(map(self.escape, iterable)))\r\n+        return super().join(map(self.escape, iterable))\r\n \r\n     def split(  # type: ignore[override]\r\n         self, /, sep: str | None = None, maxsplit: t.SupportsIndex = -1\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_markupsafe_markup_join.py": {
+          "content": "def test_contract():\n    from markupsafe import Markup\n    r=Markup(',').join(['<b>','&'])\n    assert isinstance(r,Markup)\n    assert str(r)=='&lt;b&gt;,&amp;'\n",
+          "sha256": "17f1e3f32d53054bbedeb9118479e49db6704659b53c1ad8d65a5ec8c3389d8f"
+        }
+      },
+      "expected_failure": "Markup.join returns a safe Markup value as well as escaping its input elements.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v2_markupsafe_markup_format_map": {
+      "defect_type": "null_type",
+      "reference_source_hashes": {
+        "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "mutant_source_hashes": {
+        "src/markupsafe/__init__.py": "11f78d80d3479761663b72bae12bb8408a00dcbe786dbdb98ee4c4798df4ba4f",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "mutation": {
+        "old": "return self.__class__(formatter.vformat(self, (), mapping))",
+        "new": "return formatter.vformat(self, (), mapping)",
+        "line": 323
+      },
+      "diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -320,7 +320,7 @@\n         /,\r\n     ) -> te.Self:\r\n         formatter = EscapeFormatter(self.escape)\r\n-        return self.__class__(formatter.vformat(self, (), mapping))\r\n+        return formatter.vformat(self, (), mapping)\r\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v2_markupsafe_markup_format_map.py": {
+          "content": "def test_contract():\n    from markupsafe import Markup\n    r=Markup('{x}').format_map({'x':'<b>'})\n    assert isinstance(r,Markup)\n    assert str(r)=='&lt;b&gt;'\n",
+          "sha256": "632bbad406a681ebc16b7d8370c49064f249adb1906c99bc390053c2cc551209"
+        }
+      },
+      "expected_failure": "Markup.format_map returns Markup so that already-escaped results retain their safe-string type.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    }
+  }
+}

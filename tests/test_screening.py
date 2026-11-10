@@ -80,6 +80,13 @@ class ScreeningTests(unittest.TestCase):
             result=screen_candidate(task,image_id='reviewed',artifact_root=Path(folder))
             self.assertEqual(result['status'],'pending_review');runner.assert_not_called()
 
+    def test_explicit_semantic_rejection_is_preserved_without_execution(self):
+        with tempfile.TemporaryDirectory() as folder,patch('experiments.screening.run_tests') as runner:
+            task=self.task();task['semantic_review'].update(status='rejected',notes='Strict rejection of invalid input is not a stable API promise.')
+            result=screen_candidate(task,image_id='reviewed',artifact_root=Path(folder))
+            self.assertEqual(result['status'],'semantic_rejected')
+            runner.assert_not_called()
+
     def test_quota_counts_unique_functions_once_even_across_mutations_and_classes(self):
         base={'status':'eligible','project_id':'click','defect_type':'boundary','target':['src/demo.py','f'],'candidate_id':'a'}
         duplicate=dict(base,candidate_id='b',defect_type='null_type')

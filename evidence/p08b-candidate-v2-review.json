@@ -1,0 +1,516 @@
+{
+  "schema": 1,
+  "scope": "second candidate pool independent static review before execution; not eligibility",
+  "reviewer": "review_p08b_t2_v2",
+  "approved": 24,
+  "rejected": 1,
+  "method": "read-only API/docstring/annotation/standard-protocol semantic review; no target execution, model or network",
+  "candidate_verdicts": [
+    {
+      "id": "v2_click_helpformatter_write_dl",
+      "status": "approved",
+      "input_sha256": "73584e317b2eedff28fe413ebeb7eeee3df2e5c2f72126821bd4565947d11e91",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/click/formatting.py",
+          "symbol": "write_dl",
+          "line": 216,
+          "end_line": 223,
+          "file_sha256": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+          "docstring": "Writes a definition list into the buffer.  This is how options\n        and commands are usually formatted.\n\n        :param rows: a list of two item tuples for the terms and values.\n        :param col_max: the maximum width of the first column.\n        :param col_spacing: the number of spaces between the first and\n                            second column.\n        "
+        },
+        {
+          "path": "src/click/formatting.py",
+          "symbol": "HelpFormatter",
+          "line": 103,
+          "end_line": 112,
+          "file_sha256": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+          "docstring": "This class helps with formatting text-based help pages.  It's\n    usually just needed for very special internal cases, but it's also\n    exposed so that developers can write their own fancy outputs.\n\n    At present, it always writes into memory.\n\n    :param indent_increment: the additional increment for each level.\n    :param width: the width for the text.  This defaults to the terminal\n                  width clamped to a maximum of 78.\n    "
+        }
+      ],
+      "return_annotation": "None"
+    },
+    {
+      "id": "v2_click_tuple_convert",
+      "status": "approved",
+      "input_sha256": "fc395217c5d27b61a668484611a5cc29a5317a42a34a54522218913e252cac27",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/click/types.py",
+          "symbol": "ParamType",
+          "line": 25,
+          "end_line": 40,
+          "file_sha256": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+          "docstring": "Represents the type of a parameter. Validates and converts values\n    from the command line or Python into the correct type.\n\n    To implement a custom type, subclass and implement at least the\n    following:\n\n    -   The :attr:`name` class attribute must be set.\n    -   Calling an instance of the type with ``None`` must return\n        ``None``. This is already implemented by default.\n    -   :meth:`convert` must convert string values to the correct type.\n    -   :meth:`convert` must accept values that are already the correct\n        type.\n    -   It must be able to convert a value if the ``ctx`` and ``param``\n        arguments are ``None``. This can occur when converting prompt\n        input.\n    "
+        },
+        {
+          "path": "src/click/types.py",
+          "symbol": "Tuple",
+          "line": 954,
+          "end_line": 965,
+          "file_sha256": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+          "docstring": "The default behavior of Click is to apply a type on a value directly.\n    This works well in most cases, except for when `nargs` is set to a fixed\n    count and different types should be used for different items.  In this\n    case the :class:`Tuple` type can be used.  This type can only be used\n    if `nargs` is set to a fixed number.\n\n    For more information see :ref:`tuple-type`.\n\n    This can be selected by using a Python tuple literal as a type.\n\n    :param types: a list of types that should be used for the tuple items.\n    "
+        }
+      ],
+      "return_annotation": "t.Any"
+    },
+    {
+      "id": "v2_click_uuidparametertype_convert",
+      "status": "approved",
+      "input_sha256": "387813aa64d9dda759bc3519a59c4600739668b737c547e0511e6f20120321d8",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/click/types.py",
+          "symbol": "ParamType",
+          "line": 25,
+          "end_line": 40,
+          "file_sha256": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+          "docstring": "Represents the type of a parameter. Validates and converts values\n    from the command line or Python into the correct type.\n\n    To implement a custom type, subclass and implement at least the\n    following:\n\n    -   The :attr:`name` class attribute must be set.\n    -   Calling an instance of the type with ``None`` must return\n        ``None``. This is already implemented by default.\n    -   :meth:`convert` must convert string values to the correct type.\n    -   :meth:`convert` must accept values that are already the correct\n        type.\n    -   It must be able to convert a value if the ``ctx`` and ``param``\n        arguments are ``None``. This can occur when converting prompt\n        input.\n    "
+        }
+      ],
+      "return_annotation": "t.Any"
+    },
+    {
+      "id": "v2_click_datetime_convert",
+      "status": "approved",
+      "input_sha256": "d36cf3a876c178cbb7a2813b2943b3124f8558bcfedd53a5ce8d0890fe12d02c",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/click/types.py",
+          "symbol": "ParamType",
+          "line": 25,
+          "end_line": 40,
+          "file_sha256": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+          "docstring": "Represents the type of a parameter. Validates and converts values\n    from the command line or Python into the correct type.\n\n    To implement a custom type, subclass and implement at least the\n    following:\n\n    -   The :attr:`name` class attribute must be set.\n    -   Calling an instance of the type with ``None`` must return\n        ``None``. This is already implemented by default.\n    -   :meth:`convert` must convert string values to the correct type.\n    -   :meth:`convert` must accept values that are already the correct\n        type.\n    -   It must be able to convert a value if the ``ctx`` and ``param``\n        arguments are ``None``. This can occur when converting prompt\n        input.\n    "
+        },
+        {
+          "path": "src/click/types.py",
+          "symbol": "DateTime",
+          "line": 335,
+          "end_line": 353,
+          "file_sha256": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+          "docstring": "The DateTime type converts date strings into `datetime` objects.\n\n    The format strings which are checked are configurable, but default to some\n    common (non-timezone aware) ISO 8601 formats.\n\n    When specifying *DateTime* formats, you should only pass a list or a tuple.\n    Other iterables, like generators, may lead to surprising results.\n\n    The format strings are processed using ``datetime.strptime``, and this\n    consequently defines the format strings which are allowed.\n\n    Parsing is tried using each format, in order, and the first format which\n    parses successfully is used.\n\n    :param formats: A list or tuple of date format strings, in the order in\n                    which they should be tried. Defaults to\n                    ``'%Y-%m-%d'``, ``'%Y-%m-%dT%H:%M:%S'``,\n                    ``'%Y-%m-%d %H:%M:%S'``.\n    "
+        }
+      ],
+      "return_annotation": "t.Any"
+    },
+    {
+      "id": "v2_click_pacifyflushwrapper_flush",
+      "status": "approved",
+      "input_sha256": "9d102ef28584148ddc5d8e4bac48c279175474c1f6a0f1371be6b07980108421",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/click/utils.py",
+          "symbol": "PacifyFlushWrapper",
+          "line": 496,
+          "end_line": 502,
+          "file_sha256": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090",
+          "docstring": "This wrapper is used to catch and suppress BrokenPipeErrors resulting\n    from ``.flush()`` being called on broken pipe during the shutdown/final-GC\n    of the Python interpreter. Notably ``.flush()`` is always called on\n    ``sys.stdout`` and ``sys.stderr``. So as to have minimal impact on any\n    other cleanup code, and the case where the underlying file is not a broken\n    pipe, all calls and attributes are proxied.\n    "
+        }
+      ],
+      "return_annotation": "None"
+    },
+    {
+      "id": "v2_click_safecall",
+      "status": "approved",
+      "input_sha256": "2940a1621aafc0c5427fe226b5823444169cbe1153966c4252ab74d1e27215b1",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/click/utils.py",
+          "symbol": "safecall",
+          "line": 34,
+          "end_line": 34,
+          "file_sha256": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090",
+          "docstring": "Wraps a function so that it swallows exceptions."
+        }
+      ],
+      "return_annotation": "'t.Callable[P, t.Optional[R]]'"
+    },
+    {
+      "id": "v2_click_make_str",
+      "status": "approved",
+      "input_sha256": "50ab1facdf0385b90e1b03e47c319ac6f4631f23a9c6dc62d6573ca64c684293",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/click/utils.py",
+          "symbol": "make_str",
+          "line": 47,
+          "end_line": 47,
+          "file_sha256": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090",
+          "docstring": "Converts a value into a valid string."
+        }
+      ],
+      "return_annotation": "str"
+    },
+    {
+      "id": "v2_click_stringparamtype_convert",
+      "status": "approved",
+      "input_sha256": "864a45d7cae264a2a87171553edd589cc514b82db85babf488f1533a14088b15",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/click/types.py",
+          "symbol": "ParamType",
+          "line": 25,
+          "end_line": 40,
+          "file_sha256": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+          "docstring": "Represents the type of a parameter. Validates and converts values\n    from the command line or Python into the correct type.\n\n    To implement a custom type, subclass and implement at least the\n    following:\n\n    -   The :attr:`name` class attribute must be set.\n    -   Calling an instance of the type with ``None`` must return\n        ``None``. This is already implemented by default.\n    -   :meth:`convert` must convert string values to the correct type.\n    -   :meth:`convert` must accept values that are already the correct\n        type.\n    -   It must be able to convert a value if the ``ctx`` and ``param``\n        arguments are ``None``. This can occur when converting prompt\n        input.\n    "
+        }
+      ],
+      "return_annotation": "t.Any"
+    },
+    {
+      "id": "v2_jinja_do_truncate",
+      "status": "approved",
+      "input_sha256": "7f6c570097cc9e08af2a69935bcb04536a67aee9cf4a70e6b39531c2150c6062",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/jinja2/filters.py",
+          "symbol": "do_truncate",
+          "line": 882,
+          "end_line": 904,
+          "file_sha256": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+          "docstring": "Return a truncated copy of the string. The length is specified\n    with the first parameter which defaults to ``255``. If the second\n    parameter is ``true`` the filter will cut the text at length. Otherwise\n    it will discard the last word. If the text was in fact\n    truncated it will append an ellipsis sign (``\"...\"``). If you want a\n    different ellipsis sign than ``\"...\"`` you can specify it using the\n    third parameter. Strings that only exceed the length by the tolerance\n    margin given in the fourth parameter will not be truncated.\n\n    .. sourcecode:: jinja\n\n        {{ \"foo bar baz qux\"|truncate(9) }}\n            -> \"foo...\"\n        {{ \"foo bar baz qux\"|truncate(9, True) }}\n            -> \"foo ba...\"\n        {{ \"foo bar baz qux\"|truncate(11) }}\n            -> \"foo bar baz qux\"\n        {{ \"foo bar baz qux\"|truncate(11, False, '...', 0) }}\n            -> \"foo bar...\"\n\n    The default leeway on newer Jinja versions is 5 and was 0 before but\n    can be reconfigured globally.\n    "
+        }
+      ],
+      "return_annotation": "str"
+    },
+    {
+      "id": "v2_jinja_do_filesizeformat",
+      "status": "approved",
+      "input_sha256": "dae8fc07397a823921564e2b45c327d98d2b4cc662af2d631455265beb002fb5",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/jinja2/filters.py",
+          "symbol": "do_filesizeformat",
+          "line": 705,
+          "end_line": 709,
+          "file_sha256": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+          "docstring": "Format the value like a 'human-readable' file size (i.e. 13 kB,\n    4.1 MB, 102 Bytes, etc).  Per default decimal prefixes are used (Mega,\n    Giga, etc.), if the second parameter is set to `True` the binary\n    prefixes are used (Mebi, Gibi).\n    "
+        }
+      ],
+      "return_annotation": "str"
+    },
+    {
+      "id": "v2_jinja_do_round",
+      "status": "approved",
+      "input_sha256": "53ac6845c37117fd53f43f5eb30329c760d7ffdc6308a73e7a5af5373062a054",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/jinja2/filters.py",
+          "symbol": "do_round",
+          "line": 1153,
+          "end_line": 1177,
+          "file_sha256": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+          "docstring": "Round the number to a given precision. The first\n    parameter specifies the precision (default is ``0``), the\n    second the rounding method:\n\n    - ``'common'`` rounds either up or down\n    - ``'ceil'`` always rounds up\n    - ``'floor'`` always rounds down\n\n    If you don't specify a method ``'common'`` is used.\n\n    .. sourcecode:: jinja\n\n        {{ 42.55|round }}\n            -> 43.0\n        {{ 42.55|round(1, 'floor') }}\n            -> 42.5\n\n    Note that even if rounded to 0 precision, a float is returned.  If\n    you need a real integer, pipe it through `int`:\n\n    .. sourcecode:: jinja\n\n        {{ 42.55|round|int }}\n            -> 43\n    "
+        },
+        {
+          "path": "src/jinja2/exceptions.py",
+          "line": 163,
+          "end_line": 166,
+          "file_sha256": "3fe0efe27e16f0c19d8085174e8b466ec4489315004fead38b7aef805f7e5be7",
+          "docstring": "This error is raised if a filter was called with inappropriate\narguments"
+        }
+      ],
+      "return_annotation": "float"
+    },
+    {
+      "id": "v2_jinja_do_dictsort",
+      "status": "approved",
+      "input_sha256": "b1b6eb3658eeb75b0a65f1c3eef1246db978ffdc5da13e5036f542263e517ae6",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/jinja2/filters.py",
+          "symbol": "do_dictsort",
+          "line": 350,
+          "end_line": 366,
+          "file_sha256": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+          "docstring": "Sort a dict and yield (key, value) pairs. Python dicts may not\n    be in the order you want to display them in, so sort them first.\n\n    .. sourcecode:: jinja\n\n        {% for key, value in mydict|dictsort %}\n            sort the dict by key, case insensitive\n\n        {% for key, value in mydict|dictsort(reverse=true) %}\n            sort the dict by key, case insensitive, reverse order\n\n        {% for key, value in mydict|dictsort(true) %}\n            sort the dict by key, case sensitive\n\n        {% for key, value in mydict|dictsort(false, 'value') %}\n            sort the dict by value, case insensitive\n    "
+        },
+        {
+          "path": "src/jinja2/exceptions.py",
+          "line": 163,
+          "end_line": 166,
+          "file_sha256": "3fe0efe27e16f0c19d8085174e8b466ec4489315004fead38b7aef805f7e5be7",
+          "docstring": "This error is raised if a filter was called with inappropriate\narguments"
+        }
+      ],
+      "return_annotation": "t.List[t.Tuple[K, V]]"
+    },
+    {
+      "id": "v2_jinja_sync_do_sum",
+      "status": "approved",
+      "input_sha256": "d2e61b64c5349d204f8d3fccc1d1fd1b27e1478fdc38af0324d3f5ddc5224c82",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/jinja2/filters.py",
+          "symbol": "sync_do_sum",
+          "line": 1319,
+          "end_line": 1332,
+          "file_sha256": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+          "docstring": "Returns the sum of a sequence of numbers plus the value of parameter\n    'start' (which defaults to 0).  When the sequence is empty it returns\n    start.\n\n    It is also possible to sum up only certain attributes:\n\n    .. sourcecode:: jinja\n\n        Total: {{ items|sum(attribute='price') }}\n\n    .. versionchanged:: 2.6\n       The ``attribute`` parameter was added to allow summing up over\n       attributes.  Also the ``start`` parameter was moved on to the right.\n    "
+        }
+      ],
+      "return_annotation": "V"
+    },
+    {
+      "id": "v2_itsdangerous_bytes_to_int",
+      "status": "approved",
+      "input_sha256": "12171645449c0f2ca1ba7da3f698c96e838993e953aae0f93a3669c1164269d8",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/itsdangerous/exc.py",
+          "line": 92,
+          "end_line": 96,
+          "file_sha256": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+          "excerpt": "class BadPayload(BadData):\n    \"\"\"Raised if a payload is invalid. This could happen if the payload\n    is loaded despite an invalid signature, or if there is a mismatch\n    between the serializer and deserializer. The original exception\n    that occurred during loading is stored on as :attr:`original_error`."
+        }
+      ],
+      "return_annotation": "int"
+    },
+    {
+      "id": "v2_itsdangerous_int_to_bytes",
+      "status": "approved",
+      "input_sha256": "a4def9182ac04b3f59eb4531b3ebac2afa070b5cd52a83eedcf46c577ad01277",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/itsdangerous/exc.py",
+          "line": 92,
+          "end_line": 96,
+          "file_sha256": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+          "excerpt": "class BadPayload(BadData):\n    \"\"\"Raised if a payload is invalid. This could happen if the payload\n    is loaded despite an invalid signature, or if there is a mismatch\n    between the serializer and deserializer. The original exception\n    that occurred during loading is stored on as :attr:`original_error`."
+        }
+      ],
+      "return_annotation": "bytes"
+    },
+    {
+      "id": "v2_itsdangerous_signer_verify_signature",
+      "status": "approved",
+      "input_sha256": "730a09e748eb78cb45f245b2c68739c28f848ea00d70f12be279243434290db5",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/itsdangerous/signer.py",
+          "symbol": "verify_signature",
+          "line": 228,
+          "end_line": 228,
+          "file_sha256": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+          "docstring": "Verifies the signature for the given value."
+        },
+        {
+          "path": "src/itsdangerous/signer.py",
+          "symbol": "Signer",
+          "line": 77,
+          "end_line": 112,
+          "file_sha256": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+          "docstring": "A signer securely signs bytes, then unsigns them to verify that\n    the value hasn't been changed.\n\n    The secret key should be a random string of ``bytes`` and should not\n    be saved to code or version control. Different salts should be used\n    to distinguish signing in different contexts. See :doc:`/concepts`\n    for information about the security of the secret key and salt.\n\n    :param secret_key: The secret key to sign and verify with. Can be a\n        list of keys, oldest to newest, to support key rotation.\n    :param salt: Extra key to combine with ``secret_key`` to distinguish\n        signatures in different contexts.\n    :param sep: Separator between the signature and value.\n    :param key_derivation: How to derive the signing key from the secret\n        key and salt. Possible values are ``concat``, ``django-concat``,\n        or ``hmac``. Defaults to :attr:`default_key_derivation`, which\n        defaults to ``django-concat``.\n    :param digest_method: Hash function to use when generating the HMAC\n        signature. Defaults to :attr:`default_digest_method`, which\n        defaults to :func:`hashlib.sha1`. Note that the security of the\n        hash alone doesn't apply when used intermediately in HMAC.\n    :param algorithm: A :class:`SigningAlgorithm` instance to use\n        instead of building a default :class:`HMACAlgorithm` with the\n        ``digest_method``.\n\n    .. versionchanged:: 2.0\n        Added support for key rotation by passing a list to\n        ``secret_key``.\n\n    .. versionchanged:: 0.18\n        ``algorithm`` was added as an argument to the class constructor.\n\n    .. versionchanged:: 0.14\n        ``key_derivation`` and ``digest_method`` were added as arguments\n        to the class constructor.\n    "
+        },
+        {
+          "path": "src/itsdangerous/exc.py",
+          "line": 92,
+          "end_line": 96,
+          "file_sha256": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+          "excerpt": "class BadPayload(BadData):\n    \"\"\"Raised if a payload is invalid. This could happen if the payload\n    is loaded despite an invalid signature, or if there is a mismatch\n    between the serializer and deserializer. The original exception\n    that occurred during loading is stored on as :attr:`original_error`."
+        }
+      ],
+      "return_annotation": "bool"
+    },
+    {
+      "id": "v2_itsdangerous_urlsafeserializermixin_load_payload",
+      "status": "approved",
+      "input_sha256": "5834bddf2abb77fd69b87f6971e010d8f8a758d4787ead9944a601b2b91a0cf9",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/itsdangerous/url_safe.py",
+          "symbol": "URLSafeSerializerMixin",
+          "line": 16,
+          "end_line": 19,
+          "file_sha256": "4d7db7718099818b3ec71b700d8397e3b5ce12ee9dcb345885b77ade693fb1be",
+          "docstring": "Mixed in with a regular serializer it will attempt to zlib\n    compress the string to make it shorter if necessary. It will also\n    base64 encode the string so that it can safely be placed in a URL.\n    "
+        },
+        {
+          "path": "src/itsdangerous/exc.py",
+          "line": 92,
+          "end_line": 96,
+          "file_sha256": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+          "excerpt": "class BadPayload(BadData):\n    \"\"\"Raised if a payload is invalid. This could happen if the payload\n    is loaded despite an invalid signature, or if there is a mismatch\n    between the serializer and deserializer. The original exception\n    that occurred during loading is stored on as :attr:`original_error`."
+        }
+      ],
+      "return_annotation": "t.Any"
+    },
+    {
+      "id": "v2_itsdangerous_timestampsigner_validate",
+      "status": "approved",
+      "input_sha256": "75b7bd033bb188aebcb5014688a563ef13923bf9765ce417ac74ba0f413f80ba",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/itsdangerous/timed.py",
+          "symbol": "validate",
+          "line": 161,
+          "end_line": 162,
+          "file_sha256": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+          "docstring": "Only validates the given signed value. Returns ``True`` if\n        the signature exists and is valid."
+        },
+        {
+          "path": "src/itsdangerous/timed.py",
+          "symbol": "TimestampSigner",
+          "line": 23,
+          "end_line": 27,
+          "file_sha256": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+          "docstring": "Works like the regular :class:`.Signer` but also records the time\n    of the signing and can be used to expire signatures. The\n    :meth:`unsign` method can raise :exc:`.SignatureExpired` if the\n    unsigning failed because the signature is expired.\n    "
+        },
+        {
+          "path": "src/itsdangerous/exc.py",
+          "line": 92,
+          "end_line": 96,
+          "file_sha256": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+          "excerpt": "class BadPayload(BadData):\n    \"\"\"Raised if a payload is invalid. This could happen if the payload\n    is loaded despite an invalid signature, or if there is a mismatch\n    between the serializer and deserializer. The original exception\n    that occurred during loading is stored on as :attr:`original_error`."
+        }
+      ],
+      "return_annotation": "bool"
+    },
+    {
+      "id": "v2_dateutil_rrulebase_xafter",
+      "status": "approved",
+      "input_sha256": "7641c0cffac2b6e08c06782ffccae2c8c7407af88d785125691350767b98c3e8",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/dateutil/rrule.py",
+          "symbol": "xafter",
+          "line": 231,
+          "end_line": 247,
+          "file_sha256": "b3af688f361febc0766eeba4521e10075c8f9e1e9793d8a0af68cf8c54eda332",
+          "docstring": "\n        Generator which yields up to `count` recurrences after the given\n        datetime instance, equivalent to `after`.\n\n        :param dt:\n            The datetime at which to start generating recurrences.\n\n        :param count:\n            The maximum number of recurrences to generate. If `None` (default),\n            dates are generated until the recurrence rule is exhausted.\n\n        :param inc:\n            If `dt` is an instance of the rule and `inc` is `True`, it is\n            included in the output.\n\n        :yields: Yields a sequence of `datetime` objects.\n        "
+        }
+      ],
+      "return_annotation": null
+    },
+    {
+      "id": "v2_dateutil_relativedelta__set_months",
+      "status": "approved",
+      "input_sha256": "03779e5fb5c83ba85d6fbebb8b61d28617bbf69d51dbad6ff43f37f6f28c849d",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/dateutil/relativedelta.py",
+          "symbol": "relativedelta",
+          "line": 19,
+          "end_line": 103,
+          "file_sha256": "abc031b39e6cf131ae9740be0fd61e2ef7aa0dc56ac17d779a220fd90ef2997e",
+          "docstring": "\n    The relativedelta type is designed to be applied to an existing datetime and\n    can replace specific components of that datetime, or represents an interval\n    of time.\n\n    It is based on the specification of the excellent work done by M.-A. Lemburg\n    in his\n    `mx.DateTime <https://www.egenix.com/products/python/mxBase/mxDateTime/>`_ extension.\n    However, notice that this type does *NOT* implement the same algorithm as\n    his work. Do *NOT* expect it to behave like mx.DateTime's counterpart.\n\n    There are two different ways to build a relativedelta instance. The\n    first one is passing it two date/datetime classes::\n\n        relativedelta(datetime1, datetime2)\n\n    The second one is passing it any number of the following keyword arguments::\n\n        relativedelta(arg1=x,arg2=y,arg3=z...)\n\n        year, month, day, hour, minute, second, microsecond:\n            Absolute information (argument is singular); adding or subtracting a\n            relativedelta with absolute information does not perform an arithmetic\n            operation, but rather REPLACES the corresponding value in the\n            original datetime with the value(s) in relativedelta.\n\n        years, months, weeks, days, hours, minutes, seconds, microseconds:\n            Relative information, may be negative (argument is plural); adding\n            or subtracting a relativedelta with relative information performs\n            the corresponding arithmetic operation on the original datetime value\n            with the information in the relativedelta.\n\n        weekday:\n            One of the weekday instances (MO, TU, etc) available in the\n            relativedelta module. These instances may receive a parameter N,\n            specifying the Nth weekday, which could be positive or negative\n            (like MO(+1) or MO(-2)). Not specifying it is the same as specifying\n            +1. You can also use an integer, where 0=MO. This argument is always\n            relative e.g. if the calculated date is already Monday, using MO(1)\n            or MO(-1) won't change the day. To effectively make it absolute, use\n            it in combination with the day argument (e.g. day=1, MO(1) for first\n            Monday of the month).\n\n        leapdays:\n            Will add given days to the date found, if year is a leap\n            year, and the date found is post 28 of february.\n\n        yearday, nlyearday:\n            Set the yearday or the non-leap year day (jump leap days).\n            These are converted to day/month/leapdays information.\n\n    There are relative and absolute forms of the keyword\n    arguments. The plural is relative, and the singular is\n    absolute. For each argument in the order below, the absolute form\n    is applied first (by setting each attribute to that value) and\n    then the relative form (by adding the value to the attribute).\n\n    The order of attributes considered when this relativedelta is\n    added to a datetime is:\n\n    1. Year\n    2. Month\n    3. Day\n    4. Hours\n    5. Minutes\n    6. Seconds\n    7. Microseconds\n\n    Finally, weekday is applied, using the rule described above.\n\n    For example\n\n    >>> from datetime import datetime\n    >>> from dateutil.relativedelta import relativedelta, MO\n    >>> dt = datetime(2018, 4, 9, 13, 37, 0)\n    >>> delta = relativedelta(hours=25, day=1, weekday=MO(1))\n    >>> dt + delta\n    datetime.datetime(2018, 4, 2, 14, 37)\n\n    First, the day is set to 1 (the first of the month), then 25 hours\n    are added, to get to the 2nd day and 14th hour, finally the\n    weekday is applied, but since the 2nd is already a Monday there is\n    no effect.\n\n    "
+        }
+      ],
+      "return_annotation": null
+    },
+    {
+      "id": "v2_dateutil_weekday___init",
+      "status": "approved",
+      "input_sha256": "fcfe85937d3dc60f720db0a481c672ce6c950cbf02a77ae1d816009ff6b74570",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/dateutil/rrule.py",
+          "symbol": "weekday",
+          "line": 67,
+          "end_line": 69,
+          "file_sha256": "b3af688f361febc0766eeba4521e10075c8f9e1e9793d8a0af68cf8c54eda332",
+          "docstring": "\n    This version of weekday does not allow n = 0.\n    "
+        }
+      ],
+      "return_annotation": null
+    },
+    {
+      "id": "v2_dateutil_isoparser__parse_tzstr",
+      "status": "rejected",
+      "input_sha256": "d88e7c18b034bfddc24022d65a3f18576a20b860ebfa16896c07a6d8f8a23223",
+      "notes": "Rejected: isoparse explicitly states rejection strictness for invalid strings is not a stable contract; ISO minute invalidity alone cannot establish this exact rejection oracle.",
+      "source_bindings": [
+        {
+          "path": "src/dateutil/parser/isoparser.py",
+          "symbol": "isoparse",
+          "line": 61,
+          "end_line": 133,
+          "file_sha256": "69a2c9806522bcf7e7af7d8795a1d51690f589768a8f0ca6005cd5913d130b7a",
+          "docstring": "Parse an ISO-8601 datetime string into a :class:`datetime.datetime`.\n\nAn ISO-8601 datetime string consists of a date portion, followed\noptionally by a time portion - the date and time portions are separated\nby a single character separator, which is ``T`` in the official\nstandard. Incomplete date formats (such as ``YYYY-MM``) may *not* be\ncombined with a time portion.\n\nSupported date formats are:\n\nCommon:\n\n- ``YYYY``\n- ``YYYY-MM``\n- ``YYYY-MM-DD`` or ``YYYYMMDD``\n\nUncommon:\n\n- ``YYYY-Www`` or ``YYYYWww`` - ISO week (day defaults to 0)\n- ``YYYY-Www-D`` or ``YYYYWwwD`` - ISO week and day\n\nThe ISO week and day numbering follows the same logic as\n:func:`datetime.date.isocalendar`.\n\nSupported time formats are:\n\n- ``hh``\n- ``hh:mm`` or ``hhmm``\n- ``hh:mm:ss`` or ``hhmmss``\n- ``hh:mm:ss.ssssss`` (Up to 6 sub-second digits)\n\nMidnight is a special case for `hh`, as the standard supports both\n00:00 and 24:00 as a representation. The decimal separator can be\neither a dot or a comma.\n\n\n.. caution::\n\n    Support for fractional components other than seconds is part of the\n    ISO-8601 standard, but is not currently implemented in this parser.\n\nSupported time zone offset formats are:\n\n- `Z` (UTC)\n- `\u00b1HH:MM`\n- `\u00b1HHMM`\n- `\u00b1HH`\n\nOffsets will be represented as :class:`dateutil.tz.tzoffset` objects,\nwith the exception of UTC, which will be represented as\n:class:`dateutil.tz.tzutc`. Time zone offsets equivalent to UTC (such\nas `+00:00`) will also be represented as :class:`dateutil.tz.tzutc`.\n\n:param dt_str:\n    A string or stream containing only an ISO-8601 datetime string\n\n:return:\n    Returns a :class:`datetime.datetime` representing the string.\n    Unspecified components default to their lowest value.\n\n.. warning::\n\n    As of version 2.7.0, the strictness of the parser should not be\n    considered a stable part of the contract. Any valid ISO-8601 string\n    that parses correctly with the default settings will continue to\n    parse correctly in future versions, but invalid strings that\n    currently fail (e.g. ``2017-01-01T00:00+00:00:00``) are not\n    guaranteed to continue failing in future versions if they encode\n    a valid date.\n\n.. versionadded:: 2.7.0"
+        }
+      ],
+      "return_annotation": null
+    },
+    {
+      "id": "v2_markupsafe_markup_escape",
+      "status": "approved",
+      "input_sha256": "a790910db022c8af8e75d076d979477ee86cb861acca899108c3cbb633b6365c",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/markupsafe/__init__.py",
+          "symbol": "escape",
+          "line": 232,
+          "end_line": 234,
+          "file_sha256": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+          "docstring": "Escape a string. Calls :func:`escape` and ensures that for\n        subclasses the correct type is returned.\n        "
+        },
+        {
+          "path": "src/markupsafe/__init__.py",
+          "symbol": "Markup",
+          "line": 85,
+          "end_line": 118,
+          "file_sha256": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+          "docstring": "A string that is ready to be safely inserted into an HTML or XML\n    document, either because it was escaped or because it was marked\n    safe.\n\n    Passing an object to the constructor converts it to text and wraps\n    it to mark it safe without escaping. To escape the text, use the\n    :meth:`escape` class method instead.\n\n    >>> Markup(\"Hello, <em>World</em>!\")\n    Markup('Hello, <em>World</em>!')\n    >>> Markup(42)\n    Markup('42')\n    >>> Markup.escape(\"Hello, <em>World</em>!\")\n    Markup('Hello &lt;em&gt;World&lt;/em&gt;!')\n\n    This implements the ``__html__()`` interface that some frameworks\n    use. Passing an object that implements ``__html__()`` will wrap the\n    output of that method, marking it safe.\n\n    >>> class Foo:\n    ...     def __html__(self):\n    ...         return '<a href=\"/foo\">foo</a>'\n    ...\n    >>> Markup(Foo())\n    Markup('<a href=\"/foo\">foo</a>')\n\n    This is a subclass of :class:`str`. It has the same methods, but\n    escapes their arguments and returns a ``Markup`` instance.\n\n    >>> Markup(\"<em>%s</em>\") % (\"foo & bar\",)\n    Markup('<em>foo &amp; bar</em>')\n    >>> Markup(\"<em>Hello</em> \") + \"<foo>\"\n    Markup('<em>Hello</em> &lt;foo&gt;')\n    "
+        }
+      ],
+      "return_annotation": "te.Self"
+    },
+    {
+      "id": "v2_markupsafe_markup_join",
+      "status": "approved",
+      "input_sha256": "8a76307e27e2da722f788cc9cff0b941324e89bdc85434441463308970d08600",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/markupsafe/__init__.py",
+          "symbol": "Markup",
+          "line": 85,
+          "end_line": 118,
+          "file_sha256": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+          "docstring": "A string that is ready to be safely inserted into an HTML or XML\n    document, either because it was escaped or because it was marked\n    safe.\n\n    Passing an object to the constructor converts it to text and wraps\n    it to mark it safe without escaping. To escape the text, use the\n    :meth:`escape` class method instead.\n\n    >>> Markup(\"Hello, <em>World</em>!\")\n    Markup('Hello, <em>World</em>!')\n    >>> Markup(42)\n    Markup('42')\n    >>> Markup.escape(\"Hello, <em>World</em>!\")\n    Markup('Hello &lt;em&gt;World&lt;/em&gt;!')\n\n    This implements the ``__html__()`` interface that some frameworks\n    use. Passing an object that implements ``__html__()`` will wrap the\n    output of that method, marking it safe.\n\n    >>> class Foo:\n    ...     def __html__(self):\n    ...         return '<a href=\"/foo\">foo</a>'\n    ...\n    >>> Markup(Foo())\n    Markup('<a href=\"/foo\">foo</a>')\n\n    This is a subclass of :class:`str`. It has the same methods, but\n    escapes their arguments and returns a ``Markup`` instance.\n\n    >>> Markup(\"<em>%s</em>\") % (\"foo & bar\",)\n    Markup('<em>foo &amp; bar</em>')\n    >>> Markup(\"<em>Hello</em> \") + \"<foo>\"\n    Markup('<em>Hello</em> &lt;foo&gt;')\n    "
+        }
+      ],
+      "return_annotation": "te.Self"
+    },
+    {
+      "id": "v2_markupsafe_markup_format_map",
+      "status": "approved",
+      "input_sha256": "cf7080bf4e37f03cf126156327605f3d276f0bf17ff7752e8269ae035996c88a",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict.",
+      "source_bindings": [
+        {
+          "path": "src/markupsafe/__init__.py",
+          "symbol": "Markup",
+          "line": 85,
+          "end_line": 118,
+          "file_sha256": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+          "docstring": "A string that is ready to be safely inserted into an HTML or XML\n    document, either because it was escaped or because it was marked\n    safe.\n\n    Passing an object to the constructor converts it to text and wraps\n    it to mark it safe without escaping. To escape the text, use the\n    :meth:`escape` class method instead.\n\n    >>> Markup(\"Hello, <em>World</em>!\")\n    Markup('Hello, <em>World</em>!')\n    >>> Markup(42)\n    Markup('42')\n    >>> Markup.escape(\"Hello, <em>World</em>!\")\n    Markup('Hello &lt;em&gt;World&lt;/em&gt;!')\n\n    This implements the ``__html__()`` interface that some frameworks\n    use. Passing an object that implements ``__html__()`` will wrap the\n    output of that method, marking it safe.\n\n    >>> class Foo:\n    ...     def __html__(self):\n    ...         return '<a href=\"/foo\">foo</a>'\n    ...\n    >>> Markup(Foo())\n    Markup('<a href=\"/foo\">foo</a>')\n\n    This is a subclass of :class:`str`. It has the same methods, but\n    escapes their arguments and returns a ``Markup`` instance.\n\n    >>> Markup(\"<em>%s</em>\") % (\"foo & bar\",)\n    Markup('<em>foo &amp; bar</em>')\n    >>> Markup(\"<em>Hello</em> \") + \"<foo>\"\n    Markup('<em>Hello</em> &lt;foo&gt;')\n    "
+        }
+      ],
+      "return_annotation": "te.Self"
+    }
+  ]
+}

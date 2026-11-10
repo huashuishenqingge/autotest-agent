@@ -45,9 +45,12 @@ def screen_candidate(task, *, image_id, artifact_root):
         return record
     save('claimed', 'candidate claimed; never automatically rerun')
     review = task.get('semantic_review') or {}
-    if (review.get('status') != 'approved' or review.get('input_sha256') != record['review_input_sha256']
-            or review.get('reviewer') != public['reviewer'] or review.get('reviewer') == public['owner']
-            or not review.get('notes')):
+    current_review = (review.get('input_sha256') == record['review_input_sha256']
+                      and review.get('reviewer') == public['reviewer'] and review.get('reviewer') != public['owner']
+                      and isinstance(review.get('notes'), str) and bool(review['notes'].strip()))
+    if current_review and review.get('status') == 'rejected':
+        return save('semantic_rejected', 'independent reviewer rejected the oracle; retained without execution')
+    if not current_review or review.get('status') != 'approved':
         return save('pending_review', 'independent semantic review missing or stale')
     if image_id != public['protocol']['image_id']:
         return save('environment_failed', 'image differs from reviewed protocol')

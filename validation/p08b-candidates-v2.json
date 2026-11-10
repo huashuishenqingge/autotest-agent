@@ -1,0 +1,184 @@
+{
+  "schema": "p08-candidate-pool-v1",
+  "public_manifest": "experiments/p08b-candidates-v2-public.json",
+  "evaluator_manifest": "validation/p08b-candidates-v2-evaluation.json",
+  "candidate_order": [
+    "v2_click_helpformatter_write_dl",
+    "v2_click_tuple_convert",
+    "v2_click_stringparamtype_convert",
+    "v2_click_pacifyflushwrapper_flush",
+    "v2_click_make_str",
+    "v2_click_safecall",
+    "v2_click_datetime_convert",
+    "v2_click_uuidparametertype_convert",
+    "v2_dateutil_relativedelta__set_months",
+    "v2_dateutil_rrulebase_xafter",
+    "v2_dateutil_isoparser__parse_tzstr",
+    "v2_dateutil_weekday___init",
+    "v2_itsdangerous_bytes_to_int",
+    "v2_itsdangerous_int_to_bytes",
+    "v2_itsdangerous_signer_verify_signature",
+    "v2_itsdangerous_timestampsigner_validate",
+    "v2_itsdangerous_urlsafeserializermixin_load_payload",
+    "v2_jinja_do_filesizeformat",
+    "v2_jinja_do_truncate",
+    "v2_jinja_do_dictsort",
+    "v2_jinja_do_round",
+    "v2_jinja_sync_do_sum",
+    "v2_markupsafe_markup_escape",
+    "v2_markupsafe_markup_format_map",
+    "v2_markupsafe_markup_join"
+  ],
+  "semantic_reviews": {
+    "v2_click_helpformatter_write_dl": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "73584e317b2eedff28fe413ebeb7eeee3df2e5c2f72126821bd4565947d11e91",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_click_tuple_convert": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "fc395217c5d27b61a668484611a5cc29a5317a42a34a54522218913e252cac27",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_click_stringparamtype_convert": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "864a45d7cae264a2a87171553edd589cc514b82db85babf488f1533a14088b15",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_click_pacifyflushwrapper_flush": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "9d102ef28584148ddc5d8e4bac48c279175474c1f6a0f1371be6b07980108421",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_click_make_str": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "50ab1facdf0385b90e1b03e47c319ac6f4631f23a9c6dc62d6573ca64c684293",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_click_safecall": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "2940a1621aafc0c5427fe226b5823444169cbe1153966c4252ab74d1e27215b1",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_click_datetime_convert": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "d36cf3a876c178cbb7a2813b2943b3124f8558bcfedd53a5ce8d0890fe12d02c",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_click_uuidparametertype_convert": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "387813aa64d9dda759bc3519a59c4600739668b737c547e0511e6f20120321d8",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_dateutil_relativedelta__set_months": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "03779e5fb5c83ba85d6fbebb8b61d28617bbf69d51dbad6ff43f37f6f28c849d",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_dateutil_rrulebase_xafter": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "7641c0cffac2b6e08c06782ffccae2c8c7407af88d785125691350767b98c3e8",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_dateutil_isoparser__parse_tzstr": {
+      "status": "rejected",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "d88e7c18b034bfddc24022d65a3f18576a20b860ebfa16896c07a6d8f8a23223",
+      "notes": "Rejected: isoparse explicitly states rejection strictness for invalid strings is not a stable contract; ISO minute invalidity alone cannot establish this exact rejection oracle."
+    },
+    "v2_dateutil_weekday___init": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "fcfe85937d3dc60f720db0a481c672ce6c950cbf02a77ae1d816009ff6b74570",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_itsdangerous_bytes_to_int": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "12171645449c0f2ca1ba7da3f698c96e838993e953aae0f93a3669c1164269d8",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_itsdangerous_int_to_bytes": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "a4def9182ac04b3f59eb4531b3ebac2afa070b5cd52a83eedcf46c577ad01277",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_itsdangerous_signer_verify_signature": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "730a09e748eb78cb45f245b2c68739c28f848ea00d70f12be279243434290db5",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_itsdangerous_timestampsigner_validate": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "75b7bd033bb188aebcb5014688a563ef13923bf9765ce417ac74ba0f413f80ba",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_itsdangerous_urlsafeserializermixin_load_payload": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "5834bddf2abb77fd69b87f6971e010d8f8a758d4787ead9944a601b2b91a0cf9",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_jinja_do_filesizeformat": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "dae8fc07397a823921564e2b45c327d98d2b4cc662af2d631455265beb002fb5",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_jinja_do_truncate": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "7f6c570097cc9e08af2a69935bcb04536a67aee9cf4a70e6b39531c2150c6062",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_jinja_do_dictsort": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "b1b6eb3658eeb75b0a65f1c3eef1246db978ffdc5da13e5036f542263e517ae6",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_jinja_do_round": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "53ac6845c37117fd53f43f5eb30329c760d7ffdc6308a73e7a5af5373062a054",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_jinja_sync_do_sum": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "d2e61b64c5349d204f8d3fccc1d1fd1b27e1478fdc38af0324d3f5ddc5224c82",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_markupsafe_markup_escape": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "a790910db022c8af8e75d076d979477ee86cb861acca899108c3cbb633b6365c",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_markupsafe_markup_format_map": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "cf7080bf4e37f03cf126156327605f3d276f0bf17ff7752e8269ae035996c88a",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    },
+    "v2_markupsafe_markup_join": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v2",
+      "input_sha256": "8a76307e27e2da722f788cc9cff0b941324e89bdc85434441463308970d08600",
+      "notes": "Approved: independent API/docstring, type annotation or standard protocol supports the behavior; deterministic holdout and single-location mutation. Approval is not a survivor verdict."
+    }
+  }
+}
