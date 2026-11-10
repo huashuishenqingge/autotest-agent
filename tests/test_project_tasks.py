@@ -51,3 +51,12 @@ class ProjectTaskTests(unittest.TestCase):
                 else:visible['target']['path']='src/other/__init__.py'
                 with self.assertRaises(ValueError):
                     self.load(root,visible,private,project,metadata)
+
+    def test_relative_reference_root_is_normalized(self):
+        import os
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder).resolve()
+            data = self.setup_files(root)
+            # Relative roots passed by CLI callers must behave like absolute roots.
+            relative = Path(os.path.relpath(root, Path.cwd()))
+            self.load(relative, *data)

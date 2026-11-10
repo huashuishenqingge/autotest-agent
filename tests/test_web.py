@@ -193,6 +193,63 @@ class WebTests(unittest.TestCase):
             self.assertEqual(result['coverage'], parent['coverage'])
             self.assertEqual(result['feedback_child'], failed_child)
 
+    def test_non_ascii_and_oversized_tokens_return_forbidden(self):
+        for token in ('é', 'a'*257):
+            self.assertEqual(self.request('/api/tasks', {'case_id': self.app.cases[0]}, {'X-Task-Token': token})[0], 403)
+        self.assertEqual(self.store.active_count(), 0)
+
+    def test_summary_pagination_excludes_large_results(self):
+        for i in range(30):
+            task = self.store.create('age_threshold', 'demo')
+            self.store.finish(task['id'], {'status': 'verified', 'logs': ['x'*10000]})
+        status, body, _ = self.request('/api/tasks?limit=7&offset=7')
+        data = json.loads(body)
+        self.assertEqual(status, 200)
+        self.assertEqual(len(data['tasks']), 7)
+        self.assertEqual(data['total'], 30)
+        self.assertLess(len(body), 5000)
+        self.assertTrue(all('result' not in row for row in data['tasks']))
+        detail = json.loads(self.request('/api/tasks/'+data['tasks'][0]['id'])[1])
+        self.assertEqual(len(detail['result']['logs'][0]), 10000)
+        for query in ('limit=0', 'offset=-1', 'limit=101', 'limit=1&limit=2', 'unknown=1'):
+            self.assertEqual(self.request('/api/tasks?'+query)[0], 400)
+
+    def test_active_count_not_limited_by_recent_history(self):
+        self.store.create('age_threshold', 'demo')
+        for i in range(101):
+            task = self.store.create('age_threshold', 'demo')
+            self.store.finish(task['id'], {'status': 'verified'})
+        self.assertEqual(self.store.active_count(), 1)
+
+    def test_shutdown_waits_for_worker_persistence_and_blocks_submissions(self):
+        ready, release, closed = threading.Event(), threading.Event(), threading.Event()
+        def run(task, cancelled):
+            ready.set()
+            release.wait(5)
+            return {'status': 'cancelled', 'logs': ['cleanup-completed']}
+        self.app.runner = run
+        task = self.app.submit({'case_id': self.app.cases[0]})
+        self.app.start()
+        self.assertTrue(ready.wait(2))
+        queued = self.app.submit({'case_id': self.app.cases[0]})
+        def close():
+            self.app.close()
+            closed.set()
+        closer = threading.Thread(target=close)
+        closer.start()
+        try:
+            self.assertFalse(closed.wait(2.2))
+            with self.assertRaises(ValueError):
+                self.app.submit({'case_id': self.app.cases[0]})
+        finally:
+            release.set()
+            closer.join(3)
+        self.assertTrue(closed.is_set())
+        self.assertFalse(self.app.thread.is_alive())
+        self.assertEqual(self.store.get(task['id'])['result']['logs'], ['cleanup-completed'])
+        self.assertEqual(self.store.get(task['id'])['status'], 'interrupted')
+        self.assertEqual(self.store.get(queued['id'])['status'], 'interrupted')
+
 
 if __name__ == '__main__':
     unittest.main()

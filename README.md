@@ -197,3 +197,11 @@ python -m experiments.admission --replay evidence/p08a-markupsafe-admission.json
 
 
 P08B T2首池结果：固定30候选中10合格、20被原有测试检出；140次无模型候选容器完成，正式配额还差20，尚未冻结或启动正式实验。见[候选筛选与缺口](阶段8_候选筛选与缺口.md)。筛选入口`python -m experiments.screening --export <全新导出路径> --artifacts <全新产物目录>`需要本机固定reference副本、已审wheel数据与722765…镜像；本次已有目录拒绝复用。重跑不增加独立函数数，扩池应先做新版本语义审核并提交，保留原排除历史。
+
+### 2026-11-10 稳定性修复
+
+Web任务列表现在分页返回摘要：`GET /api/tasks?limit=25&offset=0`（limit上限100）。完整结果由`GET /api/tasks/<id>`或下载入口获取；前端仅在选中任务updated变化时重新拉取。旧列表调用方若使用`task.result`，须改为详情接口。
+
+正常Ctrl+C停服会停止接收新任务并等待当前worker保存结果/清理后退出，再释放server.lock；排队任务标记interrupted。若有在途模型请求，终端可能需要等待其超时或返回，不能承诺立即停服。不要在旧进程仍运行时删除锁；强制杀进程/断电后的清理仍需检查。
+
+P08A支持相对参考目录和macOS路径别名规范化，同时拒绝符号链接及Windows reparse根。GitHub Actions新增Linux/Windows/macOS Python3.12标准库与本机HTTP测试；不在CI调用模型或Docker，平台状态须以实际Actions结果为准。

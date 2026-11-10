@@ -10,7 +10,7 @@ import secrets
 import sqlite3
 import threading
 import time
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, parse_qs
 import uuid
 
 from repair.fixtures import load_cases, PROJECT_ROOT
@@ -62,6 +62,23 @@ class Store:
         with self.connect() as db:
             ids = [r[0] for r in db.execute('SELECT id FROM tasks ORDER BY created DESC LIMIT 100')]
         return [self.get(i) for i in ids]
+
+    def summaries(self, limit=25, offset=0):
+        if type(limit) is not int or type(offset) is not int or not 1 <= limit <= 100 or offset < 0:
+            raise ValueError('invalid pagination')
+        with self.connect() as db:
+            db.row_factory = sqlite3.Row
+            rows = db.execute('SELECT id,case_id,mode,status,cancel,created,updated FROM tasks ORDER BY created DESC,id DESC LIMIT ? OFFSET ?', (limit, offset)).fetchall()
+            total = db.execute('SELECT COUNT(*) FROM tasks').fetchone()[0]
+        return {'tasks': [dict(row) for row in rows], 'total': total, 'limit': limit, 'offset': offset}
+
+    def active_count(self):
+        with self.connect() as db:
+            return db.execute("SELECT COUNT(*) FROM tasks WHERE status IN ('queued','running')").fetchone()[0]
+
+    def interrupt_queued(self):
+        with self.connect() as db:
+            db.execute("UPDATE tasks SET status='interrupted',updated=? WHERE status='queued'", (time.time(),))
 
     def cancel(self, task_id):
         self.get(task_id)
@@ -171,12 +188,14 @@ class Application:
         if not isinstance(body, dict) or set(body) != {'case_id'} or body['case_id'] not in self.cases:
             raise ValueError('请选择已审核的任务，不接受路径、命令或密钥')
         with self.submit_lock:
-            if sum(t['status'] in {'queued', 'running'} for t in self.store.list()) >= 10:
+            if self.stop.is_set():
+                raise ValueError('service is shutting down')
+            if self.store.active_count() >= 10:
                 raise ValueError('任务队列已满')
             return self.store.create(body['case_id'], self.mode)
 
     def start(self):
-        self.thread = threading.Thread(target=self.work, daemon=True)
+        self.thread = threading.Thread(target=self.work, daemon=False)
         self.thread.start()
 
     def work(self):
@@ -196,9 +215,15 @@ class Application:
             self.store.finish(task['id'], result, interrupted=self.stop.is_set())
 
     def close(self):
-        self.stop.set()
+        with self.submit_lock:
+            self.stop.set()
         if self.thread:
-            self.thread.join(timeout=2)
+            while self.thread.is_alive():
+                try:
+                    self.thread.join(timeout=.2)
+                except KeyboardInterrupt:
+                    continue  # Keep the service lock until cleanup and persistence finish.
+        self.store.interrupt_queued()
 
 
 def handler(app):
@@ -228,7 +253,8 @@ def handler(app):
             if origin is not None and origin != 'http://' + expected:
                 self.send(403, {'error': '拒绝跨站请求'})
                 return False
-            if write and not secrets.compare_digest(self.headers.get('X-Task-Token', ''), app.token):
+            token = self.headers.get('X-Task-Token', '')
+            if write and (not token.isascii() or len(token) > 256 or not secrets.compare_digest(token, app.token)):
                 self.send(403, {'error': '无效的任务令牌'})
                 return False
             return True
@@ -244,7 +270,13 @@ def handler(app):
             if path == '/api/info':
                 return self.send(200, {'schema': 1, 'mode': app.mode, 'cases': app.cases, 'token': app.token, 'can_submit': app.mode != 'evidence'})
             if path == '/api/tasks':
-                return self.send(200, {'tasks': app.store.list()})
+                try:
+                    query = parse_qs(urlsplit(self.path).query, keep_blank_values=True, max_num_fields=2)
+                    if set(query) - {'limit', 'offset'} or any(len(v) != 1 for v in query.values()):
+                        raise ValueError('invalid query')
+                    return self.send(200, app.store.summaries(int(query.get('limit', ['25'])[0]), int(query.get('offset', ['0'])[0])))
+                except ValueError:
+                    return self.send(400, {'error': '分页参数无效'})
             match = re.fullmatch(r'/api/tasks/([a-f0-9]{32})(/download)?', path)
             if match:
                 try:
