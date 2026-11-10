@@ -1,0 +1,312 @@
+{
+  "schema": 1,
+  "scope": "third screening pool independent static admission, not eligibility",
+  "reviewer": "review_p08b_t2_v3",
+  "approved": 13,
+  "rejected": 1,
+  "method": "read-only static API/docstring/standard-protocol review; no target, Docker, model or network execution",
+  "candidate_verdicts": [
+    {
+      "id": "v3_click_wrap_text",
+      "status": "approved",
+      "input_sha256": "0a78486dc21287ba5f7f4c4fef15184dd95b669d0dd84809f69f22b4386e67f9",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility.",
+      "source_bindings": [
+        {
+          "path": "src/click/formatting.py",
+          "symbol": "wrap_text",
+          "line": 36,
+          "end_line": 53,
+          "file_sha256": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+          "docstring": "A helper function that intelligently wraps text.  By default, it\n    assumes that it operates on a single paragraph of text but if the\n    `preserve_paragraphs` parameter is provided it will intelligently\n    handle paragraphs (defined by two empty lines).\n\n    If paragraphs are handled, a paragraph can be prefixed with an empty\n    line containing the ``\\b`` character (``\\x08``) to indicate that\n    no rewrapping should happen in that block.\n\n    :param text: the text that should be rewrapped.\n    :param width: the maximum width for the text.\n    :param initial_indent: the initial indent that should be placed on the\n                           first line as a string.\n    :param subsequent_indent: the indent string that should be placed on\n                              each consecutive line.\n    :param preserve_paragraphs: if this flag is set then the wrapping will\n                                intelligently handle paragraphs.\n    "
+        },
+        {
+          "path": "src/click/formatting.py",
+          "symbol": "wrap_text",
+          "line": 36,
+          "end_line": 53,
+          "file_sha256": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+          "docstring": "A helper function that intelligently wraps text.  By default, it\n    assumes that it operates on a single paragraph of text but if the\n    `preserve_paragraphs` parameter is provided it will intelligently\n    handle paragraphs (defined by two empty lines).\n\n    If paragraphs are handled, a paragraph can be prefixed with an empty\n    line containing the ``\\b`` character (``\\x08``) to indicate that\n    no rewrapping should happen in that block.\n\n    :param text: the text that should be rewrapped.\n    :param width: the maximum width for the text.\n    :param initial_indent: the initial indent that should be placed on the\n                           first line as a string.\n    :param subsequent_indent: the indent string that should be placed on\n                              each consecutive line.\n    :param preserve_paragraphs: if this flag is set then the wrapping will\n                                intelligently handle paragraphs.\n    "
+        }
+      ]
+    },
+    {
+      "id": "v3_click_textwrapper_indent_only",
+      "status": "approved",
+      "input_sha256": "dc47346c48157327bbc7f122e693076adfea9426788d019f94e71223736e616f",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility.",
+      "source_bindings": [
+        {
+          "path": "src/click/formatting.py",
+          "symbol": "wrap_text",
+          "line": 36,
+          "end_line": 53,
+          "file_sha256": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+          "docstring": "A helper function that intelligently wraps text.  By default, it\n    assumes that it operates on a single paragraph of text but if the\n    `preserve_paragraphs` parameter is provided it will intelligently\n    handle paragraphs (defined by two empty lines).\n\n    If paragraphs are handled, a paragraph can be prefixed with an empty\n    line containing the ``\\b`` character (``\\x08``) to indicate that\n    no rewrapping should happen in that block.\n\n    :param text: the text that should be rewrapped.\n    :param width: the maximum width for the text.\n    :param initial_indent: the initial indent that should be placed on the\n                           first line as a string.\n    :param subsequent_indent: the indent string that should be placed on\n                              each consecutive line.\n    :param preserve_paragraphs: if this flag is set then the wrapping will\n                                intelligently handle paragraphs.\n    "
+        }
+      ]
+    },
+    {
+      "id": "v3_click_textwrapper__handle_long_word",
+      "status": "approved",
+      "input_sha256": "24964ffc022c72e851739bab62df907dc441ed3e30c597a5708dd21bbe8fa4a5",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility.",
+      "source_bindings": [
+        {
+          "path": "src/click/formatting.py",
+          "symbol": "wrap_text",
+          "line": 36,
+          "end_line": 53,
+          "file_sha256": "ac56c21acfab5792027a1d10e06ac409d82b4b7c26526d385bf3a39156c611fb",
+          "docstring": "A helper function that intelligently wraps text.  By default, it\n    assumes that it operates on a single paragraph of text but if the\n    `preserve_paragraphs` parameter is provided it will intelligently\n    handle paragraphs (defined by two empty lines).\n\n    If paragraphs are handled, a paragraph can be prefixed with an empty\n    line containing the ``\\b`` character (``\\x08``) to indicate that\n    no rewrapping should happen in that block.\n\n    :param text: the text that should be rewrapped.\n    :param width: the maximum width for the text.\n    :param initial_indent: the initial indent that should be placed on the\n                           first line as a string.\n    :param subsequent_indent: the indent string that should be placed on\n                              each consecutive line.\n    :param preserve_paragraphs: if this flag is set then the wrapping will\n                                intelligently handle paragraphs.\n    "
+        }
+      ]
+    },
+    {
+      "id": "v3_jinja_do_wordcount",
+      "status": "approved",
+      "input_sha256": "d0cd554a201814cc1da65a278aa3d6902ccf744ce0eb413ef136bb3c4423108c",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility.",
+      "source_bindings": [
+        {
+          "path": "src/jinja2/filters.py",
+          "symbol": "do_wordcount",
+          "line": 981,
+          "end_line": 981,
+          "file_sha256": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+          "docstring": "Count the words in that string."
+        }
+      ]
+    },
+    {
+      "id": "v3_jinja_do_center",
+      "status": "approved",
+      "input_sha256": "f458c890f0aa30afb2fc0bcc6ccd183ddc3c5b4bd8d86f8647196fbeb4ea7676",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility.",
+      "source_bindings": [
+        {
+          "path": "src/jinja2/filters.py",
+          "symbol": "do_center",
+          "line": 648,
+          "end_line": 648,
+          "file_sha256": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+          "docstring": "Centers the value in a field of a given width."
+        }
+      ]
+    },
+    {
+      "id": "v3_jinja_do_indent",
+      "status": "approved",
+      "input_sha256": "a63ff97eba2936101aa9781b2331f72cd768eabde9ced2be230ffc5dfa6c367a",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility.",
+      "source_bindings": [
+        {
+          "path": "src/jinja2/filters.py",
+          "symbol": "do_indent",
+          "line": 828,
+          "end_line": 842,
+          "file_sha256": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+          "docstring": "Return a copy of the string with each line indented by 4 spaces. The\n    first line and blank lines are not indented by default.\n\n    :param width: Number of spaces, or a string, to indent by.\n    :param first: Don't skip indenting the first line.\n    :param blank: Don't skip indenting empty lines.\n\n    .. versionchanged:: 3.0\n        ``width`` can be a string.\n\n    .. versionchanged:: 2.10\n        Blank lines are not indented by default.\n\n        Rename the ``indentfirst`` argument to ``first``.\n    "
+        }
+      ]
+    },
+    {
+      "id": "v3_itsdangerous_timedserializer_loads",
+      "status": "approved",
+      "input_sha256": "e2a4dfcbff505797294e364ebf366cb540c8d40e4f215011ebd649f41a71733f",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility.",
+      "source_bindings": [
+        {
+          "path": "src/itsdangerous/timed.py",
+          "symbol": "TimedSerializer",
+          "line": 171,
+          "end_line": 173,
+          "file_sha256": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+          "docstring": "Uses :class:`TimestampSigner` instead of the default\n    :class:`.Signer`.\n    "
+        },
+        {
+          "path": "src/itsdangerous/timed.py",
+          "symbol": "loads",
+          "line": 192,
+          "end_line": 198,
+          "file_sha256": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+          "docstring": "Reverse of :meth:`dumps`, raises :exc:`.BadSignature` if the\n        signature validation fails. If a ``max_age`` is provided it will\n        ensure the signature is not older than that time in seconds. In\n        case the signature is outdated, :exc:`.SignatureExpired` is\n        raised. All arguments are forwarded to the signer's\n        :meth:`~TimestampSigner.unsign` method.\n        "
+        }
+      ]
+    },
+    {
+      "id": "v3_itsdangerous_timestampsigner_timestamp_to_datetime",
+      "status": "approved",
+      "input_sha256": "eb3d7e0422d5d0f0af81ace5298c362c8a127181362ff72175ee6214ec82c7d0",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility.",
+      "source_bindings": [
+        {
+          "path": "src/itsdangerous/timed.py",
+          "symbol": "TimestampSigner",
+          "line": 23,
+          "end_line": 27,
+          "file_sha256": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+          "docstring": "Works like the regular :class:`.Signer` but also records the time\n    of the signing and can be used to expire signatures. The\n    :meth:`unsign` method can raise :exc:`.SignatureExpired` if the\n    unsigning failed because the signature is expired.\n    "
+        },
+        {
+          "path": "src/itsdangerous/timed.py",
+          "symbol": "timestamp_to_datetime",
+          "line": 36,
+          "end_line": 42,
+          "file_sha256": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+          "docstring": "Convert the timestamp from :meth:`get_timestamp` into an\n        aware :class`datetime.datetime` in UTC.\n\n        .. versionchanged:: 2.0\n            The timestamp is returned as a timezone-aware ``datetime``\n            in UTC rather than a naive ``datetime`` assumed to be UTC.\n        "
+        }
+      ]
+    },
+    {
+      "id": "v3_itsdangerous_signer_verify_signature",
+      "status": "approved",
+      "input_sha256": "d8f7bcd79a9835d45ef0ab5ff5c685f3c3d9292082d43ad0157e38d8ef0c28ae",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility.",
+      "source_bindings": [
+        {
+          "path": "src/itsdangerous/signer.py",
+          "symbol": "Signer",
+          "line": 77,
+          "end_line": 112,
+          "file_sha256": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+          "docstring": "A signer securely signs bytes, then unsigns them to verify that\n    the value hasn't been changed.\n\n    The secret key should be a random string of ``bytes`` and should not\n    be saved to code or version control. Different salts should be used\n    to distinguish signing in different contexts. See :doc:`/concepts`\n    for information about the security of the secret key and salt.\n\n    :param secret_key: The secret key to sign and verify with. Can be a\n        list of keys, oldest to newest, to support key rotation.\n    :param salt: Extra key to combine with ``secret_key`` to distinguish\n        signatures in different contexts.\n    :param sep: Separator between the signature and value.\n    :param key_derivation: How to derive the signing key from the secret\n        key and salt. Possible values are ``concat``, ``django-concat``,\n        or ``hmac``. Defaults to :attr:`default_key_derivation`, which\n        defaults to ``django-concat``.\n    :param digest_method: Hash function to use when generating the HMAC\n        signature. Defaults to :attr:`default_digest_method`, which\n        defaults to :func:`hashlib.sha1`. Note that the security of the\n        hash alone doesn't apply when used intermediately in HMAC.\n    :param algorithm: A :class:`SigningAlgorithm` instance to use\n        instead of building a default :class:`HMACAlgorithm` with the\n        ``digest_method``.\n\n    .. versionchanged:: 2.0\n        Added support for key rotation by passing a list to\n        ``secret_key``.\n\n    .. versionchanged:: 0.18\n        ``algorithm`` was added as an argument to the class constructor.\n\n    .. versionchanged:: 0.14\n        ``key_derivation`` and ``digest_method`` were added as arguments\n        to the class constructor.\n    "
+        },
+        {
+          "path": "src/itsdangerous/signer.py",
+          "symbol": "verify_signature",
+          "line": 25,
+          "end_line": 27,
+          "file_sha256": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+          "docstring": "Verifies the given signature matches the expected\n        signature.\n        "
+        },
+        {
+          "path": "src/itsdangerous/signer.py",
+          "symbol": "verify_signature",
+          "line": 228,
+          "end_line": 228,
+          "file_sha256": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+          "docstring": "Verifies the signature for the given value."
+        }
+      ],
+      "retest_of": {
+        "candidate_id": "v2_itsdangerous_signer_verify_signature",
+        "source_report": "evidence/p08b-screening-v2.json",
+        "source_review_sha256": "730a09e748eb78cb45f245b2c68739c28f848ea00d70f12be279243434290db5",
+        "change": "Same malformed signature and False oracle; compute result before assert to avoid diagnostic object repr. Old unstable status retained; not a new function."
+      }
+    },
+    {
+      "id": "v3_itsdangerous_serializer__loads_unsafe_impl",
+      "status": "approved",
+      "input_sha256": "b7756d250d08c8d2bc024a65963762bf1ccf061c0313a807644f48339a9c29b0",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility.",
+      "source_bindings": [
+        {
+          "path": "src/itsdangerous/serializer.py",
+          "symbol": "Serializer",
+          "line": 43,
+          "end_line": 92,
+          "file_sha256": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+          "docstring": "A serializer wraps a :class:`~itsdangerous.signer.Signer` to\n    enable serializing and securely signing data other than bytes. It\n    can unsign to verify that the data hasn't been changed.\n\n    The serializer provides :meth:`dumps` and :meth:`loads`, similar to\n    :mod:`json`, and by default uses :mod:`json` internally to serialize\n    the data to bytes.\n\n    The secret key should be a random string of ``bytes`` and should not\n    be saved to code or version control. Different salts should be used\n    to distinguish signing in different contexts. See :doc:`/concepts`\n    for information about the security of the secret key and salt.\n\n    :param secret_key: The secret key to sign and verify with. Can be a\n        list of keys, oldest to newest, to support key rotation.\n    :param salt: Extra key to combine with ``secret_key`` to distinguish\n        signatures in different contexts.\n    :param serializer: An object that provides ``dumps`` and ``loads``\n        methods for serializing data to a string. Defaults to\n        :attr:`default_serializer`, which defaults to :mod:`json`.\n    :param serializer_kwargs: Keyword arguments to pass when calling\n        ``serializer.dumps``.\n    :param signer: A ``Signer`` class to instantiate when signing data.\n        Defaults to :attr:`default_signer`, which defaults to\n        :class:`~itsdangerous.signer.Signer`.\n    :param signer_kwargs: Keyword arguments to pass when instantiating\n        the ``Signer`` class.\n    :param fallback_signers: List of signer parameters to try when\n        unsigning with the default signer fails. Each item can be a dict\n        of ``signer_kwargs``, a ``Signer`` class, or a tuple of\n        ``(signer, signer_kwargs)``. Defaults to\n        :attr:`default_fallback_signers`.\n\n    .. versionchanged:: 2.0\n        Added support for key rotation by passing a list to\n        ``secret_key``.\n\n    .. versionchanged:: 2.0\n        Removed the default SHA-512 fallback signer from\n        ``default_fallback_signers``.\n\n    .. versionchanged:: 1.1\n        Added support for ``fallback_signers`` and configured a default\n        SHA-512 fallback. This fallback is for users who used the yanked\n        1.0.0 release which defaulted to SHA-512.\n\n    .. versionchanged:: 0.14\n        The ``signer`` and ``signer_kwargs`` parameters were added to\n        the constructor.\n    "
+        },
+        {
+          "path": "src/itsdangerous/serializer.py",
+          "symbol": "_loads_unsafe_impl",
+          "line": 376,
+          "end_line": 378,
+          "file_sha256": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+          "docstring": "Low level helper function to implement :meth:`loads_unsafe`\n        in serializer subclasses.\n        "
+        },
+        {
+          "path": "src/itsdangerous/serializer.py",
+          "symbol": "loads_unsafe",
+          "line": 354,
+          "end_line": 366,
+          "file_sha256": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+          "docstring": "Like :meth:`loads` but without verifying the signature. This\n        is potentially very dangerous to use depending on how your\n        serializer works. The return value is ``(signature_valid,\n        payload)`` instead of just the payload. The first item will be a\n        boolean that indicates if the signature is valid. This function\n        never fails.\n\n        Use it for debugging only and if you know that your serializer\n        module is not exploitable (for example, do not use it with a\n        pickle serializer).\n\n        .. versionadded:: 0.15\n        "
+        }
+      ]
+    },
+    {
+      "id": "v3_dateutil_parser_parse",
+      "status": "approved",
+      "input_sha256": "41705d2ad5b12a785adf2ea8a68859603f6e66bdc7b30969390fde39e42a133f",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility.",
+      "source_bindings": [
+        {
+          "path": "src/dateutil/parser/_parser.py",
+          "symbol": "parse",
+          "line": 1271,
+          "end_line": 1364,
+          "file_sha256": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+          "docstring": "\n\n    Parse a string in one of the supported formats, using the\n    ``parserinfo`` parameters.\n\n    :param timestr:\n        A string containing a date/time stamp.\n\n    :param parserinfo:\n        A :class:`parserinfo` object containing parameters for the parser.\n        If ``None``, the default arguments to the :class:`parserinfo`\n        constructor are used.\n\n    The ``**kwargs`` parameter takes the following keyword arguments:\n\n    :param default:\n        The default datetime object, if this is a datetime object and not\n        ``None``, elements specified in ``timestr`` replace elements in the\n        default object.\n\n    :param ignoretz:\n        If set ``True``, time zones in parsed strings are ignored and a naive\n        :class:`datetime` object is returned.\n\n    :param tzinfos:\n        Additional time zone names / aliases which may be present in the\n        string. This argument maps time zone names (and optionally offsets\n        from those time zones) to time zones. This parameter can be a\n        dictionary with timezone aliases mapping time zone names to time\n        zones or a function taking two parameters (``tzname`` and\n        ``tzoffset``) and returning a time zone.\n\n        The timezones to which the names are mapped can be an integer\n        offset from UTC in seconds or a :class:`tzinfo` object.\n\n        .. doctest::\n           :options: +NORMALIZE_WHITESPACE\n\n            >>> from dateutil.parser import parse\n            >>> from dateutil.tz import gettz\n            >>> tzinfos = {\"BRST\": -7200, \"CST\": gettz(\"America/Chicago\")}\n            >>> parse(\"2012-01-19 17:21:00 BRST\", tzinfos=tzinfos)\n            datetime.datetime(2012, 1, 19, 17, 21, tzinfo=tzoffset(u'BRST', -7200))\n            >>> parse(\"2012-01-19 17:21:00 CST\", tzinfos=tzinfos)\n            datetime.datetime(2012, 1, 19, 17, 21,\n                              tzinfo=tzfile('/usr/share/zoneinfo/America/Chicago'))\n\n        This parameter is ignored if ``ignoretz`` is set.\n\n    :param dayfirst:\n        Whether to interpret the first value in an ambiguous 3-integer date\n        (e.g. 01/05/09) as the day (``True``) or month (``False``). If\n        ``yearfirst`` is set to ``True``, this distinguishes between YDM and\n        YMD. If set to ``None``, this value is retrieved from the current\n        :class:`parserinfo` object (which itself defaults to ``False``).\n\n    :param yearfirst:\n        Whether to interpret the first value in an ambiguous 3-integer date\n        (e.g. 01/05/09) as the year. If ``True``, the first number is taken to\n        be the year, otherwise the last number is taken to be the year. If\n        this is set to ``None``, the value is retrieved from the current\n        :class:`parserinfo` object (which itself defaults to ``False``).\n\n    :param fuzzy:\n        Whether to allow fuzzy parsing, allowing for string like \"Today is\n        January 1, 2047 at 8:21:00AM\".\n\n    :param fuzzy_with_tokens:\n        If ``True``, ``fuzzy`` is automatically set to True, and the parser\n        will return a tuple where the first element is the parsed\n        :class:`datetime.datetime` datetimestamp and the second element is\n        a tuple containing the portions of the string which were ignored:\n\n        .. doctest::\n\n            >>> from dateutil.parser import parse\n            >>> parse(\"Today is January 1, 2047 at 8:21:00AM\", fuzzy_with_tokens=True)\n            (datetime.datetime(2047, 1, 1, 8, 21), (u'Today is ', u' ', u'at '))\n\n    :return:\n        Returns a :class:`datetime.datetime` object or, if the\n        ``fuzzy_with_tokens`` option is ``True``, returns a tuple, the\n        first element being a :class:`datetime.datetime` object, the second\n        a tuple containing the fuzzy tokens.\n\n    :raises ParserError:\n        Raised for invalid or unknown string formats, if the provided\n        :class:`tzinfo` is not in a valid format, or if an invalid date would\n        be created.\n\n    :raises OverflowError:\n        Raised if the parsed date exceeds the largest valid C integer on\n        your system.\n    "
+        },
+        {
+          "path": "src/dateutil/parser/_parser.py",
+          "symbol": "parse",
+          "line": 574,
+          "end_line": 634,
+          "file_sha256": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+          "docstring": "\n        Parse the date/time string into a :class:`datetime.datetime` object.\n\n        :param timestr:\n            Any date/time string using the supported formats.\n\n        :param default:\n            The default datetime object, if this is a datetime object and not\n            ``None``, elements specified in ``timestr`` replace elements in the\n            default object.\n\n        :param ignoretz:\n            If set ``True``, time zones in parsed strings are ignored and a\n            naive :class:`datetime.datetime` object is returned.\n\n        :param tzinfos:\n            Additional time zone names / aliases which may be present in the\n            string. This argument maps time zone names (and optionally offsets\n            from those time zones) to time zones. This parameter can be a\n            dictionary with timezone aliases mapping time zone names to time\n            zones or a function taking two parameters (``tzname`` and\n            ``tzoffset``) and returning a time zone.\n\n            The timezones to which the names are mapped can be an integer\n            offset from UTC in seconds or a :class:`tzinfo` object.\n\n            .. doctest::\n               :options: +NORMALIZE_WHITESPACE\n\n                >>> from dateutil.parser import parse\n                >>> from dateutil.tz import gettz\n                >>> tzinfos = {\"BRST\": -7200, \"CST\": gettz(\"America/Chicago\")}\n                >>> parse(\"2012-01-19 17:21:00 BRST\", tzinfos=tzinfos)\n                datetime.datetime(2012, 1, 19, 17, 21, tzinfo=tzoffset(u'BRST', -7200))\n                >>> parse(\"2012-01-19 17:21:00 CST\", tzinfos=tzinfos)\n                datetime.datetime(2012, 1, 19, 17, 21,\n                                  tzinfo=tzfile('/usr/share/zoneinfo/America/Chicago'))\n\n            This parameter is ignored if ``ignoretz`` is set.\n\n        :param \\*\\*kwargs:\n            Keyword arguments as passed to ``_parse()``.\n\n        :return:\n            Returns a :class:`datetime.datetime` object or, if the\n            ``fuzzy_with_tokens`` option is ``True``, returns a tuple, the\n            first element being a :class:`datetime.datetime` object, the second\n            a tuple containing the fuzzy tokens.\n\n        :raises ParserError:\n            Raised for invalid or unknown string format, if the provided\n            :class:`tzinfo` is not in a valid format, or if an invalid date\n            would be created.\n\n        :raises TypeError:\n            Raised for non-string or character stream input.\n\n        :raises OverflowError:\n            Raised if the parsed date exceeds the largest valid C integer on\n            your system.\n        "
+        }
+      ]
+    },
+    {
+      "id": "v3_dateutil_timelex___init",
+      "status": "approved",
+      "input_sha256": "8dc76deac68771f93024aa9ec9c27a64ad11a6aaac6ff30d153872fe7a4d6f8a",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility.",
+      "source_bindings": [
+        {
+          "path": "src/dateutil/parser/_parser.py",
+          "symbol": "parse",
+          "line": 1271,
+          "end_line": 1364,
+          "file_sha256": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+          "docstring": "\n\n    Parse a string in one of the supported formats, using the\n    ``parserinfo`` parameters.\n\n    :param timestr:\n        A string containing a date/time stamp.\n\n    :param parserinfo:\n        A :class:`parserinfo` object containing parameters for the parser.\n        If ``None``, the default arguments to the :class:`parserinfo`\n        constructor are used.\n\n    The ``**kwargs`` parameter takes the following keyword arguments:\n\n    :param default:\n        The default datetime object, if this is a datetime object and not\n        ``None``, elements specified in ``timestr`` replace elements in the\n        default object.\n\n    :param ignoretz:\n        If set ``True``, time zones in parsed strings are ignored and a naive\n        :class:`datetime` object is returned.\n\n    :param tzinfos:\n        Additional time zone names / aliases which may be present in the\n        string. This argument maps time zone names (and optionally offsets\n        from those time zones) to time zones. This parameter can be a\n        dictionary with timezone aliases mapping time zone names to time\n        zones or a function taking two parameters (``tzname`` and\n        ``tzoffset``) and returning a time zone.\n\n        The timezones to which the names are mapped can be an integer\n        offset from UTC in seconds or a :class:`tzinfo` object.\n\n        .. doctest::\n           :options: +NORMALIZE_WHITESPACE\n\n            >>> from dateutil.parser import parse\n            >>> from dateutil.tz import gettz\n            >>> tzinfos = {\"BRST\": -7200, \"CST\": gettz(\"America/Chicago\")}\n            >>> parse(\"2012-01-19 17:21:00 BRST\", tzinfos=tzinfos)\n            datetime.datetime(2012, 1, 19, 17, 21, tzinfo=tzoffset(u'BRST', -7200))\n            >>> parse(\"2012-01-19 17:21:00 CST\", tzinfos=tzinfos)\n            datetime.datetime(2012, 1, 19, 17, 21,\n                              tzinfo=tzfile('/usr/share/zoneinfo/America/Chicago'))\n\n        This parameter is ignored if ``ignoretz`` is set.\n\n    :param dayfirst:\n        Whether to interpret the first value in an ambiguous 3-integer date\n        (e.g. 01/05/09) as the day (``True``) or month (``False``). If\n        ``yearfirst`` is set to ``True``, this distinguishes between YDM and\n        YMD. If set to ``None``, this value is retrieved from the current\n        :class:`parserinfo` object (which itself defaults to ``False``).\n\n    :param yearfirst:\n        Whether to interpret the first value in an ambiguous 3-integer date\n        (e.g. 01/05/09) as the year. If ``True``, the first number is taken to\n        be the year, otherwise the last number is taken to be the year. If\n        this is set to ``None``, the value is retrieved from the current\n        :class:`parserinfo` object (which itself defaults to ``False``).\n\n    :param fuzzy:\n        Whether to allow fuzzy parsing, allowing for string like \"Today is\n        January 1, 2047 at 8:21:00AM\".\n\n    :param fuzzy_with_tokens:\n        If ``True``, ``fuzzy`` is automatically set to True, and the parser\n        will return a tuple where the first element is the parsed\n        :class:`datetime.datetime` datetimestamp and the second element is\n        a tuple containing the portions of the string which were ignored:\n\n        .. doctest::\n\n            >>> from dateutil.parser import parse\n            >>> parse(\"Today is January 1, 2047 at 8:21:00AM\", fuzzy_with_tokens=True)\n            (datetime.datetime(2047, 1, 1, 8, 21), (u'Today is ', u' ', u'at '))\n\n    :return:\n        Returns a :class:`datetime.datetime` object or, if the\n        ``fuzzy_with_tokens`` option is ``True``, returns a tuple, the\n        first element being a :class:`datetime.datetime` object, the second\n        a tuple containing the fuzzy tokens.\n\n    :raises ParserError:\n        Raised for invalid or unknown string formats, if the provided\n        :class:`tzinfo` is not in a valid format, or if an invalid date would\n        be created.\n\n    :raises OverflowError:\n        Raised if the parsed date exceeds the largest valid C integer on\n        your system.\n    "
+        },
+        {
+          "path": "src/dateutil/parser/_parser.py",
+          "symbol": "parse",
+          "line": 574,
+          "end_line": 634,
+          "file_sha256": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+          "docstring": "\n        Parse the date/time string into a :class:`datetime.datetime` object.\n\n        :param timestr:\n            Any date/time string using the supported formats.\n\n        :param default:\n            The default datetime object, if this is a datetime object and not\n            ``None``, elements specified in ``timestr`` replace elements in the\n            default object.\n\n        :param ignoretz:\n            If set ``True``, time zones in parsed strings are ignored and a\n            naive :class:`datetime.datetime` object is returned.\n\n        :param tzinfos:\n            Additional time zone names / aliases which may be present in the\n            string. This argument maps time zone names (and optionally offsets\n            from those time zones) to time zones. This parameter can be a\n            dictionary with timezone aliases mapping time zone names to time\n            zones or a function taking two parameters (``tzname`` and\n            ``tzoffset``) and returning a time zone.\n\n            The timezones to which the names are mapped can be an integer\n            offset from UTC in seconds or a :class:`tzinfo` object.\n\n            .. doctest::\n               :options: +NORMALIZE_WHITESPACE\n\n                >>> from dateutil.parser import parse\n                >>> from dateutil.tz import gettz\n                >>> tzinfos = {\"BRST\": -7200, \"CST\": gettz(\"America/Chicago\")}\n                >>> parse(\"2012-01-19 17:21:00 BRST\", tzinfos=tzinfos)\n                datetime.datetime(2012, 1, 19, 17, 21, tzinfo=tzoffset(u'BRST', -7200))\n                >>> parse(\"2012-01-19 17:21:00 CST\", tzinfos=tzinfos)\n                datetime.datetime(2012, 1, 19, 17, 21,\n                                  tzinfo=tzfile('/usr/share/zoneinfo/America/Chicago'))\n\n            This parameter is ignored if ``ignoretz`` is set.\n\n        :param \\*\\*kwargs:\n            Keyword arguments as passed to ``_parse()``.\n\n        :return:\n            Returns a :class:`datetime.datetime` object or, if the\n            ``fuzzy_with_tokens`` option is ``True``, returns a tuple, the\n            first element being a :class:`datetime.datetime` object, the second\n            a tuple containing the fuzzy tokens.\n\n        :raises ParserError:\n            Raised for invalid or unknown string format, if the provided\n            :class:`tzinfo` is not in a valid format, or if an invalid date\n            would be created.\n\n        :raises TypeError:\n            Raised for non-string or character stream input.\n\n        :raises OverflowError:\n            Raised if the parsed date exceeds the largest valid C integer on\n            your system.\n        "
+        }
+      ]
+    },
+    {
+      "id": "v3_dateutil_easter",
+      "status": "approved",
+      "input_sha256": "ae8688132b9540dc2370626e2141a748551258b3d5f9b0adfbe4c0cfdc41f1ed",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility.",
+      "source_bindings": [
+        {
+          "path": "src/dateutil/easter.py",
+          "symbol": "easter",
+          "line": 17,
+          "end_line": 50,
+          "file_sha256": "3fc0effafdf4f58c21bc5b24798c4722096765280c352164503c196e83b3b038",
+          "docstring": "\n    This method was ported from the work done by GM Arts,\n    on top of the algorithm by Claus Tondering, which was\n    based in part on the algorithm of Ouding (1940), as\n    quoted in \"Explanatory Supplement to the Astronomical\n    Almanac\", P.  Kenneth Seidelmann, editor.\n\n    This algorithm implements three different Easter\n    calculation methods:\n\n    1. Original calculation in Julian calendar, valid in\n       dates after 326 AD\n    2. Original method, with date converted to Gregorian\n       calendar, valid in years 1583 to 4099\n    3. Revised method, in Gregorian calendar, valid in\n       years 1583 to 4099 as well\n\n    These methods are represented by the constants:\n\n    * ``EASTER_JULIAN   = 1``\n    * ``EASTER_ORTHODOX = 2``\n    * ``EASTER_WESTERN  = 3``\n\n    The default method is method 3.\n\n    More about the algorithm may be found at:\n\n    `GM Arts: Easter Algorithms <http://www.gmarts.org/index.php?go=415>`_\n\n    and\n\n    `The Calendar FAQ: Easter <https://www.tondering.dk/claus/cal/easter.php>`_\n\n    "
+        }
+      ]
+    },
+    {
+      "id": "v3_dateutil_rrulestr__handle_until",
+      "status": "rejected",
+      "input_sha256": "98b7d855f0353871c7df343085deabb619b399100b7c18335a4ffda033a58bd0",
+      "notes": "Rejected: independent recurrence documentation does not establish universal invalid UNTIL rejection/ValueError; holdout also combines mutually exclusive COUNT and UNTIL. Preserve without execution.",
+      "source_bindings": [
+        {
+          "path": "src/dateutil/rrule.py",
+          "symbol": "_rrulestr",
+          "line": 1419,
+          "end_line": 1461,
+          "file_sha256": "b3af688f361febc0766eeba4521e10075c8f9e1e9793d8a0af68cf8c54eda332",
+          "docstring": " Parses a string representation of a recurrence rule or set of\n    recurrence rules.\n\n    :param s:\n        Required, a string defining one or more recurrence rules.\n\n    :param dtstart:\n        If given, used as the default recurrence start if not specified in the\n        rule string.\n\n    :param cache:\n        If set ``True`` caching of results will be enabled, improving\n        performance of multiple queries considerably.\n\n    :param unfold:\n        If set ``True`` indicates that a rule string is split over more\n        than one line and should be joined before processing.\n\n    :param forceset:\n        If set ``True`` forces a :class:`dateutil.rrule.rruleset` to\n        be returned.\n\n    :param compatible:\n        If set ``True`` forces ``unfold`` and ``forceset`` to be ``True``.\n\n    :param ignoretz:\n        If set ``True``, time zones in parsed strings are ignored and a naive\n        :class:`datetime.datetime` object is returned.\n\n    :param tzids:\n        If given, a callable or mapping used to retrieve a\n        :class:`datetime.tzinfo` from a string representation.\n        Defaults to :func:`dateutil.tz.gettz`.\n\n    :param tzinfos:\n        Additional time zone names / aliases which may be present in a string\n        representation.  See :func:`dateutil.parser.parse` for more\n        information.\n\n    :return:\n        Returns a :class:`dateutil.rrule.rruleset` or\n        :class:`dateutil.rrule.rrule`\n    "
+        }
+      ]
+    }
+  ]
+}

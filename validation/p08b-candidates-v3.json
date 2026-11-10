@@ -1,0 +1,113 @@
+{
+  "schema": "p08-candidate-pool-v1",
+  "public_manifest": "experiments/p08b-candidates-v3-public.json",
+  "evaluator_manifest": "validation/p08b-candidates-v3-evaluation.json",
+  "candidate_order": [
+    "v3_click_textwrapper__handle_long_word",
+    "v3_click_textwrapper_indent_only",
+    "v3_click_wrap_text",
+    "v3_dateutil_easter",
+    "v3_dateutil_timelex___init",
+    "v3_dateutil_parser_parse",
+    "v3_dateutil_rrulestr__handle_until",
+    "v3_itsdangerous_timedserializer_loads",
+    "v3_itsdangerous_timestampsigner_timestamp_to_datetime",
+    "v3_itsdangerous_serializer__loads_unsafe_impl",
+    "v3_itsdangerous_signer_verify_signature",
+    "v3_jinja_do_center",
+    "v3_jinja_do_indent",
+    "v3_jinja_do_wordcount"
+  ],
+  "semantic_reviews": {
+    "v3_click_textwrapper__handle_long_word": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v3",
+      "input_sha256": "24964ffc022c72e851739bab62df907dc441ed3e30c597a5708dd21bbe8fa4a5",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility."
+    },
+    "v3_click_textwrapper_indent_only": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v3",
+      "input_sha256": "dc47346c48157327bbc7f122e693076adfea9426788d019f94e71223736e616f",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility."
+    },
+    "v3_click_wrap_text": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v3",
+      "input_sha256": "0a78486dc21287ba5f7f4c4fef15184dd95b669d0dd84809f69f22b4386e67f9",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility."
+    },
+    "v3_dateutil_easter": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v3",
+      "input_sha256": "ae8688132b9540dc2370626e2141a748551258b3d5f9b0adfbe4c0cfdc41f1ed",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility."
+    },
+    "v3_dateutil_timelex___init": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v3",
+      "input_sha256": "8dc76deac68771f93024aa9ec9c27a64ad11a6aaac6ff30d153872fe7a4d6f8a",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility."
+    },
+    "v3_dateutil_parser_parse": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v3",
+      "input_sha256": "41705d2ad5b12a785adf2ea8a68859603f6e66bdc7b30969390fde39e42a133f",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility."
+    },
+    "v3_dateutil_rrulestr__handle_until": {
+      "status": "rejected",
+      "reviewer": "review_p08b_t2_v3",
+      "input_sha256": "98b7d855f0353871c7df343085deabb619b399100b7c18335a4ffda033a58bd0",
+      "notes": "Rejected: independent recurrence documentation does not establish universal invalid UNTIL rejection/ValueError; holdout also combines mutually exclusive COUNT and UNTIL. Preserve without execution."
+    },
+    "v3_itsdangerous_timedserializer_loads": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v3",
+      "input_sha256": "e2a4dfcbff505797294e364ebf366cb540c8d40e4f215011ebd649f41a71733f",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility."
+    },
+    "v3_itsdangerous_timestampsigner_timestamp_to_datetime": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v3",
+      "input_sha256": "eb3d7e0422d5d0f0af81ace5298c362c8a127181362ff72175ee6214ec82c7d0",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility."
+    },
+    "v3_itsdangerous_serializer__loads_unsafe_impl": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v3",
+      "input_sha256": "b7756d250d08c8d2bc024a65963762bf1ccf061c0313a807644f48339a9c29b0",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility."
+    },
+    "v3_itsdangerous_signer_verify_signature": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v3",
+      "input_sha256": "d8f7bcd79a9835d45ef0ab5ff5c685f3c3d9292082d43ad0157e38d8ef0c28ae",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility.",
+      "retest_of": {
+        "candidate_id": "v2_itsdangerous_signer_verify_signature",
+        "source_report": "evidence/p08b-screening-v2.json",
+        "source_review_sha256": "730a09e748eb78cb45f245b2c68739c28f848ea00d70f12be279243434290db5",
+        "change": "Same malformed signature and False oracle; compute result before assert to avoid diagnostic object repr. Old unstable status retained; not a new function."
+      }
+    },
+    "v3_jinja_do_center": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v3",
+      "input_sha256": "f458c890f0aa30afb2fc0bcc6ccd183ddc3c5b4bd8d86f8647196fbeb4ea7676",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility."
+    },
+    "v3_jinja_do_indent": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v3",
+      "input_sha256": "a63ff97eba2936101aa9781b2331f72cd768eabde9ced2be230ffc5dfa6c367a",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility."
+    },
+    "v3_jinja_do_wordcount": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v3",
+      "input_sha256": "d0cd554a201814cc1da65a278aa3d6902ccf744ce0eb413ef136bb3c4423108c",
+      "notes": "Approved: independent API docstring/standard protocol supports the oracle and defect category; deterministic inputs, single-location behavior mutation. Approval is not eligibility."
+    }
+  }
+}
