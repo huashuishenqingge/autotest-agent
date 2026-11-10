@@ -1,0 +1,2900 @@
+{
+  "schema": 1,
+  "scope": "T2 screening implementation verification, not formal experiment outcomes",
+  "native_full": {
+    "total": 147,
+    "passed": 142,
+    "skipped": 5,
+    "exit_code": 0
+  },
+  "screening_tests": {
+    "passed": 6,
+    "skipped": 0
+  },
+  "scoped_tests": {
+    "passed": 8,
+    "skipped": 0
+  },
+  "linux_core": {
+    "scope": "Linux Python core; Web tests excluded, covered by Windows full suite",
+    "excluded_test_files": [
+      "tests/test_web.py"
+    ],
+    "execution": {
+      "run": {
+        "run_id": "9dd3d40ab47545e58ca34dd3a7d44a54",
+        "snapshot_digest": "edc877cf54cb0fdd580f785ab0455e11a1899c63fe2c1195c5e26f4446a8133b",
+        "exit_code": 0,
+        "passed": 131,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 1,
+        "failure": null,
+        "artifacts": [
+          "9dd3d40ab47545e58ca34dd3a7d44a54/log.txt",
+          "9dd3d40ab47545e58ca34dd3a7d44a54/junit.xml",
+          "9dd3d40ab47545e58ca34dd3a7d44a54/manifest.json",
+          "9dd3d40ab47545e58ca34dd3a7d44a54/run.json",
+          "9dd3d40ab47545e58ca34dd3a7d44a54/coverage.json"
+        ]
+      },
+      "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\linux-core\\9dd3d40ab47545e58ca34dd3a7d44a54",
+      "cleanup_ok": true
+    }
+  },
+  "legacy_B1_replay": {
+    "schema": 1,
+    "scope": "nonformal P08A admission",
+    "origin": "saved proposal replay",
+    "campaign_id": "5fc8bc568b334077b447bc3a567cc747",
+    "status": "completed",
+    "provenance": {
+      "project": {
+        "id": "markupsafe",
+        "url": "https://github.com/pallets/markupsafe.git",
+        "tag": "3.0.3",
+        "commit": "297fc8e356e6836a62087949245d09a28e9f1b13",
+        "package_root": "src/markupsafe",
+        "license_files": [
+          "LICENSE.txt"
+        ],
+        "config_files": [
+          "pyproject.toml",
+          "setup.py"
+        ]
+      },
+      "scope": "P08A admission; not a formal surviving-upstream mutant",
+      "baseline_origin": "three assistant-authored admission tests, NOT upstream regression suite",
+      "excluded_from_P08B": true,
+      "mutation": "escape_silent None case returns Markup(\"None\") instead of empty Markup",
+      "licenses": {
+        "LICENSE.txt": {
+          "sha256": "4631ec0db5fd90a547e336817264c6798214338146f8ac94b4a57f96ee8c9ec4",
+          "bytes": 1503
+        }
+      },
+      "source_hashes": {
+        "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+      },
+      "support_hashes": {
+        "data/admission-visible.json": "6b56d64b76bdd975df729a8fed87f7720c687b7160a25b67f1624a60e7cc48e9"
+      }
+    },
+    "groups": [
+      {
+        "schema": 1,
+        "scope": "P08A nonformal admission only",
+        "run_id": "aa4b14013b6749bbb5bbb44ef54bf961",
+        "case_id": "admission_markupsafe_escape_silent",
+        "group": "B1",
+        "status": "verified",
+        "rounds": [
+          {
+            "round": 1,
+            "task_id": "7700f98d337143dbba2f22cd6048b272",
+            "parent_task_id": null,
+            "inherited_snapshot": null,
+            "events": [
+              {
+                "task_id": "7700f98d337143dbba2f22cd6048b272",
+                "phase": "created",
+                "repository": null,
+                "policy": {
+                  "test_prefix": "tests/generated/",
+                  "max_fix_attempts": 1,
+                  "timeout_seconds": 60,
+                  "max_output_bytes": 65536,
+                  "max_file_bytes": 100000
+                },
+                "attempts": 0,
+                "runs": [],
+                "failure": null,
+                "event_type": "created"
+              },
+              {
+                "task_id": "7700f98d337143dbba2f22cd6048b272",
+                "phase": "parsed",
+                "repository": {
+                  "project_id": "admission_markupsafe_escape_silent",
+                  "revision": "experiment-sha256:afdcd1b9f8a3f476c5cc2da713c9be7e0a67092fd10289a38a8883b413470dfe",
+                  "source_files": [
+                    "src/markupsafe/__init__.py",
+                    "src/markupsafe/_native.py"
+                  ],
+                  "test_files": [
+                    "tests/test_admission_original.py"
+                  ],
+                  "symbols": [
+                    "escape_silent"
+                  ]
+                },
+                "policy": {
+                  "test_prefix": "tests/generated/",
+                  "max_fix_attempts": 1,
+                  "timeout_seconds": 60,
+                  "max_output_bytes": 65536,
+                  "max_file_bytes": 100000
+                },
+                "attempts": 0,
+                "runs": [],
+                "failure": null,
+                "event_type": "transition"
+              },
+              {
+                "task_id": "7700f98d337143dbba2f22cd6048b272",
+                "phase": "tests_proposed",
+                "repository": {
+                  "project_id": "admission_markupsafe_escape_silent",
+                  "revision": "experiment-sha256:afdcd1b9f8a3f476c5cc2da713c9be7e0a67092fd10289a38a8883b413470dfe",
+                  "source_files": [
+                    "src/markupsafe/__init__.py",
+                    "src/markupsafe/_native.py"
+                  ],
+                  "test_files": [
+                    "tests/test_admission_original.py"
+                  ],
+                  "symbols": [
+                    "escape_silent"
+                  ]
+                },
+                "policy": {
+                  "test_prefix": "tests/generated/",
+                  "max_fix_attempts": 1,
+                  "timeout_seconds": 60,
+                  "max_output_bytes": 65536,
+                  "max_file_bytes": 100000
+                },
+                "attempts": 0,
+                "runs": [],
+                "failure": null,
+                "event_type": "transition"
+              },
+              {
+                "task_id": "7700f98d337143dbba2f22cd6048b272",
+                "phase": "tests_proposed",
+                "repository": {
+                  "project_id": "admission_markupsafe_escape_silent",
+                  "revision": "experiment-sha256:afdcd1b9f8a3f476c5cc2da713c9be7e0a67092fd10289a38a8883b413470dfe",
+                  "source_files": [
+                    "src/markupsafe/__init__.py",
+                    "src/markupsafe/_native.py"
+                  ],
+                  "test_files": [
+                    "tests/test_admission_original.py",
+                    "tests/generated/test_escape_silent.py"
+                  ],
+                  "symbols": [
+                    "escape_silent"
+                  ]
+                },
+                "policy": {
+                  "test_prefix": "tests/generated/",
+                  "max_fix_attempts": 1,
+                  "timeout_seconds": 60,
+                  "max_output_bytes": 65536,
+                  "max_file_bytes": 100000
+                },
+                "attempts": 0,
+                "runs": [],
+                "failure": null,
+                "event_type": "inventory_update"
+              },
+              {
+                "task_id": "7700f98d337143dbba2f22cd6048b272",
+                "phase": "tested",
+                "repository": {
+                  "project_id": "admission_markupsafe_escape_silent",
+                  "revision": "experiment-sha256:afdcd1b9f8a3f476c5cc2da713c9be7e0a67092fd10289a38a8883b413470dfe",
+                  "source_files": [
+                    "src/markupsafe/__init__.py",
+                    "src/markupsafe/_native.py"
+                  ],
+                  "test_files": [
+                    "tests/test_admission_original.py",
+                    "tests/generated/test_escape_silent.py"
+                  ],
+                  "symbols": [
+                    "escape_silent"
+                  ]
+                },
+                "policy": {
+                  "test_prefix": "tests/generated/",
+                  "max_fix_attempts": 1,
+                  "timeout_seconds": 60,
+                  "max_output_bytes": 65536,
+                  "max_file_bytes": 100000
+                },
+                "attempts": 0,
+                "runs": [
+                  {
+                    "run_id": "5a3869f5541f46c6a96b39904b0ff845",
+                    "snapshot_digest": "4397dc54f8c577aa273494e86b296845fb3fa1b487a8d1915cf694b7184651e7",
+                    "exit_code": 1,
+                    "passed": 12,
+                    "failed": 1,
+                    "errors": 0,
+                    "skipped": 0,
+                    "failure": {
+                      "kind": "test_assertion",
+                      "message": "Run did not verify; inspect sanitized evidence",
+                      "evidence": [
+                        "5a3869f5541f46c6a96b39904b0ff845/log.txt",
+                        "5a3869f5541f46c6a96b39904b0ff845/junit.xml",
+                        "5a3869f5541f46c6a96b39904b0ff845/manifest.json",
+                        "5a3869f5541f46c6a96b39904b0ff845/run.json",
+                        "5a3869f5541f46c6a96b39904b0ff845/coverage.json"
+                      ]
+                    },
+                    "artifacts": [
+                      "5a3869f5541f46c6a96b39904b0ff845/log.txt",
+                      "5a3869f5541f46c6a96b39904b0ff845/junit.xml",
+                      "5a3869f5541f46c6a96b39904b0ff845/manifest.json",
+                      "5a3869f5541f46c6a96b39904b0ff845/run.json",
+                      "5a3869f5541f46c6a96b39904b0ff845/coverage.json"
+                    ]
+                  }
+                ],
+                "failure": null,
+                "event_type": "transition"
+              },
+              {
+                "task_id": "7700f98d337143dbba2f22cd6048b272",
+                "phase": "tested",
+                "repository": {
+                  "project_id": "admission_markupsafe_escape_silent",
+                  "revision": "experiment-sha256:afdcd1b9f8a3f476c5cc2da713c9be7e0a67092fd10289a38a8883b413470dfe",
+                  "source_files": [
+                    "src/markupsafe/__init__.py",
+                    "src/markupsafe/_native.py"
+                  ],
+                  "test_files": [
+                    "tests/test_admission_original.py",
+                    "tests/generated/test_escape_silent.py"
+                  ],
+                  "symbols": [
+                    "escape_silent"
+                  ]
+                },
+                "policy": {
+                  "test_prefix": "tests/generated/",
+                  "max_fix_attempts": 1,
+                  "timeout_seconds": 60,
+                  "max_output_bytes": 65536,
+                  "max_file_bytes": 100000
+                },
+                "attempts": 0,
+                "runs": [
+                  {
+                    "run_id": "5a3869f5541f46c6a96b39904b0ff845",
+                    "snapshot_digest": "4397dc54f8c577aa273494e86b296845fb3fa1b487a8d1915cf694b7184651e7",
+                    "exit_code": 1,
+                    "passed": 12,
+                    "failed": 1,
+                    "errors": 0,
+                    "skipped": 0,
+                    "failure": {
+                      "kind": "test_assertion",
+                      "message": "Run did not verify; inspect sanitized evidence",
+                      "evidence": [
+                        "5a3869f5541f46c6a96b39904b0ff845/log.txt",
+                        "5a3869f5541f46c6a96b39904b0ff845/junit.xml",
+                        "5a3869f5541f46c6a96b39904b0ff845/manifest.json",
+                        "5a3869f5541f46c6a96b39904b0ff845/run.json",
+                        "5a3869f5541f46c6a96b39904b0ff845/coverage.json"
+                      ]
+                    },
+                    "artifacts": [
+                      "5a3869f5541f46c6a96b39904b0ff845/log.txt",
+                      "5a3869f5541f46c6a96b39904b0ff845/junit.xml",
+                      "5a3869f5541f46c6a96b39904b0ff845/manifest.json",
+                      "5a3869f5541f46c6a96b39904b0ff845/run.json",
+                      "5a3869f5541f46c6a96b39904b0ff845/coverage.json"
+                    ]
+                  },
+                  {
+                    "run_id": "ba6fb9ea62d442c8b3c5ff54d35115cd",
+                    "snapshot_digest": "4397dc54f8c577aa273494e86b296845fb3fa1b487a8d1915cf694b7184651e7",
+                    "exit_code": 1,
+                    "passed": 12,
+                    "failed": 1,
+                    "errors": 0,
+                    "skipped": 0,
+                    "failure": {
+                      "kind": "test_assertion",
+                      "message": "Run did not verify; inspect sanitized evidence",
+                      "evidence": [
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/log.txt",
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/junit.xml",
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/manifest.json",
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/run.json",
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/coverage.json"
+                      ]
+                    },
+                    "artifacts": [
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/log.txt",
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/junit.xml",
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/manifest.json",
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/run.json",
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/coverage.json"
+                    ]
+                  }
+                ],
+                "failure": null,
+                "event_type": "failure_refresh"
+              },
+              {
+                "task_id": "7700f98d337143dbba2f22cd6048b272",
+                "phase": "fix_proposed",
+                "repository": {
+                  "project_id": "admission_markupsafe_escape_silent",
+                  "revision": "experiment-sha256:afdcd1b9f8a3f476c5cc2da713c9be7e0a67092fd10289a38a8883b413470dfe",
+                  "source_files": [
+                    "src/markupsafe/__init__.py",
+                    "src/markupsafe/_native.py"
+                  ],
+                  "test_files": [
+                    "tests/test_admission_original.py",
+                    "tests/generated/test_escape_silent.py"
+                  ],
+                  "symbols": [
+                    "escape_silent"
+                  ]
+                },
+                "policy": {
+                  "test_prefix": "tests/generated/",
+                  "max_fix_attempts": 1,
+                  "timeout_seconds": 60,
+                  "max_output_bytes": 65536,
+                  "max_file_bytes": 100000
+                },
+                "attempts": 1,
+                "runs": [
+                  {
+                    "run_id": "5a3869f5541f46c6a96b39904b0ff845",
+                    "snapshot_digest": "4397dc54f8c577aa273494e86b296845fb3fa1b487a8d1915cf694b7184651e7",
+                    "exit_code": 1,
+                    "passed": 12,
+                    "failed": 1,
+                    "errors": 0,
+                    "skipped": 0,
+                    "failure": {
+                      "kind": "test_assertion",
+                      "message": "Run did not verify; inspect sanitized evidence",
+                      "evidence": [
+                        "5a3869f5541f46c6a96b39904b0ff845/log.txt",
+                        "5a3869f5541f46c6a96b39904b0ff845/junit.xml",
+                        "5a3869f5541f46c6a96b39904b0ff845/manifest.json",
+                        "5a3869f5541f46c6a96b39904b0ff845/run.json",
+                        "5a3869f5541f46c6a96b39904b0ff845/coverage.json"
+                      ]
+                    },
+                    "artifacts": [
+                      "5a3869f5541f46c6a96b39904b0ff845/log.txt",
+                      "5a3869f5541f46c6a96b39904b0ff845/junit.xml",
+                      "5a3869f5541f46c6a96b39904b0ff845/manifest.json",
+                      "5a3869f5541f46c6a96b39904b0ff845/run.json",
+                      "5a3869f5541f46c6a96b39904b0ff845/coverage.json"
+                    ]
+                  },
+                  {
+                    "run_id": "ba6fb9ea62d442c8b3c5ff54d35115cd",
+                    "snapshot_digest": "4397dc54f8c577aa273494e86b296845fb3fa1b487a8d1915cf694b7184651e7",
+                    "exit_code": 1,
+                    "passed": 12,
+                    "failed": 1,
+                    "errors": 0,
+                    "skipped": 0,
+                    "failure": {
+                      "kind": "test_assertion",
+                      "message": "Run did not verify; inspect sanitized evidence",
+                      "evidence": [
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/log.txt",
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/junit.xml",
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/manifest.json",
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/run.json",
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/coverage.json"
+                      ]
+                    },
+                    "artifacts": [
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/log.txt",
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/junit.xml",
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/manifest.json",
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/run.json",
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/coverage.json"
+                    ]
+                  }
+                ],
+                "failure": null,
+                "event_type": "transition"
+              },
+              {
+                "task_id": "7700f98d337143dbba2f22cd6048b272",
+                "phase": "tested",
+                "repository": {
+                  "project_id": "admission_markupsafe_escape_silent",
+                  "revision": "experiment-sha256:afdcd1b9f8a3f476c5cc2da713c9be7e0a67092fd10289a38a8883b413470dfe",
+                  "source_files": [
+                    "src/markupsafe/__init__.py",
+                    "src/markupsafe/_native.py"
+                  ],
+                  "test_files": [
+                    "tests/test_admission_original.py",
+                    "tests/generated/test_escape_silent.py"
+                  ],
+                  "symbols": [
+                    "escape_silent"
+                  ]
+                },
+                "policy": {
+                  "test_prefix": "tests/generated/",
+                  "max_fix_attempts": 1,
+                  "timeout_seconds": 60,
+                  "max_output_bytes": 65536,
+                  "max_file_bytes": 100000
+                },
+                "attempts": 1,
+                "runs": [
+                  {
+                    "run_id": "5a3869f5541f46c6a96b39904b0ff845",
+                    "snapshot_digest": "4397dc54f8c577aa273494e86b296845fb3fa1b487a8d1915cf694b7184651e7",
+                    "exit_code": 1,
+                    "passed": 12,
+                    "failed": 1,
+                    "errors": 0,
+                    "skipped": 0,
+                    "failure": {
+                      "kind": "test_assertion",
+                      "message": "Run did not verify; inspect sanitized evidence",
+                      "evidence": [
+                        "5a3869f5541f46c6a96b39904b0ff845/log.txt",
+                        "5a3869f5541f46c6a96b39904b0ff845/junit.xml",
+                        "5a3869f5541f46c6a96b39904b0ff845/manifest.json",
+                        "5a3869f5541f46c6a96b39904b0ff845/run.json",
+                        "5a3869f5541f46c6a96b39904b0ff845/coverage.json"
+                      ]
+                    },
+                    "artifacts": [
+                      "5a3869f5541f46c6a96b39904b0ff845/log.txt",
+                      "5a3869f5541f46c6a96b39904b0ff845/junit.xml",
+                      "5a3869f5541f46c6a96b39904b0ff845/manifest.json",
+                      "5a3869f5541f46c6a96b39904b0ff845/run.json",
+                      "5a3869f5541f46c6a96b39904b0ff845/coverage.json"
+                    ]
+                  },
+                  {
+                    "run_id": "ba6fb9ea62d442c8b3c5ff54d35115cd",
+                    "snapshot_digest": "4397dc54f8c577aa273494e86b296845fb3fa1b487a8d1915cf694b7184651e7",
+                    "exit_code": 1,
+                    "passed": 12,
+                    "failed": 1,
+                    "errors": 0,
+                    "skipped": 0,
+                    "failure": {
+                      "kind": "test_assertion",
+                      "message": "Run did not verify; inspect sanitized evidence",
+                      "evidence": [
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/log.txt",
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/junit.xml",
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/manifest.json",
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/run.json",
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/coverage.json"
+                      ]
+                    },
+                    "artifacts": [
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/log.txt",
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/junit.xml",
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/manifest.json",
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/run.json",
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/coverage.json"
+                    ]
+                  },
+                  {
+                    "run_id": "1932284ffc7d45828b5267584a006bad",
+                    "snapshot_digest": "8c3a017503612d29d1b791088e5eb6f44edc66dcec376ea0d506b821381988cd",
+                    "exit_code": 0,
+                    "passed": 13,
+                    "failed": 0,
+                    "errors": 0,
+                    "skipped": 0,
+                    "failure": null,
+                    "artifacts": [
+                      "1932284ffc7d45828b5267584a006bad/log.txt",
+                      "1932284ffc7d45828b5267584a006bad/junit.xml",
+                      "1932284ffc7d45828b5267584a006bad/manifest.json",
+                      "1932284ffc7d45828b5267584a006bad/run.json",
+                      "1932284ffc7d45828b5267584a006bad/coverage.json"
+                    ]
+                  }
+                ],
+                "failure": null,
+                "event_type": "transition"
+              },
+              {
+                "task_id": "7700f98d337143dbba2f22cd6048b272",
+                "phase": "verified",
+                "repository": {
+                  "project_id": "admission_markupsafe_escape_silent",
+                  "revision": "experiment-sha256:afdcd1b9f8a3f476c5cc2da713c9be7e0a67092fd10289a38a8883b413470dfe",
+                  "source_files": [
+                    "src/markupsafe/__init__.py",
+                    "src/markupsafe/_native.py"
+                  ],
+                  "test_files": [
+                    "tests/test_admission_original.py",
+                    "tests/generated/test_escape_silent.py"
+                  ],
+                  "symbols": [
+                    "escape_silent"
+                  ]
+                },
+                "policy": {
+                  "test_prefix": "tests/generated/",
+                  "max_fix_attempts": 1,
+                  "timeout_seconds": 60,
+                  "max_output_bytes": 65536,
+                  "max_file_bytes": 100000
+                },
+                "attempts": 1,
+                "runs": [
+                  {
+                    "run_id": "5a3869f5541f46c6a96b39904b0ff845",
+                    "snapshot_digest": "4397dc54f8c577aa273494e86b296845fb3fa1b487a8d1915cf694b7184651e7",
+                    "exit_code": 1,
+                    "passed": 12,
+                    "failed": 1,
+                    "errors": 0,
+                    "skipped": 0,
+                    "failure": {
+                      "kind": "test_assertion",
+                      "message": "Run did not verify; inspect sanitized evidence",
+                      "evidence": [
+                        "5a3869f5541f46c6a96b39904b0ff845/log.txt",
+                        "5a3869f5541f46c6a96b39904b0ff845/junit.xml",
+                        "5a3869f5541f46c6a96b39904b0ff845/manifest.json",
+                        "5a3869f5541f46c6a96b39904b0ff845/run.json",
+                        "5a3869f5541f46c6a96b39904b0ff845/coverage.json"
+                      ]
+                    },
+                    "artifacts": [
+                      "5a3869f5541f46c6a96b39904b0ff845/log.txt",
+                      "5a3869f5541f46c6a96b39904b0ff845/junit.xml",
+                      "5a3869f5541f46c6a96b39904b0ff845/manifest.json",
+                      "5a3869f5541f46c6a96b39904b0ff845/run.json",
+                      "5a3869f5541f46c6a96b39904b0ff845/coverage.json"
+                    ]
+                  },
+                  {
+                    "run_id": "ba6fb9ea62d442c8b3c5ff54d35115cd",
+                    "snapshot_digest": "4397dc54f8c577aa273494e86b296845fb3fa1b487a8d1915cf694b7184651e7",
+                    "exit_code": 1,
+                    "passed": 12,
+                    "failed": 1,
+                    "errors": 0,
+                    "skipped": 0,
+                    "failure": {
+                      "kind": "test_assertion",
+                      "message": "Run did not verify; inspect sanitized evidence",
+                      "evidence": [
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/log.txt",
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/junit.xml",
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/manifest.json",
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/run.json",
+                        "ba6fb9ea62d442c8b3c5ff54d35115cd/coverage.json"
+                      ]
+                    },
+                    "artifacts": [
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/log.txt",
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/junit.xml",
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/manifest.json",
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/run.json",
+                      "ba6fb9ea62d442c8b3c5ff54d35115cd/coverage.json"
+                    ]
+                  },
+                  {
+                    "run_id": "1932284ffc7d45828b5267584a006bad",
+                    "snapshot_digest": "8c3a017503612d29d1b791088e5eb6f44edc66dcec376ea0d506b821381988cd",
+                    "exit_code": 0,
+                    "passed": 13,
+                    "failed": 0,
+                    "errors": 0,
+                    "skipped": 0,
+                    "failure": null,
+                    "artifacts": [
+                      "1932284ffc7d45828b5267584a006bad/log.txt",
+                      "1932284ffc7d45828b5267584a006bad/junit.xml",
+                      "1932284ffc7d45828b5267584a006bad/manifest.json",
+                      "1932284ffc7d45828b5267584a006bad/run.json",
+                      "1932284ffc7d45828b5267584a006bad/coverage.json"
+                    ]
+                  }
+                ],
+                "failure": null,
+                "event_type": "transition",
+                "independent_run": {
+                  "run_id": "0c504e42d4b746009ea41321e0c587d2",
+                  "snapshot_digest": "1fcef7f81db56dfa917b073fbd834416dcde02bf6b2bd5f7bb7f03baf2f593e5",
+                  "exit_code": 0,
+                  "passed": 22,
+                  "failed": 0,
+                  "errors": 0,
+                  "skipped": 0,
+                  "failure": null,
+                  "artifacts": []
+                },
+                "source_binding": {
+                  "visible": {
+                    "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+                    "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+                  },
+                  "independent": {
+                    "src/markupsafe/__init__.py": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+                    "src/markupsafe/_native.py": "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+                  }
+                }
+              }
+            ],
+            "status": "verified",
+            "generation": {
+              "task_id": "7700f98d337143dbba2f22cd6048b272",
+              "base_revision": "experiment-sha256:afdcd1b9f8a3f476c5cc2da713c9be7e0a67092fd10289a38a8883b413470dfe",
+              "files": [
+                {
+                  "path": "tests/generated/test_escape_silent.py",
+                  "content": "import pytest\n\nfrom markupsafe import Markup, escape, escape_silent\n\n\ndef test_none_returns_empty_markup():\n    result = escape_silent(None)\n    assert isinstance(result, Markup)\n    assert str(result) == \"\"\n\n\ndef test_false_is_escaped_like_escape():\n    result = escape_silent(False)\n    assert isinstance(result, Markup)\n    assert str(result) == \"False\"\n    assert str(result) == str(escape(False))\n\n\ndef test_zero_is_escaped_like_escape():\n    result = escape_silent(0)\n    assert isinstance(result, Markup)\n    assert str(result) == \"0\"\n    assert str(result) == str(escape(0))\n\n\ndef test_empty_string_returns_empty_markup():\n    result = escape_silent(\"\")\n    assert isinstance(result, Markup)\n    assert str(result) == \"\"\n\n\ndef test_special_characters_are_escaped():\n    result = escape_silent(\"<script>alert('x' & \\\"y\\\")</script>\")\n    assert isinstance(result, Markup)\n    assert str(result) == (\n        \"&lt;script&gt;alert(&#39;x&#39; &amp; &#34;y&#34;)&lt;/script&gt;\"\n    )\n\n\ndef test_matches_escape_for_plain_text():\n    value = \"hello world\"\n    assert str(escape_silent(value)) == str(escape(value))\n    assert str(escape_silent(value)) == \"hello world\"\n\n\ndef test_existing_markup_not_double_escaped():\n    safe = Markup(\"<b>bold</b>\")\n    result = escape_silent(safe)\n    assert isinstance(result, Markup)\n    assert str(result) == \"<b>bold</b>\"\n\n\ndef test_html_protocol_is_preserved():\n    class HasHtml:\n        def __html__(self):\n            return \"<i>safe</i>\"\n\n    result = escape_silent(HasHtml())\n    assert isinstance(result, Markup)\n    assert str(result) == \"<i>safe</i>\"\n\n\ndef test_non_string_values_use_str():\n    result = escape_silent(123)\n    assert isinstance(result, Markup)\n    assert str(result) == \"123\"\n\n\ndef test_ampersand_and_quotes_escaped():\n    result = escape_silent(\"a&b'c\\\"d\")\n    assert str(result) == \"a&amp;b&#39;c&#34;d\"\n",
+                  "expected_sha256": null
+                }
+              ],
+              "rationale": "Requirements state escape_silent(None) must return empty Markup(''), while every other value (including False and 0) must behave exactly like escape(s), returning Markup. The target_definition's body returns Markup('None') for None, which contradicts the requirement; tests assert the required behavior. Tests cover: None -> Markup(''), False -> Markup('False'), 0 -> Markup('0'), empty string -> Markup(''), special characters escaped (&, <, >, ', \"), existing Markup not double-escaped, __html__ protocol respected, and return type is Markup for all cases. Assertions compare str(result) to concrete expected escaped values derived from escape's documented character replacements.",
+              "failure": null
+            },
+            "context_audit": {
+              "version": "p08-context-v1",
+              "selected": [
+                {
+                  "path": "src/markupsafe/__init__.py",
+                  "qualified_name": "escape_silent",
+                  "line": 48,
+                  "end_line": 61,
+                  "classes": [],
+                  "decorators": [],
+                  "kind": "target"
+                },
+                {
+                  "path": "src/markupsafe/__init__.py",
+                  "line": 1,
+                  "kind": "imports"
+                },
+                {
+                  "path": "src/markupsafe/__init__.py",
+                  "line": 3,
+                  "kind": "imports"
+                },
+                {
+                  "path": "src/markupsafe/__init__.py",
+                  "line": 4,
+                  "kind": "imports"
+                },
+                {
+                  "path": "src/markupsafe/__init__.py",
+                  "line": 5,
+                  "kind": "imports"
+                },
+                {
+                  "path": "src/markupsafe/__init__.py",
+                  "line": 24,
+                  "kind": "related_symbols"
+                },
+                {
+                  "path": "src/markupsafe/__init__.py",
+                  "line": 84,
+                  "kind": "related_symbols"
+                },
+                {
+                  "path": "tests/test_admission_original.py",
+                  "line": 9,
+                  "kind": "related_tests"
+                },
+                {
+                  "path": "tests/test_admission_original.py",
+                  "line": 6,
+                  "kind": "related_tests"
+                },
+                {
+                  "path": "tests/test_admission_original.py",
+                  "line": 14,
+                  "kind": "related_tests"
+                }
+              ],
+              "omitted": [
+                {
+                  "path": "src/markupsafe/__init__.py",
+                  "kind": "remaining_module_body",
+                  "reason": "scope_only"
+                },
+                {
+                  "path": "src/markupsafe/_native.py",
+                  "kind": "remaining_module_body",
+                  "reason": "scope_only"
+                }
+              ],
+              "source_sha256": "89b648eb511aa22319c97b069fe1e5d8458cf283620e54593a12b8ca1e3db744",
+              "characters": 4710,
+              "prompt_sha256": "4392cb28dc3bd15036d694426c3737274f3270c8eff5ca7b4d6e8e4ae9073708"
+            },
+            "model_candidate": {
+              "task_id": "7700f98d337143dbba2f22cd6048b272",
+              "base_revision": "experiment-sha256:afdcd1b9f8a3f476c5cc2da713c9be7e0a67092fd10289a38a8883b413470dfe",
+              "rationale": "Requirements state escape_silent(None) must return empty Markup(''), while every other value (including False and 0) must behave exactly like escape(s), returning Markup. The target_definition's body returns Markup('None') for None, which contradicts the requirement; tests assert the required behavior. Tests cover: None -> Markup(''), False -> Markup('False'), 0 -> Markup('0'), empty string -> Markup(''), special characters escaped (&, <, >, ', \"), existing Markup not double-escaped, __html__ protocol respected, and return type is Markup for all cases. Assertions compare str(result) to concrete expected escaped values derived from escape's documented character replacements.",
+              "files": [
+                {
+                  "path": "tests/generated/test_escape_silent.py",
+                  "content": "import pytest\n\nfrom markupsafe import Markup, escape, escape_silent\n\n\ndef test_none_returns_empty_markup():\n    result = escape_silent(None)\n    assert isinstance(result, Markup)\n    assert str(result) == \"\"\n\n\ndef test_false_is_escaped_like_escape():\n    result = escape_silent(False)\n    assert isinstance(result, Markup)\n    assert str(result) == \"False\"\n    assert str(result) == str(escape(False))\n\n\ndef test_zero_is_escaped_like_escape():\n    result = escape_silent(0)\n    assert isinstance(result, Markup)\n    assert str(result) == \"0\"\n    assert str(result) == str(escape(0))\n\n\ndef test_empty_string_returns_empty_markup():\n    result = escape_silent(\"\")\n    assert isinstance(result, Markup)\n    assert str(result) == \"\"\n\n\ndef test_special_characters_are_escaped():\n    result = escape_silent(\"<script>alert('x' & \\\"y\\\")</script>\")\n    assert isinstance(result, Markup)\n    assert str(result) == (\n        \"&lt;script&gt;alert(&#39;x&#39; &amp; &#34;y&#34;)&lt;/script&gt;\"\n    )\n\n\ndef test_matches_escape_for_plain_text():\n    value = \"hello world\"\n    assert str(escape_silent(value)) == str(escape(value))\n    assert str(escape_silent(value)) == \"hello world\"\n\n\ndef test_existing_markup_not_double_escaped():\n    safe = Markup(\"<b>bold</b>\")\n    result = escape_silent(safe)\n    assert isinstance(result, Markup)\n    assert str(result) == \"<b>bold</b>\"\n\n\ndef test_html_protocol_is_preserved():\n    class HasHtml:\n        def __html__(self):\n            return \"<i>safe</i>\"\n\n    result = escape_silent(HasHtml())\n    assert isinstance(result, Markup)\n    assert str(result) == \"<i>safe</i>\"\n\n\ndef test_non_string_values_use_str():\n    result = escape_silent(123)\n    assert isinstance(result, Markup)\n    assert str(result) == \"123\"\n\n\ndef test_ampersand_and_quotes_escaped():\n    result = escape_silent(\"a&b'c\\\"d\")\n    assert str(result) == \"a&amp;b&#39;c&#34;d\"\n"
+                }
+              ]
+            },
+            "transport_metadata": null,
+            "completion": {
+              "model": "replay saved admission proposal",
+              "usage": null
+            },
+            "reference": {
+              "run": {
+                "run_id": "38bc096579a7438c86220d7b6fdf7b87",
+                "snapshot_digest": "8c3a017503612d29d1b791088e5eb6f44edc66dcec376ea0d506b821381988cd",
+                "exit_code": 0,
+                "passed": 13,
+                "failed": 0,
+                "errors": 0,
+                "skipped": 0,
+                "failure": null,
+                "artifacts": [
+                  "38bc096579a7438c86220d7b6fdf7b87/log.txt",
+                  "38bc096579a7438c86220d7b6fdf7b87/junit.xml",
+                  "38bc096579a7438c86220d7b6fdf7b87/manifest.json",
+                  "38bc096579a7438c86220d7b6fdf7b87/run.json",
+                  "38bc096579a7438c86220d7b6fdf7b87/coverage.json"
+                ]
+              },
+              "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\compatibility-replay\\aa4b14013b6749bbb5bbb44ef54bf961\\reference-1\\38bc096579a7438c86220d7b6fdf7b87",
+              "cleanup_ok": true
+            },
+            "full_run": {
+              "run": {
+                "run_id": "5a3869f5541f46c6a96b39904b0ff845",
+                "snapshot_digest": "4397dc54f8c577aa273494e86b296845fb3fa1b487a8d1915cf694b7184651e7",
+                "exit_code": 1,
+                "passed": 12,
+                "failed": 1,
+                "errors": 0,
+                "skipped": 0,
+                "failure": {
+                  "kind": "test_assertion",
+                  "message": "Run did not verify; inspect sanitized evidence",
+                  "evidence": [
+                    "5a3869f5541f46c6a96b39904b0ff845/log.txt",
+                    "5a3869f5541f46c6a96b39904b0ff845/junit.xml",
+                    "5a3869f5541f46c6a96b39904b0ff845/manifest.json",
+                    "5a3869f5541f46c6a96b39904b0ff845/run.json",
+                    "5a3869f5541f46c6a96b39904b0ff845/coverage.json"
+                  ]
+                },
+                "artifacts": [
+                  "5a3869f5541f46c6a96b39904b0ff845/log.txt",
+                  "5a3869f5541f46c6a96b39904b0ff845/junit.xml",
+                  "5a3869f5541f46c6a96b39904b0ff845/manifest.json",
+                  "5a3869f5541f46c6a96b39904b0ff845/run.json",
+                  "5a3869f5541f46c6a96b39904b0ff845/coverage.json"
+                ]
+              },
+              "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\compatibility-replay\\aa4b14013b6749bbb5bbb44ef54bf961\\round-1\\5a3869f5541f46c6a96b39904b0ff845",
+              "cleanup_ok": true
+            }
+          }
+        ],
+        "executions": [
+          {
+            "label": "baseline",
+            "result": {
+              "run": {
+                "run_id": "c077bd8abed84e358675ead890c43ce5",
+                "snapshot_digest": "afdcd1b9f8a3f476c5cc2da713c9be7e0a67092fd10289a38a8883b413470dfe",
+                "exit_code": 0,
+                "passed": 3,
+                "failed": 0,
+                "errors": 0,
+                "skipped": 0,
+                "failure": null,
+                "artifacts": [
+                  "c077bd8abed84e358675ead890c43ce5/log.txt",
+                  "c077bd8abed84e358675ead890c43ce5/junit.xml",
+                  "c077bd8abed84e358675ead890c43ce5/manifest.json",
+                  "c077bd8abed84e358675ead890c43ce5/run.json",
+                  "c077bd8abed84e358675ead890c43ce5/coverage.json"
+                ]
+              },
+              "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\compatibility-replay\\aa4b14013b6749bbb5bbb44ef54bf961\\baseline\\c077bd8abed84e358675ead890c43ce5",
+              "cleanup_ok": true
+            }
+          },
+          {
+            "label": "reference-baseline",
+            "result": {
+              "run": {
+                "run_id": "6b8bdb22d6074dd28694d39af8c9e910",
+                "snapshot_digest": "80d5927a304073426c5d28e0baf1d387d4c07f2a065ce4e6760621f0ca3916e6",
+                "exit_code": 0,
+                "passed": 3,
+                "failed": 0,
+                "errors": 0,
+                "skipped": 0,
+                "failure": null,
+                "artifacts": [
+                  "6b8bdb22d6074dd28694d39af8c9e910/log.txt",
+                  "6b8bdb22d6074dd28694d39af8c9e910/junit.xml",
+                  "6b8bdb22d6074dd28694d39af8c9e910/manifest.json",
+                  "6b8bdb22d6074dd28694d39af8c9e910/run.json",
+                  "6b8bdb22d6074dd28694d39af8c9e910/coverage.json"
+                ]
+              },
+              "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\compatibility-replay\\aa4b14013b6749bbb5bbb44ef54bf961\\reference-baseline\\6b8bdb22d6074dd28694d39af8c9e910",
+              "cleanup_ok": true
+            }
+          },
+          {
+            "label": "reference-1",
+            "result": {
+              "run": {
+                "run_id": "38bc096579a7438c86220d7b6fdf7b87",
+                "snapshot_digest": "8c3a017503612d29d1b791088e5eb6f44edc66dcec376ea0d506b821381988cd",
+                "exit_code": 0,
+                "passed": 13,
+                "failed": 0,
+                "errors": 0,
+                "skipped": 0,
+                "failure": null,
+                "artifacts": [
+                  "38bc096579a7438c86220d7b6fdf7b87/log.txt",
+                  "38bc096579a7438c86220d7b6fdf7b87/junit.xml",
+                  "38bc096579a7438c86220d7b6fdf7b87/manifest.json",
+                  "38bc096579a7438c86220d7b6fdf7b87/run.json",
+                  "38bc096579a7438c86220d7b6fdf7b87/coverage.json"
+                ]
+              },
+              "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\compatibility-replay\\aa4b14013b6749bbb5bbb44ef54bf961\\reference-1\\38bc096579a7438c86220d7b6fdf7b87",
+              "cleanup_ok": true
+            }
+          },
+          {
+            "label": "round-1",
+            "result": {
+              "run": {
+                "run_id": "5a3869f5541f46c6a96b39904b0ff845",
+                "snapshot_digest": "4397dc54f8c577aa273494e86b296845fb3fa1b487a8d1915cf694b7184651e7",
+                "exit_code": 1,
+                "passed": 12,
+                "failed": 1,
+                "errors": 0,
+                "skipped": 0,
+                "failure": {
+                  "kind": "test_assertion",
+                  "message": "Run did not verify; inspect sanitized evidence",
+                  "evidence": [
+                    "5a3869f5541f46c6a96b39904b0ff845/log.txt",
+                    "5a3869f5541f46c6a96b39904b0ff845/junit.xml",
+                    "5a3869f5541f46c6a96b39904b0ff845/manifest.json",
+                    "5a3869f5541f46c6a96b39904b0ff845/run.json",
+                    "5a3869f5541f46c6a96b39904b0ff845/coverage.json"
+                  ]
+                },
+                "artifacts": [
+                  "5a3869f5541f46c6a96b39904b0ff845/log.txt",
+                  "5a3869f5541f46c6a96b39904b0ff845/junit.xml",
+                  "5a3869f5541f46c6a96b39904b0ff845/manifest.json",
+                  "5a3869f5541f46c6a96b39904b0ff845/run.json",
+                  "5a3869f5541f46c6a96b39904b0ff845/coverage.json"
+                ]
+              },
+              "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\compatibility-replay\\aa4b14013b6749bbb5bbb44ef54bf961\\round-1\\5a3869f5541f46c6a96b39904b0ff845",
+              "cleanup_ok": true
+            }
+          },
+          {
+            "label": "generated-only",
+            "result": {
+              "run": {
+                "run_id": "10fcb15e32c74fedae8e34b55956bc6f",
+                "snapshot_digest": "4397dc54f8c577aa273494e86b296845fb3fa1b487a8d1915cf694b7184651e7",
+                "exit_code": 1,
+                "passed": 9,
+                "failed": 1,
+                "errors": 0,
+                "skipped": 0,
+                "failure": {
+                  "kind": "test_assertion",
+                  "message": "Run did not verify; inspect sanitized evidence",
+                  "evidence": [
+                    "10fcb15e32c74fedae8e34b55956bc6f/log.txt",
+                    "10fcb15e32c74fedae8e34b55956bc6f/junit.xml",
+                    "10fcb15e32c74fedae8e34b55956bc6f/manifest.json",
+                    "10fcb15e32c74fedae8e34b55956bc6f/run.json",
+                    "10fcb15e32c74fedae8e34b55956bc6f/coverage.json"
+                  ]
+                },
+                "artifacts": [
+                  "10fcb15e32c74fedae8e34b55956bc6f/log.txt",
+                  "10fcb15e32c74fedae8e34b55956bc6f/junit.xml",
+                  "10fcb15e32c74fedae8e34b55956bc6f/manifest.json",
+                  "10fcb15e32c74fedae8e34b55956bc6f/run.json",
+                  "10fcb15e32c74fedae8e34b55956bc6f/coverage.json"
+                ]
+              },
+              "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\compatibility-replay\\aa4b14013b6749bbb5bbb44ef54bf961\\generated-only\\10fcb15e32c74fedae8e34b55956bc6f",
+              "cleanup_ok": true
+            }
+          }
+        ],
+        "coverage": {
+          "baseline": {
+            "lines": {
+              "covered": 84,
+              "total": 184
+            },
+            "branches": {
+              "covered": 8,
+              "total": 46
+            },
+            "files": {
+              "src/markupsafe/__init__.py": {
+                "missing_lines": [
+                  13,
+                  42,
+                  43,
+                  45,
+                  59,
+                  78,
+                  79,
+                  81,
+                  126,
+                  131,
+                  134,
+                  137,
+                  138,
+                  140,
+                  143,
+                  144,
+                  146,
+                  149,
+                  152,
+                  155,
+                  157,
+                  158,
+                  160,
+                  163,
+                  165,
+                  168,
+                  171,
+                  176,
+                  181,
+                  186,
+                  195,
+                  197,
+                  206,
+                  212,
+                  214,
+                  215,
+                  217,
+                  220,
+                  221,
+                  222,
+                  224,
+                  227,
+                  228,
+                  235,
+                  237,
+                  238,
+                  240,
+                  243,
+                  246,
+                  249,
+                  252,
+                  255,
+                  258,
+                  261,
+                  264,
+                  267,
+                  270,
+                  273,
+                  276,
+                  283,
+                  286,
+                  289,
+                  292,
+                  295,
+                  298,
+                  301,
+                  304,
+                  305,
+                  306,
+                  309,
+                  310,
+                  311,
+                  314,
+                  315,
+                  322,
+                  323,
+                  326,
+                  327,
+                  329,
+                  336,
+                  337,
+                  340,
+                  341,
+                  342,
+                  343,
+                  344,
+                  349,
+                  353,
+                  354,
+                  363,
+                  364,
+                  367,
+                  370,
+                  373,
+                  376,
+                  379,
+                  384,
+                  385,
+                  387,
+                  394
+                ],
+                "missing_branches": [
+                  [
+                    12,
+                    13
+                  ],
+                  [
+                    17,
+                    -17
+                  ],
+                  [
+                    21,
+                    -21
+                  ],
+                  [
+                    39,
+                    42
+                  ],
+                  [
+                    42,
+                    43
+                  ],
+                  [
+                    42,
+                    45
+                  ],
+                  [
+                    58,
+                    59
+                  ],
+                  [
+                    78,
+                    79
+                  ],
+                  [
+                    78,
+                    81
+                  ],
+                  [
+                    125,
+                    126
+                  ],
+                  [
+                    128,
+                    131
+                  ],
+                  [
+                    137,
+                    138
+                  ],
+                  [
+                    137,
+                    140
+                  ],
+                  [
+                    143,
+                    144
+                  ],
+                  [
+                    143,
+                    146
+                  ],
+                  [
+                    155,
+                    157
+                  ],
+                  [
+                    155,
+                    158
+                  ],
+                  [
+                    158,
+                    160
+                  ],
+                  [
+                    158,
+                    163
+                  ],
+                  [
+                    212,
+                    214
+                  ],
+                  [
+                    212,
+                    220
+                  ],
+                  [
+                    214,
+                    215
+                  ],
+                  [
+                    214,
+                    217
+                  ],
+                  [
+                    220,
+                    221
+                  ],
+                  [
+                    220,
+                    227
+                  ],
+                  [
+                    221,
+                    222
+                  ],
+                  [
+                    221,
+                    224
+                  ],
+                  [
+                    237,
+                    238
+                  ],
+                  [
+                    237,
+                    240
+                  ],
+                  [
+                    326,
+                    327
+                  ],
+                  [
+                    326,
+                    329
+                  ],
+                  [
+                    340,
+                    341
+                  ],
+                  [
+                    340,
+                    342
+                  ],
+                  [
+                    342,
+                    343
+                  ],
+                  [
+                    342,
+                    353
+                  ],
+                  [
+                    343,
+                    344
+                  ],
+                  [
+                    343,
+                    349
+                  ],
+                  [
+                    383,
+                    384
+                  ]
+                ]
+              },
+              "src/markupsafe/_native.py": {
+                "missing_lines": [],
+                "missing_branches": []
+              }
+            }
+          },
+          "reference-baseline": {
+            "lines": {
+              "covered": 84,
+              "total": 184
+            },
+            "branches": {
+              "covered": 8,
+              "total": 46
+            },
+            "files": {
+              "src/markupsafe/__init__.py": {
+                "missing_lines": [
+                  13,
+                  42,
+                  43,
+                  45,
+                  59,
+                  78,
+                  79,
+                  81,
+                  126,
+                  131,
+                  134,
+                  137,
+                  138,
+                  140,
+                  143,
+                  144,
+                  146,
+                  149,
+                  152,
+                  155,
+                  157,
+                  158,
+                  160,
+                  163,
+                  165,
+                  168,
+                  171,
+                  176,
+                  181,
+                  186,
+                  195,
+                  197,
+                  206,
+                  212,
+                  214,
+                  215,
+                  217,
+                  220,
+                  221,
+                  222,
+                  224,
+                  227,
+                  228,
+                  235,
+                  237,
+                  238,
+                  240,
+                  243,
+                  246,
+                  249,
+                  252,
+                  255,
+                  258,
+                  261,
+                  264,
+                  267,
+                  270,
+                  273,
+                  276,
+                  283,
+                  286,
+                  289,
+                  292,
+                  295,
+                  298,
+                  301,
+                  304,
+                  305,
+                  306,
+                  309,
+                  310,
+                  311,
+                  314,
+                  315,
+                  322,
+                  323,
+                  326,
+                  327,
+                  329,
+                  336,
+                  337,
+                  340,
+                  341,
+                  342,
+                  343,
+                  344,
+                  349,
+                  353,
+                  354,
+                  363,
+                  364,
+                  367,
+                  370,
+                  373,
+                  376,
+                  379,
+                  384,
+                  385,
+                  387,
+                  394
+                ],
+                "missing_branches": [
+                  [
+                    12,
+                    13
+                  ],
+                  [
+                    17,
+                    -17
+                  ],
+                  [
+                    21,
+                    -21
+                  ],
+                  [
+                    39,
+                    42
+                  ],
+                  [
+                    42,
+                    43
+                  ],
+                  [
+                    42,
+                    45
+                  ],
+                  [
+                    58,
+                    59
+                  ],
+                  [
+                    78,
+                    79
+                  ],
+                  [
+                    78,
+                    81
+                  ],
+                  [
+                    125,
+                    126
+                  ],
+                  [
+                    128,
+                    131
+                  ],
+                  [
+                    137,
+                    138
+                  ],
+                  [
+                    137,
+                    140
+                  ],
+                  [
+                    143,
+                    144
+                  ],
+                  [
+                    143,
+                    146
+                  ],
+                  [
+                    155,
+                    157
+                  ],
+                  [
+                    155,
+                    158
+                  ],
+                  [
+                    158,
+                    160
+                  ],
+                  [
+                    158,
+                    163
+                  ],
+                  [
+                    212,
+                    214
+                  ],
+                  [
+                    212,
+                    220
+                  ],
+                  [
+                    214,
+                    215
+                  ],
+                  [
+                    214,
+                    217
+                  ],
+                  [
+                    220,
+                    221
+                  ],
+                  [
+                    220,
+                    227
+                  ],
+                  [
+                    221,
+                    222
+                  ],
+                  [
+                    221,
+                    224
+                  ],
+                  [
+                    237,
+                    238
+                  ],
+                  [
+                    237,
+                    240
+                  ],
+                  [
+                    326,
+                    327
+                  ],
+                  [
+                    326,
+                    329
+                  ],
+                  [
+                    340,
+                    341
+                  ],
+                  [
+                    340,
+                    342
+                  ],
+                  [
+                    342,
+                    343
+                  ],
+                  [
+                    342,
+                    353
+                  ],
+                  [
+                    343,
+                    344
+                  ],
+                  [
+                    343,
+                    349
+                  ],
+                  [
+                    383,
+                    384
+                  ]
+                ]
+              },
+              "src/markupsafe/_native.py": {
+                "missing_lines": [],
+                "missing_branches": []
+              }
+            }
+          },
+          "reference-1": {
+            "lines": {
+              "covered": 90,
+              "total": 184
+            },
+            "branches": {
+              "covered": 13,
+              "total": 46
+            },
+            "files": {
+              "src/markupsafe/__init__.py": {
+                "missing_lines": [
+                  13,
+                  78,
+                  79,
+                  81,
+                  131,
+                  137,
+                  138,
+                  140,
+                  143,
+                  144,
+                  146,
+                  149,
+                  152,
+                  155,
+                  157,
+                  158,
+                  160,
+                  163,
+                  165,
+                  168,
+                  171,
+                  176,
+                  181,
+                  186,
+                  195,
+                  197,
+                  206,
+                  212,
+                  214,
+                  215,
+                  217,
+                  220,
+                  221,
+                  222,
+                  224,
+                  227,
+                  228,
+                  235,
+                  237,
+                  238,
+                  240,
+                  243,
+                  246,
+                  249,
+                  252,
+                  255,
+                  258,
+                  261,
+                  264,
+                  267,
+                  270,
+                  273,
+                  276,
+                  283,
+                  286,
+                  289,
+                  292,
+                  295,
+                  298,
+                  301,
+                  304,
+                  305,
+                  306,
+                  309,
+                  310,
+                  311,
+                  314,
+                  315,
+                  322,
+                  323,
+                  326,
+                  327,
+                  329,
+                  336,
+                  337,
+                  340,
+                  341,
+                  342,
+                  343,
+                  344,
+                  349,
+                  353,
+                  354,
+                  363,
+                  364,
+                  367,
+                  370,
+                  373,
+                  376,
+                  379,
+                  384,
+                  385,
+                  387,
+                  394
+                ],
+                "missing_branches": [
+                  [
+                    12,
+                    13
+                  ],
+                  [
+                    17,
+                    -17
+                  ],
+                  [
+                    21,
+                    -21
+                  ],
+                  [
+                    78,
+                    79
+                  ],
+                  [
+                    78,
+                    81
+                  ],
+                  [
+                    128,
+                    131
+                  ],
+                  [
+                    137,
+                    138
+                  ],
+                  [
+                    137,
+                    140
+                  ],
+                  [
+                    143,
+                    144
+                  ],
+                  [
+                    143,
+                    146
+                  ],
+                  [
+                    155,
+                    157
+                  ],
+                  [
+                    155,
+                    158
+                  ],
+                  [
+                    158,
+                    160
+                  ],
+                  [
+                    158,
+                    163
+                  ],
+                  [
+                    212,
+                    214
+                  ],
+                  [
+                    212,
+                    220
+                  ],
+                  [
+                    214,
+                    215
+                  ],
+                  [
+                    214,
+                    217
+                  ],
+                  [
+                    220,
+                    221
+                  ],
+                  [
+                    220,
+                    227
+                  ],
+                  [
+                    221,
+                    222
+                  ],
+                  [
+                    221,
+                    224
+                  ],
+                  [
+                    237,
+                    238
+                  ],
+                  [
+                    237,
+                    240
+                  ],
+                  [
+                    326,
+                    327
+                  ],
+                  [
+                    326,
+                    329
+                  ],
+                  [
+                    340,
+                    341
+                  ],
+                  [
+                    340,
+                    342
+                  ],
+                  [
+                    342,
+                    343
+                  ],
+                  [
+                    342,
+                    353
+                  ],
+                  [
+                    343,
+                    344
+                  ],
+                  [
+                    343,
+                    349
+                  ],
+                  [
+                    383,
+                    384
+                  ]
+                ]
+              },
+              "src/markupsafe/_native.py": {
+                "missing_lines": [],
+                "missing_branches": []
+              }
+            }
+          },
+          "round-1": {
+            "lines": {
+              "covered": 91,
+              "total": 184
+            },
+            "branches": {
+              "covered": 13,
+              "total": 46
+            },
+            "files": {
+              "src/markupsafe/__init__.py": {
+                "missing_lines": [
+                  13,
+                  78,
+                  79,
+                  81,
+                  131,
+                  137,
+                  138,
+                  140,
+                  143,
+                  144,
+                  146,
+                  149,
+                  152,
+                  155,
+                  157,
+                  158,
+                  160,
+                  163,
+                  165,
+                  171,
+                  176,
+                  181,
+                  186,
+                  195,
+                  197,
+                  206,
+                  212,
+                  214,
+                  215,
+                  217,
+                  220,
+                  221,
+                  222,
+                  224,
+                  227,
+                  228,
+                  235,
+                  237,
+                  238,
+                  240,
+                  243,
+                  246,
+                  249,
+                  252,
+                  255,
+                  258,
+                  261,
+                  264,
+                  267,
+                  270,
+                  273,
+                  276,
+                  283,
+                  286,
+                  289,
+                  292,
+                  295,
+                  298,
+                  301,
+                  304,
+                  305,
+                  306,
+                  309,
+                  310,
+                  311,
+                  314,
+                  315,
+                  322,
+                  323,
+                  326,
+                  327,
+                  329,
+                  336,
+                  337,
+                  340,
+                  341,
+                  342,
+                  343,
+                  344,
+                  349,
+                  353,
+                  354,
+                  363,
+                  364,
+                  367,
+                  370,
+                  373,
+                  376,
+                  379,
+                  384,
+                  385,
+                  387,
+                  394
+                ],
+                "missing_branches": [
+                  [
+                    12,
+                    13
+                  ],
+                  [
+                    17,
+                    -17
+                  ],
+                  [
+                    21,
+                    -21
+                  ],
+                  [
+                    78,
+                    79
+                  ],
+                  [
+                    78,
+                    81
+                  ],
+                  [
+                    128,
+                    131
+                  ],
+                  [
+                    137,
+                    138
+                  ],
+                  [
+                    137,
+                    140
+                  ],
+                  [
+                    143,
+                    144
+                  ],
+                  [
+                    143,
+                    146
+                  ],
+                  [
+                    155,
+                    157
+                  ],
+                  [
+                    155,
+                    158
+                  ],
+                  [
+                    158,
+                    160
+                  ],
+                  [
+                    158,
+                    163
+                  ],
+                  [
+                    212,
+                    214
+                  ],
+                  [
+                    212,
+                    220
+                  ],
+                  [
+                    214,
+                    215
+                  ],
+                  [
+                    214,
+                    217
+                  ],
+                  [
+                    220,
+                    221
+                  ],
+                  [
+                    220,
+                    227
+                  ],
+                  [
+                    221,
+                    222
+                  ],
+                  [
+                    221,
+                    224
+                  ],
+                  [
+                    237,
+                    238
+                  ],
+                  [
+                    237,
+                    240
+                  ],
+                  [
+                    326,
+                    327
+                  ],
+                  [
+                    326,
+                    329
+                  ],
+                  [
+                    340,
+                    341
+                  ],
+                  [
+                    340,
+                    342
+                  ],
+                  [
+                    342,
+                    343
+                  ],
+                  [
+                    342,
+                    353
+                  ],
+                  [
+                    343,
+                    344
+                  ],
+                  [
+                    343,
+                    349
+                  ],
+                  [
+                    383,
+                    384
+                  ]
+                ]
+              },
+              "src/markupsafe/_native.py": {
+                "missing_lines": [],
+                "missing_branches": []
+              }
+            }
+          },
+          "generated-only": {
+            "lines": {
+              "covered": 89,
+              "total": 184
+            },
+            "branches": {
+              "covered": 12,
+              "total": 46
+            },
+            "files": {
+              "src/markupsafe/__init__.py": {
+                "missing_lines": [
+                  13,
+                  78,
+                  79,
+                  81,
+                  131,
+                  137,
+                  138,
+                  140,
+                  143,
+                  144,
+                  146,
+                  149,
+                  152,
+                  155,
+                  157,
+                  158,
+                  160,
+                  163,
+                  165,
+                  171,
+                  176,
+                  181,
+                  186,
+                  195,
+                  197,
+                  206,
+                  212,
+                  214,
+                  215,
+                  217,
+                  220,
+                  221,
+                  222,
+                  224,
+                  227,
+                  228,
+                  235,
+                  237,
+                  238,
+                  240,
+                  243,
+                  246,
+                  249,
+                  252,
+                  255,
+                  258,
+                  261,
+                  264,
+                  267,
+                  270,
+                  273,
+                  276,
+                  283,
+                  286,
+                  289,
+                  292,
+                  295,
+                  298,
+                  301,
+                  304,
+                  305,
+                  306,
+                  309,
+                  310,
+                  311,
+                  314,
+                  315,
+                  322,
+                  323,
+                  326,
+                  327,
+                  329,
+                  336,
+                  337,
+                  340,
+                  341,
+                  342,
+                  343,
+                  344,
+                  349,
+                  353,
+                  354,
+                  363,
+                  364,
+                  367,
+                  370,
+                  373,
+                  376,
+                  379,
+                  383,
+                  384,
+                  385,
+                  387,
+                  394,
+                  396
+                ],
+                "missing_branches": [
+                  [
+                    12,
+                    13
+                  ],
+                  [
+                    17,
+                    -17
+                  ],
+                  [
+                    21,
+                    -21
+                  ],
+                  [
+                    78,
+                    79
+                  ],
+                  [
+                    78,
+                    81
+                  ],
+                  [
+                    128,
+                    131
+                  ],
+                  [
+                    137,
+                    138
+                  ],
+                  [
+                    137,
+                    140
+                  ],
+                  [
+                    143,
+                    144
+                  ],
+                  [
+                    143,
+                    146
+                  ],
+                  [
+                    155,
+                    157
+                  ],
+                  [
+                    155,
+                    158
+                  ],
+                  [
+                    158,
+                    160
+                  ],
+                  [
+                    158,
+                    163
+                  ],
+                  [
+                    212,
+                    214
+                  ],
+                  [
+                    212,
+                    220
+                  ],
+                  [
+                    214,
+                    215
+                  ],
+                  [
+                    214,
+                    217
+                  ],
+                  [
+                    220,
+                    221
+                  ],
+                  [
+                    220,
+                    227
+                  ],
+                  [
+                    221,
+                    222
+                  ],
+                  [
+                    221,
+                    224
+                  ],
+                  [
+                    237,
+                    238
+                  ],
+                  [
+                    237,
+                    240
+                  ],
+                  [
+                    326,
+                    327
+                  ],
+                  [
+                    326,
+                    329
+                  ],
+                  [
+                    340,
+                    341
+                  ],
+                  [
+                    340,
+                    342
+                  ],
+                  [
+                    342,
+                    343
+                  ],
+                  [
+                    342,
+                    353
+                  ],
+                  [
+                    343,
+                    344
+                  ],
+                  [
+                    343,
+                    349
+                  ],
+                  [
+                    383,
+                    384
+                  ],
+                  [
+                    383,
+                    396
+                  ]
+                ]
+              },
+              "src/markupsafe/_native.py": {
+                "missing_lines": [],
+                "missing_branches": []
+              }
+            }
+          },
+          "repaired-visible": {
+            "lines": {
+              "covered": 90,
+              "total": 184
+            },
+            "branches": {
+              "covered": 13,
+              "total": 46
+            },
+            "files": {
+              "src/markupsafe/__init__.py": {
+                "missing_lines": [
+                  13,
+                  78,
+                  79,
+                  81,
+                  131,
+                  137,
+                  138,
+                  140,
+                  143,
+                  144,
+                  146,
+                  149,
+                  152,
+                  155,
+                  157,
+                  158,
+                  160,
+                  163,
+                  165,
+                  168,
+                  171,
+                  176,
+                  181,
+                  186,
+                  195,
+                  197,
+                  206,
+                  212,
+                  214,
+                  215,
+                  217,
+                  220,
+                  221,
+                  222,
+                  224,
+                  227,
+                  228,
+                  235,
+                  237,
+                  238,
+                  240,
+                  243,
+                  246,
+                  249,
+                  252,
+                  255,
+                  258,
+                  261,
+                  264,
+                  267,
+                  270,
+                  273,
+                  276,
+                  283,
+                  286,
+                  289,
+                  292,
+                  295,
+                  298,
+                  301,
+                  304,
+                  305,
+                  306,
+                  309,
+                  310,
+                  311,
+                  314,
+                  315,
+                  322,
+                  323,
+                  326,
+                  327,
+                  329,
+                  336,
+                  337,
+                  340,
+                  341,
+                  342,
+                  343,
+                  344,
+                  349,
+                  353,
+                  354,
+                  363,
+                  364,
+                  367,
+                  370,
+                  373,
+                  376,
+                  379,
+                  384,
+                  385,
+                  387,
+                  394
+                ],
+                "missing_branches": [
+                  [
+                    12,
+                    13
+                  ],
+                  [
+                    17,
+                    -17
+                  ],
+                  [
+                    21,
+                    -21
+                  ],
+                  [
+                    78,
+                    79
+                  ],
+                  [
+                    78,
+                    81
+                  ],
+                  [
+                    128,
+                    131
+                  ],
+                  [
+                    137,
+                    138
+                  ],
+                  [
+                    137,
+                    140
+                  ],
+                  [
+                    143,
+                    144
+                  ],
+                  [
+                    143,
+                    146
+                  ],
+                  [
+                    155,
+                    157
+                  ],
+                  [
+                    155,
+                    158
+                  ],
+                  [
+                    158,
+                    160
+                  ],
+                  [
+                    158,
+                    163
+                  ],
+                  [
+                    212,
+                    214
+                  ],
+                  [
+                    212,
+                    220
+                  ],
+                  [
+                    214,
+                    215
+                  ],
+                  [
+                    214,
+                    217
+                  ],
+                  [
+                    220,
+                    221
+                  ],
+                  [
+                    220,
+                    227
+                  ],
+                  [
+                    221,
+                    222
+                  ],
+                  [
+                    221,
+                    224
+                  ],
+                  [
+                    237,
+                    238
+                  ],
+                  [
+                    237,
+                    240
+                  ],
+                  [
+                    326,
+                    327
+                  ],
+                  [
+                    326,
+                    329
+                  ],
+                  [
+                    340,
+                    341
+                  ],
+                  [
+                    340,
+                    342
+                  ],
+                  [
+                    342,
+                    343
+                  ],
+                  [
+                    342,
+                    353
+                  ],
+                  [
+                    343,
+                    344
+                  ],
+                  [
+                    343,
+                    349
+                  ],
+                  [
+                    383,
+                    384
+                  ]
+                ]
+              },
+              "src/markupsafe/_native.py": {
+                "missing_lines": [],
+                "missing_branches": []
+              }
+            }
+          }
+        },
+        "repair": {
+          "task_id": "7700f98d337143dbba2f22cd6048b272",
+          "project_id": "admission_markupsafe_escape_silent",
+          "base_revision": "experiment-sha256:afdcd1b9f8a3f476c5cc2da713c9be7e0a67092fd10289a38a8883b413470dfe",
+          "prompt_version": "factory-defined; see attempts",
+          "status": "verified",
+          "attempts": [
+            {
+              "attempt": 1,
+              "based_on_run_id": "ba6fb9ea62d442c8b3c5ff54d35115cd",
+              "input_digest": "4397dc54f8c577aa273494e86b296845fb3fa1b487a8d1915cf694b7184651e7",
+              "source_hashes": [
+                [
+                  "src/markupsafe/__init__.py",
+                  "89b648eb511aa22319c97b069fe1e5d8458cf283620e54593a12b8ca1e3db744"
+                ],
+                [
+                  "src/markupsafe/_native.py",
+                  "da9b64278d3209ca7d92adcbd4daa98237e9641fa86e789828514a50e9078784"
+                ]
+              ],
+              "proposal": {
+                "task_id": "7700f98d337143dbba2f22cd6048b272",
+                "base_revision": "experiment-sha256:afdcd1b9f8a3f476c5cc2da713c9be7e0a67092fd10289a38a8883b413470dfe",
+                "based_on_run_id": "ba6fb9ea62d442c8b3c5ff54d35115cd",
+                "files": [
+                  {
+                    "path": "src/markupsafe/__init__.py",
+                    "content": "from __future__ import annotations\r\n\r\nimport collections.abc as cabc\r\nimport string\r\nimport typing as t\r\n\r\ntry:\r\n    from ._speedups import _escape_inner\r\nexcept ImportError:\r\n    from ._native import _escape_inner\r\n\r\nif t.TYPE_CHECKING:\r\n    import typing_extensions as te\r\n\r\n\r\nclass _HasHTML(t.Protocol):\r\n    def __html__(self, /) -> str: ...\r\n\r\n\r\nclass _TPEscape(t.Protocol):\r\n    def __call__(self, s: t.Any, /) -> Markup: ...\r\n\r\n\r\ndef escape(s: t.Any, /) -> Markup:\r\n    \"\"\"Replace the characters ``&``, ``<``, ``>``, ``'``, and ``\"`` in\r\n    the string with HTML-safe sequences. Use this if you need to display\r\n    text that might contain such characters in HTML.\r\n\r\n    If the object has an ``__html__`` method, it is called and the\r\n    return value is assumed to already be safe for HTML.\r\n\r\n    :param s: An object to be converted to a string and escaped.\r\n    :return: A :class:`Markup` string with the escaped text.\r\n    \"\"\"\r\n    # If the object is already a plain string, skip __html__ check and string\r\n    # conversion. This is the most common use case.\r\n    # Use type(s) instead of s.__class__ because a proxy object may be reporting\r\n    # the __class__ of the proxied value.\r\n    if type(s) is str:\r\n        return Markup(_escape_inner(s))\r\n\r\n    if hasattr(s, \"__html__\"):\r\n        return Markup(s.__html__())\r\n\r\n    return Markup(_escape_inner(str(s)))\r\n\r\n\r\ndef escape_silent(s: t.Any | None, /) -> Markup:\r\n    \"\"\"Like :func:`escape` but treats ``None`` as the empty string.\r\n    Useful with optional values, as otherwise you get the string\r\n    ``'None'`` when the value is ``None``.\r\n\r\n    >>> escape(None)\r\n    Markup('None')\r\n    >>> escape_silent(None)\r\n    Markup('')\r\n    \"\"\"\r\n    if s is None:\r\n        return Markup()\r\n\r\n    return escape(s)\r\n\r\n\r\ndef soft_str(s: t.Any, /) -> str:\r\n    \"\"\"Convert an object to a string if it isn't already. This preserves\r\n    a :class:`Markup` string rather than converting it back to a basic\r\n    string, so it will still be marked as safe and won't be escaped\r\n    again.\r\n\r\n    >>> value = escape(\"<User 1>\")\r\n    >>> value\r\n    Markup('&lt;User 1&gt;')\r\n    >>> escape(str(value))\r\n    Markup('&amp;lt;User 1&amp;gt;')\r\n    >>> escape(soft_str(value))\r\n    Markup('&lt;User 1&gt;')\r\n    \"\"\"\r\n    if not isinstance(s, str):\r\n        return str(s)\r\n\r\n    return s\r\n\r\n\r\nclass Markup(str):\r\n    \"\"\"A string that is ready to be safely inserted into an HTML or XML\r\n    document, either because it was escaped or because it was marked\r\n    safe.\r\n\r\n    Passing an object to the constructor converts it to text and wraps\r\n    it to mark it safe without escaping. To escape the text, use the\r\n    :meth:`escape` class method instead.\r\n\r\n    >>> Markup(\"Hello, <em>World</em>!\")\r\n    Markup('Hello, <em>World</em>!')\r\n    >>> Markup(42)\r\n    Markup('42')\r\n    >>> Markup.escape(\"Hello, <em>World</em>!\")\r\n    Markup('Hello &lt;em&gt;World&lt;/em&gt;!')\r\n\r\n    This implements the ``__html__()`` interface that some frameworks\r\n    use. Passing an object that implements ``__html__()`` will wrap the\r\n    output of that method, marking it safe.\r\n\r\n    >>> class Foo:\r\n    ...     def __html__(self):\r\n    ...         return '<a href=\"/foo\">foo</a>'\r\n    ...\r\n    >>> Markup(Foo())\r\n    Markup('<a href=\"/foo\">foo</a>')\r\n\r\n    This is a subclass of :class:`str`. It has the same methods, but\r\n    escapes their arguments and returns a ``Markup`` instance.\r\n\r\n    >>> Markup(\"<em>%s</em>\") % (\"foo & bar\",)\r\n    Markup('<em>foo &amp; bar</em>')\r\n    >>> Markup(\"<em>Hello</em> \") + \"<foo>\"\r\n    Markup('<em>Hello</em> &lt;foo&gt;')\r\n    \"\"\"\r\n\r\n    __slots__ = ()\r\n\r\n    def __new__(\r\n        cls, object: t.Any = \"\", encoding: str | None = None, errors: str = \"strict\"\r\n    ) -> te.Self:\r\n        if hasattr(object, \"__html__\"):\r\n            object = object.__html__()\r\n\r\n        if encoding is None:\r\n            return super().__new__(cls, object)\r\n\r\n        return super().__new__(cls, object, encoding, errors)\r\n\r\n    def __html__(self, /) -> te.Self:\r\n        return self\r\n\r\n    def __add__(self, value: str | _HasHTML, /) -> te.Self:\r\n        if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n            return self.__class__(super().__add__(self.escape(value)))\r\n\r\n        return NotImplemented\r\n\r\n    def __radd__(self, value: str | _HasHTML, /) -> te.Self:\r\n        if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n            return self.escape(value).__add__(self)\r\n\r\n        return NotImplemented\r\n\r\n    def __mul__(self, value: t.SupportsIndex, /) -> te.Self:\r\n        return self.__class__(super().__mul__(value))\r\n\r\n    def __rmul__(self, value: t.SupportsIndex, /) -> te.Self:\r\n        return self.__class__(super().__mul__(value))\r\n\r\n    def __mod__(self, value: t.Any, /) -> te.Self:\r\n        if isinstance(value, tuple):\r\n            # a tuple of arguments, each wrapped\r\n            value = tuple(_MarkupEscapeHelper(x, self.escape) for x in value)\r\n        elif hasattr(type(value), \"__getitem__\") and not isinstance(value, str):\r\n            # a mapping of arguments, wrapped\r\n            value = _MarkupEscapeHelper(value, self.escape)\r\n        else:\r\n            # a single argument, wrapped with the helper and a tuple\r\n            value = (_MarkupEscapeHelper(value, self.escape),)\r\n\r\n        return self.__class__(super().__mod__(value))\r\n\r\n    def __repr__(self, /) -> str:\r\n        return f\"{self.__class__.__name__}({super().__repr__()})\"\r\n\r\n    def join(self, iterable: cabc.Iterable[str | _HasHTML], /) -> te.Self:\r\n        return self.__class__(super().join(map(self.escape, iterable)))\r\n\r\n    def split(  # type: ignore[override]\r\n        self, /, sep: str | None = None, maxsplit: t.SupportsIndex = -1\r\n    ) -> list[te.Self]:\r\n        return [self.__class__(v) for v in super().split(sep, maxsplit)]\r\n\r\n    def rsplit(  # type: ignore[override]\r\n        self, /, sep: str | None = None, maxsplit: t.SupportsIndex = -1\r\n    ) -> list[te.Self]:\r\n        return [self.__class__(v) for v in super().rsplit(sep, maxsplit)]\r\n\r\n    def splitlines(  # type: ignore[override]\r\n        self, /, keepends: bool = False\r\n    ) -> list[te.Self]:\r\n        return [self.__class__(v) for v in super().splitlines(keepends)]\r\n\r\n    def unescape(self, /) -> str:\r\n        \"\"\"Convert escaped markup back into a text string. This replaces\r\n        HTML entities with the characters they represent.\r\n\r\n        >>> Markup(\"Main &raquo; <em>About</em>\").unescape()\r\n        'Main \u00bb <em>About</em>'\r\n        \"\"\"\r\n        from html import unescape\r\n\r\n        return unescape(str(self))\r\n\r\n    def striptags(self, /) -> str:\r\n        \"\"\":meth:`unescape` the markup, remove tags, and normalize\r\n        whitespace to single spaces.\r\n\r\n        >>> Markup(\"Main &raquo;\\t<em>About</em>\").striptags()\r\n        'Main \u00bb About'\r\n        \"\"\"\r\n        value = str(self)\r\n\r\n        # Look for comments then tags separately. Otherwise, a comment that\r\n        # contains a tag would end early, leaving some of the comment behind.\r\n\r\n        # keep finding comment start marks\r\n        while (start := value.find(\"<!--\")) != -1:\r\n            # find a comment end mark beyond the start, otherwise stop\r\n            if (end := value.find(\"-->\", start)) == -1:\r\n                break\r\n\r\n            value = f\"{value[:start]}{value[end + 3 :]}\"\r\n\r\n        # remove tags using the same method\r\n        while (start := value.find(\"<\")) != -1:\r\n            if (end := value.find(\">\", start)) == -1:\r\n                break\r\n\r\n            value = f\"{value[:start]}{value[end + 1 :]}\"\r\n\r\n        # collapse spaces\r\n        value = \" \".join(value.split())\r\n        return self.__class__(value).unescape()\r\n\r\n    @classmethod\r\n    def escape(cls, s: t.Any, /) -> te.Self:\r\n        \"\"\"Escape a string. Calls :func:`escape` and ensures that for\r\n        subclasses the correct type is returned.\r\n        \"\"\"\r\n        rv = escape(s)\r\n\r\n        if rv.__class__ is not cls:\r\n            return cls(rv)\r\n\r\n        return rv  # type: ignore[return-value]\r\n\r\n    def __getitem__(self, key: t.SupportsIndex | slice, /) -> te.Self:\r\n        return self.__class__(super().__getitem__(key))\r\n\r\n    def capitalize(self, /) -> te.Self:\r\n        return self.__class__(super().capitalize())\r\n\r\n    def title(self, /) -> te.Self:\r\n        return self.__class__(super().title())\r\n\r\n    def lower(self, /) -> te.Self:\r\n        return self.__class__(super().lower())\r\n\r\n    def upper(self, /) -> te.Self:\r\n        return self.__class__(super().upper())\r\n\r\n    def replace(self, old: str, new: str, count: t.SupportsIndex = -1, /) -> te.Self:\r\n        return self.__class__(super().replace(old, self.escape(new), count))\r\n\r\n    def ljust(self, width: t.SupportsIndex, fillchar: str = \" \", /) -> te.Self:\r\n        return self.__class__(super().ljust(width, self.escape(fillchar)))\r\n\r\n    def rjust(self, width: t.SupportsIndex, fillchar: str = \" \", /) -> te.Self:\r\n        return self.__class__(super().rjust(width, self.escape(fillchar)))\r\n\r\n    def lstrip(self, chars: str | None = None, /) -> te.Self:\r\n        return self.__class__(super().lstrip(chars))\r\n\r\n    def rstrip(self, chars: str | None = None, /) -> te.Self:\r\n        return self.__class__(super().rstrip(chars))\r\n\r\n    def center(self, width: t.SupportsIndex, fillchar: str = \" \", /) -> te.Self:\r\n        return self.__class__(super().center(width, self.escape(fillchar)))\r\n\r\n    def strip(self, chars: str | None = None, /) -> te.Self:\r\n        return self.__class__(super().strip(chars))\r\n\r\n    def translate(\r\n        self,\r\n        table: cabc.Mapping[int, str | int | None],  # type: ignore[override]\r\n        /,\r\n    ) -> str:\r\n        return self.__class__(super().translate(table))\r\n\r\n    def expandtabs(self, /, tabsize: t.SupportsIndex = 8) -> te.Self:\r\n        return self.__class__(super().expandtabs(tabsize))\r\n\r\n    def swapcase(self, /) -> te.Self:\r\n        return self.__class__(super().swapcase())\r\n\r\n    def zfill(self, width: t.SupportsIndex, /) -> te.Self:\r\n        return self.__class__(super().zfill(width))\r\n\r\n    def casefold(self, /) -> te.Self:\r\n        return self.__class__(super().casefold())\r\n\r\n    def removeprefix(self, prefix: str, /) -> te.Self:\r\n        return self.__class__(super().removeprefix(prefix))\r\n\r\n    def removesuffix(self, suffix: str) -> te.Self:\r\n        return self.__class__(super().removesuffix(suffix))\r\n\r\n    def partition(self, sep: str, /) -> tuple[te.Self, te.Self, te.Self]:\r\n        left, sep, right = super().partition(sep)\r\n        cls = self.__class__\r\n        return cls(left), cls(sep), cls(right)\r\n\r\n    def rpartition(self, sep: str, /) -> tuple[te.Self, te.Self, te.Self]:\r\n        left, sep, right = super().rpartition(sep)\r\n        cls = self.__class__\r\n        return cls(left), cls(sep), cls(right)\r\n\r\n    def format(self, *args: t.Any, **kwargs: t.Any) -> te.Self:\r\n        formatter = EscapeFormatter(self.escape)\r\n        return self.__class__(formatter.vformat(self, args, kwargs))\r\n\r\n    def format_map(\r\n        self,\r\n        mapping: cabc.Mapping[str, t.Any],  # type: ignore[override]\r\n        /,\r\n    ) -> te.Self:\r\n        formatter = EscapeFormatter(self.escape)\r\n        return self.__class__(formatter.vformat(self, (), mapping))\r\n\r\n    def __html_format__(self, format_spec: str, /) -> te.Self:\r\n        if format_spec:\r\n            raise ValueError(\"Unsupported format specification for Markup.\")\r\n\r\n        return self\r\n\r\n\r\nclass EscapeFormatter(string.Formatter):\r\n    __slots__ = (\"escape\",)\r\n\r\n    def __init__(self, escape: _TPEscape) -> None:\r\n        self.escape: _TPEscape = escape\r\n        super().__init__()\r\n\r\n    def format_field(self, value: t.Any, format_spec: str) -> str:\r\n        if hasattr(value, \"__html_format__\"):\r\n            rv = value.__html_format__(format_spec)\r\n        elif hasattr(value, \"__html__\"):\r\n            if format_spec:\r\n                raise ValueError(\r\n                    f\"Format specifier {format_spec} given, but {type(value)} does not\"\r\n                    \" define __html_format__. A class that defines __html__ must define\"\r\n                    \" __html_format__ to work with format specifiers.\"\r\n                )\r\n            rv = value.__html__()\r\n        else:\r\n            # We need to make sure the format spec is str here as\r\n            # otherwise the wrong callback methods are invoked.\r\n            rv = super().format_field(value, str(format_spec))\r\n        return str(self.escape(rv))\r\n\r\n\r\nclass _MarkupEscapeHelper:\r\n    \"\"\"Helper for :meth:`Markup.__mod__`.\"\"\"\r\n\r\n    __slots__ = (\"obj\", \"escape\")\r\n\r\n    def __init__(self, obj: t.Any, escape: _TPEscape) -> None:\r\n        self.obj: t.Any = obj\r\n        self.escape: _TPEscape = escape\r\n\r\n    def __getitem__(self, key: t.Any, /) -> te.Self:\r\n        return self.__class__(self.obj[key], self.escape)\r\n\r\n    def __str__(self, /) -> str:\r\n        return str(self.escape(self.obj))\r\n\r\n    def __repr__(self, /) -> str:\r\n        return str(self.escape(repr(self.obj)))\r\n\r\n    def __int__(self, /) -> int:\r\n        return int(self.obj)\r\n\r\n    def __float__(self, /) -> float:\r\n        return float(self.obj)\r\n\r\n\r\ndef __getattr__(name: str) -> t.Any:\r\n    if name == \"__version__\":\r\n        import importlib.metadata\r\n        import warnings\r\n\r\n        warnings.warn(\r\n            \"The '__version__' attribute is deprecated and will be removed in\"\r\n            \" MarkupSafe 3.1. Use feature detection, or\"\r\n            ' `importlib.metadata.version(\"markupsafe\")`, instead.',\r\n            DeprecationWarning,\r\n            stacklevel=2,\r\n        )\r\n        return importlib.metadata.version(\"markupsafe\")\r\n\r\n    raise AttributeError(name)\r\n",
+                    "expected_sha256": "89b648eb511aa22319c97b069fe1e5d8458cf283620e54593a12b8ca1e3db744"
+                  }
+                ],
+                "diagnosis": "src/markupsafe/__init__.py:58 returns Markup(\"None\") for None instead of an empty Markup, violating the requirement that escape_silent(None) return an empty Markup.",
+                "failure": null
+              },
+              "model_candidate": {
+                "task_id": "7700f98d337143dbba2f22cd6048b272",
+                "base_revision": "experiment-sha256:afdcd1b9f8a3f476c5cc2da713c9be7e0a67092fd10289a38a8883b413470dfe",
+                "based_on_run_id": "ba6fb9ea62d442c8b3c5ff54d35115cd",
+                "diagnosis": "src/markupsafe/__init__.py:58 returns Markup(\"None\") for None instead of an empty Markup, violating the requirement that escape_silent(None) return an empty Markup.",
+                "replacements": [
+                  {
+                    "path": "src/markupsafe/__init__.py",
+                    "qualified_name": "escape_silent",
+                    "content": "def escape_silent(s: t.Any | None, /) -> Markup:\n    \"\"\"Like :func:`escape` but treats ``None`` as the empty string.\n    Useful with optional values, as otherwise you get the string\n    ``'None'`` when the value is ``None``.\n\n    >>> escape(None)\n    Markup('None')\n    >>> escape_silent(None)\n    Markup('')\n    \"\"\"\n    if s is None:\n        return Markup()\n\n    return escape(s)"
+                  }
+                ]
+              },
+              "completion": {
+                "model": "replay saved admission proposal",
+                "usage": null,
+                "usage_available": false
+              },
+              "transport_metadata": null,
+              "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -56,7 +56,7 @@\n     Markup('')\r\n     \"\"\"\r\n     if s is None:\r\n-        return Markup(\"None\")\r\n+        return Markup()\r\n \r\n     return escape(s)\r\n \r\n",
+              "visible_run": {
+                "run": {
+                  "run_id": "1932284ffc7d45828b5267584a006bad",
+                  "snapshot_digest": "8c3a017503612d29d1b791088e5eb6f44edc66dcec376ea0d506b821381988cd",
+                  "exit_code": 0,
+                  "passed": 13,
+                  "failed": 0,
+                  "errors": 0,
+                  "skipped": 0,
+                  "failure": null,
+                  "artifacts": [
+                    "1932284ffc7d45828b5267584a006bad/log.txt",
+                    "1932284ffc7d45828b5267584a006bad/junit.xml",
+                    "1932284ffc7d45828b5267584a006bad/manifest.json",
+                    "1932284ffc7d45828b5267584a006bad/run.json",
+                    "1932284ffc7d45828b5267584a006bad/coverage.json"
+                  ]
+                },
+                "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\compatibility-replay\\aa4b14013b6749bbb5bbb44ef54bf961\\repair\\7700f98d337143dbba2f22cd6048b272\\execution\\1932284ffc7d45828b5267584a006bad",
+                "cleanup_ok": true
+              },
+              "original_regression_run": null,
+              "rollback_ok": null,
+              "refreshed_failure": null,
+              "elapsed_seconds": 0.016,
+              "context_audit": {
+                "version": "p08-context-v1",
+                "selected": [
+                  {
+                    "path": "src/markupsafe/__init__.py",
+                    "qualified_name": "escape_silent",
+                    "line": 48,
+                    "end_line": 61,
+                    "classes": [],
+                    "decorators": [],
+                    "kind": "target"
+                  },
+                  {
+                    "path": "src/markupsafe/__init__.py",
+                    "line": 1,
+                    "kind": "imports"
+                  },
+                  {
+                    "path": "src/markupsafe/__init__.py",
+                    "line": 3,
+                    "kind": "imports"
+                  },
+                  {
+                    "path": "src/markupsafe/__init__.py",
+                    "line": 4,
+                    "kind": "imports"
+                  },
+                  {
+                    "path": "src/markupsafe/__init__.py",
+                    "line": 5,
+                    "kind": "imports"
+                  },
+                  {
+                    "path": "src/markupsafe/__init__.py",
+                    "line": 24,
+                    "kind": "related_symbols"
+                  },
+                  {
+                    "path": "src/markupsafe/__init__.py",
+                    "line": 84,
+                    "kind": "related_symbols"
+                  },
+                  {
+                    "path": "tests/generated/test_escape_silent.py",
+                    "line": 6,
+                    "kind": "related_tests"
+                  },
+                  {
+                    "path": "tests/generated/test_escape_silent.py",
+                    "line": 12,
+                    "kind": "related_tests"
+                  },
+                  {
+                    "path": "tests/generated/test_escape_silent.py",
+                    "line": 19,
+                    "kind": "related_tests"
+                  },
+                  {
+                    "path": "tests/generated/test_escape_silent.py",
+                    "line": 26,
+                    "kind": "related_tests"
+                  },
+                  {
+                    "path": "tests/generated/test_escape_silent.py",
+                    "line": 32,
+                    "kind": "related_tests"
+                  },
+                  {
+                    "path": "tests/generated/test_escape_silent.py",
+                    "line": 40,
+                    "kind": "related_tests"
+                  },
+                  {
+                    "path": "tests/generated/test_escape_silent.py",
+                    "line": 46,
+                    "kind": "related_tests"
+                  }
+                ],
+                "omitted": [
+                  {
+                    "path": "tests/generated/test_escape_silent.py",
+                    "line": 53,
+                    "kind": "related_tests",
+                    "reason": "budget"
+                  },
+                  {
+                    "path": "tests/generated/test_escape_silent.py",
+                    "line": 63,
+                    "kind": "related_tests",
+                    "reason": "budget"
+                  },
+                  {
+                    "path": "tests/generated/test_escape_silent.py",
+                    "line": 69,
+                    "kind": "related_tests",
+                    "reason": "budget"
+                  },
+                  {
+                    "path": "tests/test_admission_original.py",
+                    "line": 9,
+                    "kind": "related_tests",
+                    "reason": "budget"
+                  },
+                  {
+                    "path": "tests/test_admission_original.py",
+                    "line": 6,
+                    "kind": "related_tests",
+                    "reason": "budget"
+                  },
+                  {
+                    "path": "tests/test_admission_original.py",
+                    "line": 14,
+                    "kind": "related_tests",
+                    "reason": "budget"
+                  },
+                  {
+                    "path": "src/markupsafe/__init__.py",
+                    "kind": "remaining_module_body",
+                    "reason": "scope_only"
+                  },
+                  {
+                    "path": "src/markupsafe/_native.py",
+                    "kind": "remaining_module_body",
+                    "reason": "scope_only"
+                  }
+                ],
+                "source_sha256": "89b648eb511aa22319c97b069fe1e5d8458cf283620e54593a12b8ca1e3db744",
+                "characters": 5793,
+                "prompt_sha256": "292580b65f694de76f377dff918493f7560eab17a57a89bd531ab7cb7a07f4da"
+              },
+              "prompt_version": "p08-scoped-repair-v1"
+            }
+          ],
+          "baseline": {
+            "run": {
+              "run_id": "86c818cac15f45bbb3eb1856a1f22652",
+              "snapshot_digest": "afdcd1b9f8a3f476c5cc2da713c9be7e0a67092fd10289a38a8883b413470dfe",
+              "exit_code": 0,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "failure": null,
+              "artifacts": [
+                "86c818cac15f45bbb3eb1856a1f22652/log.txt",
+                "86c818cac15f45bbb3eb1856a1f22652/junit.xml",
+                "86c818cac15f45bbb3eb1856a1f22652/manifest.json",
+                "86c818cac15f45bbb3eb1856a1f22652/run.json",
+                "86c818cac15f45bbb3eb1856a1f22652/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\compatibility-replay\\aa4b14013b6749bbb5bbb44ef54bf961\\repair\\7700f98d337143dbba2f22cd6048b272\\execution\\86c818cac15f45bbb3eb1856a1f22652",
+            "cleanup_ok": true
+          },
+          "initial_failure": {
+            "run": {
+              "run_id": "b0a1d93e6c4047a193bb20923efd9c36",
+              "snapshot_digest": "4397dc54f8c577aa273494e86b296845fb3fa1b487a8d1915cf694b7184651e7",
+              "exit_code": 1,
+              "passed": 12,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "b0a1d93e6c4047a193bb20923efd9c36/log.txt",
+                  "b0a1d93e6c4047a193bb20923efd9c36/junit.xml",
+                  "b0a1d93e6c4047a193bb20923efd9c36/manifest.json",
+                  "b0a1d93e6c4047a193bb20923efd9c36/run.json",
+                  "b0a1d93e6c4047a193bb20923efd9c36/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "b0a1d93e6c4047a193bb20923efd9c36/log.txt",
+                "b0a1d93e6c4047a193bb20923efd9c36/junit.xml",
+                "b0a1d93e6c4047a193bb20923efd9c36/manifest.json",
+                "b0a1d93e6c4047a193bb20923efd9c36/run.json",
+                "b0a1d93e6c4047a193bb20923efd9c36/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\compatibility-replay\\aa4b14013b6749bbb5bbb44ef54bf961\\repair\\7700f98d337143dbba2f22cd6048b272\\execution\\b0a1d93e6c4047a193bb20923efd9c36",
+            "cleanup_ok": true
+          },
+          "reproduction": {
+            "run": {
+              "run_id": "ba6fb9ea62d442c8b3c5ff54d35115cd",
+              "snapshot_digest": "4397dc54f8c577aa273494e86b296845fb3fa1b487a8d1915cf694b7184651e7",
+              "exit_code": 1,
+              "passed": 12,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "ba6fb9ea62d442c8b3c5ff54d35115cd/log.txt",
+                  "ba6fb9ea62d442c8b3c5ff54d35115cd/junit.xml",
+                  "ba6fb9ea62d442c8b3c5ff54d35115cd/manifest.json",
+                  "ba6fb9ea62d442c8b3c5ff54d35115cd/run.json",
+                  "ba6fb9ea62d442c8b3c5ff54d35115cd/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "ba6fb9ea62d442c8b3c5ff54d35115cd/log.txt",
+                "ba6fb9ea62d442c8b3c5ff54d35115cd/junit.xml",
+                "ba6fb9ea62d442c8b3c5ff54d35115cd/manifest.json",
+                "ba6fb9ea62d442c8b3c5ff54d35115cd/run.json",
+                "ba6fb9ea62d442c8b3c5ff54d35115cd/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\compatibility-replay\\aa4b14013b6749bbb5bbb44ef54bf961\\repair\\7700f98d337143dbba2f22cd6048b272\\execution\\ba6fb9ea62d442c8b3c5ff54d35115cd",
+            "cleanup_ok": true
+          },
+          "independent_validation": {
+            "run": {
+              "run_id": "0c504e42d4b746009ea41321e0c587d2",
+              "snapshot_digest": "1fcef7f81db56dfa917b073fbd834416dcde02bf6b2bd5f7bb7f03baf2f593e5",
+              "exit_code": 0,
+              "passed": 22,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "failure": null,
+              "artifacts": [
+                "0c504e42d4b746009ea41321e0c587d2/log.txt",
+                "0c504e42d4b746009ea41321e0c587d2/junit.xml",
+                "0c504e42d4b746009ea41321e0c587d2/manifest.json",
+                "0c504e42d4b746009ea41321e0c587d2/run.json",
+                "0c504e42d4b746009ea41321e0c587d2/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\compatibility-replay\\aa4b14013b6749bbb5bbb44ef54bf961\\repair\\7700f98d337143dbba2f22cd6048b272\\independent\\0c504e42d4b746009ea41321e0c587d2",
+            "cleanup_ok": true
+          },
+          "final_sources": [
+            [
+              "src/markupsafe/__init__.py",
+              "from __future__ import annotations\r\n\r\nimport collections.abc as cabc\r\nimport string\r\nimport typing as t\r\n\r\ntry:\r\n    from ._speedups import _escape_inner\r\nexcept ImportError:\r\n    from ._native import _escape_inner\r\n\r\nif t.TYPE_CHECKING:\r\n    import typing_extensions as te\r\n\r\n\r\nclass _HasHTML(t.Protocol):\r\n    def __html__(self, /) -> str: ...\r\n\r\n\r\nclass _TPEscape(t.Protocol):\r\n    def __call__(self, s: t.Any, /) -> Markup: ...\r\n\r\n\r\ndef escape(s: t.Any, /) -> Markup:\r\n    \"\"\"Replace the characters ``&``, ``<``, ``>``, ``'``, and ``\"`` in\r\n    the string with HTML-safe sequences. Use this if you need to display\r\n    text that might contain such characters in HTML.\r\n\r\n    If the object has an ``__html__`` method, it is called and the\r\n    return value is assumed to already be safe for HTML.\r\n\r\n    :param s: An object to be converted to a string and escaped.\r\n    :return: A :class:`Markup` string with the escaped text.\r\n    \"\"\"\r\n    # If the object is already a plain string, skip __html__ check and string\r\n    # conversion. This is the most common use case.\r\n    # Use type(s) instead of s.__class__ because a proxy object may be reporting\r\n    # the __class__ of the proxied value.\r\n    if type(s) is str:\r\n        return Markup(_escape_inner(s))\r\n\r\n    if hasattr(s, \"__html__\"):\r\n        return Markup(s.__html__())\r\n\r\n    return Markup(_escape_inner(str(s)))\r\n\r\n\r\ndef escape_silent(s: t.Any | None, /) -> Markup:\r\n    \"\"\"Like :func:`escape` but treats ``None`` as the empty string.\r\n    Useful with optional values, as otherwise you get the string\r\n    ``'None'`` when the value is ``None``.\r\n\r\n    >>> escape(None)\r\n    Markup('None')\r\n    >>> escape_silent(None)\r\n    Markup('')\r\n    \"\"\"\r\n    if s is None:\r\n        return Markup()\r\n\r\n    return escape(s)\r\n\r\n\r\ndef soft_str(s: t.Any, /) -> str:\r\n    \"\"\"Convert an object to a string if it isn't already. This preserves\r\n    a :class:`Markup` string rather than converting it back to a basic\r\n    string, so it will still be marked as safe and won't be escaped\r\n    again.\r\n\r\n    >>> value = escape(\"<User 1>\")\r\n    >>> value\r\n    Markup('&lt;User 1&gt;')\r\n    >>> escape(str(value))\r\n    Markup('&amp;lt;User 1&amp;gt;')\r\n    >>> escape(soft_str(value))\r\n    Markup('&lt;User 1&gt;')\r\n    \"\"\"\r\n    if not isinstance(s, str):\r\n        return str(s)\r\n\r\n    return s\r\n\r\n\r\nclass Markup(str):\r\n    \"\"\"A string that is ready to be safely inserted into an HTML or XML\r\n    document, either because it was escaped or because it was marked\r\n    safe.\r\n\r\n    Passing an object to the constructor converts it to text and wraps\r\n    it to mark it safe without escaping. To escape the text, use the\r\n    :meth:`escape` class method instead.\r\n\r\n    >>> Markup(\"Hello, <em>World</em>!\")\r\n    Markup('Hello, <em>World</em>!')\r\n    >>> Markup(42)\r\n    Markup('42')\r\n    >>> Markup.escape(\"Hello, <em>World</em>!\")\r\n    Markup('Hello &lt;em&gt;World&lt;/em&gt;!')\r\n\r\n    This implements the ``__html__()`` interface that some frameworks\r\n    use. Passing an object that implements ``__html__()`` will wrap the\r\n    output of that method, marking it safe.\r\n\r\n    >>> class Foo:\r\n    ...     def __html__(self):\r\n    ...         return '<a href=\"/foo\">foo</a>'\r\n    ...\r\n    >>> Markup(Foo())\r\n    Markup('<a href=\"/foo\">foo</a>')\r\n\r\n    This is a subclass of :class:`str`. It has the same methods, but\r\n    escapes their arguments and returns a ``Markup`` instance.\r\n\r\n    >>> Markup(\"<em>%s</em>\") % (\"foo & bar\",)\r\n    Markup('<em>foo &amp; bar</em>')\r\n    >>> Markup(\"<em>Hello</em> \") + \"<foo>\"\r\n    Markup('<em>Hello</em> &lt;foo&gt;')\r\n    \"\"\"\r\n\r\n    __slots__ = ()\r\n\r\n    def __new__(\r\n        cls, object: t.Any = \"\", encoding: str | None = None, errors: str = \"strict\"\r\n    ) -> te.Self:\r\n        if hasattr(object, \"__html__\"):\r\n            object = object.__html__()\r\n\r\n        if encoding is None:\r\n            return super().__new__(cls, object)\r\n\r\n        return super().__new__(cls, object, encoding, errors)\r\n\r\n    def __html__(self, /) -> te.Self:\r\n        return self\r\n\r\n    def __add__(self, value: str | _HasHTML, /) -> te.Self:\r\n        if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n            return self.__class__(super().__add__(self.escape(value)))\r\n\r\n        return NotImplemented\r\n\r\n    def __radd__(self, value: str | _HasHTML, /) -> te.Self:\r\n        if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n            return self.escape(value).__add__(self)\r\n\r\n        return NotImplemented\r\n\r\n    def __mul__(self, value: t.SupportsIndex, /) -> te.Self:\r\n        return self.__class__(super().__mul__(value))\r\n\r\n    def __rmul__(self, value: t.SupportsIndex, /) -> te.Self:\r\n        return self.__class__(super().__mul__(value))\r\n\r\n    def __mod__(self, value: t.Any, /) -> te.Self:\r\n        if isinstance(value, tuple):\r\n            # a tuple of arguments, each wrapped\r\n            value = tuple(_MarkupEscapeHelper(x, self.escape) for x in value)\r\n        elif hasattr(type(value), \"__getitem__\") and not isinstance(value, str):\r\n            # a mapping of arguments, wrapped\r\n            value = _MarkupEscapeHelper(value, self.escape)\r\n        else:\r\n            # a single argument, wrapped with the helper and a tuple\r\n            value = (_MarkupEscapeHelper(value, self.escape),)\r\n\r\n        return self.__class__(super().__mod__(value))\r\n\r\n    def __repr__(self, /) -> str:\r\n        return f\"{self.__class__.__name__}({super().__repr__()})\"\r\n\r\n    def join(self, iterable: cabc.Iterable[str | _HasHTML], /) -> te.Self:\r\n        return self.__class__(super().join(map(self.escape, iterable)))\r\n\r\n    def split(  # type: ignore[override]\r\n        self, /, sep: str | None = None, maxsplit: t.SupportsIndex = -1\r\n    ) -> list[te.Self]:\r\n        return [self.__class__(v) for v in super().split(sep, maxsplit)]\r\n\r\n    def rsplit(  # type: ignore[override]\r\n        self, /, sep: str | None = None, maxsplit: t.SupportsIndex = -1\r\n    ) -> list[te.Self]:\r\n        return [self.__class__(v) for v in super().rsplit(sep, maxsplit)]\r\n\r\n    def splitlines(  # type: ignore[override]\r\n        self, /, keepends: bool = False\r\n    ) -> list[te.Self]:\r\n        return [self.__class__(v) for v in super().splitlines(keepends)]\r\n\r\n    def unescape(self, /) -> str:\r\n        \"\"\"Convert escaped markup back into a text string. This replaces\r\n        HTML entities with the characters they represent.\r\n\r\n        >>> Markup(\"Main &raquo; <em>About</em>\").unescape()\r\n        'Main \u00bb <em>About</em>'\r\n        \"\"\"\r\n        from html import unescape\r\n\r\n        return unescape(str(self))\r\n\r\n    def striptags(self, /) -> str:\r\n        \"\"\":meth:`unescape` the markup, remove tags, and normalize\r\n        whitespace to single spaces.\r\n\r\n        >>> Markup(\"Main &raquo;\\t<em>About</em>\").striptags()\r\n        'Main \u00bb About'\r\n        \"\"\"\r\n        value = str(self)\r\n\r\n        # Look for comments then tags separately. Otherwise, a comment that\r\n        # contains a tag would end early, leaving some of the comment behind.\r\n\r\n        # keep finding comment start marks\r\n        while (start := value.find(\"<!--\")) != -1:\r\n            # find a comment end mark beyond the start, otherwise stop\r\n            if (end := value.find(\"-->\", start)) == -1:\r\n                break\r\n\r\n            value = f\"{value[:start]}{value[end + 3 :]}\"\r\n\r\n        # remove tags using the same method\r\n        while (start := value.find(\"<\")) != -1:\r\n            if (end := value.find(\">\", start)) == -1:\r\n                break\r\n\r\n            value = f\"{value[:start]}{value[end + 1 :]}\"\r\n\r\n        # collapse spaces\r\n        value = \" \".join(value.split())\r\n        return self.__class__(value).unescape()\r\n\r\n    @classmethod\r\n    def escape(cls, s: t.Any, /) -> te.Self:\r\n        \"\"\"Escape a string. Calls :func:`escape` and ensures that for\r\n        subclasses the correct type is returned.\r\n        \"\"\"\r\n        rv = escape(s)\r\n\r\n        if rv.__class__ is not cls:\r\n            return cls(rv)\r\n\r\n        return rv  # type: ignore[return-value]\r\n\r\n    def __getitem__(self, key: t.SupportsIndex | slice, /) -> te.Self:\r\n        return self.__class__(super().__getitem__(key))\r\n\r\n    def capitalize(self, /) -> te.Self:\r\n        return self.__class__(super().capitalize())\r\n\r\n    def title(self, /) -> te.Self:\r\n        return self.__class__(super().title())\r\n\r\n    def lower(self, /) -> te.Self:\r\n        return self.__class__(super().lower())\r\n\r\n    def upper(self, /) -> te.Self:\r\n        return self.__class__(super().upper())\r\n\r\n    def replace(self, old: str, new: str, count: t.SupportsIndex = -1, /) -> te.Self:\r\n        return self.__class__(super().replace(old, self.escape(new), count))\r\n\r\n    def ljust(self, width: t.SupportsIndex, fillchar: str = \" \", /) -> te.Self:\r\n        return self.__class__(super().ljust(width, self.escape(fillchar)))\r\n\r\n    def rjust(self, width: t.SupportsIndex, fillchar: str = \" \", /) -> te.Self:\r\n        return self.__class__(super().rjust(width, self.escape(fillchar)))\r\n\r\n    def lstrip(self, chars: str | None = None, /) -> te.Self:\r\n        return self.__class__(super().lstrip(chars))\r\n\r\n    def rstrip(self, chars: str | None = None, /) -> te.Self:\r\n        return self.__class__(super().rstrip(chars))\r\n\r\n    def center(self, width: t.SupportsIndex, fillchar: str = \" \", /) -> te.Self:\r\n        return self.__class__(super().center(width, self.escape(fillchar)))\r\n\r\n    def strip(self, chars: str | None = None, /) -> te.Self:\r\n        return self.__class__(super().strip(chars))\r\n\r\n    def translate(\r\n        self,\r\n        table: cabc.Mapping[int, str | int | None],  # type: ignore[override]\r\n        /,\r\n    ) -> str:\r\n        return self.__class__(super().translate(table))\r\n\r\n    def expandtabs(self, /, tabsize: t.SupportsIndex = 8) -> te.Self:\r\n        return self.__class__(super().expandtabs(tabsize))\r\n\r\n    def swapcase(self, /) -> te.Self:\r\n        return self.__class__(super().swapcase())\r\n\r\n    def zfill(self, width: t.SupportsIndex, /) -> te.Self:\r\n        return self.__class__(super().zfill(width))\r\n\r\n    def casefold(self, /) -> te.Self:\r\n        return self.__class__(super().casefold())\r\n\r\n    def removeprefix(self, prefix: str, /) -> te.Self:\r\n        return self.__class__(super().removeprefix(prefix))\r\n\r\n    def removesuffix(self, suffix: str) -> te.Self:\r\n        return self.__class__(super().removesuffix(suffix))\r\n\r\n    def partition(self, sep: str, /) -> tuple[te.Self, te.Self, te.Self]:\r\n        left, sep, right = super().partition(sep)\r\n        cls = self.__class__\r\n        return cls(left), cls(sep), cls(right)\r\n\r\n    def rpartition(self, sep: str, /) -> tuple[te.Self, te.Self, te.Self]:\r\n        left, sep, right = super().rpartition(sep)\r\n        cls = self.__class__\r\n        return cls(left), cls(sep), cls(right)\r\n\r\n    def format(self, *args: t.Any, **kwargs: t.Any) -> te.Self:\r\n        formatter = EscapeFormatter(self.escape)\r\n        return self.__class__(formatter.vformat(self, args, kwargs))\r\n\r\n    def format_map(\r\n        self,\r\n        mapping: cabc.Mapping[str, t.Any],  # type: ignore[override]\r\n        /,\r\n    ) -> te.Self:\r\n        formatter = EscapeFormatter(self.escape)\r\n        return self.__class__(formatter.vformat(self, (), mapping))\r\n\r\n    def __html_format__(self, format_spec: str, /) -> te.Self:\r\n        if format_spec:\r\n            raise ValueError(\"Unsupported format specification for Markup.\")\r\n\r\n        return self\r\n\r\n\r\nclass EscapeFormatter(string.Formatter):\r\n    __slots__ = (\"escape\",)\r\n\r\n    def __init__(self, escape: _TPEscape) -> None:\r\n        self.escape: _TPEscape = escape\r\n        super().__init__()\r\n\r\n    def format_field(self, value: t.Any, format_spec: str) -> str:\r\n        if hasattr(value, \"__html_format__\"):\r\n            rv = value.__html_format__(format_spec)\r\n        elif hasattr(value, \"__html__\"):\r\n            if format_spec:\r\n                raise ValueError(\r\n                    f\"Format specifier {format_spec} given, but {type(value)} does not\"\r\n                    \" define __html_format__. A class that defines __html__ must define\"\r\n                    \" __html_format__ to work with format specifiers.\"\r\n                )\r\n            rv = value.__html__()\r\n        else:\r\n            # We need to make sure the format spec is str here as\r\n            # otherwise the wrong callback methods are invoked.\r\n            rv = super().format_field(value, str(format_spec))\r\n        return str(self.escape(rv))\r\n\r\n\r\nclass _MarkupEscapeHelper:\r\n    \"\"\"Helper for :meth:`Markup.__mod__`.\"\"\"\r\n\r\n    __slots__ = (\"obj\", \"escape\")\r\n\r\n    def __init__(self, obj: t.Any, escape: _TPEscape) -> None:\r\n        self.obj: t.Any = obj\r\n        self.escape: _TPEscape = escape\r\n\r\n    def __getitem__(self, key: t.Any, /) -> te.Self:\r\n        return self.__class__(self.obj[key], self.escape)\r\n\r\n    def __str__(self, /) -> str:\r\n        return str(self.escape(self.obj))\r\n\r\n    def __repr__(self, /) -> str:\r\n        return str(self.escape(repr(self.obj)))\r\n\r\n    def __int__(self, /) -> int:\r\n        return int(self.obj)\r\n\r\n    def __float__(self, /) -> float:\r\n        return float(self.obj)\r\n\r\n\r\ndef __getattr__(name: str) -> t.Any:\r\n    if name == \"__version__\":\r\n        import importlib.metadata\r\n        import warnings\r\n\r\n        warnings.warn(\r\n            \"The '__version__' attribute is deprecated and will be removed in\"\r\n            \" MarkupSafe 3.1. Use feature detection, or\"\r\n            ' `importlib.metadata.version(\"markupsafe\")`, instead.',\r\n            DeprecationWarning,\r\n            stacklevel=2,\r\n        )\r\n        return importlib.metadata.version(\"markupsafe\")\r\n\r\n    raise AttributeError(name)\r\n"
+            ],
+            [
+              "src/markupsafe/_native.py",
+              "def _escape_inner(s: str, /) -> str:\r\n    return (\r\n        s.replace(\"&\", \"&amp;\")\r\n        .replace(\">\", \"&gt;\")\r\n        .replace(\"<\", \"&lt;\")\r\n        .replace(\"'\", \"&#39;\")\r\n        .replace('\"', \"&#34;\")\r\n    )\r\n"
+            ]
+          ],
+          "elapsed_seconds": 10.968
+        },
+        "generated_only": {
+          "run": {
+            "run_id": "10fcb15e32c74fedae8e34b55956bc6f",
+            "snapshot_digest": "4397dc54f8c577aa273494e86b296845fb3fa1b487a8d1915cf694b7184651e7",
+            "exit_code": 1,
+            "passed": 9,
+            "failed": 1,
+            "errors": 0,
+            "skipped": 0,
+            "failure": {
+              "kind": "test_assertion",
+              "message": "Run did not verify; inspect sanitized evidence",
+              "evidence": [
+                "10fcb15e32c74fedae8e34b55956bc6f/log.txt",
+                "10fcb15e32c74fedae8e34b55956bc6f/junit.xml",
+                "10fcb15e32c74fedae8e34b55956bc6f/manifest.json",
+                "10fcb15e32c74fedae8e34b55956bc6f/run.json",
+                "10fcb15e32c74fedae8e34b55956bc6f/coverage.json"
+              ]
+            },
+            "artifacts": [
+              "10fcb15e32c74fedae8e34b55956bc6f/log.txt",
+              "10fcb15e32c74fedae8e34b55956bc6f/junit.xml",
+              "10fcb15e32c74fedae8e34b55956bc6f/manifest.json",
+              "10fcb15e32c74fedae8e34b55956bc6f/run.json",
+              "10fcb15e32c74fedae8e34b55956bc6f/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\compatibility-replay\\aa4b14013b6749bbb5bbb44ef54bf961\\generated-only\\10fcb15e32c74fedae8e34b55956bc6f",
+          "cleanup_ok": true
+        },
+        "image_id": "sha256:a150efa0a707a0bac2ed4ca74df6f5dad4fa9a8cfdf6b9d50ce60c6281d20df2",
+        "stage": "generated-only",
+        "input_revision": "experiment-sha256:afdcd1b9f8a3f476c5cc2da713c9be7e0a67092fd10289a38a8883b413470dfe",
+        "support_hashes": [
+          [
+            "data/admission-visible.json",
+            "6b56d64b76bdd975df729a8fed87f7720c687b7160a25b67f1624a60e7cc48e9"
+          ]
+        ],
+        "target": [
+          "src/markupsafe/__init__.py",
+          "escape_silent"
+        ],
+        "coverage_sources": [
+          "src/markupsafe/__init__.py",
+          "src/markupsafe/_native.py"
+        ],
+        "elapsed_seconds": 26.968
+      }
+    ]
+  },
+  "code_and_semantic_review": "evidence/p08b-candidate-review.json",
+  "red_green": [
+    "screening import missing before implementation; tests passed after",
+    "CRLF empty method line prevented dedent; regression reproduced and fixed while retaining outer bytes/newlines"
+  ],
+  "implementation_sha256_lf": {
+    "experiments/screening.py": "b32ea6a5be40f522fa9e294444e97e8cb8e77db3544c0b3f16574e81f72e494a",
+    "experiments/functions.py": "bae8aa584ae2edb87735ed7a832eca697923b1def14a9029e41e802b1d6ed5f7",
+    "tests/test_screening.py": "5774ef8c54e849e4a89b0f71c12e14de4a5ebd75742da97199fd2d801c9f310d",
+    "tests/test_scoped.py": "a7ebc64d58bb14f32cee6092c8c1cebaa1a88616898b24ce6b07c28eeab00cf7"
+  },
+  "result_review": {
+    "reviewer": "review_p08b_t2",
+    "method": "read-only shared-result count/quota/eight-stage/assertion-hash consistency review; no independent container execution or manifest rebuilding",
+    "result": "no important issue or inflated claim; 10 eligible, 20 original detections, 140 executions, quota shortfall 20, no formal freeze"
+  }
+}

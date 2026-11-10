@@ -194,3 +194,6 @@ python -m experiments.admission --replay evidence/p08a-markupsafe-admission.json
 
 
 2026-11-10最新：P08B实施计划已确认；T1正式任务清单与统一审核库存已于2026-11-10获用户“接受”验收。接口为`experiments.formal_tasks.load_formal_tasks(...)`与`experiments.upstream.build_reviewed_inventory(...)`，格式见`specs/P08B-任务契约.md`。加载只校验输入，不调用模型、不执行目标代码，也不证明候选缺陷成立。Windows135通过5跳过、Linux核心124通过1跳过；Jinja/dateutil新执行摘要与P08A相同。正式清单尚未冻结，无正式任务JSON可直接批量运行；不要把P08A准入清单传入正式加载器。详见`evidence/p08b-t1-verification.json`。
+
+
+P08B T2首池结果：固定30候选中10合格、20被原有测试检出；140次无模型候选容器完成，正式配额还差20，尚未冻结或启动正式实验。见[候选筛选与缺口](阶段8_候选筛选与缺口.md)。筛选入口`python -m experiments.screening --export <全新导出路径> --artifacts <全新产物目录>`需要本机固定reference副本、已审wheel数据与722765…镜像；本次已有目录拒绝复用。重跑不增加独立函数数，扩池应先做新版本语义审核并提交，保留原排除历史。

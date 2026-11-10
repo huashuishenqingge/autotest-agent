@@ -13,3 +13,11 @@ wheels are not committed. Exact wheel versions/hashes and distribution metadata
 are recorded in execution/requirements-p08-admission.lock, execution/requirements-p08.lock,
 evidence/p08a-dependencies.json, and evidence/p08a-dependencies-upstream.json;
 wheels retain their own bundled notices in the isolated execution image.
+
+
+P08B candidate evaluation manifests include short modified excerpts/diffs from
+all five fixed upstream projects, for independent review only. Their adjacent
+license/author files cover those excerpts too; the candidate preparation and
+screening orchestration are project work, upstream excerpts are attributed to
+their original authors. Candidate reference/holdout/evaluation data is never
+sent as model context.
