@@ -1,0 +1,18 @@
+{
+  "reviewer": "review_p08b_t2_v4",
+  "method": "static only; no execution",
+  "verdicts": {
+    "v4_dateutil_parsererror___str": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v4",
+      "input_sha256": "4e55a8146675dcf821b9666f5044c45d6ba91439f2dfb824f4d4184d7c65617b",
+      "notes": "Independent static approval: ParserError uses inherited standard exception string protocol; Signer invalid derivation is documented enum rejection and existing test_signer.py:74 requires TypeError. Not a survivor verdict."
+    },
+    "v4_itsdangerous_signer_derive_key": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v4",
+      "input_sha256": "1e371c7382cfe229eaa40a0b7f0a3f550bf5384c05a1fe7e23bfdec43c91dc25",
+      "notes": "Independent static approval: ParserError uses inherited standard exception string protocol; Signer invalid derivation is documented enum rejection and existing test_signer.py:74 requires TypeError. Not a survivor verdict."
+    }
+  }
+}

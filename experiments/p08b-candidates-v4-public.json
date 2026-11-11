@@ -1,0 +1,230 @@
+{
+  "schema": "p08-formal-v1",
+  "tasks": [
+    {
+      "id": "v4_dateutil_parsererror___str",
+      "project_id": "dateutil",
+      "origin": "injected",
+      "target": {
+        "path": "src/dateutil/parser/_parser.py",
+        "qualified_name": "ParserError.__str__",
+        "line": 1597,
+        "end_line": 1601
+      },
+      "requirements": [
+        "ParserError remains printable when its formatting arguments do not fit the format string, following the standard exception string protocol."
+      ],
+      "requirement_sources": [
+        {
+          "path": "docs/parser.rst",
+          "start_line": 24,
+          "end_line": 29,
+          "sha256": "10056333902a1abf6d4a224fb1a9fc7b98536cb2984648ee6daff8d36655cd3c",
+          "excerpt": "-----------------------\n\n.. autoclass:: dateutil.parser.ParserError\n\n.. autoclass:: dateutil.parser.UnknownTimezoneWarning\n"
+        }
+      ],
+      "coverage_sources": [
+        "src/dateutil/__init__.py",
+        "src/dateutil/_common.py",
+        "src/dateutil/easter.py",
+        "src/dateutil/relativedelta.py",
+        "src/dateutil/rrule.py",
+        "src/dateutil/tzwin.py",
+        "src/dateutil/utils.py",
+        "src/dateutil/parser/__init__.py",
+        "src/dateutil/parser/_parser.py",
+        "src/dateutil/parser/isoparser.py",
+        "src/dateutil/tz/__init__.py",
+        "src/dateutil/tz/_common.py",
+        "src/dateutil/tz/_factories.py",
+        "src/dateutil/tz/tz.py",
+        "src/dateutil/tz/win.py",
+        "src/dateutil/zoneinfo/__init__.py",
+        "src/dateutil/zoneinfo/rebuild.py"
+      ],
+      "inventory": {
+        "sources": {
+          "src/dateutil/__init__.py": "b54edff828d0a847178b8b47c766b9f18e8efb41dc4c59bee419bbf18ed4aa42",
+          "src/dateutil/_common.py": "1f4ce4415066989dc06fc6cb65077df786eec4b13f00bc8e5e29d1efbdc9d338",
+          "src/dateutil/easter.py": "3fc0effafdf4f58c21bc5b24798c4722096765280c352164503c196e83b3b038",
+          "src/dateutil/relativedelta.py": "abc031b39e6cf131ae9740be0fd61e2ef7aa0dc56ac17d779a220fd90ef2997e",
+          "src/dateutil/rrule.py": "b3af688f361febc0766eeba4521e10075c8f9e1e9793d8a0af68cf8c54eda332",
+          "src/dateutil/tzwin.py": "6a4c1f60b61d81279d5b6ad86940bd2f45b622c9bc992bff83f05449a18d4d2a",
+          "src/dateutil/utils.py": "33dd64806ee13f2842ce596469d26cb69ff22f3c6044ea4c0edda053683a50c1",
+          "src/dateutil/parser/__init__.py": "9e7efb4b5d521f12b06b7eea85aa47d0969f758b09a66fa1c7abcb8b77604d24",
+          "src/dateutil/parser/_parser.py": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+          "src/dateutil/parser/isoparser.py": "69a2c9806522bcf7e7af7d8795a1d51690f589768a8f0ca6005cd5913d130b7a",
+          "src/dateutil/tz/__init__.py": "0a93d353899482bb821393b835c19dcc54bf01a96400cf06ae63815be4782dcf",
+          "src/dateutil/tz/_common.py": "6f6691a2fcbdf861aeaac226a25c184bb6373d0c74d4475022187520b5058317",
+          "src/dateutil/tz/_factories.py": "090dc8f88bdd4fed042f3aa7afb0cccf33f12cce3ebf1b3a9ae57a9750361317",
+          "src/dateutil/tz/tz.py": "a3d921641d3c0d258764e1edf0e8ddedf3c467be6e2e9dd4e98b316493a66ea1",
+          "src/dateutil/tz/win.py": "990997effc9dba44787bfd227fe2357f9a73b71614faebe64056679c44b5074a",
+          "src/dateutil/zoneinfo/__init__.py": "b40d4a89f4689611d4ab0f9b1779f5198fa1b3611d8c20144b7669f92845198b",
+          "src/dateutil/zoneinfo/rebuild.py": "65f5250627e0e0d15485192ef0fe87f1db670f5a8de396544737e138c27210c0"
+        },
+        "tests": {
+          "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tests/_common.py": "6340d7094af1cf65552b5daf76f617a183a715e624cdb9435950dd96fddce4db",
+          "tests/conftest.py": "fe084758c3b9a881893401eafb96835ce63de8e69bb7ee169f76e84d3d626db9",
+          "tests/property/test_isoparse_prop.py": "c83350ae37aebc3d25433b3f2b211864fd04b1595f56ddf149c008f81fee8f2e",
+          "tests/property/test_parser_prop.py": "d5c495ff2f1a6214903768949e0fb958fc1bc363cf81d6a00e8c7a0a6bc56715",
+          "tests/property/test_tz_prop.py": "70cb2eb561d576dc2b3c2610cd16b8584a26509e88317bc22df8c65b93420ff1",
+          "tests/test_easter.py": "0e16ac62b446e3546a05a0b41580cf767d06fd1f1b02f43fb840a6c3af1a3f71",
+          "tests/test_import_star.py": "f4d7edb5b034bc6417558b7b02cda506df5edcb385e045f55e6961d05b1cd2f6",
+          "tests/test_imports.py": "517dccfad70acdcb6ed4c74fb0c14fc835fe91a6c042e7a00d45f7dabcb1f3b9",
+          "tests/test_internals.py": "d23114890fcb3e090e5cbabb8ad4ddd0b28c24b8b023672ff76d6817ee40deb2",
+          "tests/test_isoparser.py": "f2357df609638643fe2f65b83d4c4401a16dd73944299c2d8fbd372e6885868f",
+          "tests/test_parser.py": "7ae444cfb27749ffe6a041a0c91ae586b1636c834ca8fac4b51f11d1b451ac06",
+          "tests/test_relativedelta.py": "b97bbb3556dfe7d704fe6d7694d2049574bfd989b37faeb3c8b448a39e5d6d8d",
+          "tests/test_rrule.py": "c540f8b1959faa6f21f6362fcf8a3623c94f1f43696d00911dfcab51d3409302",
+          "tests/test_tz.py": "6a255fdeb465ad31bf9b86c6808eee4fa68bef646dea80587022e12a3243a0d4",
+          "tests/test_utils.py": "5b45bebc3c590fff3d39484a9fdd6c65abf313bb38c20c89d32931321ecf0bcd",
+          "tests/test_p08_working_copy_origin.py": "1f441c9f3c5e42c73dd0ff2ea3f4f8953a9b44f97447536590bd7b18e941a11c"
+        },
+        "support": {
+          "src/dateutil/zoneinfo/dateutil-zoneinfo.tar.gz": "d3ea52e7b6e968de0d884df1288193596fa95b803db4f92a18279a7398004475"
+        },
+        "excluded": [],
+        "provenance": {
+          "project": {
+            "id": "dateutil",
+            "url": "https://github.com/dateutil/dateutil.git",
+            "tag": "2.9.0.post0",
+            "commit": "1ae807774053c071acc9e7d3d27778fba0a7773e",
+            "package_root": "src/dateutil",
+            "license_files": [
+              "LICENSE",
+              "AUTHORS.md"
+            ],
+            "config_files": [
+              "pyproject.toml",
+              "setup.cfg",
+              "setup.py"
+            ]
+          },
+          "dependencies": [],
+          "licenses": {
+            "LICENSE": {
+              "sha256": "aedc1c280bcc065a11e10ed8008317c3e91a7371dcae51cc52971243f2577d64",
+              "bytes": 2942
+            },
+            "AUTHORS.md": {
+              "sha256": "6a548b9a9d6b36e57c8bac5933357d6eacff0540c1dd2eaf265d916ae9ca2102",
+              "bytes": 6788
+            }
+          },
+          "dependency_licenses": {}
+        }
+      },
+      "protocol": {
+        "image_id": "sha256:7227650ec06570ea9a532bfb669d0888a4a92f7f179d2d442878f353b27ecd66",
+        "dependency_lock_sha256": "8f4d22acc8ff1aaa0b5bf56a283d6c7fe11790e08f416ceec709253bc907eee4",
+        "worker_sha256": "199041b80cd88cc535b1f1434775270ca662f593ad67e31bd889cebe834ac6d8",
+        "context_version": "p08-context-v1",
+        "repair_version": "p08-scoped-repair-v1",
+        "model": "deepseek-v4-flash-ascend",
+        "temperature": 0.2,
+        "thinking_mode": "disabled",
+        "max_tokens": 2048,
+        "input_characters": 16000,
+        "timeout_seconds": 60
+      },
+      "owner": "primary-author",
+      "reviewer": "review_p08b_t2_v4"
+    },
+    {
+      "id": "v4_itsdangerous_signer_derive_key",
+      "project_id": "itsdangerous",
+      "origin": "injected",
+      "target": {
+        "path": "src/itsdangerous/signer.py",
+        "qualified_name": "Signer.derive_key",
+        "line": 182,
+        "end_line": 213
+      },
+      "requirements": [
+        "An unknown key derivation method is rejected instead of silently producing a key."
+      ],
+      "requirement_sources": [
+        {
+          "path": "docs/signer.rst",
+          "start_line": 38,
+          "end_line": 44,
+          "sha256": "a6ff4543b96fb2749029e5fbe47041f86fd1bf8a4f868280b24808ac14614a24",
+          "excerpt": "To record and validate the age of a signature, see :doc:`/timed`.\n\n.. autoclass:: Signer\n    :members:\n\n\nSigning Algorithms"
+        }
+      ],
+      "coverage_sources": [
+        "src/itsdangerous/__init__.py",
+        "src/itsdangerous/_json.py",
+        "src/itsdangerous/encoding.py",
+        "src/itsdangerous/exc.py",
+        "src/itsdangerous/serializer.py",
+        "src/itsdangerous/signer.py",
+        "src/itsdangerous/timed.py",
+        "src/itsdangerous/url_safe.py"
+      ],
+      "inventory": {
+        "sources": {
+          "src/itsdangerous/__init__.py": "61cea5ce3b81936802738dbbba5cf5da04531e44a546b21c57d7ce271e164bf3",
+          "src/itsdangerous/_json.py": "b38bef90cfcd6ee2fdee115b644921d78e63754aef2e7ddd63a987a86a7c18cf",
+          "src/itsdangerous/encoding.py": "6546d4dcaca3a497dc280795fabd49d76fda2a19f68be6441560ffc5b48bcfac",
+          "src/itsdangerous/exc.py": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+          "src/itsdangerous/serializer.py": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+          "src/itsdangerous/signer.py": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+          "src/itsdangerous/timed.py": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+          "src/itsdangerous/url_safe.py": "4d7db7718099818b3ec71b700d8397e3b5ce12ee9dcb345885b77ade693fb1be"
+        },
+        "tests": {
+          "tests/test_itsdangerous/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "tests/test_itsdangerous/test_encoding.py": "09737ba8bfb02128d6559e08f11a1ada45d2b67fe8f54c5b672570074ec7b156",
+          "tests/test_itsdangerous/test_serializer.py": "a300f174492a5ddddd821d67c797af049cf5957740d005762276501397f8b264",
+          "tests/test_itsdangerous/test_signer.py": "5076bbd9be5302c83e94a0510f6fe896b6715c647e9793644f89c357b96e7d58",
+          "tests/test_itsdangerous/test_timed.py": "42d2644a1b6526b263706e4d27a6ea55e09f45e01bffe97a1cf9d803362eb877",
+          "tests/test_itsdangerous/test_url_safe.py": "8cb92b1b36fc18c86f9521257d373a6191040005cd77c4cf5c5714b3ffea5ce5",
+          "tests/test_p08_working_copy_origin.py": "8f2faf29ef499979e566d9eeab254d768fc6dd912271ce58be57759f3cc72218"
+        },
+        "support": {},
+        "excluded": [],
+        "provenance": {
+          "project": {
+            "id": "itsdangerous",
+            "url": "https://github.com/pallets/itsdangerous.git",
+            "tag": "2.2.0",
+            "commit": "096c8d42545d3b68ea21a4f890fb2b2d8979c0bd",
+            "package_root": "src/itsdangerous",
+            "license_files": [
+              "LICENSE.txt"
+            ],
+            "config_files": [
+              "pyproject.toml"
+            ]
+          },
+          "dependencies": [],
+          "licenses": {
+            "LICENSE.txt": {
+              "sha256": "b3f7620467c0781acabb70d6b4932a46949f21aa1dbb932f75a6abdc0221900e",
+              "bytes": 1503
+            }
+          },
+          "dependency_licenses": {}
+        }
+      },
+      "protocol": {
+        "image_id": "sha256:7227650ec06570ea9a532bfb669d0888a4a92f7f179d2d442878f353b27ecd66",
+        "dependency_lock_sha256": "8f4d22acc8ff1aaa0b5bf56a283d6c7fe11790e08f416ceec709253bc907eee4",
+        "worker_sha256": "199041b80cd88cc535b1f1434775270ca662f593ad67e31bd889cebe834ac6d8",
+        "context_version": "p08-context-v1",
+        "repair_version": "p08-scoped-repair-v1",
+        "model": "deepseek-v4-flash-ascend",
+        "temperature": 0.2,
+        "thinking_mode": "disabled",
+        "max_tokens": 2048,
+        "input_characters": 16000,
+        "timeout_seconds": 60
+      },
+      "owner": "primary-author",
+      "reviewer": "review_p08b_t2_v4"
+    }
+  ]
+}
