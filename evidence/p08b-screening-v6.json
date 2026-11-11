@@ -1,0 +1,713 @@
+{
+  "schema": 1,
+  "scope": "P08B T2 no-model candidate screening, not formal results",
+  "pool_sha256": "7673e212ab2f2183f243a254d6913e7b5aaee6511d0caadecc3c892848789765",
+  "status": "complete",
+  "results": [
+    {
+      "candidate_id": "v6_dateutil_validate_fromutc_inputs",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/tz/_common.py",
+        "_validate_fromutc_inputs"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible",
+      "stage": "mutant_holdout_2",
+      "mutation": {
+        "old": "raise ValueError(\"dt.tzinfo is not self\")",
+        "new": "raise TypeError(\"dt.tzinfo is not self\")",
+        "line": 142
+      },
+      "requirements": [
+        "The fromutc input validator rejects a datetime whose tzinfo is not the receiving timezone with ValueError, as required by the datetime.tzinfo protocol. The wrapped conversion must not be called."
+      ],
+      "requirement_sources": [
+        {
+          "path": "docs/tz.rst",
+          "start_line": 2,
+          "end_line": 8,
+          "sha256": "df3f48a41f4d821b9ccb172d2a2b4f49793532acec5317ec5d615aa56b7e695e",
+          "excerpt": "tz\n==\n.. py:currentmodule:: dateutil.tz\n\n.. automodule:: dateutil.tz\n\nObjects"
+        }
+      ],
+      "semantic_review": {
+        "status": "approved",
+        "reviewer": "review_p08b_t2_v6",
+        "input_sha256": "6759df36cb35d7af523f149895223a9dba8f1542d1e7282593b02893fbe5b7e3",
+        "notes": "Approved independently by review_p08b_t2_v6: _common.py _validate_fromutc_inputs docstring explicitly follows CPython fromutc input checks; datetime.tzinfo protocol rejects mismatched tzinfo with ValueError. Receiver is tzinfo subclass; wrapped function must not execute. Mutation changes ValueError to TypeError. Public module autodoc excerpt is a pointer; semantic authority includes original docstring and standard protocol. Exact built-in assertion appropriate for this declared mutation; static approval does not imply survival."
+      },
+      "image_id": "sha256:7227650ec06570ea9a532bfb669d0888a4a92f7f179d2d442878f353b27ecd66",
+      "review_input_sha256": "6759df36cb35d7af523f149895223a9dba8f1542d1e7282593b02893fbe5b7e3",
+      "executions": [
+        {
+          "stage": "reference_original_1",
+          "result": {
+            "run": {
+              "run_id": "36aeae1301f04b47b7251c24590706f7",
+              "snapshot_digest": "8e0bc05785c0a40eedf2b82e667c8af1fc06010b654a476393e1395dd5bdf9a6",
+              "exit_code": 0,
+              "passed": 2032,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 64,
+              "failure": null,
+              "artifacts": [
+                "36aeae1301f04b47b7251c24590706f7/log.txt",
+                "36aeae1301f04b47b7251c24590706f7/junit.xml",
+                "36aeae1301f04b47b7251c24590706f7/manifest.json",
+                "36aeae1301f04b47b7251c24590706f7/run.json",
+                "36aeae1301f04b47b7251c24590706f7/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v6\\v6_dateutil_validate_fromutc_inputs\\reference_original_1\\36aeae1301f04b47b7251c24590706f7",
+            "cleanup_ok": true
+          }
+        },
+        {
+          "stage": "reference_holdout_1",
+          "result": {
+            "run": {
+              "run_id": "cc95618a127943699faeec68399c5e2b",
+              "snapshot_digest": "825a155161fefaef9c2bfd3d01c7d2629038e62584ff9fda2c25cd338388d350",
+              "exit_code": 0,
+              "passed": 1,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "failure": null,
+              "artifacts": [
+                "cc95618a127943699faeec68399c5e2b/log.txt",
+                "cc95618a127943699faeec68399c5e2b/junit.xml",
+                "cc95618a127943699faeec68399c5e2b/manifest.json",
+                "cc95618a127943699faeec68399c5e2b/run.json",
+                "cc95618a127943699faeec68399c5e2b/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v6\\v6_dateutil_validate_fromutc_inputs\\reference_holdout_1\\cc95618a127943699faeec68399c5e2b",
+            "cleanup_ok": true
+          }
+        },
+        {
+          "stage": "mutant_original_1",
+          "result": {
+            "run": {
+              "run_id": "f862c53ff60d483585878b22ce663d4f",
+              "snapshot_digest": "70cfbe1c5dcce84f1a633c6b901d7d91446b45715872487929eb033753c7dd40",
+              "exit_code": 0,
+              "passed": 2032,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 64,
+              "failure": null,
+              "artifacts": [
+                "f862c53ff60d483585878b22ce663d4f/log.txt",
+                "f862c53ff60d483585878b22ce663d4f/junit.xml",
+                "f862c53ff60d483585878b22ce663d4f/manifest.json",
+                "f862c53ff60d483585878b22ce663d4f/run.json",
+                "f862c53ff60d483585878b22ce663d4f/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v6\\v6_dateutil_validate_fromutc_inputs\\mutant_original_1\\f862c53ff60d483585878b22ce663d4f",
+            "cleanup_ok": true
+          }
+        },
+        {
+          "stage": "mutant_holdout_1",
+          "result": {
+            "run": {
+              "run_id": "d4287c48bef74e8cb4d2b5324c8f4ebb",
+              "snapshot_digest": "72a86c072d99eca4dedeea205ff5cb1efd272d288b6fd63ea59a0c514aa6b3a6",
+              "exit_code": 1,
+              "passed": 0,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "d4287c48bef74e8cb4d2b5324c8f4ebb/log.txt",
+                  "d4287c48bef74e8cb4d2b5324c8f4ebb/junit.xml",
+                  "d4287c48bef74e8cb4d2b5324c8f4ebb/manifest.json",
+                  "d4287c48bef74e8cb4d2b5324c8f4ebb/run.json",
+                  "d4287c48bef74e8cb4d2b5324c8f4ebb/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "d4287c48bef74e8cb4d2b5324c8f4ebb/log.txt",
+                "d4287c48bef74e8cb4d2b5324c8f4ebb/junit.xml",
+                "d4287c48bef74e8cb4d2b5324c8f4ebb/manifest.json",
+                "d4287c48bef74e8cb4d2b5324c8f4ebb/run.json",
+                "d4287c48bef74e8cb4d2b5324c8f4ebb/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v6\\v6_dateutil_validate_fromutc_inputs\\mutant_holdout_1\\d4287c48bef74e8cb4d2b5324c8f4ebb",
+            "cleanup_ok": true
+          }
+        },
+        {
+          "stage": "reference_original_2",
+          "result": {
+            "run": {
+              "run_id": "0d0ef64ecd554fafac2e35454b78f53b",
+              "snapshot_digest": "8e0bc05785c0a40eedf2b82e667c8af1fc06010b654a476393e1395dd5bdf9a6",
+              "exit_code": 0,
+              "passed": 2032,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 64,
+              "failure": null,
+              "artifacts": [
+                "0d0ef64ecd554fafac2e35454b78f53b/log.txt",
+                "0d0ef64ecd554fafac2e35454b78f53b/junit.xml",
+                "0d0ef64ecd554fafac2e35454b78f53b/manifest.json",
+                "0d0ef64ecd554fafac2e35454b78f53b/run.json",
+                "0d0ef64ecd554fafac2e35454b78f53b/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v6\\v6_dateutil_validate_fromutc_inputs\\reference_original_2\\0d0ef64ecd554fafac2e35454b78f53b",
+            "cleanup_ok": true
+          }
+        },
+        {
+          "stage": "reference_holdout_2",
+          "result": {
+            "run": {
+              "run_id": "6a7ce594318641589ac0d987962b2871",
+              "snapshot_digest": "825a155161fefaef9c2bfd3d01c7d2629038e62584ff9fda2c25cd338388d350",
+              "exit_code": 0,
+              "passed": 1,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "failure": null,
+              "artifacts": [
+                "6a7ce594318641589ac0d987962b2871/log.txt",
+                "6a7ce594318641589ac0d987962b2871/junit.xml",
+                "6a7ce594318641589ac0d987962b2871/manifest.json",
+                "6a7ce594318641589ac0d987962b2871/run.json",
+                "6a7ce594318641589ac0d987962b2871/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v6\\v6_dateutil_validate_fromutc_inputs\\reference_holdout_2\\6a7ce594318641589ac0d987962b2871",
+            "cleanup_ok": true
+          }
+        },
+        {
+          "stage": "mutant_original_2",
+          "result": {
+            "run": {
+              "run_id": "e49b4d23fde14b49a9f3c8f970b779ba",
+              "snapshot_digest": "70cfbe1c5dcce84f1a633c6b901d7d91446b45715872487929eb033753c7dd40",
+              "exit_code": 0,
+              "passed": 2032,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 64,
+              "failure": null,
+              "artifacts": [
+                "e49b4d23fde14b49a9f3c8f970b779ba/log.txt",
+                "e49b4d23fde14b49a9f3c8f970b779ba/junit.xml",
+                "e49b4d23fde14b49a9f3c8f970b779ba/manifest.json",
+                "e49b4d23fde14b49a9f3c8f970b779ba/run.json",
+                "e49b4d23fde14b49a9f3c8f970b779ba/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v6\\v6_dateutil_validate_fromutc_inputs\\mutant_original_2\\e49b4d23fde14b49a9f3c8f970b779ba",
+            "cleanup_ok": true
+          }
+        },
+        {
+          "stage": "mutant_holdout_2",
+          "result": {
+            "run": {
+              "run_id": "30b80d1a1b32449c9303173142a6e410",
+              "snapshot_digest": "72a86c072d99eca4dedeea205ff5cb1efd272d288b6fd63ea59a0c514aa6b3a6",
+              "exit_code": 1,
+              "passed": 0,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "30b80d1a1b32449c9303173142a6e410/log.txt",
+                  "30b80d1a1b32449c9303173142a6e410/junit.xml",
+                  "30b80d1a1b32449c9303173142a6e410/manifest.json",
+                  "30b80d1a1b32449c9303173142a6e410/run.json",
+                  "30b80d1a1b32449c9303173142a6e410/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "30b80d1a1b32449c9303173142a6e410/log.txt",
+                "30b80d1a1b32449c9303173142a6e410/junit.xml",
+                "30b80d1a1b32449c9303173142a6e410/manifest.json",
+                "30b80d1a1b32449c9303173142a6e410/run.json",
+                "30b80d1a1b32449c9303173142a6e410/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v6\\v6_dateutil_validate_fromutc_inputs\\mutant_holdout_2\\30b80d1a1b32449c9303173142a6e410",
+            "cleanup_ok": true
+          }
+        }
+      ],
+      "reason": "reviewed, original-regression surviving, privately detected and stable twice"
+    },
+    {
+      "candidate_id": "v6_itsdangerous_badheader___init",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/exc.py",
+        "BadHeader.__init__"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible",
+      "stage": "mutant_holdout_2",
+      "mutation": {
+        "old": "self.original_error: Exception | None = original_error",
+        "new": "self.original_error: Exception | None = None",
+        "line": 89
+      },
+      "requirements": [
+        "BadHeader preserves the supplied original exception object for diagnosing a malformed signed header."
+      ],
+      "requirement_sources": [
+        {
+          "path": "docs/exceptions.rst",
+          "start_line": 16,
+          "end_line": 22,
+          "sha256": "2558a52185983f3747665b46e4cfb42d9edd84145cb248a6d9640d689c5658fd",
+          "excerpt": "    :members:\n\n.. autoexception:: BadHeader\n    :members:\n\n.. autoexception:: BadPayload\n    :members:"
+        }
+      ],
+      "semantic_review": {
+        "status": "approved",
+        "reviewer": "review_p08b_t2_v6",
+        "input_sha256": "d03008cb1fa5e81b645ef86113a9cd9d4637cc053f105834ac8618bf81987387",
+        "notes": "Approved independently by review_p08b_t2_v6: exc.py BadHeader original_error attribute documentation promises preservation of an available original error; supplied valid Exception object is retained by identity. One-line diagnostic exception metadata loss, not null/type quota. Public autodoc excerpt is a pointer; semantic authority includes original exc.py attribute documentation. Static approval does not imply survival."
+      },
+      "image_id": "sha256:7227650ec06570ea9a532bfb669d0888a4a92f7f179d2d442878f353b27ecd66",
+      "review_input_sha256": "d03008cb1fa5e81b645ef86113a9cd9d4637cc053f105834ac8618bf81987387",
+      "executions": [
+        {
+          "stage": "reference_original_1",
+          "result": {
+            "run": {
+              "run_id": "8381dbf95dcc4772994b7919372903df",
+              "snapshot_digest": "43e710657941f84e9c902409b189d70672b18490f7cb01f3017e98f677217556",
+              "exit_code": 0,
+              "passed": 298,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "failure": null,
+              "artifacts": [
+                "8381dbf95dcc4772994b7919372903df/log.txt",
+                "8381dbf95dcc4772994b7919372903df/junit.xml",
+                "8381dbf95dcc4772994b7919372903df/manifest.json",
+                "8381dbf95dcc4772994b7919372903df/run.json",
+                "8381dbf95dcc4772994b7919372903df/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v6\\v6_itsdangerous_badheader___init\\reference_original_1\\8381dbf95dcc4772994b7919372903df",
+            "cleanup_ok": true
+          }
+        },
+        {
+          "stage": "reference_holdout_1",
+          "result": {
+            "run": {
+              "run_id": "1e2518ad5f234f52826d2b7201085cb1",
+              "snapshot_digest": "7dd53921c6050464bd957fd8efee64cfbdb7ca55b8653960b59d88da17f2e293",
+              "exit_code": 0,
+              "passed": 1,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "failure": null,
+              "artifacts": [
+                "1e2518ad5f234f52826d2b7201085cb1/log.txt",
+                "1e2518ad5f234f52826d2b7201085cb1/junit.xml",
+                "1e2518ad5f234f52826d2b7201085cb1/manifest.json",
+                "1e2518ad5f234f52826d2b7201085cb1/run.json",
+                "1e2518ad5f234f52826d2b7201085cb1/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v6\\v6_itsdangerous_badheader___init\\reference_holdout_1\\1e2518ad5f234f52826d2b7201085cb1",
+            "cleanup_ok": true
+          }
+        },
+        {
+          "stage": "mutant_original_1",
+          "result": {
+            "run": {
+              "run_id": "1400fcb7f3714f89b8e8b7c50e718cac",
+              "snapshot_digest": "2ad895b9791f65656d3b09d3ccbd596b7f68351a31876b8fe614361dc372ab98",
+              "exit_code": 0,
+              "passed": 298,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "failure": null,
+              "artifacts": [
+                "1400fcb7f3714f89b8e8b7c50e718cac/log.txt",
+                "1400fcb7f3714f89b8e8b7c50e718cac/junit.xml",
+                "1400fcb7f3714f89b8e8b7c50e718cac/manifest.json",
+                "1400fcb7f3714f89b8e8b7c50e718cac/run.json",
+                "1400fcb7f3714f89b8e8b7c50e718cac/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v6\\v6_itsdangerous_badheader___init\\mutant_original_1\\1400fcb7f3714f89b8e8b7c50e718cac",
+            "cleanup_ok": true
+          }
+        },
+        {
+          "stage": "mutant_holdout_1",
+          "result": {
+            "run": {
+              "run_id": "cdd74b49320448408066b9c073cf3aca",
+              "snapshot_digest": "c0f1193a459fa13fca2d7d51c958102f4605346ca3fa9112b11a03a9bf22c76a",
+              "exit_code": 1,
+              "passed": 0,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "cdd74b49320448408066b9c073cf3aca/log.txt",
+                  "cdd74b49320448408066b9c073cf3aca/junit.xml",
+                  "cdd74b49320448408066b9c073cf3aca/manifest.json",
+                  "cdd74b49320448408066b9c073cf3aca/run.json",
+                  "cdd74b49320448408066b9c073cf3aca/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "cdd74b49320448408066b9c073cf3aca/log.txt",
+                "cdd74b49320448408066b9c073cf3aca/junit.xml",
+                "cdd74b49320448408066b9c073cf3aca/manifest.json",
+                "cdd74b49320448408066b9c073cf3aca/run.json",
+                "cdd74b49320448408066b9c073cf3aca/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v6\\v6_itsdangerous_badheader___init\\mutant_holdout_1\\cdd74b49320448408066b9c073cf3aca",
+            "cleanup_ok": true
+          }
+        },
+        {
+          "stage": "reference_original_2",
+          "result": {
+            "run": {
+              "run_id": "db64757d3b9743d0b0470011b2a29e57",
+              "snapshot_digest": "43e710657941f84e9c902409b189d70672b18490f7cb01f3017e98f677217556",
+              "exit_code": 0,
+              "passed": 298,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "failure": null,
+              "artifacts": [
+                "db64757d3b9743d0b0470011b2a29e57/log.txt",
+                "db64757d3b9743d0b0470011b2a29e57/junit.xml",
+                "db64757d3b9743d0b0470011b2a29e57/manifest.json",
+                "db64757d3b9743d0b0470011b2a29e57/run.json",
+                "db64757d3b9743d0b0470011b2a29e57/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v6\\v6_itsdangerous_badheader___init\\reference_original_2\\db64757d3b9743d0b0470011b2a29e57",
+            "cleanup_ok": true
+          }
+        },
+        {
+          "stage": "reference_holdout_2",
+          "result": {
+            "run": {
+              "run_id": "11d454a774964a33a49953abfc610f1a",
+              "snapshot_digest": "7dd53921c6050464bd957fd8efee64cfbdb7ca55b8653960b59d88da17f2e293",
+              "exit_code": 0,
+              "passed": 1,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "failure": null,
+              "artifacts": [
+                "11d454a774964a33a49953abfc610f1a/log.txt",
+                "11d454a774964a33a49953abfc610f1a/junit.xml",
+                "11d454a774964a33a49953abfc610f1a/manifest.json",
+                "11d454a774964a33a49953abfc610f1a/run.json",
+                "11d454a774964a33a49953abfc610f1a/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v6\\v6_itsdangerous_badheader___init\\reference_holdout_2\\11d454a774964a33a49953abfc610f1a",
+            "cleanup_ok": true
+          }
+        },
+        {
+          "stage": "mutant_original_2",
+          "result": {
+            "run": {
+              "run_id": "79a618c5b40149c594e87f6d5071857a",
+              "snapshot_digest": "2ad895b9791f65656d3b09d3ccbd596b7f68351a31876b8fe614361dc372ab98",
+              "exit_code": 0,
+              "passed": 298,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "failure": null,
+              "artifacts": [
+                "79a618c5b40149c594e87f6d5071857a/log.txt",
+                "79a618c5b40149c594e87f6d5071857a/junit.xml",
+                "79a618c5b40149c594e87f6d5071857a/manifest.json",
+                "79a618c5b40149c594e87f6d5071857a/run.json",
+                "79a618c5b40149c594e87f6d5071857a/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v6\\v6_itsdangerous_badheader___init\\mutant_original_2\\79a618c5b40149c594e87f6d5071857a",
+            "cleanup_ok": true
+          }
+        },
+        {
+          "stage": "mutant_holdout_2",
+          "result": {
+            "run": {
+              "run_id": "1d1ddfe37649455ead1d53ef78aa55b7",
+              "snapshot_digest": "c0f1193a459fa13fca2d7d51c958102f4605346ca3fa9112b11a03a9bf22c76a",
+              "exit_code": 1,
+              "passed": 0,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "test_assertion",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "1d1ddfe37649455ead1d53ef78aa55b7/log.txt",
+                  "1d1ddfe37649455ead1d53ef78aa55b7/junit.xml",
+                  "1d1ddfe37649455ead1d53ef78aa55b7/manifest.json",
+                  "1d1ddfe37649455ead1d53ef78aa55b7/run.json",
+                  "1d1ddfe37649455ead1d53ef78aa55b7/coverage.json"
+                ]
+              },
+              "artifacts": [
+                "1d1ddfe37649455ead1d53ef78aa55b7/log.txt",
+                "1d1ddfe37649455ead1d53ef78aa55b7/junit.xml",
+                "1d1ddfe37649455ead1d53ef78aa55b7/manifest.json",
+                "1d1ddfe37649455ead1d53ef78aa55b7/run.json",
+                "1d1ddfe37649455ead1d53ef78aa55b7/coverage.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v6\\v6_itsdangerous_badheader___init\\mutant_holdout_2\\1d1ddfe37649455ead1d53ef78aa55b7",
+            "cleanup_ok": true
+          }
+        }
+      ],
+      "reason": "reviewed, original-regression surviving, privately detected and stable twice"
+    }
+  ],
+  "quota_matrix": [
+    {
+      "project_id": "dateutil",
+      "defect_type": "boundary",
+      "required": 2,
+      "eligible_candidates": 0,
+      "eligible_unique": 0,
+      "shortfall": 2
+    },
+    {
+      "project_id": "dateutil",
+      "defect_type": "null_type",
+      "required": 2,
+      "eligible_candidates": 0,
+      "eligible_unique": 0,
+      "shortfall": 2
+    },
+    {
+      "project_id": "dateutil",
+      "defect_type": "exception_handling",
+      "required": 2,
+      "eligible_candidates": 1,
+      "eligible_unique": 1,
+      "shortfall": 1
+    },
+    {
+      "project_id": "itsdangerous",
+      "defect_type": "boundary",
+      "required": 2,
+      "eligible_candidates": 0,
+      "eligible_unique": 0,
+      "shortfall": 2
+    },
+    {
+      "project_id": "itsdangerous",
+      "defect_type": "null_type",
+      "required": 2,
+      "eligible_candidates": 0,
+      "eligible_unique": 0,
+      "shortfall": 2
+    },
+    {
+      "project_id": "itsdangerous",
+      "defect_type": "exception_handling",
+      "required": 2,
+      "eligible_candidates": 1,
+      "eligible_unique": 1,
+      "shortfall": 1
+    }
+  ],
+  "freeze_recommended": false,
+  "input_manifest_audit": [
+    {
+      "candidate_id": "v6_dateutil_validate_fromutc_inputs",
+      "stage": "reference_original_1",
+      "manifest_matches": true,
+      "snapshot_digest": "8e0bc05785c0a40eedf2b82e667c8af1fc06010b654a476393e1395dd5bdf9a6"
+    },
+    {
+      "candidate_id": "v6_dateutil_validate_fromutc_inputs",
+      "stage": "reference_holdout_1",
+      "manifest_matches": true,
+      "snapshot_digest": "825a155161fefaef9c2bfd3d01c7d2629038e62584ff9fda2c25cd338388d350"
+    },
+    {
+      "candidate_id": "v6_dateutil_validate_fromutc_inputs",
+      "stage": "mutant_original_1",
+      "manifest_matches": true,
+      "snapshot_digest": "70cfbe1c5dcce84f1a633c6b901d7d91446b45715872487929eb033753c7dd40"
+    },
+    {
+      "candidate_id": "v6_dateutil_validate_fromutc_inputs",
+      "stage": "mutant_holdout_1",
+      "manifest_matches": true,
+      "snapshot_digest": "72a86c072d99eca4dedeea205ff5cb1efd272d288b6fd63ea59a0c514aa6b3a6"
+    },
+    {
+      "candidate_id": "v6_dateutil_validate_fromutc_inputs",
+      "stage": "reference_original_2",
+      "manifest_matches": true,
+      "snapshot_digest": "8e0bc05785c0a40eedf2b82e667c8af1fc06010b654a476393e1395dd5bdf9a6"
+    },
+    {
+      "candidate_id": "v6_dateutil_validate_fromutc_inputs",
+      "stage": "reference_holdout_2",
+      "manifest_matches": true,
+      "snapshot_digest": "825a155161fefaef9c2bfd3d01c7d2629038e62584ff9fda2c25cd338388d350"
+    },
+    {
+      "candidate_id": "v6_dateutil_validate_fromutc_inputs",
+      "stage": "mutant_original_2",
+      "manifest_matches": true,
+      "snapshot_digest": "70cfbe1c5dcce84f1a633c6b901d7d91446b45715872487929eb033753c7dd40"
+    },
+    {
+      "candidate_id": "v6_dateutil_validate_fromutc_inputs",
+      "stage": "mutant_holdout_2",
+      "manifest_matches": true,
+      "snapshot_digest": "72a86c072d99eca4dedeea205ff5cb1efd272d288b6fd63ea59a0c514aa6b3a6"
+    },
+    {
+      "candidate_id": "v6_itsdangerous_badheader___init",
+      "stage": "reference_original_1",
+      "manifest_matches": true,
+      "snapshot_digest": "43e710657941f84e9c902409b189d70672b18490f7cb01f3017e98f677217556"
+    },
+    {
+      "candidate_id": "v6_itsdangerous_badheader___init",
+      "stage": "reference_holdout_1",
+      "manifest_matches": true,
+      "snapshot_digest": "7dd53921c6050464bd957fd8efee64cfbdb7ca55b8653960b59d88da17f2e293"
+    },
+    {
+      "candidate_id": "v6_itsdangerous_badheader___init",
+      "stage": "mutant_original_1",
+      "manifest_matches": true,
+      "snapshot_digest": "2ad895b9791f65656d3b09d3ccbd596b7f68351a31876b8fe614361dc372ab98"
+    },
+    {
+      "candidate_id": "v6_itsdangerous_badheader___init",
+      "stage": "mutant_holdout_1",
+      "manifest_matches": true,
+      "snapshot_digest": "c0f1193a459fa13fca2d7d51c958102f4605346ca3fa9112b11a03a9bf22c76a"
+    },
+    {
+      "candidate_id": "v6_itsdangerous_badheader___init",
+      "stage": "reference_original_2",
+      "manifest_matches": true,
+      "snapshot_digest": "43e710657941f84e9c902409b189d70672b18490f7cb01f3017e98f677217556"
+    },
+    {
+      "candidate_id": "v6_itsdangerous_badheader___init",
+      "stage": "reference_holdout_2",
+      "manifest_matches": true,
+      "snapshot_digest": "7dd53921c6050464bd957fd8efee64cfbdb7ca55b8653960b59d88da17f2e293"
+    },
+    {
+      "candidate_id": "v6_itsdangerous_badheader___init",
+      "stage": "mutant_original_2",
+      "manifest_matches": true,
+      "snapshot_digest": "2ad895b9791f65656d3b09d3ccbd596b7f68351a31876b8fe614361dc372ab98"
+    },
+    {
+      "candidate_id": "v6_itsdangerous_badheader___init",
+      "stage": "mutant_holdout_2",
+      "manifest_matches": true,
+      "snapshot_digest": "c0f1193a459fa13fca2d7d51c958102f4605346ca3fa9112b11a03a9bf22c76a"
+    }
+  ],
+  "assertion_identity_audit": [
+    {
+      "candidate_id": "v6_dateutil_validate_fromutc_inputs",
+      "stage": "mutant_holdout_1",
+      "failures": [
+        {
+          "classname": "",
+          "name": "test_contract",
+          "message": "AssertionError: assert <class 'TypeError'> is ValueError",
+          "body_sha256": "dbdf87743ba87d0df82a4d20ea09f39aa0e7a33c332dfacd47e18d49a9f4e69d"
+        }
+      ]
+    },
+    {
+      "candidate_id": "v6_dateutil_validate_fromutc_inputs",
+      "stage": "mutant_holdout_2",
+      "failures": [
+        {
+          "classname": "",
+          "name": "test_contract",
+          "message": "AssertionError: assert <class 'TypeError'> is ValueError",
+          "body_sha256": "dbdf87743ba87d0df82a4d20ea09f39aa0e7a33c332dfacd47e18d49a9f4e69d"
+        }
+      ]
+    },
+    {
+      "candidate_id": "v6_itsdangerous_badheader___init",
+      "stage": "mutant_holdout_1",
+      "failures": [
+        {
+          "classname": "",
+          "name": "test_contract",
+          "message": "AssertionError: assert None is ValueError('malformed header') + where None = BadHeader('invalid').original_error",
+          "body_sha256": "bda11943660d44840973fda02620182411335f6b9b78b2e91c1e2bbd434d4d97"
+        }
+      ]
+    },
+    {
+      "candidate_id": "v6_itsdangerous_badheader___init",
+      "stage": "mutant_holdout_2",
+      "failures": [
+        {
+          "classname": "",
+          "name": "test_contract",
+          "message": "AssertionError: assert None is ValueError('malformed header') + where None = BadHeader('invalid').original_error",
+          "body_sha256": "bda11943660d44840973fda02620182411335f6b9b78b2e91c1e2bbd434d4d97"
+        }
+      ]
+    }
+  ],
+  "model_calls": 0,
+  "pool_source_path": "validation/p08b-candidates-v6.json",
+  "pool_sha256_definition": "actual pool index file bytes",
+  "assertion_identity_hash_definition": "SHA256 of UTF-8 failure body after whitespace normalization: space.join(body.split()); no address or content normalization"
+}

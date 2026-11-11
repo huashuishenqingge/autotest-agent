@@ -1,0 +1,24 @@
+{
+  "reviewer": "review_p08b_t2_v6",
+  "status": "passed_with_documented_field_definitions",
+  "scope": "independent read-only verification of v6 screening and six-pool cumulative results",
+  "checks": {
+    "source_report_hashes": 6,
+    "candidate_declarations": 77,
+    "distinct_functions_proposed": 73,
+    "eligible_distinct_functions": 34,
+    "quota_usable_slots": 30,
+    "current_manifests_checked": 16,
+    "eligible_junit_pairs_checked": 2,
+    "formal_tasks_frozen": 0,
+    "formal_experiment_records": 0
+  },
+  "clarifications": [
+    "eligible_unique means matched quota slots, eligible_candidates means raw distinct candidates",
+    "failure body hash uses whitespace normalization from repair.session._failure_evidence; reviewer also confirmed both pairs of raw full JUnit bodies identical"
+  ],
+  "limitations": [
+    "No independent rerun of all prior five pools or application tests; data-only change",
+    "Formal selection and freezing remain T3, not done"
+  ]
+}

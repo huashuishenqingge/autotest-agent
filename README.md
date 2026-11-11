@@ -213,3 +213,12 @@ P08B T2第三池完成：累计29个不同合格函数，但按固定项目/类�
 用户接受第四池并授权补缺。69b1bad预先固定4候选，review_p08b_t2_v5静态批准后运行，代码未改。两个空消息边界（HMACAlgorithm.get_signature及Signer.get_signature）各完整8阶段合格；tzstr保留测试在正确版本未抛错，reference_failed排除，不认定库违规；Signer.unsign变异在原回归产生29项混合失败，按保守environment_failed标签排除，不声称Docker故障。总21次真实测试，全部cleanup；21实际manifest逐文件核对，2合格双轮私有断言一致。没有重跑旧148/132代码测试，不冒记新跑。
 
 累计75声明、71提议函数、32不同合格函数，但配额仅28/30；仍缺ItsDangerous异常处理1、dateutil异常处理1。所有旧声明/失败及第四池2次启动失败保留；累计389次完成的候选测试，另2次失败启动，模型0、正式冻结/运行0。证据evidence/p08b-screening-v5.json、p08b-screening-cumulative-v5.json及p08b-candidate-v5-review.json。下一步只补2槽，等待用户确认；T3未启动。
+
+
+## 2026-11-11 第六池交付：T2配额30/30（待用户确认）
+
+用户接受第五池并授权继续。50a6943预声明两异常候选，经review_p08b_t2_v6独立语义批准后执行：BadHeader.__init__丢original_error、_validate_fromutc_inputs错异常类型，均完整双轮8阶段合格。原回归每轮分别298通过、2032通过64跳过，缺陷版本仍通过；保留测试正确版通过、缺陷版稳定断言失败。16次真实容器全部清理，逐一核验实际库存/镜像/快照，两项完整私有失败身份双轮一致。代码未改，未重跑历史实现测试。
+
+累计77声明/73提议函数/34不同合格函数，五项目每类2、各6，共30/30槽足额，4个同格备选。累计405次完成测试，另保留第四池2次启动失败；所有旧排除保留。模型调用0，正式冻结0/30、运行0/360，真实历史0。新证据evidence/p08b-screening-v6.json、p08b-screening-cumulative-v6.json、p08b-candidate-v6-review.json；完整命令、结果与限制见阶段8_第六批筛选与配额足额.md。
+
+T2足额待用户确认；下一步T3选定30函数并互审冻结，当前未开始。P06独立确认待用户，P09未开始。
