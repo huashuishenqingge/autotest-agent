@@ -1,0 +1,23 @@
+{
+  "schema": "p08-candidate-pool-v1",
+  "public_manifest": "experiments/p08b-candidates-v6-public.json",
+  "evaluator_manifest": "validation/p08b-candidates-v6-evaluation.json",
+  "candidate_order": [
+    "v6_dateutil_validate_fromutc_inputs",
+    "v6_itsdangerous_badheader___init"
+  ],
+  "semantic_reviews": {
+    "v6_dateutil_validate_fromutc_inputs": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v6",
+      "input_sha256": "6759df36cb35d7af523f149895223a9dba8f1542d1e7282593b02893fbe5b7e3",
+      "notes": "Approved independently by review_p08b_t2_v6: _common.py _validate_fromutc_inputs docstring explicitly follows CPython fromutc input checks; datetime.tzinfo protocol rejects mismatched tzinfo with ValueError. Receiver is tzinfo subclass; wrapped function must not execute. Mutation changes ValueError to TypeError. Public module autodoc excerpt is a pointer; semantic authority includes original docstring and standard protocol. Exact built-in assertion appropriate for this declared mutation; static approval does not imply survival."
+    },
+    "v6_itsdangerous_badheader___init": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v6",
+      "input_sha256": "d03008cb1fa5e81b645ef86113a9cd9d4637cc053f105834ac8618bf81987387",
+      "notes": "Approved independently by review_p08b_t2_v6: exc.py BadHeader original_error attribute documentation promises preservation of an available original error; supplied valid Exception object is retained by identity. One-line diagnostic exception metadata loss, not null/type quota. Public autodoc excerpt is a pointer; semantic authority includes original exc.py attribute documentation. Static approval does not imply survival."
+    }
+  }
+}

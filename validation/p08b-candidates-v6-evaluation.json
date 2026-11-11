@@ -1,0 +1,103 @@
+{
+  "schema": "p08-formal-v1",
+  "tasks": {
+    "v6_itsdangerous_badheader___init": {
+      "defect_type": "exception_handling",
+      "reference_source_hashes": {
+        "src/itsdangerous/__init__.py": "61cea5ce3b81936802738dbbba5cf5da04531e44a546b21c57d7ce271e164bf3",
+        "src/itsdangerous/_json.py": "b38bef90cfcd6ee2fdee115b644921d78e63754aef2e7ddd63a987a86a7c18cf",
+        "src/itsdangerous/encoding.py": "6546d4dcaca3a497dc280795fabd49d76fda2a19f68be6441560ffc5b48bcfac",
+        "src/itsdangerous/exc.py": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+        "src/itsdangerous/serializer.py": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+        "src/itsdangerous/signer.py": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+        "src/itsdangerous/timed.py": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+        "src/itsdangerous/url_safe.py": "4d7db7718099818b3ec71b700d8397e3b5ce12ee9dcb345885b77ade693fb1be"
+      },
+      "mutant_source_hashes": {
+        "src/itsdangerous/__init__.py": "61cea5ce3b81936802738dbbba5cf5da04531e44a546b21c57d7ce271e164bf3",
+        "src/itsdangerous/_json.py": "b38bef90cfcd6ee2fdee115b644921d78e63754aef2e7ddd63a987a86a7c18cf",
+        "src/itsdangerous/encoding.py": "6546d4dcaca3a497dc280795fabd49d76fda2a19f68be6441560ffc5b48bcfac",
+        "src/itsdangerous/exc.py": "39bd603d38e1512517fa9c4ffd33a8e5b23b3260ab5921d14af67ef7d5c8d3aa",
+        "src/itsdangerous/serializer.py": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+        "src/itsdangerous/signer.py": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+        "src/itsdangerous/timed.py": "fde81c664ebe5db3233d7cb00b64451b281b176edf65c3e1f52e0e894961a8a5",
+        "src/itsdangerous/url_safe.py": "4d7db7718099818b3ec71b700d8397e3b5ce12ee9dcb345885b77ade693fb1be"
+      },
+      "mutation": {
+        "old": "self.original_error: Exception | None = original_error",
+        "new": "self.original_error: Exception | None = None",
+        "line": 89
+      },
+      "diff": "--- a/src/itsdangerous/exc.py\n+++ b/src/itsdangerous/exc.py\n@@ -86,7 +86,7 @@\n \r\n         #: If available, the error that indicates why the payload was\r\n         #: not valid. This might be ``None``.\r\n-        self.original_error: Exception | None = original_error\r\n+        self.original_error: Exception | None = None\r\n \r\n \r\n class BadPayload(BadData):\r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v6_itsdangerous_badheader___init.py": {
+          "content": "def test_contract():\n    from itsdangerous.exc import BadHeader\n    cause=ValueError('malformed header')\n    error=BadHeader('invalid',payload=b'data',header={'alg':'bad'},original_error=cause)\n    assert error.original_error is cause\n",
+          "sha256": "e9490ccf75603861c0bc2e97fbd70f95af6eccf0dd501b9a688e6fe96930456d"
+        }
+      },
+      "expected_failure": "BadHeader preserves the supplied original exception object for diagnosing a malformed signed header.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    },
+    "v6_dateutil_validate_fromutc_inputs": {
+      "defect_type": "exception_handling",
+      "reference_source_hashes": {
+        "src/dateutil/__init__.py": "b54edff828d0a847178b8b47c766b9f18e8efb41dc4c59bee419bbf18ed4aa42",
+        "src/dateutil/_common.py": "1f4ce4415066989dc06fc6cb65077df786eec4b13f00bc8e5e29d1efbdc9d338",
+        "src/dateutil/easter.py": "3fc0effafdf4f58c21bc5b24798c4722096765280c352164503c196e83b3b038",
+        "src/dateutil/relativedelta.py": "abc031b39e6cf131ae9740be0fd61e2ef7aa0dc56ac17d779a220fd90ef2997e",
+        "src/dateutil/rrule.py": "b3af688f361febc0766eeba4521e10075c8f9e1e9793d8a0af68cf8c54eda332",
+        "src/dateutil/tzwin.py": "6a4c1f60b61d81279d5b6ad86940bd2f45b622c9bc992bff83f05449a18d4d2a",
+        "src/dateutil/utils.py": "33dd64806ee13f2842ce596469d26cb69ff22f3c6044ea4c0edda053683a50c1",
+        "src/dateutil/parser/__init__.py": "9e7efb4b5d521f12b06b7eea85aa47d0969f758b09a66fa1c7abcb8b77604d24",
+        "src/dateutil/parser/_parser.py": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+        "src/dateutil/parser/isoparser.py": "69a2c9806522bcf7e7af7d8795a1d51690f589768a8f0ca6005cd5913d130b7a",
+        "src/dateutil/tz/__init__.py": "0a93d353899482bb821393b835c19dcc54bf01a96400cf06ae63815be4782dcf",
+        "src/dateutil/tz/_common.py": "6f6691a2fcbdf861aeaac226a25c184bb6373d0c74d4475022187520b5058317",
+        "src/dateutil/tz/_factories.py": "090dc8f88bdd4fed042f3aa7afb0cccf33f12cce3ebf1b3a9ae57a9750361317",
+        "src/dateutil/tz/tz.py": "a3d921641d3c0d258764e1edf0e8ddedf3c467be6e2e9dd4e98b316493a66ea1",
+        "src/dateutil/tz/win.py": "990997effc9dba44787bfd227fe2357f9a73b71614faebe64056679c44b5074a",
+        "src/dateutil/zoneinfo/__init__.py": "b40d4a89f4689611d4ab0f9b1779f5198fa1b3611d8c20144b7669f92845198b",
+        "src/dateutil/zoneinfo/rebuild.py": "65f5250627e0e0d15485192ef0fe87f1db670f5a8de396544737e138c27210c0"
+      },
+      "mutant_source_hashes": {
+        "src/dateutil/__init__.py": "b54edff828d0a847178b8b47c766b9f18e8efb41dc4c59bee419bbf18ed4aa42",
+        "src/dateutil/_common.py": "1f4ce4415066989dc06fc6cb65077df786eec4b13f00bc8e5e29d1efbdc9d338",
+        "src/dateutil/easter.py": "3fc0effafdf4f58c21bc5b24798c4722096765280c352164503c196e83b3b038",
+        "src/dateutil/relativedelta.py": "abc031b39e6cf131ae9740be0fd61e2ef7aa0dc56ac17d779a220fd90ef2997e",
+        "src/dateutil/rrule.py": "b3af688f361febc0766eeba4521e10075c8f9e1e9793d8a0af68cf8c54eda332",
+        "src/dateutil/tzwin.py": "6a4c1f60b61d81279d5b6ad86940bd2f45b622c9bc992bff83f05449a18d4d2a",
+        "src/dateutil/utils.py": "33dd64806ee13f2842ce596469d26cb69ff22f3c6044ea4c0edda053683a50c1",
+        "src/dateutil/parser/__init__.py": "9e7efb4b5d521f12b06b7eea85aa47d0969f758b09a66fa1c7abcb8b77604d24",
+        "src/dateutil/parser/_parser.py": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+        "src/dateutil/parser/isoparser.py": "69a2c9806522bcf7e7af7d8795a1d51690f589768a8f0ca6005cd5913d130b7a",
+        "src/dateutil/tz/__init__.py": "0a93d353899482bb821393b835c19dcc54bf01a96400cf06ae63815be4782dcf",
+        "src/dateutil/tz/_common.py": "19849bf8b83674f68ca8d62b3ff164d697aa8933b3fa36a0f10da6096aa5cbbd",
+        "src/dateutil/tz/_factories.py": "090dc8f88bdd4fed042f3aa7afb0cccf33f12cce3ebf1b3a9ae57a9750361317",
+        "src/dateutil/tz/tz.py": "a3d921641d3c0d258764e1edf0e8ddedf3c467be6e2e9dd4e98b316493a66ea1",
+        "src/dateutil/tz/win.py": "990997effc9dba44787bfd227fe2357f9a73b71614faebe64056679c44b5074a",
+        "src/dateutil/zoneinfo/__init__.py": "b40d4a89f4689611d4ab0f9b1779f5198fa1b3611d8c20144b7669f92845198b",
+        "src/dateutil/zoneinfo/rebuild.py": "65f5250627e0e0d15485192ef0fe87f1db670f5a8de396544737e138c27210c0"
+      },
+      "mutation": {
+        "old": "raise ValueError(\"dt.tzinfo is not self\")",
+        "new": "raise TypeError(\"dt.tzinfo is not self\")",
+        "line": 142
+      },
+      "diff": "--- a/src/dateutil/tz/_common.py\n+++ b/src/dateutil/tz/_common.py\n@@ -139,7 +139,7 @@\n         if not isinstance(dt, datetime):\r\n             raise TypeError(\"fromutc() requires a datetime argument\")\r\n         if dt.tzinfo is not self:\r\n-            raise ValueError(\"dt.tzinfo is not self\")\r\n+            raise TypeError(\"dt.tzinfo is not self\")\r\n \r\n         return f(self, dt)\r\n \r\n",
+      "holdout_tests": {
+        "tests/p08_holdout/test_v6_dateutil_validate_fromutc_inputs.py": {
+          "content": "def test_contract():\n    from datetime import datetime,timezone,tzinfo\n    from dateutil.tz._common import _validate_fromutc_inputs\n    class Receiver(tzinfo): pass\n    receiver=Receiver()\n    calls=[]\n    @_validate_fromutc_inputs\n    def convert(self,dt):\n        calls.append(dt)\n        return dt\n    error_type=None\n    try: convert(receiver,datetime(2020,1,1,tzinfo=timezone.utc))\n    except Exception as exc: error_type=type(exc)\n    assert error_type is ValueError\n    assert calls==[]\n",
+          "sha256": "d4c7b8c41114cc47c00310d1289d7b49a29f3beb11b2c16f41c87f61b080bef6"
+        }
+      },
+      "expected_failure": "The fromutc input validator rejects a datetime whose tzinfo is not the receiving timezone with ValueError, as required by the datetime.tzinfo protocol. The wrapped conversion must not be called.",
+      "screening": {
+        "status": "pending",
+        "evidence": []
+      }
+    }
+  }
+}
