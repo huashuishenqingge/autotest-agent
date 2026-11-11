@@ -203,3 +203,6 @@ P08B T2第二池已完成：累计24个不同合格函数，按五项目三类�
 
 
 P08B T2第三池完成：累计29个不同合格函数，但按固定项目/类别只可填25/30槽，还差ItsDangerous3、dateutil2。见[第三批筛选与累计缺口](阶段8_第三批筛选与累计缺口.md)及`evidence/p08b-screening-cumulative-v3.json`。候选代码入口不变，第三池索引为`validation/p08b-candidates-v3.json`；原输入/排除保留，复验版本不重复算函数，仍未正式冻结或调用模型。
+
+
+2026-11-11第四池：先提交7828857，独立静态批准2项。首次两个reference容器启动exit125且0测试，故障原因未确证；引擎/镜像/空挂载随后检查通过，保留初始记录，新目录明确补跑。dateutil.ParserError.__str__完整8阶段合格，Signer.derive_key原回归检出3阶段，11次实际测试全部清理；初始两个失败容器后续无遗留。累计30不同合格函数，按配额26/30、还缺ItsDangerous边界2/异常1及dateutil异常1。旧记录/重复函数不双计，数据-only不冒称新跑旧单元；模型0、正式冻结0。证据evidence/p08b-screening-v4.json、p08b-screening-v4-initial-failure.json、p08b-screening-cumulative-v4.json。待用户确认继续补4槽，T3/P09未开始。

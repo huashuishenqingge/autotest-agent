@@ -1,0 +1,202 @@
+{
+  "schema": 1,
+  "scope": "P08B T2 no-model candidate screening, not formal results",
+  "pool_sha256": "661912018e2c79f970e8d20c5e395ca50581e90c248cc8fe2a68f220bc5f7dd5",
+  "status": "complete",
+  "results": [
+    {
+      "candidate_id": "v4_dateutil_parsererror___str",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/parser/_parser.py",
+        "ParserError.__str__"
+      ],
+      "defect_type": "exception_handling",
+      "status": "environment_failed",
+      "stage": "reference_original_1",
+      "mutation": {
+        "old": "except (TypeError, IndexError):",
+        "new": "except IndexError:",
+        "line": 1600
+      },
+      "requirements": [
+        "ParserError remains printable when its formatting arguments do not fit the format string, following the standard exception string protocol."
+      ],
+      "requirement_sources": [
+        {
+          "path": "docs/parser.rst",
+          "start_line": 24,
+          "end_line": 29,
+          "sha256": "10056333902a1abf6d4a224fb1a9fc7b98536cb2984648ee6daff8d36655cd3c",
+          "excerpt": "-----------------------\n\n.. autoclass:: dateutil.parser.ParserError\n\n.. autoclass:: dateutil.parser.UnknownTimezoneWarning\n"
+        }
+      ],
+      "semantic_review": {
+        "status": "approved",
+        "reviewer": "review_p08b_t2_v4",
+        "input_sha256": "4e55a8146675dcf821b9666f5044c45d6ba91439f2dfb824f4d4184d7c65617b",
+        "notes": "Independent static approval: ParserError uses inherited standard exception string protocol; Signer invalid derivation is documented enum rejection and existing test_signer.py:74 requires TypeError. Not a survivor verdict."
+      },
+      "image_id": "sha256:7227650ec06570ea9a532bfb669d0888a4a92f7f179d2d442878f353b27ecd66",
+      "review_input_sha256": "4e55a8146675dcf821b9666f5044c45d6ba91439f2dfb824f4d4184d7c65617b",
+      "executions": [
+        {
+          "stage": "reference_original_1",
+          "result": {
+            "run": {
+              "run_id": "5c844bc5e245403189ef846d3a68c7ae",
+              "snapshot_digest": "8e0bc05785c0a40eedf2b82e667c8af1fc06010b654a476393e1395dd5bdf9a6",
+              "exit_code": 125,
+              "passed": 0,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "environment",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "5c844bc5e245403189ef846d3a68c7ae/log.txt",
+                  "5c844bc5e245403189ef846d3a68c7ae/junit.xml",
+                  "5c844bc5e245403189ef846d3a68c7ae/manifest.json",
+                  "5c844bc5e245403189ef846d3a68c7ae/run.json"
+                ]
+              },
+              "artifacts": [
+                "5c844bc5e245403189ef846d3a68c7ae/log.txt",
+                "5c844bc5e245403189ef846d3a68c7ae/junit.xml",
+                "5c844bc5e245403189ef846d3a68c7ae/manifest.json",
+                "5c844bc5e245403189ef846d3a68c7ae/run.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v4\\v4_dateutil_parsererror___str\\reference_original_1\\5c844bc5e245403189ef846d3a68c7ae",
+            "cleanup_ok": false
+          }
+        }
+      ],
+      "reason": "input digest mismatch or cleanup failed"
+    },
+    {
+      "candidate_id": "v4_itsdangerous_signer_derive_key",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/signer.py",
+        "Signer.derive_key"
+      ],
+      "defect_type": "exception_handling",
+      "status": "environment_failed",
+      "stage": "reference_original_1",
+      "mutation": {
+        "old": "raise TypeError(\"Unknown key derivation method\")",
+        "new": "return b\"\"",
+        "line": 213
+      },
+      "requirements": [
+        "An unknown key derivation method is rejected instead of silently producing a key."
+      ],
+      "requirement_sources": [
+        {
+          "path": "docs/signer.rst",
+          "start_line": 38,
+          "end_line": 44,
+          "sha256": "a6ff4543b96fb2749029e5fbe47041f86fd1bf8a4f868280b24808ac14614a24",
+          "excerpt": "To record and validate the age of a signature, see :doc:`/timed`.\n\n.. autoclass:: Signer\n    :members:\n\n\nSigning Algorithms"
+        }
+      ],
+      "semantic_review": {
+        "status": "approved",
+        "reviewer": "review_p08b_t2_v4",
+        "input_sha256": "1e371c7382cfe229eaa40a0b7f0a3f550bf5384c05a1fe7e23bfdec43c91dc25",
+        "notes": "Independent static approval: ParserError uses inherited standard exception string protocol; Signer invalid derivation is documented enum rejection and existing test_signer.py:74 requires TypeError. Not a survivor verdict."
+      },
+      "image_id": "sha256:7227650ec06570ea9a532bfb669d0888a4a92f7f179d2d442878f353b27ecd66",
+      "review_input_sha256": "1e371c7382cfe229eaa40a0b7f0a3f550bf5384c05a1fe7e23bfdec43c91dc25",
+      "executions": [
+        {
+          "stage": "reference_original_1",
+          "result": {
+            "run": {
+              "run_id": "3d51916cf651419e8db75e24e19f9752",
+              "snapshot_digest": "43e710657941f84e9c902409b189d70672b18490f7cb01f3017e98f677217556",
+              "exit_code": 125,
+              "passed": 0,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "failure": {
+                "kind": "environment",
+                "message": "Run did not verify; inspect sanitized evidence",
+                "evidence": [
+                  "3d51916cf651419e8db75e24e19f9752/log.txt",
+                  "3d51916cf651419e8db75e24e19f9752/junit.xml",
+                  "3d51916cf651419e8db75e24e19f9752/manifest.json",
+                  "3d51916cf651419e8db75e24e19f9752/run.json"
+                ]
+              },
+              "artifacts": [
+                "3d51916cf651419e8db75e24e19f9752/log.txt",
+                "3d51916cf651419e8db75e24e19f9752/junit.xml",
+                "3d51916cf651419e8db75e24e19f9752/manifest.json",
+                "3d51916cf651419e8db75e24e19f9752/run.json"
+              ]
+            },
+            "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t2\\screening-v4\\v4_itsdangerous_signer_derive_key\\reference_original_1\\3d51916cf651419e8db75e24e19f9752",
+            "cleanup_ok": false
+          }
+        }
+      ],
+      "reason": "input digest mismatch or cleanup failed"
+    }
+  ],
+  "quota_matrix": [
+    {
+      "project_id": "dateutil",
+      "defect_type": "boundary",
+      "required": 2,
+      "eligible_candidates": 0,
+      "eligible_unique": 0,
+      "shortfall": 2
+    },
+    {
+      "project_id": "dateutil",
+      "defect_type": "null_type",
+      "required": 2,
+      "eligible_candidates": 0,
+      "eligible_unique": 0,
+      "shortfall": 2
+    },
+    {
+      "project_id": "dateutil",
+      "defect_type": "exception_handling",
+      "required": 2,
+      "eligible_candidates": 0,
+      "eligible_unique": 0,
+      "shortfall": 2
+    },
+    {
+      "project_id": "itsdangerous",
+      "defect_type": "boundary",
+      "required": 2,
+      "eligible_candidates": 0,
+      "eligible_unique": 0,
+      "shortfall": 2
+    },
+    {
+      "project_id": "itsdangerous",
+      "defect_type": "null_type",
+      "required": 2,
+      "eligible_candidates": 0,
+      "eligible_unique": 0,
+      "shortfall": 2
+    },
+    {
+      "project_id": "itsdangerous",
+      "defect_type": "exception_handling",
+      "required": 2,
+      "eligible_candidates": 0,
+      "eligible_unique": 0,
+      "shortfall": 2
+    }
+  ],
+  "freeze_recommended": false,
+  "note": "First attempt retained; exit125, zero tests, cleanup false at attempt time. Subsequent exact-name docker ps check found neither failed container. Not evidence of candidate invalidity."
+}
