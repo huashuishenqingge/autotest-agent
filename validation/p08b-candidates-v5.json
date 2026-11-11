@@ -1,0 +1,37 @@
+{
+  "schema": "p08-candidate-pool-v1",
+  "public_manifest": "experiments/p08b-candidates-v5-public.json",
+  "evaluator_manifest": "validation/p08b-candidates-v5-evaluation.json",
+  "candidate_order": [
+    "v5_dateutil_tzstr___init",
+    "v5_itsdangerous_hmacalgorithm_get_signature",
+    "v5_itsdangerous_signer_get_signature",
+    "v5_itsdangerous_signer_unsign"
+  ],
+  "semantic_reviews": {
+    "v5_dateutil_tzstr___init": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v5",
+      "input_sha256": "b3a549af23ca4a497887f59f1a0100e45eefe7e7a0665912d4817994a482c144",
+      "notes": "Independent review: standard HMAC oracle; BadSignature payload API exc.py:28-33/test_signer.py:51; tzstr ValueError existing test_tz.py:1488-1490 and1649-1651. Approval is not survival."
+    },
+    "v5_itsdangerous_hmacalgorithm_get_signature": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v5",
+      "input_sha256": "6934a0c57b667586c518069c5ba33c3799311f94981def259b654425445ea6ee",
+      "notes": "Independent review: standard HMAC oracle; BadSignature payload API exc.py:28-33/test_signer.py:51; tzstr ValueError existing test_tz.py:1488-1490 and1649-1651. Approval is not survival."
+    },
+    "v5_itsdangerous_signer_get_signature": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v5",
+      "input_sha256": "9f3a66e1599688719e34946ddd517d900bd7150005d8fd8c4c14197b78a8dd2c",
+      "notes": "Independent review: standard HMAC oracle; BadSignature payload API exc.py:28-33/test_signer.py:51; tzstr ValueError existing test_tz.py:1488-1490 and1649-1651. Approval is not survival."
+    },
+    "v5_itsdangerous_signer_unsign": {
+      "status": "approved",
+      "reviewer": "review_p08b_t2_v5",
+      "input_sha256": "506067db65c2e5a263683458bf81ea49a84cc8c0207dda7ecfd9b2eaf1b57269",
+      "notes": "Independent review: standard HMAC oracle; BadSignature payload API exc.py:28-33/test_signer.py:51; tzstr ValueError existing test_tz.py:1488-1490 and1649-1651. Approval is not survival."
+    }
+  }
+}
