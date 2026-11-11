@@ -1,0 +1,923 @@
+{
+  "schema": 1,
+  "scope": "T2 cumulative screening, no formal freeze",
+  "date": "2026-11-11",
+  "source_reports": [
+    {
+      "path": "evidence/p08b-screening.json",
+      "sha256": "bed620291a8a658bd7ba2f265236ba958de2d770bc8fb252562db5a42a93b4a6"
+    },
+    {
+      "path": "evidence/p08b-screening-v2.json",
+      "sha256": "963fff45c4317682af7874ec30506da3040e4e823d4cd9a1003bbca8d647eb26"
+    },
+    {
+      "path": "evidence/p08b-screening-v3.json",
+      "sha256": "19f9834ac7a7313382488733eeeff51c3b94e8facd48b93cf52f361cc59b1b52"
+    },
+    {
+      "path": "evidence/p08b-screening-v4.json",
+      "sha256": "21afdbdbe8940bdacb800b2ef7ec793f546119a0ce4e7f57c5fbc5f5b9ab236d"
+    },
+    {
+      "path": "evidence/p08b-screening-v5.json",
+      "sha256": "7130343ae52302e4aa2ff4e9b8bbfc976568c037ccbeadf0e0f92ef38d79ea93"
+    }
+  ],
+  "candidate_declarations": 75,
+  "distinct_functions_proposed": 71,
+  "eligible_distinct_functions": 32,
+  "quota_usable_slots": 28,
+  "quota_shortfall": 2,
+  "quota_matrix": [
+    {
+      "project_id": "click",
+      "defect_type": "boundary",
+      "required": 2,
+      "eligible_candidates": 3,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "click",
+      "defect_type": "null_type",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "click",
+      "defect_type": "exception_handling",
+      "required": 2,
+      "eligible_candidates": 3,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "jinja",
+      "defect_type": "boundary",
+      "required": 2,
+      "eligible_candidates": 3,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "jinja",
+      "defect_type": "null_type",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "jinja",
+      "defect_type": "exception_handling",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "itsdangerous",
+      "defect_type": "boundary",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "itsdangerous",
+      "defect_type": "null_type",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "itsdangerous",
+      "defect_type": "exception_handling",
+      "required": 2,
+      "eligible_candidates": 1,
+      "eligible_unique": 1,
+      "shortfall": 1
+    },
+    {
+      "project_id": "markupsafe",
+      "defect_type": "boundary",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "markupsafe",
+      "defect_type": "null_type",
+      "required": 2,
+      "eligible_candidates": 3,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "markupsafe",
+      "defect_type": "exception_handling",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "dateutil",
+      "defect_type": "boundary",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "dateutil",
+      "defect_type": "null_type",
+      "required": 2,
+      "eligible_candidates": 2,
+      "eligible_unique": 2,
+      "shortfall": 0
+    },
+    {
+      "project_id": "dateutil",
+      "defect_type": "exception_handling",
+      "required": 2,
+      "eligible_candidates": 1,
+      "eligible_unique": 1,
+      "shortfall": 1
+    }
+  ],
+  "result_counts": {
+    "detected_by_original": 34,
+    "eligible": 32,
+    "unstable": 2,
+    "holdout_not_detected": 1,
+    "semantic_rejected": 2,
+    "environment_failed": 3,
+    "reference_failed": 1
+  },
+  "completed_candidate_container_executions": 389,
+  "additional_failed_launch_attempts": 2,
+  "failed_attempt_report": "evidence/p08b-screening-v4-initial-failure.json",
+  "model_calls": 0,
+  "formal_tasks_frozen": 0,
+  "formal_experiment_records": 0,
+  "freeze_recommended": false,
+  "result_index": [
+    {
+      "candidate_id": "click_intrange__clamp",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "IntRange._clamp"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "click_numberrangebase_convert",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "_NumberRangeBase.convert"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "click_choice_convert",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "Choice.convert"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "click_datetime_convert",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "DateTime.convert"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "click_boolparamtype_convert",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "BoolParamType.convert"
+      ],
+      "defect_type": "null_type",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "click_paramtype___call",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "ParamType.__call__"
+      ],
+      "defect_type": "null_type",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "dateutil_relativedelta__fix",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/relativedelta.py",
+        "relativedelta._fix"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "dateutil_rrulebase_before",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/rrule.py",
+        "rrulebase.before"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "dateutil_easter",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/easter.py",
+        "easter"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "dateutil_relativedelta___mul",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/relativedelta.py",
+        "relativedelta.__mul__"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "dateutil_relativedelta___add",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/relativedelta.py",
+        "relativedelta.__add__"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "dateutil_relativedelta___eq",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/relativedelta.py",
+        "relativedelta.__eq__"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "itsdangerous_base64_encode",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/encoding.py",
+        "base64_encode"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "itsdangerous_timestampsigner_get_timestamp",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/timed.py",
+        "TimestampSigner.get_timestamp"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "itsdangerous_serializer_load_payload",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/serializer.py",
+        "Serializer.load_payload"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "itsdangerous_signer_validate",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/signer.py",
+        "Signer.validate"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "itsdangerous_serializer_iter_unsigners",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/serializer.py",
+        "Serializer.iter_unsigners"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "itsdangerous_signer_derive_key",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/signer.py",
+        "Signer.derive_key"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "jinja_do_batch",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_batch"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "jinja_sync_do_slice",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "sync_do_slice"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "jinja_do_float",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_float"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "jinja_do_int",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_int"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "jinja_do_default",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_default"
+      ],
+      "defect_type": "null_type",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "jinja_do_striptags",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_striptags"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "markupsafe_markup___getitem",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "Markup.__getitem__"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "markupsafe_markup_split",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "Markup.split"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "markupsafe_markup___add",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "Markup.__add__"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "markupsafe_markup___html_format",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "Markup.__html_format__"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "markupsafe_markup___new",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "Markup.__new__"
+      ],
+      "defect_type": "null_type",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "markupsafe_soft_str",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "soft_str"
+      ],
+      "defect_type": "null_type",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "v2_click_helpformatter_write_dl",
+      "project_id": "click",
+      "target": [
+        "src/click/formatting.py",
+        "HelpFormatter.write_dl"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "v2_click_tuple_convert",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "Tuple.convert"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v2_click_stringparamtype_convert",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "StringParamType.convert"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v2_click_pacifyflushwrapper_flush",
+      "project_id": "click",
+      "target": [
+        "src/click/utils.py",
+        "PacifyFlushWrapper.flush"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v2_click_make_str",
+      "project_id": "click",
+      "target": [
+        "src/click/utils.py",
+        "make_str"
+      ],
+      "defect_type": "exception_handling",
+      "status": "unstable"
+    },
+    {
+      "candidate_id": "v2_click_safecall",
+      "project_id": "click",
+      "target": [
+        "src/click/utils.py",
+        "safecall"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v2_click_datetime_convert",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "DateTime.convert"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v2_click_uuidparametertype_convert",
+      "project_id": "click",
+      "target": [
+        "src/click/types.py",
+        "UUIDParameterType.convert"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v2_dateutil_relativedelta__set_months",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/relativedelta.py",
+        "relativedelta._set_months"
+      ],
+      "defect_type": "boundary",
+      "status": "holdout_not_detected"
+    },
+    {
+      "candidate_id": "v2_dateutil_rrulebase_xafter",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/rrule.py",
+        "rrulebase.xafter"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v2_dateutil_isoparser__parse_tzstr",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/parser/isoparser.py",
+        "isoparser._parse_tzstr"
+      ],
+      "defect_type": "exception_handling",
+      "status": "semantic_rejected"
+    },
+    {
+      "candidate_id": "v2_dateutil_weekday___init",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/rrule.py",
+        "weekday.__init__"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "v2_itsdangerous_bytes_to_int",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/encoding.py",
+        "bytes_to_int"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "v2_itsdangerous_int_to_bytes",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/encoding.py",
+        "int_to_bytes"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "v2_itsdangerous_signer_verify_signature",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/signer.py",
+        "Signer.verify_signature"
+      ],
+      "defect_type": "exception_handling",
+      "status": "unstable"
+    },
+    {
+      "candidate_id": "v2_itsdangerous_timestampsigner_validate",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/timed.py",
+        "TimestampSigner.validate"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "v2_itsdangerous_urlsafeserializermixin_load_payload",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/url_safe.py",
+        "URLSafeSerializerMixin.load_payload"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "v2_jinja_do_filesizeformat",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_filesizeformat"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "v2_jinja_do_truncate",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_truncate"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v2_jinja_do_dictsort",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_dictsort"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v2_jinja_do_round",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_round"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v2_jinja_sync_do_sum",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "sync_do_sum"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v2_markupsafe_markup_escape",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "Markup.escape"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v2_markupsafe_markup_format_map",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "Markup.format_map"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v2_markupsafe_markup_join",
+      "project_id": "markupsafe",
+      "target": [
+        "src/markupsafe/__init__.py",
+        "Markup.join"
+      ],
+      "defect_type": "null_type",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v3_click_textwrapper__handle_long_word",
+      "project_id": "click",
+      "target": [
+        "src/click/_textwrap.py",
+        "TextWrapper._handle_long_word"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v3_click_textwrapper_indent_only",
+      "project_id": "click",
+      "target": [
+        "src/click/_textwrap.py",
+        "TextWrapper.indent_only"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v3_click_wrap_text",
+      "project_id": "click",
+      "target": [
+        "src/click/formatting.py",
+        "wrap_text"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "v3_dateutil_easter",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/easter.py",
+        "easter"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "v3_dateutil_timelex___init",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/parser/_parser.py",
+        "_timelex.__init__"
+      ],
+      "defect_type": "exception_handling",
+      "status": "environment_failed"
+    },
+    {
+      "candidate_id": "v3_dateutil_parser_parse",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/parser/_parser.py",
+        "parser.parse"
+      ],
+      "defect_type": "exception_handling",
+      "status": "environment_failed"
+    },
+    {
+      "candidate_id": "v3_dateutil_rrulestr__handle_until",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/rrule.py",
+        "_rrulestr._handle_UNTIL"
+      ],
+      "defect_type": "exception_handling",
+      "status": "semantic_rejected"
+    },
+    {
+      "candidate_id": "v3_itsdangerous_timedserializer_loads",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/timed.py",
+        "TimedSerializer.loads"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "v3_itsdangerous_timestampsigner_timestamp_to_datetime",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/timed.py",
+        "TimestampSigner.timestamp_to_datetime"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "v3_itsdangerous_serializer__loads_unsafe_impl",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/serializer.py",
+        "Serializer._loads_unsafe_impl"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "v3_itsdangerous_signer_verify_signature",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/signer.py",
+        "Signer.verify_signature"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v3_jinja_do_center",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_center"
+      ],
+      "defect_type": "boundary",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "v3_jinja_do_indent",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_indent"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v3_jinja_do_wordcount",
+      "project_id": "jinja",
+      "target": [
+        "src/jinja2/filters.py",
+        "do_wordcount"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v4_dateutil_parsererror___str",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/parser/_parser.py",
+        "ParserError.__str__"
+      ],
+      "defect_type": "exception_handling",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v4_itsdangerous_signer_derive_key",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/signer.py",
+        "Signer.derive_key"
+      ],
+      "defect_type": "exception_handling",
+      "status": "detected_by_original"
+    },
+    {
+      "candidate_id": "v5_dateutil_tzstr___init",
+      "project_id": "dateutil",
+      "target": [
+        "src/dateutil/tz/tz.py",
+        "tzstr.__init__"
+      ],
+      "defect_type": "exception_handling",
+      "status": "reference_failed"
+    },
+    {
+      "candidate_id": "v5_itsdangerous_hmacalgorithm_get_signature",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/signer.py",
+        "HMACAlgorithm.get_signature"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v5_itsdangerous_signer_get_signature",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/signer.py",
+        "Signer.get_signature"
+      ],
+      "defect_type": "boundary",
+      "status": "eligible"
+    },
+    {
+      "candidate_id": "v5_itsdangerous_signer_unsign",
+      "project_id": "itsdangerous",
+      "target": [
+        "src/itsdangerous/signer.py",
+        "Signer.unsign"
+      ],
+      "defect_type": "exception_handling",
+      "status": "environment_failed"
+    }
+  ],
+  "failed_attempt_report_sha256": "b4227f7ffb559f87cf383158ab29d05994947174b7da50a92fde70e567891ec0"
+}
