@@ -231,3 +231,12 @@ T2足额待用户确认；下一步T3选定30函数并互审冻结，当前未�
 最终Windows157项152通过5跳过，Linux核心141通过1跳过（Web由Windows覆盖）；主助手静态复验240原始manifest、30对完整故障身份，60离线实际消息隔离通过。没有重跑240容器或产生模型调用；正式运行0/360、真实历史0。Python实现哈希仅CRLF归一LF，JSON/源库存仍原字节。详细命令/限制/变更/证据见阶段8_正式任务冻结.md及evidence/p08b-t3-verification.json。
 
 T3已交付待确认；T4批量调度未开始。P06独立确认仍待用户，P09未开始。
+
+
+## 2026-11-12 T4调度交付（待用户确认）
+
+用户接受T3后实施T4。新增campaign.py及调度/故障测试，runner只新增可选scope（旧默认不变）。360固定槽计划已预声明，正式目录未创建；核验T3的36份不变文件及明确的runner运行时增量，T3数据/协议/评估证据不改。防重复claim、内核锁、返回usage/未知、原子结果/摘要、取消/恢复/导出失败及独立supplemental attempt已实现；补跑不替换原三次主重复。
+
+最终Windows177项172通过5跳过，Linux核心161通过1跳过（Web由Windows覆盖）；25联合专项+1敏感写入保护测试及完整回归通过。12槽非正式合成集成使用真实流程但模型/Docker均替身，24替身completion/105替身执行，恢复新增0/0，不算真实修复。review_p08b_campaign只读复核及运行时SHA核验无阻断。证据evidence/p08b-t4-verification.json、p08b-t4-review.json、p08b-t4-synthetic-integration.json、p08b-schedule.json。
+
+T4待用户确认，正式运行0/360、真实模型调用0，T5未开始。T4检查入口`.venv/Scripts/python.exe -m experiments.campaign --verify`；T3原CLI保留严格冻结校验，当前runner增量应被其拒绝，不能冒称T3冻结被改写。详细命令、文件及限制见阶段8_批量调度与恢复.md。P06独立确认及P09仍保留原状态。

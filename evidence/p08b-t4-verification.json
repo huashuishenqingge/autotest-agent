@@ -1,0 +1,142 @@
+{
+  "date": "2026-11-12",
+  "scope": "P08B T4 scheduler validation only; no formal experiment execution",
+  "specialized_tests": {
+    "joint_command": ".venv/Scripts/python.exe -m unittest tests.test_campaign tests.test_experiment_runner -v",
+    "joint_passed_before_last_privacy_guard": 25,
+    "additional_targeted_command": ".venv/Scripts/python.exe -m unittest tests.test_campaign.CampaignTests.test_sensitive_supplement_reason_is_rejected_before_writing_plan -v",
+    "additional_passed": 1,
+    "all_26_cases_in_final_full_suite": true
+  },
+  "windows": {
+    "command": ".venv/Scripts/python.exe -m unittest discover -s tests -v",
+    "total": 177,
+    "passed": 172,
+    "skipped": 5,
+    "log_path": "artifacts/p08b-t4/windows-tests-final.log",
+    "log_sha256": "900a6ffd1d07647b7aa6d0e7a24727be774e4b41f0721de97252bb7dad28b7f0"
+  },
+  "linux_core": {
+    "scope": "Linux Python core; Web tests excluded, covered by Windows full suite",
+    "excluded_test_files": [
+      "tests/test_web.py"
+    ],
+    "execution": {
+      "run": {
+        "run_id": "7d3326d806804392b1f1f4054dabd2ca",
+        "snapshot_digest": "760056c6816e2d78336b3e44d248d7f689a36f4779324fddff2cf973676d73de",
+        "exit_code": 0,
+        "passed": 161,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 1,
+        "failure": null,
+        "artifacts": [
+          "7d3326d806804392b1f1f4054dabd2ca/log.txt",
+          "7d3326d806804392b1f1f4054dabd2ca/junit.xml",
+          "7d3326d806804392b1f1f4054dabd2ca/manifest.json",
+          "7d3326d806804392b1f1f4054dabd2ca/run.json",
+          "7d3326d806804392b1f1f4054dabd2ca/coverage.json"
+        ]
+      },
+      "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t4\\linux-core-final\\7d3326d806804392b1f1f4054dabd2ca",
+      "cleanup_ok": true
+    }
+  },
+  "immutable_T3_files_rechecked_against_freeze_commit": [
+    "agents/generator.py",
+    "agents/repairer.py",
+    "evidence/p08b-freeze-artifact-audit.json",
+    "evidence/p08b-freeze-context-audit.json",
+    "evidence/p08b-freeze-semantic-review.json",
+    "evidence/p08b-freeze.json",
+    "evidence/p08b-screening-v2.json",
+    "evidence/p08b-screening-v3.json",
+    "evidence/p08b-screening-v4.json",
+    "evidence/p08b-screening-v5.json",
+    "evidence/p08b-screening-v6.json",
+    "evidence/p08b-screening.json",
+    "evidence/p08b-t3-verification.json",
+    "execution/container_worker.py",
+    "execution/docker_runner.py",
+    "execution/requirements-p08.lock",
+    "experiments/context.py",
+    "experiments/formal_tasks.py",
+    "experiments/freeze.py",
+    "experiments/functions.py",
+    "experiments/p08b-protocol.json",
+    "experiments/p08b-tasks.json",
+    "experiments/projects.json",
+    "experiments/scoped.py",
+    "experiments/screening.py",
+    "experiments/upstream-resources.json",
+    "models/adapter.py",
+    "repair/session.py",
+    "tests/test_freeze.py",
+    "validation/p08b-candidates-v2.json",
+    "validation/p08b-candidates-v3.json",
+    "validation/p08b-candidates-v4.json",
+    "validation/p08b-candidates-v5.json",
+    "validation/p08b-candidates-v6.json",
+    "validation/p08b-candidates.json",
+    "validation/p08b-evaluation.json"
+  ],
+  "explicit_runtime_override": "experiments/runner.py optional scope only; base and new SHA declared separately",
+  "runtime_manifest_sha256": "c9ab3505fac2bc17eaf7ce6ed76023fd47d63d361dd84ae0cdcce05bf1c4ea87",
+  "schedule_sha256": "41cfc53e21a39e3aba554a407deb0b8290393d549badb6e8798d0dee39374c53",
+  "planned_primary_slots": 360,
+  "formal_records_executed": 0,
+  "real_model_calls": 0,
+  "offline_integration": {
+    "scope": "Nonformal synthetic integration only; real campaign/runner/generator/repairer; Docker runner and model are offline stubs",
+    "slots_completed": 12,
+    "offline_completion_calls": 24,
+    "real_model_calls": 0,
+    "real_docker_executions": 0,
+    "stub_execution_invocations": 105,
+    "resume_extra_completions": 0,
+    "resume_extra_stub_executions": 0,
+    "statuses": {
+      "baseline_survives": 3,
+      "verified": 9
+    },
+    "unknown_usage_requests": 24,
+    "private_test_absent_from_requests": true,
+    "export_sha256": "48bbd940c44c2a0820e8c16f10fa9767a2f1126f6807f9dcaf30c3443072d6de",
+    "formal_records_executed": 0
+  },
+  "fault_scenarios": [
+    "claim before execution abrupt exit",
+    "request returned before slot outcome persisted",
+    "request return ledger write failure retains unknown usage",
+    "slot outcome write failure preserves claim and never resends",
+    "export write failure before/after result",
+    "duplicate live process lease and actual subprocess os._exit release",
+    "cancel before claim and after returned work",
+    "protocol/proof/runtime/source/usage/result drift",
+    "formal canonical directory prevents new-root duplicate campaign",
+    "explicit supplemental attempt preserves original repetitions and export"
+  ],
+  "red_green_notes": [
+    "Missing campaign module observed before implementation",
+    "Windows temporary-directory permission block rerun with approved access; not interpreted as code defect",
+    "Missing scope parameter failed before implementation",
+    "Export overwrite and noncanonical formal root tests failed, then protected",
+    "Unknown usage ledger mutation failed, then request digest bound to finished outcome",
+    "Supplemental reason sensitive marker was persisted before safety check; new pre-persistence safety test red then green"
+  ],
+  "limitations": [
+    "No real model request or formal task execution; offline integration results are not repair success statistics",
+    "Linux Web suite excluded; covered by Windows full suite",
+    "File fsync and atomic replacement used; full hardware/storage power-loss guarantees depend on filesystem and OS; unknown in-flight work is never automatically resent",
+    "Cross-computer artifact synchronization and clean environment reproduction remain P09",
+    "Explicit supplemental function is available but not invoked on formal tasks; extra attempts remain separate from the original three repeats"
+  ],
+  "independent_review": {
+    "reviewer": "review_p08b_campaign",
+    "verdict": "approved_no_blockers",
+    "read_only": true,
+    "runtime_hashes_checked": true,
+    "notes": "Reviewed core, explicit supplemental attempts, request/usage digest binding and final pre-persistence safety check; actual tests are main assistant evidence."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "reviewer": "review_p08b_campaign",
+  "method": "independent read-only static review, no tests/target code/API executed",
+  "verdict": "approved_no_blockers",
+  "checked": [
+    "fixed 360 schedule and group rotation",
+    "legacy scope compatibility",
+    "durable slot/request claims before calls",
+    "unknown usage and missing results never silently resent",
+    "lease release on process exit and duplicate start rejection",
+    "runtime overrides only runner scope; actual LF-normalized hashes match",
+    "explicit supplemental attempt uses separate namespace and does not replace three repetitions",
+    "request/usage digest bound to final outcome",
+    "plan safety check before persistence",
+    "predeclared schedule is plan-only; formal execution zero"
+  ],
+  "limits": [
+    "Full test and synthetic integration counts are main assistant actual runs",
+    "No full hardware/storage power-loss guarantee; no cross-machine shared live lock"
+  ]
+}

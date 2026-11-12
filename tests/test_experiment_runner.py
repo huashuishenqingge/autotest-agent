@@ -145,3 +145,27 @@ class ExperimentRunnerTests(unittest.TestCase):
         self.assertEqual(result['error']['type'],'PermissionError')
         self.assertEqual(result['error']['errno'],13)
         self.assertNotIn('private-location-not-for-output',json.dumps(result))
+
+    def test_scope_is_explicit_and_legacy_default_is_preserved(self):
+        with tempfile.TemporaryDirectory() as folder:
+            old=self.execute('B0',folder,client=None)
+            new=self.execute('B0',folder,client=None,scope='P08B frozen formal experiment')
+            self.assertEqual(old['scope'],'P08A nonformal admission only')
+            self.assertEqual(new['scope'],'P08B frozen formal experiment')
+            with self.assertRaises(ValueError):
+                self.execute('B0',folder,client=None,scope='unreviewed')
+
+    def test_wrong_valid_repairs_respect_one_or_three_attempt_caps(self):
+        for group,expected in [('B1',2),('B2',5),('A0',5)]:
+            self.setUp();original=self.client()
+            class WrongClient:
+                def complete(self,messages):
+                    response=original.complete(messages)
+                    if 'replacements' in response.content:
+                        response=Completion(response.content.replace('return x >= 1','return x > 2'),'fake',None)
+                    return response
+            with self.subTest(group=group),tempfile.TemporaryDirectory() as folder:
+                result=self.execute(group,folder,client=WrongClient())
+            self.assertNotEqual(result['status'],'verified')
+            self.assertEqual(len(self.prompts),expected)
+            self.assertEqual(len(result['repair']['attempts']),1 if group=='B1' else 3)

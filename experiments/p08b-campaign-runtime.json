@@ -1,0 +1,16 @@
+{
+  "schema": "p08-campaign-runtime-v1",
+  "freeze_commit": "3515bbf21b068422d5425709c6fce749d5a03688",
+  "freeze_manifest_sha256": "ad3bda9bbb8a88db80401e8fd5a5e9c4afc6d898bee1582204660c21d0e6ab6d",
+  "overrides": {
+    "experiments/runner.py": {
+      "base_sha256": "82cb8c3dcf413226275ca251863d76f934c59507a0cd129988f7a23a61c973ee",
+      "sha256": "ea2b63df5132fe86d0438f21e2dea68a0fd0544e9cd1ec95b7675253d51a4bd5",
+      "reason": "Approved T4 optional scope argument and allowlist, default P08A unchanged; report uses supplied scope only."
+    }
+  },
+  "additions": {
+    "experiments/campaign.py": "27cfda4d726b4ba981b53c5547ede71532b243d1faba59b6e921de75b7dbd80f",
+    "tests/test_campaign.py": "eab96444d5c4496ca39db88b803725eea3096e4c4cd4fd167802853446bc735b"
+  }
+}
