@@ -1,0 +1,77 @@
+{
+  "schema": "p08-formal-receipt-v1",
+  "date": "2026-11-13",
+  "data_commit": "332443620e0389968fb73689325f72b9b1730166",
+  "runtime_commit": "964532d572e14909b26d14b8d7cae023c9784484",
+  "freeze_commit": "3515bbf21b068422d5425709c6fce749d5a03688",
+  "plan_sha256": "beaf047ff236bee76dc73fe62b0e2ee1804fc1672f1f0182974cbfefc551a89c",
+  "records": 360,
+  "terminal_counts": {
+    "pending": 0,
+    "finished": 360,
+    "interrupted_unknown": 0
+  },
+  "model_request_attempts": 284,
+  "known_total_tokens": 667155,
+  "unknown_usage_requests": 4,
+  "technical_verified": 56,
+  "semantic_confirmation": "pending_T6 for every patch",
+  "validity_status": "Unresolved collection-entry and coverage completeness findings; not final effectiveness conclusions",
+  "files": [
+    {
+      "path": "evidence/p08b-formal-results.json",
+      "working_bytes_sha256": "cefa754ea527cf716d267e09780bf922ce6cf241318e612e92f903ae61433cf2",
+      "git_blob_sha256": "92f2ebd58b82ac79b030e97912b167cd84b88a97d267965f35a08f78ea62ece4",
+      "bytes": 1222788
+    },
+    {
+      "path": "evidence/p08b-formal-executions.json",
+      "working_bytes_sha256": "e2a82f1cb0680e536c9409c832d3c195c35f47b1e1d470babfd4f3d185e6f704",
+      "git_blob_sha256": "a844e8777ae944093c2d7d3da744e7137011e946d599756edcb2a636b9abda46",
+      "bytes": 1126976
+    },
+    {
+      "path": "evidence/p08b-formal-generated-tests.json",
+      "working_bytes_sha256": "d848ee72c887f49aa5de62c9e1eba4ef7b42dfefb84e77a851fdba38f1acd397",
+      "git_blob_sha256": "5f1e6269c1e3f73b2df0376ffa0ab34e041e3445c72f218c190fa39337c61503",
+      "bytes": 405024
+    },
+    {
+      "path": "evidence/p08b-formal-patches.json",
+      "working_bytes_sha256": "3b17a03846745368d6b24029f786e705d6dff62a9e70d6a5713cb6c3185491ff",
+      "git_blob_sha256": "ba9e1b7346f2289a32577f70475d3c6b4dd63335135febb66d6b7c00f9b8d4c4",
+      "bytes": 70676
+    },
+    {
+      "path": "evidence/p08b-formal-alignment.csv",
+      "working_bytes_sha256": "66baee7cdf93d1751f239cce0730d48d11b4f18e96a8c873c4df32b410677fd5",
+      "git_blob_sha256": "b31efceb27adde65fa4973c52f6704bca8e9e5683da13e0ef2adb9ec7a5c4b3b",
+      "bytes": 69669
+    },
+    {
+      "path": "evidence/p08b-t5-preflight.json",
+      "working_bytes_sha256": "8a03db79a804ba4775051f86e52e5aa20f61b0f5778e36b0814aa11d1aed8178",
+      "git_blob_sha256": "cbb857289d6b59640b6e3ffea9600e9efc52bb59e62920ac0cb17340971556e7",
+      "bytes": 2546
+    },
+    {
+      "path": "evidence/p08b-t5-protocol-anomalies.json",
+      "working_bytes_sha256": "8237db30afefa82ba35b90dc8caa64ac098ff064889383c8501f0c5eaf1533b1",
+      "git_blob_sha256": "0e83bcae6f971b04d099a3b4d65c6b90cec37b99f1959f324f9d92fb20a644f4",
+      "bytes": 8438
+    },
+    {
+      "path": "evidence/p08b-t5-review.json",
+      "working_bytes_sha256": "e1a87e2febcc82fbc87bc49dc2c7462c70fd394af5db167d03cba863dfc0b9c7",
+      "git_blob_sha256": "4022febcdbe303a36e5a9a48c63f073e662c6efdb4122b7858e1dd61f87b68ce",
+      "bytes": 2141
+    },
+    {
+      "path": "evidence/p08b-t5-verification.json",
+      "working_bytes_sha256": "2f21e5be2dcca370d7f5e4043f183033bbb1cf0f79b408f275d75ec8677d785a",
+      "git_blob_sha256": "3b1aaeeb2fb4dd383e531354d702b4d455c586afd5a9d99f84e5c94d9daeec4b",
+      "bytes": 3351
+    }
+  ],
+  "note": "Receipt is committed after the original data commit to avoid self-reference. Git comparison normalizes line endings only; raw working and blob SHA are separately preserved."
+}
