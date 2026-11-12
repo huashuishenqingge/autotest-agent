@@ -1,24 +1,12 @@
 --- T3/experiments/runner.py
 +++ T4/experiments/runner.py
-@@ -35,16 +35,19 @@
- 
- 
- def run_experiment(case, validation, *, group, client, image_id, artifact_root,
+@@ -38 +38 @@
 -                   cancelled=lambda: False, run_id=None):
 +                   cancelled=lambda: False, run_id=None, scope='P08A nonformal admission only'):
-     if group not in ('B0', 'B1', 'B2', 'A0'):
-         raise ValueError('unknown method')
+@@ -40,0 +41,3 @@
 +    if scope not in ('P08A nonformal admission only', 'P08B frozen formal experiment',
 +                     'P08B scheduler synthetic validation only'):
 +        raise ValueError('unknown experiment scope')
-     run_id = run_id or uuid.uuid4().hex
-     if not isinstance(run_id, str) or not re.fullmatch('[A-Za-z0-9_-]{1,64}', run_id):
-         raise ValueError('invalid immutable experiment identity')
-     directory = Path(artifact_root).resolve() / run_id
-     directory.mkdir(parents=True, exist_ok=False)  # Never silently rerun paid work.
-     started = time.monotonic()
+@@ -47 +50 @@
 -    report = {'schema': 1, 'scope': 'P08A nonformal admission only', 'run_id': run_id, 'case_id': case['id'],
 +    report = {'schema': 1, 'scope': scope, 'run_id': run_id, 'case_id': case['id'],
-               'group': group, 'status': 'failed', 'rounds': [], 'executions': [], 'coverage': {},
-               'repair': None, 'generated_only': None, 'image_id': image_id}
-     report['stage'] = 'input_validation'

@@ -138,5 +138,6 @@
     "read_only": true,
     "runtime_hashes_checked": true,
     "notes": "Reviewed core, explicit supplemental attempts, request/usage digest binding and final pre-persistence safety check; actual tests are main assistant evidence."
-  }
+  },
+  "format_note": "Audit diff uses zero context: standard blank context lines triggered Git whitespace checking when tracked as a new text file. Runtime code unchanged."
 }

@@ -1,0 +1,25 @@
+{
+  "schema": "p08-campaign-receipt-v1",
+  "date": "2026-11-12",
+  "runtime_commit": "964532d572e14909b26d14b8d7cae023c9784484",
+  "T3_freeze_commit": "3515bbf21b068422d5425709c6fce749d5a03688",
+  "runtime_manifest_sha256": "c9ab3505fac2bc17eaf7ce6ed76023fd47d63d361dd84ae0cdcce05bf1c4ea87",
+  "schedule_sha256": "41cfc53e21a39e3aba554a407deb0b8290393d549badb6e8798d0dee39374c53",
+  "primary_plan_sha256": "beaf047ff236bee76dc73fe62b0e2ee1804fc1672f1f0182974cbfefc551a89c",
+  "files_verified_against_runtime_commit": [
+    "experiments/campaign.py",
+    "experiments/runner.py",
+    "experiments/p08b-campaign-runtime.json",
+    "tests/test_campaign.py",
+    "tests/test_experiment_runner.py",
+    "evidence/p08b-schedule.json"
+  ],
+  "comparison": "Git blob and working text match after CRLF to LF only; raw runtime/plan SHA separately recorded",
+  "verification_sha256": "d882ed1c851534fc983d06034e2b4f9a97e744f12e3f4636e2d175cbfa926aad",
+  "verification_note": "Verification metadata and zero-context audit diff formatting correction are in this later receipt commit; no runtime implementation change.",
+  "planned_primary_records": 360,
+  "formal_records_executed": 0,
+  "real_model_calls": 0,
+  "status": "T4 delivered; awaiting user acceptance; T5 not started",
+  "next_gate": "Before formal calls verify this runtime commit, immutable T3 data, runtime manifest and predeclared schedule; do not start a new campaign root or replace primary repeats."
+}
