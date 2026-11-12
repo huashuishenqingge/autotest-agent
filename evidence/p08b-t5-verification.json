@@ -1,0 +1,101 @@
+{
+  "scope": "T5 final provenance, ledger and artifact verification; not semantic repair confirmation",
+  "preflight": "evidence/p08b-t5-preflight.json",
+  "plan_sha256": "beaf047ff236bee76dc73fe62b0e2ee1804fc1672f1f0182974cbfefc551a89c",
+  "runtime_commit": "964532d572e14909b26d14b8d7cae023c9784484",
+  "freeze_commit": "3515bbf21b068422d5425709c6fce749d5a03688",
+  "record_count": 360,
+  "groups": {
+    "B0": 90,
+    "B1": 90,
+    "B2": 90,
+    "A0": 90
+  },
+  "repeats": {
+    "1": 120,
+    "2": 120,
+    "3": 120
+  },
+  "request_attempts": 284,
+  "global_reserved_attempt_delta": 284,
+  "returned_requests": 280,
+  "raised_requests": 4,
+  "actual_returned_model_names": [
+    "deepseek-v4-flash-ascend"
+  ],
+  "usage": {
+    "known_total_tokens": 667155,
+    "unknown_requests": 4,
+    "total_tokens": null
+  },
+  "actual_execution_audit": {
+    "unique_runs": 1352,
+    "snapshot_verified": 1352,
+    "cleanup_false": 0,
+    "index_file": "p08b-formal-executions.json",
+    "index_payload_sha256": "df277d2e320eb5d3549e42bc241a0cdb8bec2a2cb462d09f82d8ed1eb6e28ec2",
+    "hash_definition": "canonical JSON SHA256, sort keys and compact separators with ensure_ascii=true"
+  },
+  "owned_containers_remaining": [],
+  "source_checkouts_postflight": [
+    {
+      "project_id": "click",
+      "commit": "934813e4d421071a1b3db3973c02fe2721359a6e",
+      "clean": true
+    },
+    {
+      "project_id": "jinja",
+      "commit": "15206881c006c79667fe5154fe80c01c65410679",
+      "clean": true
+    },
+    {
+      "project_id": "itsdangerous",
+      "commit": "096c8d42545d3b68ea21a4f890fb2b2d8979c0bd",
+      "clean": true
+    },
+    {
+      "project_id": "markupsafe",
+      "commit": "297fc8e356e6836a62087949245d09a28e9f1b13",
+      "clean": true
+    },
+    {
+      "project_id": "dateutil",
+      "commit": "1ae807774053c071acc9e7d3d27778fba0a7773e",
+      "clean": true
+    }
+  ],
+  "files": [
+    {
+      "path": "evidence/p08b-formal-results.json",
+      "sha256": "cefa754ea527cf716d267e09780bf922ce6cf241318e612e92f903ae61433cf2",
+      "bytes": 1222788
+    },
+    {
+      "path": "evidence/p08b-formal-executions.json",
+      "sha256": "e2a82f1cb0680e536c9409c832d3c195c35f47b1e1d470babfd4f3d185e6f704",
+      "bytes": 1126976
+    },
+    {
+      "path": "evidence/p08b-formal-generated-tests.json",
+      "sha256": "d848ee72c887f49aa5de62c9e1eba4ef7b42dfefb84e77a851fdba38f1acd397",
+      "bytes": 405024
+    },
+    {
+      "path": "evidence/p08b-formal-patches.json",
+      "sha256": "3b17a03846745368d6b24029f786e705d6dff62a9e70d6a5713cb6c3185491ff",
+      "bytes": 70676
+    },
+    {
+      "path": "evidence/p08b-formal-alignment.csv",
+      "sha256": "66baee7cdf93d1751f239cce0730d48d11b4f18e96a8c873c4df32b410677fd5",
+      "bytes": 69669
+    }
+  ],
+  "model_calls_during_export_audit": 0,
+  "implementation_code_changed_during_run": false,
+  "tests_note": "No application implementation change or repeated native/unit regression in T5; T4 unit results remain historical. Actual formal executions are separately indexed.",
+  "validity_findings": "evidence/p08b-t5-protocol-anomalies.json",
+  "semantic_reviews": "all pending_T6",
+  "monetary_cost": "not inferred; unknown provider token usage remains null",
+  "audit_date": "2026-11-13"
+}

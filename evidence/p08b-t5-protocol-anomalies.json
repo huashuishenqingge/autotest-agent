@@ -150,5 +150,41 @@
     "boundary": "No exception message/traceback was persisted, so exact stack line is not directly recorded; do not generalize this one example to all experiment_failed rows.",
     "reviewer": "review_p08b_t5_evidence",
     "repair_started": false
+  },
+  "coverage_gate_additional_baseline_example": {
+    "index": 42,
+    "task_id": "v2_click_datetime_convert",
+    "group": "B0",
+    "original_status": "experiment_failed",
+    "stage": "baseline",
+    "error": {
+      "type": "ValueError",
+      "errno": null,
+      "winerror": null
+    },
+    "actual_baseline_run": {
+      "run_id": "166cd4bd1dae41b0bb90fb668195be2c",
+      "snapshot_digest": "133c142332f51c9b6b8d37a45321bcbc5ae2290740a8e68b1ace83f1100ac397",
+      "exit_code": 0,
+      "passed": 629,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 22,
+      "failure": null,
+      "artifacts": [
+        "166cd4bd1dae41b0bb90fb668195be2c/log.txt",
+        "166cd4bd1dae41b0bb90fb668195be2c/junit.xml",
+        "166cd4bd1dae41b0bb90fb668195be2c/manifest.json",
+        "166cd4bd1dae41b0bb90fb668195be2c/run.json",
+        "166cd4bd1dae41b0bb90fb668195be2c/coverage.json"
+      ]
+    },
+    "missing_primary_sources": [
+      "src/click/_winconsole.py"
+    ],
+    "coverage_json_sha256": "80ac1cb4e95ecac41b90d86c93aedf9233579ab6c49cf1bc223f962014e73f73",
+    "recorded_model_requests": 0,
+    "observation": "Original tests passed (629), but baseline coverage omitted src/click/_winconsole.py and wrapper recorded ValueError before B0 status could be assigned. Not a model-generated detection or attempted repair.",
+    "review_boundary": "Main assistant static observation of this additional example; fixed coverage-gate control flow was independently checked on the dateutil example."
   }
 }

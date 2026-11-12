@@ -1,0 +1,1461 @@
+{
+  "scope": "All applied formal attempt diffs, including rollbacks; no semantic confirmation",
+  "patches": [
+    {
+      "slot_id": "82f12ab8b176d496d0de7de75a140f66",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/serializer.py\n+++ b/src/itsdangerous/serializer.py\n@@ -291,7 +291,7 @@\n         with the configured signer, then constructs each signer\r\n         specified in ``fallback_signers``.\r\n         \"\"\"\r\n-        if not salt:\r\n+        if salt is None:\r\n             salt = self.salt\r\n \r\n         yield self.make_signer(salt)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1842,
+          "completion_tokens": 405,
+          "total_tokens": 2247
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/82f12ab8b176d496d0de7de75a140f66/repair/696b3d926179447286ee0dd837ece50d/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "cbbf45f66d5e43699dbdcb94e26a8ab1",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "379d50c8f71523bdf184d5996e40a6db",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/signer.py\n+++ b/src/itsdangerous/signer.py\n@@ -192,7 +192,7 @@\n         .. versionchanged:: 2.0\r\n             Added the ``secret_key`` parameter.\r\n         \"\"\"\r\n-        if not secret_key:\r\n+        if secret_key is None:\r\n             secret_key = self.secret_keys[-1]\r\n         else:\r\n             secret_key = want_bytes(secret_key)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2007,
+          "completion_tokens": 563,
+          "total_tokens": 2570
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/379d50c8f71523bdf184d5996e40a6db/repair/618872535fa8402aaee1d5210d30dd8c/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "1f1c56c11d424e919e06e61a3f828fed",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "369009da8ee08adb07932c7b1bfbdf3e",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/signer.py\n+++ b/src/itsdangerous/signer.py\n@@ -192,7 +192,7 @@\n         .. versionchanged:: 2.0\r\n             Added the ``secret_key`` parameter.\r\n         \"\"\"\r\n-        if not secret_key:\r\n+        if secret_key is None:\r\n             secret_key = self.secret_keys[-1]\r\n         else:\r\n             secret_key = want_bytes(secret_key)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2077,
+          "completion_tokens": 579,
+          "total_tokens": 2656
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/369009da8ee08adb07932c7b1bfbdf3e/repair/35cbd621e9264b42aec5e8a27c246c85/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "f480d0a0411e421f9d6b8c79a8bd9e42",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "25776abe7724afca40e36769fa4271c3",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/signer.py\n+++ b/src/itsdangerous/signer.py\n@@ -192,7 +192,7 @@\n         .. versionchanged:: 2.0\r\n             Added the ``secret_key`` parameter.\r\n         \"\"\"\r\n-        if not secret_key:\r\n+        if secret_key is None:\r\n             secret_key = self.secret_keys[-1]\r\n         else:\r\n             secret_key = want_bytes(secret_key)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2012,
+          "completion_tokens": 581,
+          "total_tokens": 2593
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/25776abe7724afca40e36769fa4271c3/repair/5e6047b04e6f4e0e96d2d38ae2d3fe1b/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "9800ab74fec54e04a98696c3ba8d9ee7",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "14ba62d2b71930df6552c75d0118f9e8",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -137,7 +137,7 @@\n         if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n             return self.__class__(super().__add__(self.escape(value)))\r\n \r\n-        return self\r\n+        return NotImplemented\r\n \r\n     def __radd__(self, value: str | _HasHTML, /) -> te.Self:\r\n         if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1520,
+          "completion_tokens": 257,
+          "total_tokens": 1777
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/14ba62d2b71930df6552c75d0118f9e8/repair/413c49f464b3423391828569d8c69e1e/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "4af4944251cc4e2f9755408f28e35ac5",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "908f6bbd169f29b22d042a574c4820bc",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -137,7 +137,7 @@\n         if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n             return self.__class__(super().__add__(self.escape(value)))\r\n \r\n-        return self\r\n+        return NotImplemented\r\n \r\n     def __radd__(self, value: str | _HasHTML, /) -> te.Self:\r\n         if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1585,
+          "completion_tokens": 258,
+          "total_tokens": 1843
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/908f6bbd169f29b22d042a574c4820bc/repair/ac875c43c4e146d18eeb2bd8cc88538a/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "18a369b1865149d49477aae178bcf804",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "7f44d4dd5682e024aa398602c667a300",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -240,7 +240,7 @@\n         return rv  # type: ignore[return-value]\r\n \r\n     def __getitem__(self, key: t.SupportsIndex | slice, /) -> te.Self:\r\n-        return self.__class__(super().__getitem__(key + 1 if isinstance(key, int) else key))\r\n+        return self.__class__(super().__getitem__(key))\r\n \r\n     def capitalize(self, /) -> te.Self:\r\n         return self.__class__(super().capitalize())\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1505,
+          "completion_tokens": 240,
+          "total_tokens": 1745
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/7f44d4dd5682e024aa398602c667a300/repair/af5ec6d38fd4467f86ad0f3931df6472/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "99ca33fa6c4f49deb7a5ce38448aa484",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "34f384419460446c7678aa36a0541cd3",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -240,7 +240,7 @@\n         return rv  # type: ignore[return-value]\r\n \r\n     def __getitem__(self, key: t.SupportsIndex | slice, /) -> te.Self:\r\n-        return self.__class__(super().__getitem__(key + 1 if isinstance(key, int) else key))\r\n+        return self.__class__(super().__getitem__(key))\r\n \r\n     def capitalize(self, /) -> te.Self:\r\n         return self.__class__(super().capitalize())\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1629,
+          "completion_tokens": 245,
+          "total_tokens": 1874
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/34f384419460446c7678aa36a0541cd3/repair/53961b1c2dfc46debb8640cb28773d39/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "0969cac3e49b4ccf83cde8227773487f",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "a5c47136cc57f55757cc969a8c0b0855",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -240,7 +240,7 @@\n         return rv  # type: ignore[return-value]\r\n \r\n     def __getitem__(self, key: t.SupportsIndex | slice, /) -> te.Self:\r\n-        return self.__class__(super().__getitem__(key + 1 if isinstance(key, int) else key))\r\n+        return self.__class__(super().__getitem__(key))\r\n \r\n     def capitalize(self, /) -> te.Self:\r\n         return self.__class__(super().capitalize())\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1620,
+          "completion_tokens": 242,
+          "total_tokens": 1862
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/a5c47136cc57f55757cc969a8c0b0855/repair/173c2a9dead74eaaaca94305b7eb7d80/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "e54482fe70ef4c0f9ad203731b27b6a4",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "f0b89892bfa12da883f3256c8c26efa0",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -324,7 +324,7 @@\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n-            return self\r\n+            raise ValueError(\"Format specification not supported for Markup.\")\r\n \r\n         return self\r\n \r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1664,
+          "completion_tokens": 237,
+          "total_tokens": 1901
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/f0b89892bfa12da883f3256c8c26efa0/repair/feaf08d52826452e949b703f1f9ae4c7/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "8b010250c4cc443ba7f5bd36bf971ef8",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "51bbd637b7ce8bda8216e83dd5c40def",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -324,7 +324,7 @@\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n-            return self\r\n+            raise ValueError(\"Format specification is not supported for Markup.\")\r\n \r\n         return self\r\n \r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1520,
+          "completion_tokens": 238,
+          "total_tokens": 1758
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/51bbd637b7ce8bda8216e83dd5c40def/repair/6b00e96055604e9198fb7f9cf8ee693a/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "309da941e17b4ad3a6554a616287af3b",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "28b76c1eea66dbdf4eb97f99955ea437",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -324,7 +324,7 @@\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n-            return self\r\n+            raise ValueError(\"Format specification is not supported for Markup.\")\r\n \r\n         return self\r\n \r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1526,
+          "completion_tokens": 235,
+          "total_tokens": 1761
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/28b76c1eea66dbdf4eb97f99955ea437/repair/612fc0f8653649018be93435db84784d/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "e6577f6f1b704146a974e374c476975c",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "2c3adf1be924b4e8c1b2f20f97bb0ce8",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -173,7 +173,7 @@\n     def split(  # type: ignore[override]\r\n         self, /, sep: str | None = None, maxsplit: t.SupportsIndex = -1\r\n     ) -> list[te.Self]:\r\n-        return [self.__class__(v) for v in super().split(sep, maxsplit + 1 if maxsplit >= 0 else maxsplit)]\r\n+        return [self.__class__(v) for v in super().split(sep, maxsplit)]\r\n \r\n     def rsplit(  # type: ignore[override]\r\n         self, /, sep: str | None = None, maxsplit: t.SupportsIndex = -1\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1670,
+          "completion_tokens": 276,
+          "total_tokens": 1946
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/2c3adf1be924b4e8c1b2f20f97bb0ce8/repair/a814c59e7a5b4ea28168a9825984ee44/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "8ba8a35dbb644441ad67849ed594e826",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "a2163b909769d24e8ecbf77b3574f47b",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -320,7 +320,7 @@\n         /,\r\n     ) -> te.Self:\r\n         formatter = EscapeFormatter(self.escape)\r\n-        return formatter.vformat(self, (), mapping)\r\n+        return self.__class__(formatter.vformat(self, (), mapping))\r\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1452,
+          "completion_tokens": 260,
+          "total_tokens": 1712
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/a2163b909769d24e8ecbf77b3574f47b/repair/de259b92097444adad5c787e4898ee18/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "fea3e28092ab425994d02795188bea65",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "e6557ed3e922e2d60f91e80ac655ac71",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/signer.py\n+++ b/src/itsdangerous/signer.py\n@@ -60,7 +60,7 @@\n         self.digest_method: t.Any = digest_method\r\n \r\n     def get_signature(self, key: bytes, value: bytes) -> bytes:\r\n-        mac = hmac.new(key, msg=value or b\"\\x00\", digestmod=self.digest_method)\r\n+        mac = hmac.new(key, msg=value, digestmod=self.digest_method)\r\n         return mac.digest()\r\n \r\n \r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1829,
+          "completion_tokens": 241,
+          "total_tokens": 2070
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/e6557ed3e922e2d60f91e80ac655ac71/repair/8c53998f029349d9af754641bb88c2cc/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "84b5856caaaf420dbade22c13cbde648",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "2289aa508f5030ac8799789d72b77b42",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/exc.py\n+++ b/src/itsdangerous/exc.py\n@@ -86,7 +86,7 @@\n \r\n         #: If available, the error that indicates why the payload was\r\n         #: not valid. This might be ``None``.\r\n-        self.original_error: Exception | None = None\r\n+        self.original_error: Exception | None = original_error\r\n \r\n \r\n class BadPayload(BadData):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1478,
+          "completion_tokens": 319,
+          "total_tokens": 1797
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/2289aa508f5030ac8799789d72b77b42/repair/0157c90cc47a440093df3880f9119930/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "579b634abbdb439eb8bf9917cb7a6987",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "485a27b10e77cd3637b76a44bc78aa48",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/exc.py\n+++ b/src/itsdangerous/exc.py\n@@ -86,7 +86,7 @@\n \r\n         #: If available, the error that indicates why the payload was\r\n         #: not valid. This might be ``None``.\r\n-        self.original_error: Exception | None = None\r\n+        self.original_error: Exception | None = original_error\r\n \r\n \r\n class BadPayload(BadData):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1499,
+          "completion_tokens": 320,
+          "total_tokens": 1819
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/485a27b10e77cd3637b76a44bc78aa48/repair/b469e164ccca4bc087ad8b4b87ff5852/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "435656b2f3614539a6aa99296350ff4e",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "5809749543395d94bcbeba2d636d406a",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/exc.py\n+++ b/src/itsdangerous/exc.py\n@@ -86,7 +86,7 @@\n \r\n         #: If available, the error that indicates why the payload was\r\n         #: not valid. This might be ``None``.\r\n-        self.original_error: Exception | None = None\r\n+        self.original_error: Exception | None = original_error\r\n \r\n \r\n class BadPayload(BadData):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1488,
+          "completion_tokens": 322,
+          "total_tokens": 1810
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/5809749543395d94bcbeba2d636d406a/repair/f98018aaad654255b70afbafe7dc9ec7/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "72e4b8e8653b4a0c82763cdcdda57ed7",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "beb6c1e533492de3c904eab5075be956",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/serializer.py\n+++ b/src/itsdangerous/serializer.py\n@@ -291,7 +291,7 @@\n         with the configured signer, then constructs each signer\r\n         specified in ``fallback_signers``.\r\n         \"\"\"\r\n-        if not salt:\r\n+        if salt is None:\r\n             salt = self.salt\r\n \r\n         yield self.make_signer(salt)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1833,
+          "completion_tokens": 391,
+          "total_tokens": 2224
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/beb6c1e533492de3c904eab5075be956/repair/bfbf240b7d9b497c90f4ae30c560cc94/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "3a383d08bd774c2f93e1295684c75698",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "2993e9d09bcc969ca71442118e5e88eb",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/signer.py\n+++ b/src/itsdangerous/signer.py\n@@ -192,7 +192,7 @@\n         .. versionchanged:: 2.0\r\n             Added the ``secret_key`` parameter.\r\n         \"\"\"\r\n-        if not secret_key:\r\n+        if secret_key is None:\r\n             secret_key = self.secret_keys[-1]\r\n         else:\r\n             secret_key = want_bytes(secret_key)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2008,
+          "completion_tokens": 554,
+          "total_tokens": 2562
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/2993e9d09bcc969ca71442118e5e88eb/repair/75aa83b3d6a84a5eb7a306418e43a278/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "077c44ab9bd54ec7a7da1015e99a6894",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "3b07719f82f44427e707f89ccfe577f1",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -137,7 +137,7 @@\n         if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n             return self.__class__(super().__add__(self.escape(value)))\r\n \r\n-        return self\r\n+        raise TypeError(\"unsupported operand type\")\r\n \r\n     def __radd__(self, value: str | _HasHTML, /) -> te.Self:\r\n         if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1603,
+          "completion_tokens": 255,
+          "total_tokens": 1858
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/3b07719f82f44427e707f89ccfe577f1/repair/e0337cac3d38446c88c04f9c134b5bd3/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "fca7c1e59a014d09a50dfe7e846304ff",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "29a418f2e305aea3228658f97be23b5c",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -137,7 +137,7 @@\n         if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n             return self.__class__(super().__add__(self.escape(value)))\r\n \r\n-        return self\r\n+        return NotImplemented\r\n \r\n     def __radd__(self, value: str | _HasHTML, /) -> te.Self:\r\n         if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1551,
+          "completion_tokens": 249,
+          "total_tokens": 1800
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/29a418f2e305aea3228658f97be23b5c/repair/9c1fab930e3a4309a0829ec5f3ecc2ff/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "b6d275955ebb40b58f24cafaeb3b4442",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "508fb8e8f892b39f15b637acfe6e7821",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -240,7 +240,7 @@\n         return rv  # type: ignore[return-value]\r\n \r\n     def __getitem__(self, key: t.SupportsIndex | slice, /) -> te.Self:\r\n-        return self.__class__(super().__getitem__(key + 1 if isinstance(key, int) else key))\r\n+        return self.__class__(super().__getitem__(key))\r\n \r\n     def capitalize(self, /) -> te.Self:\r\n         return self.__class__(super().capitalize())\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1661,
+          "completion_tokens": 238,
+          "total_tokens": 1899
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/508fb8e8f892b39f15b637acfe6e7821/repair/e57fe837d0554e40b24b8ef302869b43/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "289304e3b1114de08d3143c43e172cb7",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "b862208914ff3e05889c3c7d594e1bbb",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -240,7 +240,7 @@\n         return rv  # type: ignore[return-value]\r\n \r\n     def __getitem__(self, key: t.SupportsIndex | slice, /) -> te.Self:\r\n-        return self.__class__(super().__getitem__(key + 1 if isinstance(key, int) else key))\r\n+        return self.__class__(super().__getitem__(key))\r\n \r\n     def capitalize(self, /) -> te.Self:\r\n         return self.__class__(super().capitalize())\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1633,
+          "completion_tokens": 250,
+          "total_tokens": 1883
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/b862208914ff3e05889c3c7d594e1bbb/repair/184c757b84ed4cb3807c8b42447809a4/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "6fdef4654b444c1b9085aa3aa98b935d",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "cdf5f252d0696049b736b6ea60a20110",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -240,7 +240,7 @@\n         return rv  # type: ignore[return-value]\r\n \r\n     def __getitem__(self, key: t.SupportsIndex | slice, /) -> te.Self:\r\n-        return self.__class__(super().__getitem__(key + 1 if isinstance(key, int) else key))\r\n+        return self.__class__(super().__getitem__(key))\r\n \r\n     def capitalize(self, /) -> te.Self:\r\n         return self.__class__(super().capitalize())\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1614,
+          "completion_tokens": 246,
+          "total_tokens": 1860
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/cdf5f252d0696049b736b6ea60a20110/repair/b9fef86b250643b18eb9baae5988af41/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "f6ceef0c95764590b4f4f81eb3ffdae5",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "bb167f3c23d4838b4ea056ff07c73acd",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -324,7 +324,7 @@\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n-            return self\r\n+            raise ValueError(\"Format specification is not supported for Markup.\")\r\n \r\n         return self\r\n \r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1422,
+          "completion_tokens": 238,
+          "total_tokens": 1660
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/bb167f3c23d4838b4ea056ff07c73acd/repair/92191befa4464ba78b7edb0372a24454/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "fc9927fc4cf6495dbfaf48c632e51bdd",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "5ec8548b9087dc1446fd36a5f5eb7867",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -324,7 +324,7 @@\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n-            return self\r\n+            raise ValueError(\"Format specification is not supported for Markup.\")\r\n \r\n         return self\r\n \r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1463,
+          "completion_tokens": 240,
+          "total_tokens": 1703
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/5ec8548b9087dc1446fd36a5f5eb7867/repair/de717fc53ed94242ac2b4288c2c7bb8d/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "06678bb7aa0c4c5ea030bb8a6d78c31a",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "3b102be88ca07e2e98b5e50601421c5c",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -324,7 +324,7 @@\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n-            return self\r\n+            raise ValueError(\"Format specification is not supported.\")\r\n \r\n         return self\r\n \r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1447,
+          "completion_tokens": 235,
+          "total_tokens": 1682
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/3b102be88ca07e2e98b5e50601421c5c/repair/8c83cfb522fe490dadc058f5db3a9ca7/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "6c2cc4d08da8425d950f7e0c99279ce4",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "333bac6b6b28c873eeb4f95010937ea1",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -173,7 +173,7 @@\n     def split(  # type: ignore[override]\r\n         self, /, sep: str | None = None, maxsplit: t.SupportsIndex = -1\r\n     ) -> list[te.Self]:\r\n-        return [self.__class__(v) for v in super().split(sep, maxsplit + 1 if maxsplit >= 0 else maxsplit)]\r\n+        return [self.__class__(v) for v in super().split(sep, maxsplit)]\r\n \r\n     def rsplit(  # type: ignore[override]\r\n         self, /, sep: str | None = None, maxsplit: t.SupportsIndex = -1\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1625,
+          "completion_tokens": 262,
+          "total_tokens": 1887
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/333bac6b6b28c873eeb4f95010937ea1/repair/60c7f6842725441b964551f896cc5319/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "7d6cb7c5996f4b1badf05cf22df4215a",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "983227024bab219b907cb8750b9184e2",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -173,7 +173,7 @@\n     def split(  # type: ignore[override]\r\n         self, /, sep: str | None = None, maxsplit: t.SupportsIndex = -1\r\n     ) -> list[te.Self]:\r\n-        return [self.__class__(v) for v in super().split(sep, maxsplit + 1 if maxsplit >= 0 else maxsplit)]\r\n+        return [self.__class__(v) for v in super().split(sep, maxsplit)]\r\n \r\n     def rsplit(  # type: ignore[override]\r\n         self, /, sep: str | None = None, maxsplit: t.SupportsIndex = -1\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1628,
+          "completion_tokens": 281,
+          "total_tokens": 1909
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/983227024bab219b907cb8750b9184e2/repair/ac75ed9b4ea849789a9c92306b9d4b9d/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "bf0106391c0a4e47a0bc84854fe3b828",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "e0bc514058604cc2b803ad3c0ae51a98",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -234,7 +234,7 @@\n         \"\"\"\r\n         rv = escape(s)\r\n \r\n-        if False and rv.__class__ is not cls:\r\n+        if rv.__class__ is not cls:\r\n             return cls(rv)\r\n \r\n         return rv  # type: ignore[return-value]\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1728,
+          "completion_tokens": 291,
+          "total_tokens": 2019
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/e0bc514058604cc2b803ad3c0ae51a98/repair/57d9743a47cb48b4bb49001a18452966/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "6c6a7134b7604b9bb755fc0c295e1961",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "a38731aac382272431ebc76dc7ec932a",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -234,7 +234,7 @@\n         \"\"\"\r\n         rv = escape(s)\r\n \r\n-        if False and rv.__class__ is not cls:\r\n+        if rv.__class__ is not cls:\r\n             return cls(rv)\r\n \r\n         return rv  # type: ignore[return-value]\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1721,
+          "completion_tokens": 296,
+          "total_tokens": 2017
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/a38731aac382272431ebc76dc7ec932a/repair/8d2b515506ad41e8bdc49151a87c17e3/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "f6a252dd08874994b02dd1b77491d1ac",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "441e24fe62355adc7a8c7e02b6e266c9",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -320,7 +320,7 @@\n         /,\r\n     ) -> te.Self:\r\n         formatter = EscapeFormatter(self.escape)\r\n-        return formatter.vformat(self, (), mapping)\r\n+        return self.__class__(formatter.vformat(self, (), mapping))\r\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1499,
+          "completion_tokens": 261,
+          "total_tokens": 1760
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/441e24fe62355adc7a8c7e02b6e266c9/repair/33fe2495511f46209ff50389289b63d9/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "8c74f1b73a54439dae543d819602541b",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "23e467fa3fe4bd740477cadc300593c9",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -320,7 +320,7 @@\n         /,\r\n     ) -> te.Self:\r\n         formatter = EscapeFormatter(self.escape)\r\n-        return formatter.vformat(self, (), mapping)\r\n+        return self.__class__(formatter.vformat(self, (), mapping))\r\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1487,
+          "completion_tokens": 265,
+          "total_tokens": 1752
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/23e467fa3fe4bd740477cadc300593c9/repair/8b25926512b74ef9ac3ab812775c2117/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "ea7178063e7340fd8bc63de41d7b7cad",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "96249021c41bab04ef0b58a5a8c48bb9",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/exc.py\n+++ b/src/itsdangerous/exc.py\n@@ -86,7 +86,7 @@\n \r\n         #: If available, the error that indicates why the payload was\r\n         #: not valid. This might be ``None``.\r\n-        self.original_error: Exception | None = None\r\n+        self.original_error: Exception | None = original_error\r\n \r\n \r\n class BadPayload(BadData):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1488,
+          "completion_tokens": 318,
+          "total_tokens": 1806
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/96249021c41bab04ef0b58a5a8c48bb9/repair/f03b4e8b964a4cfba4349d7069be6825/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "d8055d8eb088447a8dce7080ac31fd25",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "975cd5cad5324b9c76a83b492b384912",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/exc.py\n+++ b/src/itsdangerous/exc.py\n@@ -86,7 +86,7 @@\n \r\n         #: If available, the error that indicates why the payload was\r\n         #: not valid. This might be ``None``.\r\n-        self.original_error: Exception | None = None\r\n+        self.original_error: Exception | None = original_error\r\n \r\n \r\n class BadPayload(BadData):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1486,
+          "completion_tokens": 324,
+          "total_tokens": 1810
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/975cd5cad5324b9c76a83b492b384912/repair/4a4e3fa6317342539f400881a510d13a/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "031c41f2ee2442ffa202780186a738c1",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "857c30467176a274614a4ae41d60da0d",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/serializer.py\n+++ b/src/itsdangerous/serializer.py\n@@ -291,7 +291,7 @@\n         with the configured signer, then constructs each signer\r\n         specified in ``fallback_signers``.\r\n         \"\"\"\r\n-        if not salt:\r\n+        if salt is None:\r\n             salt = self.salt\r\n \r\n         yield self.make_signer(salt)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1856,
+          "completion_tokens": 404,
+          "total_tokens": 2260
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/857c30467176a274614a4ae41d60da0d/repair/19ede72b79a24aae9ecfc0ca5e8e80cc/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "3bb3b3cf3ce04da595a4c7698f113063",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "877c7f9f189d3f8993b206a30cd759d3",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/signer.py\n+++ b/src/itsdangerous/signer.py\n@@ -192,7 +192,7 @@\n         .. versionchanged:: 2.0\r\n             Added the ``secret_key`` parameter.\r\n         \"\"\"\r\n-        if not secret_key:\r\n+        if secret_key is None:\r\n             secret_key = self.secret_keys[-1]\r\n         else:\r\n             secret_key = want_bytes(secret_key)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2125,
+          "completion_tokens": 573,
+          "total_tokens": 2698
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/877c7f9f189d3f8993b206a30cd759d3/repair/cdc4445298c9475b813fabb9eab0ae35/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "82d5bc1725b648dbbf9e5af10ea779ee",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "ed04c414cab1eba82dd37077784c2641",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -137,7 +137,7 @@\n         if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n             return self.__class__(super().__add__(self.escape(value)))\r\n \r\n-        return self\r\n+        raise TypeError(\"unsupported operand type\")\r\n \r\n     def __radd__(self, value: str | _HasHTML, /) -> te.Self:\r\n         if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1481,
+          "completion_tokens": 262,
+          "total_tokens": 1743
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/ed04c414cab1eba82dd37077784c2641/repair/eed3f4369a334621b43ab94a0632d416/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "d5234c126f6842eeb0bee0b34d662fcc",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "1a5b36273de6998d51609eb10d35fe58",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -137,7 +137,7 @@\n         if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n             return self.__class__(super().__add__(self.escape(value)))\r\n \r\n-        return self\r\n+        return NotImplemented\r\n \r\n     def __radd__(self, value: str | _HasHTML, /) -> te.Self:\r\n         if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1576,
+          "completion_tokens": 238,
+          "total_tokens": 1814
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/1a5b36273de6998d51609eb10d35fe58/repair/5eb60d1785aa441c86a619c90ef6a916/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "d3bfcaffde26428e87f321be4e64dd83",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "0f33b971dc6b6292421588ef085fb943",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -137,7 +137,7 @@\n         if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n             return self.__class__(super().__add__(self.escape(value)))\r\n \r\n-        return self\r\n+        return NotImplemented\r\n \r\n     def __radd__(self, value: str | _HasHTML, /) -> te.Self:\r\n         if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1539,
+          "completion_tokens": 251,
+          "total_tokens": 1790
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/0f33b971dc6b6292421588ef085fb943/repair/580bc16c682d4d73ba36949d4fd55c0b/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "c9e6693cc6c14696a70222da8d9ea24d",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "8b0ec4ec62ca5e58cd1abd34b6a29859",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -240,7 +240,7 @@\n         return rv  # type: ignore[return-value]\r\n \r\n     def __getitem__(self, key: t.SupportsIndex | slice, /) -> te.Self:\r\n-        return self.__class__(super().__getitem__(key + 1 if isinstance(key, int) else key))\r\n+        return self.__class__(super().__getitem__(key))\r\n \r\n     def capitalize(self, /) -> te.Self:\r\n         return self.__class__(super().capitalize())\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1564,
+          "completion_tokens": 255,
+          "total_tokens": 1819
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/8b0ec4ec62ca5e58cd1abd34b6a29859/repair/99d50efbe7db443c87768dc1b9946f5f/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "f1183722c36f4d85b9c1352f5c8739bb",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "a159f60094ccb4a723eca3cb245c1010",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -240,7 +240,7 @@\n         return rv  # type: ignore[return-value]\r\n \r\n     def __getitem__(self, key: t.SupportsIndex | slice, /) -> te.Self:\r\n-        return self.__class__(super().__getitem__(key + 1 if isinstance(key, int) else key))\r\n+        return self.__class__(super().__getitem__(key))\r\n \r\n     def capitalize(self, /) -> te.Self:\r\n         return self.__class__(super().capitalize())\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1626,
+          "completion_tokens": 232,
+          "total_tokens": 1858
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/a159f60094ccb4a723eca3cb245c1010/repair/06aae61cd0a948f0877c93492639cea2/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "c4cd39767ff042e6a34b7814bba8de39",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "11f0de424c3c758d0f446c01f55041a1",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -324,7 +324,7 @@\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n-            return self\r\n+            raise ValueError(\"Format specification is not supported for Markup.\")\r\n \r\n         return self\r\n \r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1458,
+          "completion_tokens": 236,
+          "total_tokens": 1694
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/11f0de424c3c758d0f446c01f55041a1/repair/408dea69978b45b39eab85664e13aff1/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "860680debd5b4bde84333d847455a3cb",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "27dffbfb10b172dd388efce5742dd624",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -324,7 +324,7 @@\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n-            return self\r\n+            raise ValueError(\"Format specification is not supported.\")\r\n \r\n         return self\r\n \r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1443,
+          "completion_tokens": 232,
+          "total_tokens": 1675
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/27dffbfb10b172dd388efce5742dd624/repair/1483961cad0f444ea1279a55880dcd17/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "2dbe4821e9a54155ac344246d6734b1d",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "6e1b6790f26e03f5868f663300ad5424",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -324,7 +324,7 @@\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n-            return self\r\n+            raise ValueError(\"Format specification is not supported for Markup.\")\r\n \r\n         return self\r\n \r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1628,
+          "completion_tokens": 239,
+          "total_tokens": 1867
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/6e1b6790f26e03f5868f663300ad5424/repair/a324834d9bfe457584fbcfa11481e15f/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "1a3efd2156244335a8e39332978c1b8f",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "cb364d4997026061bc6fe2a6de5469c1",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -173,7 +173,7 @@\n     def split(  # type: ignore[override]\r\n         self, /, sep: str | None = None, maxsplit: t.SupportsIndex = -1\r\n     ) -> list[te.Self]:\r\n-        return [self.__class__(v) for v in super().split(sep, maxsplit + 1 if maxsplit >= 0 else maxsplit)]\r\n+        return [self.__class__(v) for v in super().split(sep, maxsplit)]\r\n \r\n     def rsplit(  # type: ignore[override]\r\n         self, /, sep: str | None = None, maxsplit: t.SupportsIndex = -1\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1709,
+          "completion_tokens": 267,
+          "total_tokens": 1976
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/cb364d4997026061bc6fe2a6de5469c1/repair/fd5c70350e7e434f9495c46b2fe6cef3/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "653a0f2fbed7491b8cf08b069bb8fbff",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "f578095a2bee2ba00efaed165e488ef1",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -173,7 +173,7 @@\n     def split(  # type: ignore[override]\r\n         self, /, sep: str | None = None, maxsplit: t.SupportsIndex = -1\r\n     ) -> list[te.Self]:\r\n-        return [self.__class__(v) for v in super().split(sep, maxsplit + 1 if maxsplit >= 0 else maxsplit)]\r\n+        return [self.__class__(v) for v in super().split(sep, maxsplit)]\r\n \r\n     def rsplit(  # type: ignore[override]\r\n         self, /, sep: str | None = None, maxsplit: t.SupportsIndex = -1\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1642,
+          "completion_tokens": 267,
+          "total_tokens": 1909
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/f578095a2bee2ba00efaed165e488ef1/repair/f7bab37253cd4434a7778daf76098402/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "5eac2b71ec014928bfd7c0255bdc19dd",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "f27a75dbaf3884ff5a16140e1c8be4b9",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -234,7 +234,7 @@\n         \"\"\"\r\n         rv = escape(s)\r\n \r\n-        if False and rv.__class__ is not cls:\r\n+        if rv.__class__ is not cls:\r\n             return cls(rv)\r\n \r\n         return rv  # type: ignore[return-value]\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1651,
+          "completion_tokens": 290,
+          "total_tokens": 1941
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/f27a75dbaf3884ff5a16140e1c8be4b9/repair/13a5dffb3ef24598b12ae0785742fc46/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "c9de6b5da2624a989334d6b93c466b0d",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "0800edb10c92ad85294d78514e0a2290",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -320,7 +320,7 @@\n         /,\r\n     ) -> te.Self:\r\n         formatter = EscapeFormatter(self.escape)\r\n-        return formatter.vformat(self, (), mapping)\r\n+        return self.__class__(formatter.vformat(self, (), mapping))\r\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1558,
+          "completion_tokens": 266,
+          "total_tokens": 1824
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/0800edb10c92ad85294d78514e0a2290/repair/a6b53942f4b342d1a8bc83922aeb5cea/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "13795d44f42c4756ae5049666778d960",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "bc74a916f85b494c4cf36271659fb06c",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -320,7 +320,7 @@\n         /,\r\n     ) -> te.Self:\r\n         formatter = EscapeFormatter(self.escape)\r\n-        return formatter.vformat(self, (), mapping)\r\n+        return self.__class__(formatter.vformat(self, (), mapping))\r\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1520,
+          "completion_tokens": 263,
+          "total_tokens": 1783
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/bc74a916f85b494c4cf36271659fb06c/repair/8639d28fc7094f938c982c6e0cae6888/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "1781a29f4d0d40e98b1fc6f66fa9eb7a",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "f9429d8c5374e962136603f4ffb5c0ef",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -320,7 +320,7 @@\n         /,\r\n     ) -> te.Self:\r\n         formatter = EscapeFormatter(self.escape)\r\n-        return formatter.vformat(self, (), mapping)\r\n+        return self.__class__(formatter.vformat(self, (), mapping))\r\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1549,
+          "completion_tokens": 263,
+          "total_tokens": 1812
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/f9429d8c5374e962136603f4ffb5c0ef/repair/e0cb58ac6e9c40f983707c3b63469160/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "96cae51c94d44468a0cdbebda7099688",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "1f66a552b9676759a783687feba20626",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/signer.py\n+++ b/src/itsdangerous/signer.py\n@@ -60,7 +60,7 @@\n         self.digest_method: t.Any = digest_method\r\n \r\n     def get_signature(self, key: bytes, value: bytes) -> bytes:\r\n-        mac = hmac.new(key, msg=value or b\"\\x00\", digestmod=self.digest_method)\r\n+        mac = hmac.new(key, msg=value, digestmod=self.digest_method)\r\n         return mac.digest()\r\n \r\n \r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1824,
+          "completion_tokens": 243,
+          "total_tokens": 2067
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/1f66a552b9676759a783687feba20626/repair/68297ddd10764f818f78e23119b23b6d/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "77f6c9a4b3d94fcd90e375c2b10609b9",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "68798c6e694fb831f3b90e6eb734ff72",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/exc.py\n+++ b/src/itsdangerous/exc.py\n@@ -86,7 +86,7 @@\n \r\n         #: If available, the error that indicates why the payload was\r\n         #: not valid. This might be ``None``.\r\n-        self.original_error: Exception | None = None\r\n+        self.original_error: Exception | None = original_error\r\n \r\n \r\n class BadPayload(BadData):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1479,
+          "completion_tokens": 322,
+          "total_tokens": 1801
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/68798c6e694fb831f3b90e6eb734ff72/repair/88736054aeb84a31b86c449775b44fd1/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "3695c8f427d746cc8baa5bae86ebdbfa",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "ddfbecbb13425a57bfd03e7d870d633b",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/exc.py\n+++ b/src/itsdangerous/exc.py\n@@ -86,7 +86,7 @@\n \r\n         #: If available, the error that indicates why the payload was\r\n         #: not valid. This might be ``None``.\r\n-        self.original_error: Exception | None = None\r\n+        self.original_error: Exception | None = original_error\r\n \r\n \r\n class BadPayload(BadData):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1523,
+          "completion_tokens": 321,
+          "total_tokens": 1844
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/ddfbecbb13425a57bfd03e7d870d633b/repair/87760e3dd9e34f7f9910b9ab16455acf/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "1b03804d198d4a099afe3e868c46faf4",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "f8a6cd1d22e09909679fc08bd48b7947",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/exc.py\n+++ b/src/itsdangerous/exc.py\n@@ -86,7 +86,7 @@\n \r\n         #: If available, the error that indicates why the payload was\r\n         #: not valid. This might be ``None``.\r\n-        self.original_error: Exception | None = None\r\n+        self.original_error: Exception | None = original_error\r\n \r\n \r\n class BadPayload(BadData):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1527,
+          "completion_tokens": 319,
+          "total_tokens": 1846
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_T6",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-campaign/271b31b27b3f431f41bee7299699a566/runs/f8a6cd1d22e09909679fc08bd48b7947/repair/c46a0fcf56c04954af981fa62958069d/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "ce4f48bbca104aa5ae204b448ebef4d2",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    }
+  ]
+}

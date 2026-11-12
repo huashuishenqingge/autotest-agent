@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-13",
+  "reviewer": "review_p08b_t5_evidence",
+  "method": "independent read-only final ledger, metadata and artifact audit; no target or API execution; no files written by reviewer",
+  "verdict": "provenance_and_alignment_passed_with_validity_caveats",
+  "final_records_checked": 360,
+  "csv_rows_checked": 360,
+  "groups": {
+    "B0": 90,
+    "B1": 90,
+    "B2": 90,
+    "A0": 90
+  },
+  "repeat_counts": {
+    "1": 120,
+    "2": 120,
+    "3": 120
+  },
+  "slot_outcome_result_sha_checks": "all 360 matched identities, statuses and result bytes",
+  "request_ledger_checks": {
+    "requests_checked": 284,
+    "returned": 280,
+    "raised": 4,
+    "all_returned_models": "deepseek-v4-flash-ascend",
+    "all_request_caps_satisfied": true,
+    "known_total_tokens": 667155,
+    "unknown_requests": 4,
+    "total_tokens": null
+  },
+  "manifest_checks": {
+    "actual_manifests_checked": 1352,
+    "snapshot_and_manifest_sha_matched": 1352,
+    "image_matched_protocol": true
+  },
+  "frozen_runtime_checks": {
+    "frozen_files_checked": 23,
+    "new_runtime_files_checked": 2,
+    "approved_runner_override_only": true
+  },
+  "export_checks": [
+    "campaign_export_sha256 matches actual export bytes",
+    "execution index canonical SHA matches report",
+    "failed and successful original states all retained",
+    "all applied patch entries pending_T6",
+    "no synthetic results found in formal record scopes"
+  ],
+  "validity_caveats": [
+    "Baseline collection entry differs despite identical bytes/image in documented Jinja example",
+    "Coverage completeness gate deterministically permits documented generated-only ValueError example",
+    "Do not interpret raw status counts as final model effectiveness or semantic repair confirmation"
+  ],
+  "not_performed_by_independent_reviewer": [
+    "No container reexecution or actual mount attestation",
+    "Did not independently recalculate all 1352 JUnit/log SHA entries",
+    "Did not independently recheck all upstream source inventories or global budget delta",
+    "No T6 patch semantic decisions"
+  ]
+}
