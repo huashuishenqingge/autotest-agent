@@ -1,0 +1,753 @@
+{
+  "reviewer": "review_p08b_freeze",
+  "method": "Independent read-only code and all thirty semantic reviews; no target execution or model calls",
+  "verdict": "approved_no_blockers",
+  "notes": [
+    "Autodoc pointers supplemented by available original function or class docstrings; not all excerpts alone prove every requirement.",
+    "Full JUnit identity audit is separate and required; validator only checks declared counts/digests/kind."
+  ],
+  "tasks": [
+    {
+      "task_id": "dateutil_relativedelta___add",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "0bd5cda45367b7fb9c3aba30d2434e04faeb72af62c833cefeed390c0417a86f",
+      "defect_type": "null_type",
+      "requirement_sources": [
+        {
+          "path": "docs/relativedelta.rst",
+          "start_line": 2,
+          "end_line": 8,
+          "sha256": "4f2333475a627e68e61fa9de7c15a14c0e627e9406d2d182ea26106f40ad2080",
+          "excerpt": "relativedelta\n=============\n.. automodule:: dateutil.relativedelta\n   :members:\n   :undoc-members:\n\n.. testsetup:: relativedelta"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "enclosing_class_docstring",
+        "path": "src/dateutil/relativedelta.py",
+        "source_sha256": "abc031b39e6cf131ae9740be0fd61e2ef7aa0dc56ac17d779a220fd90ef2997e",
+        "start_line": 19,
+        "end_line": 64,
+        "excerpt": "    \"\"\"\n    The relativedelta type is designed to be applied to an existing datetime and\n    can replace specific components of that datetime, or represents an interval\n    of time.\n\n    It is based on the specification of the excellent work done by M.-A. Lemburg\n    in his\n    `mx.DateTime <https://www.egenix.com/products/python/mxBase/mxDateTime/>`_ extension.\n    However, notice that this type does *NOT* implement the same algorithm as\n    his work. Do *NOT* expect it to behave like mx.DateTime's counterpart.\n\n    There are two different ways to build a relativedelta instance. The\n    first one is passing it two date/datetime classes::\n\n        relativedelta(datetime1, datetime2)\n\n    The second one is passing it any number of the following keyword arguments::\n\n        relativedelta(arg1=x,arg2=y,arg3=z...)\n\n        year, month, day, hour, minute, second, microsecond:\n            Absolute information (argument is singular); adding or subtracting a\n            relativedelta with absolute information does not perform an arithmetic\n            operation, but rather REPLACES the corresponding value in the\n            original datetime with the value(s) in relativedelta.\n\n        years, months, weeks, days, hours, minutes, seconds, microseconds:\n            Relative information, may be negative (argument is plural); adding\n            or subtracting a relativedelta with relative information performs\n            the corresponding arithmetic operation on the original datetime value\n            with the information in the relativedelta.\n\n        weekday:\n            One of the weekday instances (MO, TU, etc) available in the\n            relativedelta module. These instances may receive a parameter N,\n            specifying the Nth weekday, which could be positive or negative\n            (like MO(+1) or MO(-2)). Not specifying it is the same as specifying\n            +1. You can also use an integer, where 0=MO. This argument is always\n            relative e.g. if the calculated date is already Monday, using MO(1)\n            or MO(-1) won't change the day. To effectively make it absolute, use\n            it in combination with the day argument (e.g. day=1, MO(1) for first\n            Monday of the month).\n\n        leapdays:\n            Will add given days to the date found, if year is a leap\n            year, and the date found is post 28 of february."
+      }
+    },
+    {
+      "task_id": "dateutil_relativedelta___eq",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "23cf92d6fd10def7a22ac40b972bd56ce0ab7a80cb06712ec2569ccdae6efdc3",
+      "defect_type": "null_type",
+      "requirement_sources": [
+        {
+          "path": "docs/relativedelta.rst",
+          "start_line": 2,
+          "end_line": 8,
+          "sha256": "4f2333475a627e68e61fa9de7c15a14c0e627e9406d2d182ea26106f40ad2080",
+          "excerpt": "relativedelta\n=============\n.. automodule:: dateutil.relativedelta\n   :members:\n   :undoc-members:\n\n.. testsetup:: relativedelta"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "enclosing_class_docstring",
+        "path": "src/dateutil/relativedelta.py",
+        "source_sha256": "abc031b39e6cf131ae9740be0fd61e2ef7aa0dc56ac17d779a220fd90ef2997e",
+        "start_line": 19,
+        "end_line": 64,
+        "excerpt": "    \"\"\"\n    The relativedelta type is designed to be applied to an existing datetime and\n    can replace specific components of that datetime, or represents an interval\n    of time.\n\n    It is based on the specification of the excellent work done by M.-A. Lemburg\n    in his\n    `mx.DateTime <https://www.egenix.com/products/python/mxBase/mxDateTime/>`_ extension.\n    However, notice that this type does *NOT* implement the same algorithm as\n    his work. Do *NOT* expect it to behave like mx.DateTime's counterpart.\n\n    There are two different ways to build a relativedelta instance. The\n    first one is passing it two date/datetime classes::\n\n        relativedelta(datetime1, datetime2)\n\n    The second one is passing it any number of the following keyword arguments::\n\n        relativedelta(arg1=x,arg2=y,arg3=z...)\n\n        year, month, day, hour, minute, second, microsecond:\n            Absolute information (argument is singular); adding or subtracting a\n            relativedelta with absolute information does not perform an arithmetic\n            operation, but rather REPLACES the corresponding value in the\n            original datetime with the value(s) in relativedelta.\n\n        years, months, weeks, days, hours, minutes, seconds, microseconds:\n            Relative information, may be negative (argument is plural); adding\n            or subtracting a relativedelta with relative information performs\n            the corresponding arithmetic operation on the original datetime value\n            with the information in the relativedelta.\n\n        weekday:\n            One of the weekday instances (MO, TU, etc) available in the\n            relativedelta module. These instances may receive a parameter N,\n            specifying the Nth weekday, which could be positive or negative\n            (like MO(+1) or MO(-2)). Not specifying it is the same as specifying\n            +1. You can also use an integer, where 0=MO. This argument is always\n            relative e.g. if the calculated date is already Monday, using MO(1)\n            or MO(-1) won't change the day. To effectively make it absolute, use\n            it in combination with the day argument (e.g. day=1, MO(1) for first\n            Monday of the month).\n\n        leapdays:\n            Will add given days to the date found, if year is a leap\n            year, and the date found is post 28 of february."
+      }
+    },
+    {
+      "task_id": "dateutil_relativedelta__fix",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "7bc82625ceae587d1227d3ef7dea5b8376b336008941935d39e0327bf5185c77",
+      "defect_type": "boundary",
+      "requirement_sources": [
+        {
+          "path": "docs/relativedelta.rst",
+          "start_line": 2,
+          "end_line": 8,
+          "sha256": "4f2333475a627e68e61fa9de7c15a14c0e627e9406d2d182ea26106f40ad2080",
+          "excerpt": "relativedelta\n=============\n.. automodule:: dateutil.relativedelta\n   :members:\n   :undoc-members:\n\n.. testsetup:: relativedelta"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "enclosing_class_docstring",
+        "path": "src/dateutil/relativedelta.py",
+        "source_sha256": "abc031b39e6cf131ae9740be0fd61e2ef7aa0dc56ac17d779a220fd90ef2997e",
+        "start_line": 19,
+        "end_line": 64,
+        "excerpt": "    \"\"\"\n    The relativedelta type is designed to be applied to an existing datetime and\n    can replace specific components of that datetime, or represents an interval\n    of time.\n\n    It is based on the specification of the excellent work done by M.-A. Lemburg\n    in his\n    `mx.DateTime <https://www.egenix.com/products/python/mxBase/mxDateTime/>`_ extension.\n    However, notice that this type does *NOT* implement the same algorithm as\n    his work. Do *NOT* expect it to behave like mx.DateTime's counterpart.\n\n    There are two different ways to build a relativedelta instance. The\n    first one is passing it two date/datetime classes::\n\n        relativedelta(datetime1, datetime2)\n\n    The second one is passing it any number of the following keyword arguments::\n\n        relativedelta(arg1=x,arg2=y,arg3=z...)\n\n        year, month, day, hour, minute, second, microsecond:\n            Absolute information (argument is singular); adding or subtracting a\n            relativedelta with absolute information does not perform an arithmetic\n            operation, but rather REPLACES the corresponding value in the\n            original datetime with the value(s) in relativedelta.\n\n        years, months, weeks, days, hours, minutes, seconds, microseconds:\n            Relative information, may be negative (argument is plural); adding\n            or subtracting a relativedelta with relative information performs\n            the corresponding arithmetic operation on the original datetime value\n            with the information in the relativedelta.\n\n        weekday:\n            One of the weekday instances (MO, TU, etc) available in the\n            relativedelta module. These instances may receive a parameter N,\n            specifying the Nth weekday, which could be positive or negative\n            (like MO(+1) or MO(-2)). Not specifying it is the same as specifying\n            +1. You can also use an integer, where 0=MO. This argument is always\n            relative e.g. if the calculated date is already Monday, using MO(1)\n            or MO(-1) won't change the day. To effectively make it absolute, use\n            it in combination with the day argument (e.g. day=1, MO(1) for first\n            Monday of the month).\n\n        leapdays:\n            Will add given days to the date found, if year is a leap\n            year, and the date found is post 28 of february."
+      }
+    },
+    {
+      "task_id": "itsdangerous_serializer_iter_unsigners",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "4799ef613d531dcbb161891cd315c8272e964982287d47859727e558ee4d1b3a",
+      "defect_type": "null_type",
+      "requirement_sources": [
+        {
+          "path": "docs/serializer.rst",
+          "start_line": 5,
+          "end_line": 11,
+          "sha256": "733f7e34ad2043b0f9a0660569e1bcc69f7c4989493d0861b4328bce951f60d3",
+          "excerpt": "\nThe :doc:`/signer` only signs bytes. To sign other types, the\n:class:`Serializer` class provides a ``dumps``/``loads`` interface\nsimilar to Python's :mod:`json` module, which serializes the object to a\nstring then signs that.\n\nUse :meth:`~Serializer.dumps` to serialize and sign the data:"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "target_function_docstring",
+        "path": "src/itsdangerous/serializer.py",
+        "source_sha256": "ec07e7f71ed11e8e7efbff91856b56684589bc2ebdc758445450b4ad257d1f35",
+        "start_line": 290,
+        "end_line": 293,
+        "excerpt": "        \"\"\"Iterates over all signers to be tried for unsigning. Starts\n        with the configured signer, then constructs each signer\n        specified in ``fallback_signers``.\n        \"\"\""
+      }
+    },
+    {
+      "task_id": "itsdangerous_signer_derive_key",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "f25b43b20823971f7342fdc82647bccc6679aa60915f79110e3f496d9d320717",
+      "defect_type": "null_type",
+      "requirement_sources": [
+        {
+          "path": "docs/signer.rst",
+          "start_line": 38,
+          "end_line": 44,
+          "sha256": "a6ff4543b96fb2749029e5fbe47041f86fd1bf8a4f868280b24808ac14614a24",
+          "excerpt": "To record and validate the age of a signature, see :doc:`/timed`.\n\n.. autoclass:: Signer\n    :members:\n\n\nSigning Algorithms"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "target_function_docstring",
+        "path": "src/itsdangerous/signer.py",
+        "source_sha256": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+        "start_line": 183,
+        "end_line": 194,
+        "excerpt": "        \"\"\"This method is called to derive the key. The default key\n        derivation choices can be overridden here. Key derivation is not\n        intended to be used as a security method to make a complex key\n        out of a short password. Instead you should use large random\n        secret keys.\n\n        :param secret_key: A specific secret key to derive from.\n            Defaults to the last item in :attr:`secret_keys`.\n\n        .. versionchanged:: 2.0\n            Added the ``secret_key`` parameter.\n        \"\"\""
+      }
+    },
+    {
+      "task_id": "jinja_do_striptags",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "8eba119dd092069163e81b8341a58209ec0ac62d3e5702dfb3c501f57a7ee153",
+      "defect_type": "null_type",
+      "requirement_sources": [
+        {
+          "path": "docs/templates.rst",
+          "start_line": 148,
+          "end_line": 154,
+          "sha256": "037bbb87292ba4317ed7e77f61d230926054a22abc59c10edc8ce9f9a1990696",
+          "excerpt": "commas (``str.join(', ', listx)``).\n\nThe :ref:`builtin-filters` below describes all the builtin filters.\n\n.. _tests:\n\nTests"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "target_function_docstring",
+        "path": "src/jinja2/filters.py",
+        "source_sha256": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+        "start_line": 1052,
+        "end_line": 1052,
+        "excerpt": "    \"\"\"Strip SGML/XML tags and replace adjacent whitespace by one space.\"\"\""
+      }
+    },
+    {
+      "task_id": "markupsafe_markup___add",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "c0f5a7f81e287d4e5543324c12c73465e526157e620b1912f93a3d3b9a52011b",
+      "defect_type": "exception_handling",
+      "requirement_sources": [
+        {
+          "path": "docs/escaping.rst",
+          "start_line": 6,
+          "end_line": 12,
+          "sha256": "409beaa39dbd17860d5600e7b8a4e1232dfc32fc341fac413d1c6f977ba9b4a4",
+          "excerpt": ".. autofunction:: escape\n\n.. autoclass:: Markup\n    :members: escape, unescape, striptags\n\n\nOptional Values"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "enclosing_class_docstring",
+        "path": "src/markupsafe/__init__.py",
+        "source_sha256": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "start_line": 85,
+        "end_line": 118,
+        "excerpt": "    \"\"\"A string that is ready to be safely inserted into an HTML or XML\n    document, either because it was escaped or because it was marked\n    safe.\n\n    Passing an object to the constructor converts it to text and wraps\n    it to mark it safe without escaping. To escape the text, use the\n    :meth:`escape` class method instead.\n\n    >>> Markup(\"Hello, <em>World</em>!\")\n    Markup('Hello, <em>World</em>!')\n    >>> Markup(42)\n    Markup('42')\n    >>> Markup.escape(\"Hello, <em>World</em>!\")\n    Markup('Hello &lt;em&gt;World&lt;/em&gt;!')\n\n    This implements the ``__html__()`` interface that some frameworks\n    use. Passing an object that implements ``__html__()`` will wrap the\n    output of that method, marking it safe.\n\n    >>> class Foo:\n    ...     def __html__(self):\n    ...         return '<a href=\"/foo\">foo</a>'\n    ...\n    >>> Markup(Foo())\n    Markup('<a href=\"/foo\">foo</a>')\n\n    This is a subclass of :class:`str`. It has the same methods, but\n    escapes their arguments and returns a ``Markup`` instance.\n\n    >>> Markup(\"<em>%s</em>\") % (\"foo & bar\",)\n    Markup('<em>foo &amp; bar</em>')\n    >>> Markup(\"<em>Hello</em> \") + \"<foo>\"\n    Markup('<em>Hello</em> &lt;foo&gt;')\n    \"\"\""
+      }
+    },
+    {
+      "task_id": "markupsafe_markup___getitem",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "79e07aa9ad1b023d09c7ecea0dc3c3531d3f3e13af300c372d38407218f8d62f",
+      "defect_type": "boundary",
+      "requirement_sources": [
+        {
+          "path": "docs/escaping.rst",
+          "start_line": 6,
+          "end_line": 12,
+          "sha256": "409beaa39dbd17860d5600e7b8a4e1232dfc32fc341fac413d1c6f977ba9b4a4",
+          "excerpt": ".. autofunction:: escape\n\n.. autoclass:: Markup\n    :members: escape, unescape, striptags\n\n\nOptional Values"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "enclosing_class_docstring",
+        "path": "src/markupsafe/__init__.py",
+        "source_sha256": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "start_line": 85,
+        "end_line": 118,
+        "excerpt": "    \"\"\"A string that is ready to be safely inserted into an HTML or XML\n    document, either because it was escaped or because it was marked\n    safe.\n\n    Passing an object to the constructor converts it to text and wraps\n    it to mark it safe without escaping. To escape the text, use the\n    :meth:`escape` class method instead.\n\n    >>> Markup(\"Hello, <em>World</em>!\")\n    Markup('Hello, <em>World</em>!')\n    >>> Markup(42)\n    Markup('42')\n    >>> Markup.escape(\"Hello, <em>World</em>!\")\n    Markup('Hello &lt;em&gt;World&lt;/em&gt;!')\n\n    This implements the ``__html__()`` interface that some frameworks\n    use. Passing an object that implements ``__html__()`` will wrap the\n    output of that method, marking it safe.\n\n    >>> class Foo:\n    ...     def __html__(self):\n    ...         return '<a href=\"/foo\">foo</a>'\n    ...\n    >>> Markup(Foo())\n    Markup('<a href=\"/foo\">foo</a>')\n\n    This is a subclass of :class:`str`. It has the same methods, but\n    escapes their arguments and returns a ``Markup`` instance.\n\n    >>> Markup(\"<em>%s</em>\") % (\"foo & bar\",)\n    Markup('<em>foo &amp; bar</em>')\n    >>> Markup(\"<em>Hello</em> \") + \"<foo>\"\n    Markup('<em>Hello</em> &lt;foo&gt;')\n    \"\"\""
+      }
+    },
+    {
+      "task_id": "markupsafe_markup___html_format",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "d07ee7d9338bdc94499ffc33103ece7f1bbbadbe4ccff4407fa5262665535864",
+      "defect_type": "exception_handling",
+      "requirement_sources": [
+        {
+          "path": "docs/formatting.rst",
+          "start_line": 12,
+          "end_line": 18,
+          "sha256": "2774964cc8e69e872ddc2040ca109ca6f357e5961c3a11fbb88c67e0a38fd9b1",
+          "excerpt": "\nThe ``format`` method extends the standard :meth:`str.format` behavior\nto use an ``__html_format__`` method.\n\n#.  If an object has an ``__html_format__`` method, it is called as a\n    replacement for the ``__format__`` method. It is passed a format\n    specifier if it's given. The method must return a string or"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "enclosing_class_docstring",
+        "path": "src/markupsafe/__init__.py",
+        "source_sha256": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "start_line": 85,
+        "end_line": 118,
+        "excerpt": "    \"\"\"A string that is ready to be safely inserted into an HTML or XML\n    document, either because it was escaped or because it was marked\n    safe.\n\n    Passing an object to the constructor converts it to text and wraps\n    it to mark it safe without escaping. To escape the text, use the\n    :meth:`escape` class method instead.\n\n    >>> Markup(\"Hello, <em>World</em>!\")\n    Markup('Hello, <em>World</em>!')\n    >>> Markup(42)\n    Markup('42')\n    >>> Markup.escape(\"Hello, <em>World</em>!\")\n    Markup('Hello &lt;em&gt;World&lt;/em&gt;!')\n\n    This implements the ``__html__()`` interface that some frameworks\n    use. Passing an object that implements ``__html__()`` will wrap the\n    output of that method, marking it safe.\n\n    >>> class Foo:\n    ...     def __html__(self):\n    ...         return '<a href=\"/foo\">foo</a>'\n    ...\n    >>> Markup(Foo())\n    Markup('<a href=\"/foo\">foo</a>')\n\n    This is a subclass of :class:`str`. It has the same methods, but\n    escapes their arguments and returns a ``Markup`` instance.\n\n    >>> Markup(\"<em>%s</em>\") % (\"foo & bar\",)\n    Markup('<em>foo &amp; bar</em>')\n    >>> Markup(\"<em>Hello</em> \") + \"<foo>\"\n    Markup('<em>Hello</em> &lt;foo&gt;')\n    \"\"\""
+      }
+    },
+    {
+      "task_id": "markupsafe_markup_split",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "a3075f0c78dce882385d0c39a208e64643ee1d3db8088409048f487815255667",
+      "defect_type": "boundary",
+      "requirement_sources": [
+        {
+          "path": "docs/escaping.rst",
+          "start_line": 6,
+          "end_line": 12,
+          "sha256": "409beaa39dbd17860d5600e7b8a4e1232dfc32fc341fac413d1c6f977ba9b4a4",
+          "excerpt": ".. autofunction:: escape\n\n.. autoclass:: Markup\n    :members: escape, unescape, striptags\n\n\nOptional Values"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "enclosing_class_docstring",
+        "path": "src/markupsafe/__init__.py",
+        "source_sha256": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "start_line": 85,
+        "end_line": 118,
+        "excerpt": "    \"\"\"A string that is ready to be safely inserted into an HTML or XML\n    document, either because it was escaped or because it was marked\n    safe.\n\n    Passing an object to the constructor converts it to text and wraps\n    it to mark it safe without escaping. To escape the text, use the\n    :meth:`escape` class method instead.\n\n    >>> Markup(\"Hello, <em>World</em>!\")\n    Markup('Hello, <em>World</em>!')\n    >>> Markup(42)\n    Markup('42')\n    >>> Markup.escape(\"Hello, <em>World</em>!\")\n    Markup('Hello &lt;em&gt;World&lt;/em&gt;!')\n\n    This implements the ``__html__()`` interface that some frameworks\n    use. Passing an object that implements ``__html__()`` will wrap the\n    output of that method, marking it safe.\n\n    >>> class Foo:\n    ...     def __html__(self):\n    ...         return '<a href=\"/foo\">foo</a>'\n    ...\n    >>> Markup(Foo())\n    Markup('<a href=\"/foo\">foo</a>')\n\n    This is a subclass of :class:`str`. It has the same methods, but\n    escapes their arguments and returns a ``Markup`` instance.\n\n    >>> Markup(\"<em>%s</em>\") % (\"foo & bar\",)\n    Markup('<em>foo &amp; bar</em>')\n    >>> Markup(\"<em>Hello</em> \") + \"<foo>\"\n    Markup('<em>Hello</em> &lt;foo&gt;')\n    \"\"\""
+      }
+    },
+    {
+      "task_id": "v2_click_datetime_convert",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "d36cf3a876c178cbb7a2813b2943b3124f8558bcfedd53a5ce8d0890fe12d02c",
+      "defect_type": "null_type",
+      "requirement_sources": [
+        {
+          "path": "docs/api.rst",
+          "start_line": 140,
+          "end_line": 146,
+          "sha256": "0a2ec4cfa86508226023c7879f23b5b7e6e6c9274f517b5880029eb3e495f586",
+          "excerpt": ".. autoclass:: FloatRange\n\n.. autoclass:: DateTime\n\n.. autoclass:: Tuple\n\n.. autoclass:: ParamType"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "enclosing_class_docstring",
+        "path": "src/click/types.py",
+        "source_sha256": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+        "start_line": 335,
+        "end_line": 353,
+        "excerpt": "    \"\"\"The DateTime type converts date strings into `datetime` objects.\n\n    The format strings which are checked are configurable, but default to some\n    common (non-timezone aware) ISO 8601 formats.\n\n    When specifying *DateTime* formats, you should only pass a list or a tuple.\n    Other iterables, like generators, may lead to surprising results.\n\n    The format strings are processed using ``datetime.strptime``, and this\n    consequently defines the format strings which are allowed.\n\n    Parsing is tried using each format, in order, and the first format which\n    parses successfully is used.\n\n    :param formats: A list or tuple of date format strings, in the order in\n                    which they should be tried. Defaults to\n                    ``'%Y-%m-%d'``, ``'%Y-%m-%dT%H:%M:%S'``,\n                    ``'%Y-%m-%d %H:%M:%S'``.\n    \"\"\""
+      }
+    },
+    {
+      "task_id": "v2_click_pacifyflushwrapper_flush",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "9d102ef28584148ddc5d8e4bac48c279175474c1f6a0f1371be6b07980108421",
+      "defect_type": "exception_handling",
+      "requirement_sources": [
+        {
+          "path": "docs/api.rst",
+          "start_line": 35,
+          "end_line": 41,
+          "sha256": "0a2ec4cfa86508226023c7879f23b5b7e6e6c9274f517b5880029eb3e495f586",
+          "excerpt": "\n\nUtilities\n---------\n\n.. autofunction:: echo\n"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "enclosing_class_docstring",
+        "path": "src/click/utils.py",
+        "source_sha256": "6210f3ca849fe708dd23fc3554776af7d8dc7df869e46e127bd6373066493090",
+        "start_line": 496,
+        "end_line": 502,
+        "excerpt": "    \"\"\"This wrapper is used to catch and suppress BrokenPipeErrors resulting\n    from ``.flush()`` being called on broken pipe during the shutdown/final-GC\n    of the Python interpreter. Notably ``.flush()`` is always called on\n    ``sys.stdout`` and ``sys.stderr``. So as to have minimal impact on any\n    other cleanup code, and the case where the underlying file is not a broken\n    pipe, all calls and attributes are proxied.\n    \"\"\""
+      }
+    },
+    {
+      "task_id": "v2_click_stringparamtype_convert",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "864a45d7cae264a2a87171553edd589cc514b82db85babf488f1533a14088b15",
+      "defect_type": "exception_handling",
+      "requirement_sources": [
+        {
+          "path": "docs/api.rst",
+          "start_line": 118,
+          "end_line": 124,
+          "sha256": "0a2ec4cfa86508226023c7879f23b5b7e6e6c9274f517b5880029eb3e495f586",
+          "excerpt": "-----\n\n.. autodata:: STRING\n\n.. autodata:: INT\n\n.. autodata:: FLOAT"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "no_target_or_class_docstring",
+        "path": "src/click/types.py",
+        "source_sha256": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+        "note": "Use project docs, explicit protocol/parameter annotations and independent review; implementation body alone is not an oracle."
+      }
+    },
+    {
+      "task_id": "v2_click_uuidparametertype_convert",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "387813aa64d9dda759bc3519a59c4600739668b737c547e0511e6f20120321d8",
+      "defect_type": "null_type",
+      "requirement_sources": [
+        {
+          "path": "docs/api.rst",
+          "start_line": 126,
+          "end_line": 132,
+          "sha256": "0a2ec4cfa86508226023c7879f23b5b7e6e6c9274f517b5880029eb3e495f586",
+          "excerpt": ".. autodata:: BOOL\n\n.. autodata:: UUID\n\n.. autodata:: UNPROCESSED\n\n.. autoclass:: File"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "no_target_or_class_docstring",
+        "path": "src/click/types.py",
+        "source_sha256": "9dac1537c43b697ed4630e44e0df689d65df11db949ed2d1b7fd0044e9147deb",
+        "note": "Use project docs, explicit protocol/parameter annotations and independent review; implementation body alone is not an oracle."
+      }
+    },
+    {
+      "task_id": "v2_dateutil_rrulebase_xafter",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "7641c0cffac2b6e08c06782ffccae2c8c7407af88d785125691350767b98c3e8",
+      "defect_type": "boundary",
+      "requirement_sources": [
+        {
+          "path": "docs/rrule.rst",
+          "start_line": 3,
+          "end_line": 9,
+          "sha256": "7047efd9dc431759ee9ff9c326f3b33d669af9aee048772dc0b733e983918107",
+          "excerpt": "=====\n\n.. automodule:: dateutil.rrule\n   :undoc-members:\n\nClasses\n-------"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "target_function_docstring",
+        "path": "src/dateutil/rrule.py",
+        "source_sha256": "b3af688f361febc0766eeba4521e10075c8f9e1e9793d8a0af68cf8c54eda332",
+        "start_line": 231,
+        "end_line": 247,
+        "excerpt": "        \"\"\"\n        Generator which yields up to `count` recurrences after the given\n        datetime instance, equivalent to `after`.\n\n        :param dt:\n            The datetime at which to start generating recurrences.\n\n        :param count:\n            The maximum number of recurrences to generate. If `None` (default),\n            dates are generated until the recurrence rule is exhausted.\n\n        :param inc:\n            If `dt` is an instance of the rule and `inc` is `True`, it is\n            included in the output.\n\n        :yields: Yields a sequence of `datetime` objects.\n        \"\"\""
+      }
+    },
+    {
+      "task_id": "v2_jinja_do_dictsort",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "b1b6eb3658eeb75b0a65f1c3eef1246db978ffdc5da13e5036f542263e517ae6",
+      "defect_type": "exception_handling",
+      "requirement_sources": [
+        {
+          "path": "docs/templates.rst",
+          "start_line": 148,
+          "end_line": 154,
+          "sha256": "037bbb87292ba4317ed7e77f61d230926054a22abc59c10edc8ce9f9a1990696",
+          "excerpt": "commas (``str.join(', ', listx)``).\n\nThe :ref:`builtin-filters` below describes all the builtin filters.\n\n.. _tests:\n\nTests"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "target_function_docstring",
+        "path": "src/jinja2/filters.py",
+        "source_sha256": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+        "start_line": 350,
+        "end_line": 366,
+        "excerpt": "    \"\"\"Sort a dict and yield (key, value) pairs. Python dicts may not\n    be in the order you want to display them in, so sort them first.\n\n    .. sourcecode:: jinja\n\n        {% for key, value in mydict|dictsort %}\n            sort the dict by key, case insensitive\n\n        {% for key, value in mydict|dictsort(reverse=true) %}\n            sort the dict by key, case insensitive, reverse order\n\n        {% for key, value in mydict|dictsort(true) %}\n            sort the dict by key, case sensitive\n\n        {% for key, value in mydict|dictsort(false, 'value') %}\n            sort the dict by value, case insensitive\n    \"\"\""
+      }
+    },
+    {
+      "task_id": "v2_jinja_do_round",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "53ac6845c37117fd53f43f5eb30329c760d7ffdc6308a73e7a5af5373062a054",
+      "defect_type": "exception_handling",
+      "requirement_sources": [
+        {
+          "path": "docs/templates.rst",
+          "start_line": 148,
+          "end_line": 154,
+          "sha256": "037bbb87292ba4317ed7e77f61d230926054a22abc59c10edc8ce9f9a1990696",
+          "excerpt": "commas (``str.join(', ', listx)``).\n\nThe :ref:`builtin-filters` below describes all the builtin filters.\n\n.. _tests:\n\nTests"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "target_function_docstring",
+        "path": "src/jinja2/filters.py",
+        "source_sha256": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+        "start_line": 1153,
+        "end_line": 1177,
+        "excerpt": "    \"\"\"Round the number to a given precision. The first\n    parameter specifies the precision (default is ``0``), the\n    second the rounding method:\n\n    - ``'common'`` rounds either up or down\n    - ``'ceil'`` always rounds up\n    - ``'floor'`` always rounds down\n\n    If you don't specify a method ``'common'`` is used.\n\n    .. sourcecode:: jinja\n\n        {{ 42.55|round }}\n            -> 43.0\n        {{ 42.55|round(1, 'floor') }}\n            -> 42.5\n\n    Note that even if rounded to 0 precision, a float is returned.  If\n    you need a real integer, pipe it through `int`:\n\n    .. sourcecode:: jinja\n\n        {{ 42.55|round|int }}\n            -> 43\n    \"\"\""
+      }
+    },
+    {
+      "task_id": "v2_jinja_do_truncate",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "7f6c570097cc9e08af2a69935bcb04536a67aee9cf4a70e6b39531c2150c6062",
+      "defect_type": "boundary",
+      "requirement_sources": [
+        {
+          "path": "docs/templates.rst",
+          "start_line": 148,
+          "end_line": 154,
+          "sha256": "037bbb87292ba4317ed7e77f61d230926054a22abc59c10edc8ce9f9a1990696",
+          "excerpt": "commas (``str.join(', ', listx)``).\n\nThe :ref:`builtin-filters` below describes all the builtin filters.\n\n.. _tests:\n\nTests"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "target_function_docstring",
+        "path": "src/jinja2/filters.py",
+        "source_sha256": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+        "start_line": 882,
+        "end_line": 904,
+        "excerpt": "    \"\"\"Return a truncated copy of the string. The length is specified\n    with the first parameter which defaults to ``255``. If the second\n    parameter is ``true`` the filter will cut the text at length. Otherwise\n    it will discard the last word. If the text was in fact\n    truncated it will append an ellipsis sign (``\"...\"``). If you want a\n    different ellipsis sign than ``\"...\"`` you can specify it using the\n    third parameter. Strings that only exceed the length by the tolerance\n    margin given in the fourth parameter will not be truncated.\n\n    .. sourcecode:: jinja\n\n        {{ \"foo bar baz qux\"|truncate(9) }}\n            -> \"foo...\"\n        {{ \"foo bar baz qux\"|truncate(9, True) }}\n            -> \"foo ba...\"\n        {{ \"foo bar baz qux\"|truncate(11) }}\n            -> \"foo bar baz qux\"\n        {{ \"foo bar baz qux\"|truncate(11, False, '...', 0) }}\n            -> \"foo bar...\"\n\n    The default leeway on newer Jinja versions is 5 and was 0 before but\n    can be reconfigured globally.\n    \"\"\""
+      }
+    },
+    {
+      "task_id": "v2_jinja_sync_do_sum",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "d2e61b64c5349d204f8d3fccc1d1fd1b27e1478fdc38af0324d3f5ddc5224c82",
+      "defect_type": "null_type",
+      "requirement_sources": [
+        {
+          "path": "docs/templates.rst",
+          "start_line": 148,
+          "end_line": 154,
+          "sha256": "037bbb87292ba4317ed7e77f61d230926054a22abc59c10edc8ce9f9a1990696",
+          "excerpt": "commas (``str.join(', ', listx)``).\n\nThe :ref:`builtin-filters` below describes all the builtin filters.\n\n.. _tests:\n\nTests"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "target_function_docstring",
+        "path": "src/jinja2/filters.py",
+        "source_sha256": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+        "start_line": 1319,
+        "end_line": 1332,
+        "excerpt": "    \"\"\"Returns the sum of a sequence of numbers plus the value of parameter\n    'start' (which defaults to 0).  When the sequence is empty it returns\n    start.\n\n    It is also possible to sum up only certain attributes:\n\n    .. sourcecode:: jinja\n\n        Total: {{ items|sum(attribute='price') }}\n\n    .. versionchanged:: 2.6\n       The ``attribute`` parameter was added to allow summing up over\n       attributes.  Also the ``start`` parameter was moved on to the right.\n    \"\"\""
+      }
+    },
+    {
+      "task_id": "v2_markupsafe_markup_escape",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "a790910db022c8af8e75d076d979477ee86cb861acca899108c3cbb633b6365c",
+      "defect_type": "null_type",
+      "requirement_sources": [
+        {
+          "path": "docs/escaping.rst",
+          "start_line": 6,
+          "end_line": 12,
+          "sha256": "409beaa39dbd17860d5600e7b8a4e1232dfc32fc341fac413d1c6f977ba9b4a4",
+          "excerpt": ".. autofunction:: escape\n\n.. autoclass:: Markup\n    :members: escape, unescape, striptags\n\n\nOptional Values"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "target_function_docstring",
+        "path": "src/markupsafe/__init__.py",
+        "source_sha256": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "start_line": 232,
+        "end_line": 234,
+        "excerpt": "        \"\"\"Escape a string. Calls :func:`escape` and ensures that for\n        subclasses the correct type is returned.\n        \"\"\""
+      }
+    },
+    {
+      "task_id": "v2_markupsafe_markup_format_map",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "cf7080bf4e37f03cf126156327605f3d276f0bf17ff7752e8269ae035996c88a",
+      "defect_type": "null_type",
+      "requirement_sources": [
+        {
+          "path": "docs/formatting.rst",
+          "start_line": 8,
+          "end_line": 14,
+          "sha256": "2774964cc8e69e872ddc2040ca109ca6f357e5961c3a11fbb88c67e0a38fd9b1",
+          "excerpt": "\n\nFormat Method\n-------------\n\nThe ``format`` method extends the standard :meth:`str.format` behavior\nto use an ``__html_format__`` method."
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "enclosing_class_docstring",
+        "path": "src/markupsafe/__init__.py",
+        "source_sha256": "badd8b5e3fbab2a908554752031f9d6e807972b01a446e72ec43b8e3b8666aba",
+        "start_line": 85,
+        "end_line": 118,
+        "excerpt": "    \"\"\"A string that is ready to be safely inserted into an HTML or XML\n    document, either because it was escaped or because it was marked\n    safe.\n\n    Passing an object to the constructor converts it to text and wraps\n    it to mark it safe without escaping. To escape the text, use the\n    :meth:`escape` class method instead.\n\n    >>> Markup(\"Hello, <em>World</em>!\")\n    Markup('Hello, <em>World</em>!')\n    >>> Markup(42)\n    Markup('42')\n    >>> Markup.escape(\"Hello, <em>World</em>!\")\n    Markup('Hello &lt;em&gt;World&lt;/em&gt;!')\n\n    This implements the ``__html__()`` interface that some frameworks\n    use. Passing an object that implements ``__html__()`` will wrap the\n    output of that method, marking it safe.\n\n    >>> class Foo:\n    ...     def __html__(self):\n    ...         return '<a href=\"/foo\">foo</a>'\n    ...\n    >>> Markup(Foo())\n    Markup('<a href=\"/foo\">foo</a>')\n\n    This is a subclass of :class:`str`. It has the same methods, but\n    escapes their arguments and returns a ``Markup`` instance.\n\n    >>> Markup(\"<em>%s</em>\") % (\"foo & bar\",)\n    Markup('<em>foo &amp; bar</em>')\n    >>> Markup(\"<em>Hello</em> \") + \"<foo>\"\n    Markup('<em>Hello</em> &lt;foo&gt;')\n    \"\"\""
+      }
+    },
+    {
+      "task_id": "v3_click_textwrapper__handle_long_word",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "24964ffc022c72e851739bab62df907dc441ed3e30c597a5708dd21bbe8fa4a5",
+      "defect_type": "boundary",
+      "requirement_sources": [
+        {
+          "path": "docs/api.rst",
+          "start_line": 172,
+          "end_line": 178,
+          "sha256": "0a2ec4cfa86508226023c7879f23b5b7e6e6c9274f517b5880029eb3e495f586",
+          "excerpt": "   :members:\n\n.. autofunction:: wrap_text\n\nParsing\n-------\n"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "no_target_or_class_docstring",
+        "path": "src/click/_textwrap.py",
+        "source_sha256": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "note": "Use project docs, explicit protocol/parameter annotations and independent review; implementation body alone is not an oracle."
+      }
+    },
+    {
+      "task_id": "v3_click_textwrapper_indent_only",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "dc47346c48157327bbc7f122e693076adfea9426788d019f94e71223736e616f",
+      "defect_type": "boundary",
+      "requirement_sources": [
+        {
+          "path": "docs/api.rst",
+          "start_line": 172,
+          "end_line": 178,
+          "sha256": "0a2ec4cfa86508226023c7879f23b5b7e6e6c9274f517b5880029eb3e495f586",
+          "excerpt": "   :members:\n\n.. autofunction:: wrap_text\n\nParsing\n-------\n"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "no_target_or_class_docstring",
+        "path": "src/click/_textwrap.py",
+        "source_sha256": "7e35104d140be2645e6fc5c7625a7451039889e079392798b5ef687e431adfb1",
+        "note": "Use project docs, explicit protocol/parameter annotations and independent review; implementation body alone is not an oracle."
+      }
+    },
+    {
+      "task_id": "v3_itsdangerous_signer_verify_signature",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "d8f7bcd79a9835d45ef0ab5ff5c685f3c3d9292082d43ad0157e38d8ef0c28ae",
+      "defect_type": "exception_handling",
+      "requirement_sources": [
+        {
+          "path": "docs/signer.rst",
+          "start_line": 38,
+          "end_line": 44,
+          "sha256": "a6ff4543b96fb2749029e5fbe47041f86fd1bf8a4f868280b24808ac14614a24",
+          "excerpt": "To record and validate the age of a signature, see :doc:`/timed`.\n\n.. autoclass:: Signer\n    :members:\n\n\nSigning Algorithms"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "target_function_docstring",
+        "path": "src/itsdangerous/signer.py",
+        "source_sha256": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+        "start_line": 228,
+        "end_line": 228,
+        "excerpt": "        \"\"\"Verifies the signature for the given value.\"\"\""
+      }
+    },
+    {
+      "task_id": "v3_jinja_do_indent",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "a63ff97eba2936101aa9781b2331f72cd768eabde9ced2be230ffc5dfa6c367a",
+      "defect_type": "boundary",
+      "requirement_sources": [
+        {
+          "path": "docs/templates.rst",
+          "start_line": 148,
+          "end_line": 154,
+          "sha256": "037bbb87292ba4317ed7e77f61d230926054a22abc59c10edc8ce9f9a1990696",
+          "excerpt": "commas (``str.join(', ', listx)``).\n\nThe :ref:`builtin-filters` below describes all the builtin filters.\n\n.. _tests:\n\nTests"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "target_function_docstring",
+        "path": "src/jinja2/filters.py",
+        "source_sha256": "13473588b15b53cf4e18cf1e0a0ec164ff30e36e14eb19fed0636141746f69c7",
+        "start_line": 828,
+        "end_line": 842,
+        "excerpt": "    \"\"\"Return a copy of the string with each line indented by 4 spaces. The\n    first line and blank lines are not indented by default.\n\n    :param width: Number of spaces, or a string, to indent by.\n    :param first: Don't skip indenting the first line.\n    :param blank: Don't skip indenting empty lines.\n\n    .. versionchanged:: 3.0\n        ``width`` can be a string.\n\n    .. versionchanged:: 2.10\n        Blank lines are not indented by default.\n\n        Rename the ``indentfirst`` argument to ``first``.\n    \"\"\""
+      }
+    },
+    {
+      "task_id": "v4_dateutil_parsererror___str",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "4e55a8146675dcf821b9666f5044c45d6ba91439f2dfb824f4d4184d7c65617b",
+      "defect_type": "exception_handling",
+      "requirement_sources": [
+        {
+          "path": "docs/parser.rst",
+          "start_line": 24,
+          "end_line": 29,
+          "sha256": "10056333902a1abf6d4a224fb1a9fc7b98536cb2984648ee6daff8d36655cd3c",
+          "excerpt": "-----------------------\n\n.. autoclass:: dateutil.parser.ParserError\n\n.. autoclass:: dateutil.parser.UnknownTimezoneWarning\n"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "enclosing_class_docstring",
+        "path": "src/dateutil/parser/_parser.py",
+        "source_sha256": "b4cb6d51ef9504aff63bc33b125f16e33c1beb3077932cfbb883575d0b239a79",
+        "start_line": 1590,
+        "end_line": 1596,
+        "excerpt": "    \"\"\"Exception subclass used for any failure to parse a datetime string.\n\n    This is a subclass of :py:exc:`ValueError`, and should be raised any time\n    earlier versions of ``dateutil`` would have raised ``ValueError``.\n\n    .. versionadded:: 2.8.1\n    \"\"\""
+      }
+    },
+    {
+      "task_id": "v5_itsdangerous_hmacalgorithm_get_signature",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "6934a0c57b667586c518069c5ba33c3799311f94981def259b654425445ea6ee",
+      "defect_type": "boundary",
+      "requirement_sources": [
+        {
+          "path": "docs/signer.rst",
+          "start_line": 47,
+          "end_line": 49,
+          "sha256": "a6ff4543b96fb2749029e5fbe47041f86fd1bf8a4f868280b24808ac14614a24",
+          "excerpt": ".. autoclass:: NoneAlgorithm\n\n.. autoclass:: HMACAlgorithm"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "enclosing_class_docstring",
+        "path": "src/itsdangerous/signer.py",
+        "source_sha256": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+        "start_line": 49,
+        "end_line": 49,
+        "excerpt": "    \"\"\"Provides signature generation using HMACs.\"\"\""
+      }
+    },
+    {
+      "task_id": "v5_itsdangerous_signer_get_signature",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "9f3a66e1599688719e34946ddd517d900bd7150005d8fd8c4c14197b78a8dd2c",
+      "defect_type": "boundary",
+      "requirement_sources": [
+        {
+          "path": "docs/signer.rst",
+          "start_line": 38,
+          "end_line": 44,
+          "sha256": "a6ff4543b96fb2749029e5fbe47041f86fd1bf8a4f868280b24808ac14614a24",
+          "excerpt": "To record and validate the age of a signature, see :doc:`/timed`.\n\n.. autoclass:: Signer\n    :members:\n\n\nSigning Algorithms"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "target_function_docstring",
+        "path": "src/itsdangerous/signer.py",
+        "source_sha256": "85d41ef5f64eb63e1299cad82d775b6021950cbfad355af3021084267be663c6",
+        "start_line": 216,
+        "end_line": 216,
+        "excerpt": "        \"\"\"Returns the signature for the given value.\"\"\""
+      }
+    },
+    {
+      "task_id": "v6_dateutil_validate_fromutc_inputs",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "6759df36cb35d7af523f149895223a9dba8f1542d1e7282593b02893fbe5b7e3",
+      "defect_type": "exception_handling",
+      "requirement_sources": [
+        {
+          "path": "docs/tz.rst",
+          "start_line": 2,
+          "end_line": 8,
+          "sha256": "df3f48a41f4d821b9ccb172d2a2b4f49793532acec5317ec5d615aa56b7e695e",
+          "excerpt": "tz\n==\n.. py:currentmodule:: dateutil.tz\n\n.. automodule:: dateutil.tz\n\nObjects"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "target_function_docstring",
+        "path": "src/dateutil/tz/_common.py",
+        "source_sha256": "6f6691a2fcbdf861aeaac226a25c184bb6373d0c74d4475022187520b5058317",
+        "start_line": 133,
+        "end_line": 136,
+        "excerpt": "    \"\"\"\n    The CPython version of ``fromutc`` checks that the input is a ``datetime``\n    object and that ``self`` is attached as its ``tzinfo``.\n    \"\"\""
+      }
+    },
+    {
+      "task_id": "v6_itsdangerous_badheader___init",
+      "status": "approved",
+      "reviewer": "review_p08b_freeze",
+      "input_sha256": "d03008cb1fa5e81b645ef86113a9cd9d4637cc053f105834ac8618bf81987387",
+      "defect_type": "exception_handling",
+      "requirement_sources": [
+        {
+          "path": "docs/exceptions.rst",
+          "start_line": 16,
+          "end_line": 22,
+          "sha256": "2558a52185983f3747665b46e4cfb42d9edd84145cb248a6d9640d689c5658fd",
+          "excerpt": "    :members:\n\n.. autoexception:: BadHeader\n    :members:\n\n.. autoexception:: BadPayload\n    :members:"
+        }
+      ],
+      "basis": "Independent reviewer read all 30 requirements, mutations and holdouts, checked docstrings and standard Python protocols; no semantic or category blocker. Autodoc pointers alone are not the full semantic authority.",
+      "additional_documentation": {
+        "kind": "enclosing_class_docstring",
+        "path": "src/itsdangerous/exc.py",
+        "source_sha256": "8b10e1d63a11c362641b272b4c8431bfe19eaf1108e63ff34dd2cfb6c4006a03",
+        "start_line": 67,
+        "end_line": 72,
+        "excerpt": "    \"\"\"Raised if a signed header is invalid in some form. This only\n    happens for serializers that have a header that goes with the\n    signature.\n\n    .. versionadded:: 0.24\n    \"\"\""
+      }
+    }
+  ]
+}

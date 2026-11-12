@@ -222,3 +222,12 @@ P08B T2第三池完成：累计29个不同合格函数，但按固定项目/类�
 累计77声明/73提议函数/34不同合格函数，五项目每类2、各6，共30/30槽足额，4个同格备选。累计405次完成测试，另保留第四池2次启动失败；所有旧排除保留。模型调用0，正式冻结0/30、运行0/360，真实历史0。新证据evidence/p08b-screening-v6.json、p08b-screening-cumulative-v6.json、p08b-candidate-v6-review.json；完整命令、结果与限制见阶段8_第六批筛选与配额足额.md。
 
 T2足额待用户确认；下一步T3选定30函数并互审冻结，当前未开始。P06独立确认待用户，P09未开始。
+
+
+## 2026-11-12 T3冻结交付（待用户确认）
+
+用户接受T2后进入T3。当前助手实施experiments/freeze.py及9项失败/拒绝测试；固定排序从34合格不同函数选30项，15格各2，4备选保留。公共/评估/协议/摘要分别为p08b-tasks.json、p08b-evaluation.json、p08b-protocol.json、evidence/p08b-freeze.json；冻结提交单独回执记录，无SHA自引用。独立review_p08b_freeze审核代码和30项语义无阻断，API入口证据局限及原docstring补充保留。
+
+最终Windows157项152通过5跳过，Linux核心141通过1跳过（Web由Windows覆盖）；主助手静态复验240原始manifest、30对完整故障身份，60离线实际消息隔离通过。没有重跑240容器或产生模型调用；正式运行0/360、真实历史0。Python实现哈希仅CRLF归一LF，JSON/源库存仍原字节。详细命令/限制/变更/证据见阶段8_正式任务冻结.md及evidence/p08b-t3-verification.json。
+
+T3已交付待确认；T4批量调度未开始。P06独立确认仍待用户，P09未开始。

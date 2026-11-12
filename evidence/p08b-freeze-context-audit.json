@@ -1,0 +1,218 @@
+{
+  "scope": "Offline actual scoped generation/repair message construction; stub output intentionally invalid; not formal experiment evidence",
+  "tasks_checked": 30,
+  "payloads_inspected": 60,
+  "model_calls": 0,
+  "checks": [
+    {
+      "task_id": "dateutil_relativedelta___add",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "dateutil_relativedelta___eq",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "dateutil_relativedelta__fix",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "itsdangerous_serializer_iter_unsigners",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "itsdangerous_signer_derive_key",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "jinja_do_striptags",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "markupsafe_markup___add",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "markupsafe_markup___getitem",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "markupsafe_markup___html_format",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "markupsafe_markup_split",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v2_click_datetime_convert",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v2_click_pacifyflushwrapper_flush",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v2_click_stringparamtype_convert",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v2_click_uuidparametertype_convert",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v2_dateutil_rrulebase_xafter",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v2_jinja_do_dictsort",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v2_jinja_do_round",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v2_jinja_do_truncate",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v2_jinja_sync_do_sum",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v2_markupsafe_markup_escape",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v2_markupsafe_markup_format_map",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v3_click_textwrapper__handle_long_word",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v3_click_textwrapper_indent_only",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v3_itsdangerous_signer_verify_signature",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v3_jinja_do_indent",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v4_dateutil_parsererror___str",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v5_itsdangerous_hmacalgorithm_get_signature",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v5_itsdangerous_signer_get_signature",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v6_dateutil_validate_fromutc_inputs",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    },
+    {
+      "task_id": "v6_itsdangerous_badheader___init",
+      "request_payloads_inspected": 2,
+      "private_path_and_full_holdout_absent": true,
+      "full_reference_modules_absent": true,
+      "private_evaluation_fields_absent": true
+    }
+  ]
+}

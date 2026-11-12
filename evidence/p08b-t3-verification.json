@@ -1,0 +1,71 @@
+{
+  "date": "2026-11-12",
+  "scope": "P08B T3 freeze verification, no formal experiment results",
+  "windows": {
+    "command": ".venv/Scripts/python.exe -m unittest discover -s tests -v",
+    "total": 157,
+    "passed": 152,
+    "skipped": 5,
+    "log_path": "artifacts/p08b-t3/windows-tests-final.log",
+    "log_sha256": "2595b5e0e663cbc1c50410fa26db81e5542f41e3a16aa859a39854bfb4baff59"
+  },
+  "freeze_tests": {
+    "command": ".venv/Scripts/python.exe -m unittest tests.test_freeze -v",
+    "passed": 9
+  },
+  "linux_core": {
+    "scope": "Linux Python core; Web tests excluded, covered by Windows full suite",
+    "excluded_test_files": [
+      "tests/test_web.py"
+    ],
+    "execution": {
+      "run": {
+        "run_id": "4c6d56958ee14d92ab0518735942932a",
+        "snapshot_digest": "e324ac318db54ac45ccd7e38f8589e6e265017f7ed49042cbc8433283250f1ed",
+        "exit_code": 0,
+        "passed": 141,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 1,
+        "failure": null,
+        "artifacts": [
+          "4c6d56958ee14d92ab0518735942932a/log.txt",
+          "4c6d56958ee14d92ab0518735942932a/junit.xml",
+          "4c6d56958ee14d92ab0518735942932a/manifest.json",
+          "4c6d56958ee14d92ab0518735942932a/run.json",
+          "4c6d56958ee14d92ab0518735942932a/coverage.json"
+        ]
+      },
+      "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\p08b-t3\\linux-core-final\\4c6d56958ee14d92ab0518735942932a",
+      "cleanup_ok": true
+    }
+  },
+  "review": {
+    "reviewer": "review_p08b_freeze",
+    "verdict": "approved_no_blockers",
+    "read_only": true,
+    "target_code_executed": false
+  },
+  "artifact_audit": {
+    "tasks": 30,
+    "manifests": 240,
+    "full_failure_pairs": 30,
+    "method": "main assistant host static audit; original runs retained, not rerun"
+  },
+  "offline_context_audit": {
+    "tasks": 30,
+    "payloads": 60,
+    "model_calls": 0
+  },
+  "initial_checks": [
+    "unittest discover without -s tests discovered zero tests and returned failure; not counted as verification",
+    "red/green: missing freeze module; run-specific artifact links incorrectly treated as behavior; legacy completed report labels; LF/CRLF hash portability"
+  ],
+  "model_calls": 0,
+  "formal_experiment_records": 0,
+  "limitations": [
+    "Linux Web tests excluded; all Web tests covered by Windows full suite",
+    "No clean-machine reference/image/resource reproduction; P09 not started",
+    "Source documentation pointers supplemented by actual docstrings, not all snippets alone prove detailed contract"
+  ]
+}
