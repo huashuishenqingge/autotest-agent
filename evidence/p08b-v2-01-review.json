@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-13",
+  "reviewer": "review_v2_01",
+  "base": "3b24feb",
+  "mode": "independent read-only review of this step; no Docker, upstream, network or model execution",
+  "findings": [{"priority": "P2", "file": "tests/test_formal_tasks_v2.py", "issue": "Mock target retained removed runtime_v2.Path import; test fails with AttributeError instead of checking drift", "status": "fixed", "verification": "Explicit focused failure observed, corrected to pathlib.Path.read_bytes, focused green, final Windows191 and Linux176 tests green with documented skips"}],
+  "additional_blocking_product_findings": [],
+  "confirmed": ["Candidate output formal_ready=false and qualification/semantic review pending", "Canonical comparisons bind field types, unknown fields and fixed V1 population", "Evaluator data remains outside case", "Old formal_tasks.py, freeze.py, campaign.py and V1 declarations unchanged in inspected diff"],
+  "limits": ["Reviewer test attempts encountered temporary-directory permission errors", "Final corrected full suites were executed by implementer, not independently rerun by reviewer", "No actual qualification or formal freeze reviewed", "Duplicated inventory checks carry future maintenance divergence risk"]
+}

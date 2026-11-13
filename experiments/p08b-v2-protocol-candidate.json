@@ -1,0 +1,81 @@
+{
+  "schema": "p08-protocol-v2-candidate",
+  "status": "candidate_not_frozen",
+  "source_commit": "3b24feb206c11b1bab1c7f1a9fcc8947a2fc6d29",
+  "selection_rule": "unchanged_V1_thirty_tasks",
+  "methods": [
+    {
+      "id": "B0",
+      "generation_rounds": 0,
+      "repair_attempts": 0,
+      "coverage_feedback": false
+    },
+    {
+      "id": "B1",
+      "generation_rounds": 1,
+      "repair_attempts": 1,
+      "coverage_feedback": false
+    },
+    {
+      "id": "B2",
+      "generation_rounds": 2,
+      "repair_attempts": 3,
+      "coverage_feedback": true
+    },
+    {
+      "id": "A0",
+      "generation_rounds": 2,
+      "repair_attempts": 3,
+      "coverage_feedback": false
+    }
+  ],
+  "repetitions": 3,
+  "task_order": [
+    "dateutil_relativedelta___add",
+    "dateutil_relativedelta___eq",
+    "dateutil_relativedelta__fix",
+    "itsdangerous_serializer_iter_unsigners",
+    "itsdangerous_signer_derive_key",
+    "jinja_do_striptags",
+    "markupsafe_markup___add",
+    "markupsafe_markup___getitem",
+    "markupsafe_markup___html_format",
+    "markupsafe_markup_split",
+    "v2_click_datetime_convert",
+    "v2_click_pacifyflushwrapper_flush",
+    "v2_click_stringparamtype_convert",
+    "v2_click_uuidparametertype_convert",
+    "v2_dateutil_rrulebase_xafter",
+    "v2_jinja_do_dictsort",
+    "v2_jinja_do_round",
+    "v2_jinja_do_truncate",
+    "v2_jinja_sync_do_sum",
+    "v2_markupsafe_markup_escape",
+    "v2_markupsafe_markup_format_map",
+    "v3_click_textwrapper__handle_long_word",
+    "v3_click_textwrapper_indent_only",
+    "v3_itsdangerous_signer_verify_signature",
+    "v3_jinja_do_indent",
+    "v4_dateutil_parsererror___str",
+    "v5_itsdangerous_hmacalgorithm_get_signature",
+    "v5_itsdangerous_signer_get_signature",
+    "v6_dateutil_validate_fromutc_inputs",
+    "v6_itsdangerous_badheader___init"
+  ],
+  "execution_order": "repeat_task_rotating_methods_v1",
+  "runtime": {
+    "image_id": "sha256:1756fbdd32c39afbdc437e6595f5b69e71128c75de260e02aaae73f709506dcf",
+    "worker_sha256": "73124927bcc8500a5ec1bb345f77c48316c2d401a53d80e87109bc2408b5f42e",
+    "dependency_lock_sha256": "8f4d22acc8ff1aaa0b5bf56a283d6c7fe11790e08f416ceec709253bc907eee4",
+    "context_version": "p08-context-v1",
+    "repair_version": "p08-scoped-repair-v1",
+    "model": "deepseek-v4-flash-ascend",
+    "temperature": 0.2,
+    "thinking_mode": "disabled",
+    "max_tokens": 2048,
+    "input_characters": 16000,
+    "timeout_seconds": 60
+  },
+  "http_timeout_seconds": 300,
+  "api_seed": null
+}

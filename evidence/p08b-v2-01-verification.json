@@ -1,0 +1,156 @@
+{
+  "date": "2026-11-13",
+  "scope": "V2-01 static candidate identity/loading and own regression only",
+  "status": "technical_checks_passed_user_acceptance_pending",
+  "formal_freeze": false,
+  "qualification_runs": 0,
+  "model_calls": 0,
+  "budget_attempts": 333,
+  "windows": {
+    "total": 191,
+    "passed": 184,
+    "skipped": 7,
+    "failures": 0,
+    "command": ".venv/Scripts/python.exe -m unittest discover -s tests -v",
+    "log_sha256": "0e343cddfbcea7534834b94251e2c3037cc76cfaac57e824d06bd7ef876c9388"
+  },
+  "linux": {
+    "scope": "Own Linux core tests only; no upstream qualification or models; Web covered by Windows",
+    "execution": {
+      "run": {
+        "run_id": "d11e5d94347e40b8b4c4288214b5f087",
+        "snapshot_digest": "1bc6614bfb49089862810486ce3ce6a7f1a2cd1d4299619c8094f10ec1579b23",
+        "exit_code": 0,
+        "passed": 175,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 1,
+        "failure": null,
+        "artifacts": [
+          "d11e5d94347e40b8b4c4288214b5f087/log.txt",
+          "d11e5d94347e40b8b4c4288214b5f087/junit.xml",
+          "d11e5d94347e40b8b4c4288214b5f087/manifest.json",
+          "d11e5d94347e40b8b4c4288214b5f087/run.json",
+          "d11e5d94347e40b8b4c4288214b5f087/coverage.json"
+        ]
+      },
+      "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-v2-01-linux\\d11e5d94347e40b8b4c4288214b5f087",
+      "cleanup_ok": true
+    }
+  },
+  "linux_manifest_sha256": "80e1e2b7ef97cc483114892f0c3bfc36bfc687c44dfb91bdfb294a55f4a78ca6",
+  "linux_snapshot_digest_recomputed": true,
+  "initial_linux_failure_retained": {
+    "scope": "Own Linux core tests only; no upstream qualification or models; Web covered by Windows",
+    "execution": {
+      "run": {
+        "run_id": "843d1800988c4e78b80964b2baaf7895",
+        "snapshot_digest": "4556594dca9672f6e9e5f29e35f36181de16cd112bac1f805c6f1c5f67c3970d",
+        "exit_code": 1,
+        "passed": 174,
+        "failed": 1,
+        "errors": 0,
+        "skipped": 1,
+        "failure": {
+          "kind": "environment",
+          "message": "Run did not verify; inspect sanitized evidence",
+          "evidence": [
+            "843d1800988c4e78b80964b2baaf7895/log.txt",
+            "843d1800988c4e78b80964b2baaf7895/junit.xml",
+            "843d1800988c4e78b80964b2baaf7895/manifest.json",
+            "843d1800988c4e78b80964b2baaf7895/run.json",
+            "843d1800988c4e78b80964b2baaf7895/coverage.json"
+          ]
+        },
+        "artifacts": [
+          "843d1800988c4e78b80964b2baaf7895/log.txt",
+          "843d1800988c4e78b80964b2baaf7895/junit.xml",
+          "843d1800988c4e78b80964b2baaf7895/manifest.json",
+          "843d1800988c4e78b80964b2baaf7895/run.json",
+          "843d1800988c4e78b80964b2baaf7895/coverage.json"
+        ]
+      },
+      "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-v2-01-linux\\843d1800988c4e78b80964b2baaf7895",
+      "cleanup_ok": true
+    }
+  },
+  "review_fix": "Removed stale patch target experiments.runtime_v2.Path.read_bytes; explicit failing test observed, changed to pathlib.Path.read_bytes, focused test and both full suites then passed.",
+  "red_green": [
+    "Initial new modules absent: focused imports failed, then implementation passed.",
+    "Review finding reproduced as AttributeError, corrected patch target, focused test passed."
+  ],
+  "v1_guard": {
+    "exit_code": 1,
+    "expected_error": "formal protocol differs from approved parameters"
+  },
+  "preserved": [
+    {
+      "path": "experiments/formal_tasks.py",
+      "raw_sha256": "e796b9e5640640b33279f3c06dbfae489015fe8148d81303aaa0d5089ed6a1e6",
+      "unchanged_since": "3b24feb",
+      "comparison": "Git checkout newline normalization only"
+    },
+    {
+      "path": "experiments/freeze.py",
+      "raw_sha256": "6749f87d819f7cce4f00209166c1a2db7b6177c5193ea8f7b5ce2eba9b265102",
+      "unchanged_since": "3b24feb",
+      "comparison": "Git checkout newline normalization only"
+    },
+    {
+      "path": "experiments/campaign.py",
+      "raw_sha256": "27cfda4d726b4ba981b53c5547ede71532b243d1faba59b6e921de75b7dbd80f",
+      "unchanged_since": "3b24feb",
+      "comparison": "Git checkout newline normalization only"
+    },
+    {
+      "path": "experiments/p08b-tasks.json",
+      "raw_sha256": "57d037e4d0935649caf3c1441b19626cfd1d2b0e69a6aee8882855bb55ae0fa2",
+      "unchanged_since": "3b24feb",
+      "comparison": "Git checkout newline normalization only"
+    },
+    {
+      "path": "validation/p08b-evaluation.json",
+      "raw_sha256": "5bdbb5a579585a6bc06060282ac39cb7d3e9fb1912ad468f8d2eee26dfca70ed",
+      "unchanged_since": "3b24feb",
+      "comparison": "Git checkout newline normalization only"
+    },
+    {
+      "path": "experiments/p08b-protocol.json",
+      "raw_sha256": "5320db1e1f722cc9cbc3b775838d5239666dfaa22d3ca1ad1ecbb51144951897",
+      "unchanged_since": "3b24feb",
+      "comparison": "Git checkout newline normalization only"
+    },
+    {
+      "path": "experiments/p08b-campaign-runtime.json",
+      "raw_sha256": "c9ab3505fac2bc17eaf7ce6ed76023fd47d63d361dd84ae0cdcce05bf1c4ea87",
+      "unchanged_since": "3b24feb",
+      "comparison": "Git checkout newline normalization only"
+    },
+    {
+      "path": "evidence/p08b-freeze.json",
+      "raw_sha256": "ad3bda9bbb8a88db80401e8fd5a5e9c4afc6d898bee1582204660c21d0e6ab6d",
+      "unchanged_since": "3b24feb",
+      "comparison": "Git checkout newline normalization only"
+    },
+    {
+      "path": "evidence/p08b-formal-results.json",
+      "raw_sha256": "cefa754ea527cf716d267e09780bf922ce6cf241318e612e92f903ae61433cf2",
+      "unchanged_since": "3b24feb",
+      "comparison": "Git checkout newline normalization only"
+    },
+    {
+      "path": "execution/container_worker.py",
+      "raw_sha256": "73124927bcc8500a5ec1bb345f77c48316c2d401a53d80e87109bc2408b5f42e",
+      "unchanged_since": "3b24feb",
+      "comparison": "Git checkout newline normalization only"
+    }
+  ],
+  "v1_formal_receipt_all_nine_raw_hashes_preserved": true,
+  "candidate_image": "sha256:1756fbdd32c39afbdc437e6595f5b69e71128c75de260e02aaae73f709506dcf",
+  "limits": [
+    "Candidate check does not attest actual Docker image content; actual run fingerprint is required in V2-02/03.",
+    "No V2 upstream qualification, semantic approval, final freeze, campaign or model repair has occurred.",
+    "Candidate source_commit identifies implementation starting base 3b24feb, not a final frozen implementation commit.",
+    "V1 inventory algorithm is duplicated for immutable historical code; future changes require both versions to be tested."
+  ]
+}
