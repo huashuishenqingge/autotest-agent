@@ -515,5 +515,20 @@
     "No new model repair was obtained; replay reference control establishes pipeline validity only.",
     "Original raw artifacts and source input cache are local ignored files; exported hashes and summaries are shareable.",
     "Formal V2 runtime/protocol/freeze and re-run require a separate checkpoint."
-  ]
+  ],
+  "junit_node_parity": [
+    {
+      "project": "fixture",
+      "node_count_including_skips": 2,
+      "node_identity_multisets_equal": true,
+      "sequence_equal": true
+    },
+    {
+      "project": "jinja",
+      "node_count_including_skips": 867,
+      "node_identity_multisets_equal": true,
+      "sequence_equal": false
+    }
+  ],
+  "node_order_note": "The Jinja explicit target inventory preserves its original order, which differs from default directory traversal; node identities and multiplicities agree. An initial overly strict sequence-equality diagnostic failed and was retained as this note; no tests, targets, or worker code changed."
 }
