@@ -1,0 +1,242 @@
+[
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "dateutil_relativedelta___add",
+    "input_sha256": "5b7f8dcedf0dbbab7f50038afc4ac74116c0df356c887f44d80baa287f328030",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "Documented singular hour replaces the field, including midnight; truthiness drops zero and the hour-17 holdout distinguishes it."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "dateutil_relativedelta___eq",
+    "input_sha256": "c8d2d13597eddcc21b7c6862ac0627b8f87f19fa5281a81bec594ceff67b3301",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "Pinned documentation equates unspecified weekday ordinal and +1; the holdout tests the exact left-None pair changed by mutation."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "dateutil_relativedelta__fix",
+    "input_sha256": "837a8597431f3283e57e8143acca1709bef5269e33097e72cc6cd0bd8c31a871",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "Public constructor relative normalization must carry sixty seconds to minute one; threshold mutation leaves sixty unnormalized."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "itsdangerous_serializer_iter_unsigners",
+    "input_sha256": "24b6c1fc354f95437681a5f74d034a270bc8dcad539526dbae77cfd372310304",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "Specific bytes salt is distinct from omitted None; empty salt must reach the first yielded signer instead of configured fallback."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "itsdangerous_signer_derive_key",
+    "input_sha256": "4362f68fbcb9d62bab6d47f5fdcb9ccb9fbe7c5401c9aeb7a1bb538960a40b57",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "derive_key documents a specific key override; none derivation preserves explicit empty bytes, whereas mutation substitutes secret."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "jinja_do_striptags",
+    "input_sha256": "1386fdadadf9472af134eb5ebb01159f76fc1d6e658ed2a6fd15f6550df7a212",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "HasHTML conversion and Markup documentation justify __html__ selection; different HTML and str representations isolate the branch."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "markupsafe_markup___add",
+    "input_sha256": "a558153e7949cd42b080bde2d8f48841c28bd1c3a0162570337c3cb12ca28f99",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "Markup follows str unsupported integer addition: NotImplemented leads to TypeError; returning self silently loses the operand."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "markupsafe_markup___getitem",
+    "input_sha256": "bc27181b51264796481f69187829824f89bd16779e6f1e1152f8f00ddcefb9aa",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "Markup string behavior selects a at index zero and preserves safety type; mutant selects b."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "markupsafe_markup___html_format",
+    "input_sha256": "3575ba9b50f870b6381b613f25b01d7610e64a89393387b3fecd6b5c387771ef",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "HTML format protocol rejects unsupported nonempty specifications; mutant accepts bad, and ValueError is the appropriate oracle."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "markupsafe_markup_split",
+    "input_sha256": "e09bb50f44c2b1299b396c2ab8397f5ce957a576da3e52e80ff1f0cb55ac1965",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "Explicit separator with maxsplit zero leaves the entire string; mutant splits once. Equality oracle tests count, not element type."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v2_click_datetime_convert",
+    "input_sha256": "4cc987bfe40a6444a978c594727ebc855e573fc61652c5328b9fdcb51ac9c8c8",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "DateTime and ParamType documentation require datetime output for already typed input; mutant returns ISO text."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v2_click_pacifyflushwrapper_flush",
+    "input_sha256": "9a77229c43c35a44747ac9034530e69e02d2f2a1f12ab22607cb2a16b4566e44",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "Revised after newly reading click/src/click/utils.py PacifyFlushWrapper class docstring at line495: suppress broken-pipe flush errors, proxy other cases. EPIPE suppression and ENOSPC propagation holdouts directly test this documented class contract; original echo excerpt alone was insufficient."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v2_click_stringparamtype_convert",
+    "input_sha256": "a0a0c5ab82d524e14cf16366390ebc5f6625059c2614ef38902ba97c01968f03",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "STRING output must be str; controlled ASCII argv encoding makes byte ff enter fallback. Type-only oracle avoids prescribing replacement characters."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v2_click_uuidparametertype_convert",
+    "input_sha256": "b8c03fa3935cee73e23a3cfe9d94d0ca9e83e673634a9eb1010890d2890d2644",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "UUID parameter conversion must return UUID even for an already typed input; holdout checks type without identity assumptions."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v2_dateutil_rrulebase_xafter",
+    "input_sha256": "33c7ee9377decec5b42f20e5a940a934a9b64d2ab6b891f9ca808769acdc9e4d",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "xafter count is the maximum, None is unlimited; zero yields none. Finite three-date recurrence makes mutant detection terminate."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v2_jinja_do_dictsort",
+    "input_sha256": "10f4ec7c5a1507d077a1605a4ad962710b3709a5d94bb0e3665ca498a7b2f8a4",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "dictsort documents key/value selectors; invalid selector raises FilterArgumentError instead of silently sorting by key."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v2_jinja_do_round",
+    "input_sha256": "5607c17163154de039822913d4adab50dfe36c5c651e564624a11447bc35c675",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "round documents common/ceil/floor; invalid method raises FilterArgumentError. Numeric input and precision isolate validation."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v2_jinja_do_truncate",
+    "input_sha256": "ad2cc21f0b3f0277696852cd33c202f8ff01e469300b64c9695bb982af2aa560",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "At length four with zero leeway the four-character string remains unchanged; mutant truncates it. Suffix preconditions hold."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v2_jinja_sync_do_sum",
+    "input_sha256": "8fd32bf96e6e843c1ef30e96843d1fba4e6cd966a45acd4260eff981addc324b",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "sum accepts integer attribute selectors; index zero selects first tuple fields and sums to four, whereas mutant drops selection."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v2_markupsafe_markup_escape",
+    "input_sha256": "24f347cb9119d6a125c22421fe33ac323c6fcfc56a7f6d3393bae298d5d65995",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "Markup.escape explicitly guarantees correct subclass output; mutation returns base Markup and exact Sub type detects it."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v2_markupsafe_markup_format_map",
+    "input_sha256": "df5cb65b3709ecab655272c6d33b84ba55e0394fcc164a746d8406cc7c09d01d",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "Markup corresponding methods and formatting docs promise escaped arguments and Markup output; holdout checks both."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v3_click_textwrapper__handle_long_word",
+    "input_sha256": "c4cf0444ae5928ccb885bd0f7da7c455aacd6247c7419a79c176c7cab402a4ce",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "Public wrap_text width is maximum width; simple long ASCII word at width one splits into four single-character lines."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v3_click_textwrapper_indent_only",
+    "input_sha256": "3c122e31c854e777bb32e30f75d2aecc0a1e410bea7515c2361d7bef8ef546ce",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "Raw paragraph backspace marker and initial/subsequent indent are documented; second line must use S:, not I:."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v3_itsdangerous_signer_verify_signature",
+    "input_sha256": "6294a210fc1333205dcd74f9a2b0fd90ec94b7f6e3776dce19232b164e249668",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "Invalid one-character base64 cannot be a signature; verify_signature must reject decoding failure with False."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v3_jinja_do_indent",
+    "input_sha256": "cb34ed003dd4bdc818d3542150044f8f2c14bbe859206e09998ad55fab0325ee",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "indent docstring skips first and blank lines by default; empty input stays empty rather than adding two spaces."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v4_dateutil_parsererror___str",
+    "input_sha256": "ee50bcc27d08a378cf545521b70e7db748654190e917ec2d51c92febdc1fe165",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "ParserError remains a ValueError subclass with successful str formatting fallback; mutation removes TypeError catch. Holdout does not prescribe exact text."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v5_itsdangerous_hmacalgorithm_get_signature",
+    "input_sha256": "7258e26c5f14b991ff8de462bd87bd2688901b0134411bc65c6d5c15a1749797",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "HMACAlgorithm documents HMAC generation; empty bytes differs from zero byte. Independent stdlib SHA256-HMAC is the oracle."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v5_itsdangerous_signer_get_signature",
+    "input_sha256": "82426f3d9db8c9ad59b4005de6307673005d73a5710b9b4ab85b7ec7b40fad05",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "Signer signs the supplied empty value; independent HMAC and URL-safe encoding detects substituted zero byte without assuming message text."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v6_dateutil_validate_fromutc_inputs",
+    "input_sha256": "c6cc6f80088eb49d8adf3bde813250e580bf5bd93d9defde79f959b85af7e582",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "fromutc preconditions explicitly require receiver tzinfo; mismatched identity yields ValueError before delegation, not TypeError."
+  },
+  {
+    "schema": "p08-v2-semantic-review-v1",
+    "task_id": "v6_itsdangerous_badheader___init",
+    "input_sha256": "281cad68e4708d89253650dfeed655d927a028758ca59e04cfbbf4bce80cd860",
+    "reviewer": "review_v2_02_semantics",
+    "status": "approved",
+    "notes": "Documented original_error retains the supplied diagnostic exception; identity check on a ValueError catches discarding it."
+  }
+]

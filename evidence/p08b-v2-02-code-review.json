@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-13",
+  "reviewer": "review_v2_02_code",
+  "base": "4b57251",
+  "mode": "independent read-only code review before real qualification",
+  "important_findings": [{"issue":"Substring assertion classification could accept ValueError mentioning assert", "status":"fixed", "test":"QualificationV2Tests.test_bad_evidence_retains_all_four_runs_and_cannot_qualify misleading_exception subcase observed red, then green", "fix":"V2-only failure-node check requires explicit AssertionError or narrow pytest assertion/missing-expected-exception summary; V1 classifier unchanged"}],
+  "deferred_minors": [
+    "Qualification gate checks manifest inventory/image/cleanup but not every metadata field or disk run.json; final evidence audit additionally checks those bindings. Current trusted runner writes these fields.",
+    "Evidence exceptions retain type only; detailed diagnosis requires original artifact review.",
+    "Batch does not preclaim all task directories; an existing later directory can cause a partial stopped batch, but cannot silently rerun a task."
+  ],
+  "limits": ["No Docker, model, network or upstream execution by reviewer", "Actual execution evidence reviewed separately after batch", "Final regression results and fix validation supplied by implementer"]
+}
