@@ -29,7 +29,9 @@ class FreezeTests(unittest.TestCase):
             with self.assertRaises(ValueError): screening_report_results({'status': status, 'results': []})
 
     def fixtures(self):
-        runtime = json.loads((Path(__file__).parents[1]/'experiments/p08b-candidates-v6-public.json').read_text())['tasks'][0]['protocol']
+        # Synthetic contract fixtures track the current implementation; immutable
+        # V1 candidate declarations deliberately retain their historical worker.
+        runtime = make_protocol([], source_commit='a'*40)['runtime']
         tasks, rows = [], []
         for project in ('click', 'dateutil', 'itsdangerous', 'jinja', 'markupsafe'):
             for kind in ('boundary', 'exception_handling', 'null_type'):

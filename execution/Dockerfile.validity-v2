@@ -1,0 +1,5 @@
+# Diagnostic V2 runtime only. Build helper first verifies the immutable local base.
+FROM autotest-executor:p08b-validity-base-7227650
+COPY container_worker.py /opt/autotest/container_worker.py
+USER 65534:65534
+WORKDIR /workspace

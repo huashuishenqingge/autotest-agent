@@ -155,6 +155,12 @@ class ExperimentRunnerTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 self.execute('B0',folder,client=None,scope='unreviewed')
 
+    def test_validity_replay_cannot_be_confused_with_formal_results(self):
+        with tempfile.TemporaryDirectory() as folder:
+            result=self.execute('B0',folder,client=None,scope='P08B v2 nonformal validity replay')
+        self.assertEqual(result['scope'],'P08B v2 nonformal validity replay')
+        self.assertEqual(self.prompts,[])
+
     def test_wrong_valid_repairs_respect_one_or_three_attempt_caps(self):
         for group,expected in [('B1',2),('B2',5),('A0',5)]:
             self.setUp();original=self.client()

@@ -39,7 +39,7 @@ def run_experiment(case, validation, *, group, client, image_id, artifact_root,
     if group not in ('B0', 'B1', 'B2', 'A0'):
         raise ValueError('unknown method')
     if scope not in ('P08A nonformal admission only', 'P08B frozen formal experiment',
-                     'P08B scheduler synthetic validation only'):
+                     'P08B scheduler synthetic validation only', 'P08B v2 nonformal validity replay'):
         raise ValueError('unknown experiment scope')
     run_id = run_id or uuid.uuid4().hex
     if not isinstance(run_id, str) or not re.fullmatch('[A-Za-z0-9_-]{1,64}', run_id):

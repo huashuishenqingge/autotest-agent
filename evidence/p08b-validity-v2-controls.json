@@ -1,0 +1,615 @@
+{
+  "scope": "nonformal validity diagnostics, zero model calls",
+  "before": {
+    "scope": "nonformal pre-fix diagnostics, no models; V1 input cache admitted before worker change",
+    "model_calls": 0,
+    "cache_sha256": "8053f43778b4ffe004d9255ae0f202c59dbafe56a25114f7e4f3f82933001ff7",
+    "results": [
+      {
+        "label": "fixture_default",
+        "image_id": "sha256:7227650ec06570ea9a532bfb669d0888a4a92f7f179d2d442878f353b27ecd66",
+        "execution": {
+          "run": {
+            "run_id": "49567466efa940b4923ea7a7db85846a",
+            "snapshot_digest": "a8619ff640537174353063ab63cbef4210e1b6a6cea606e806379e148fdbf69a",
+            "exit_code": 0,
+            "passed": 2,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "49567466efa940b4923ea7a7db85846a/log.txt",
+              "49567466efa940b4923ea7a7db85846a/junit.xml",
+              "49567466efa940b4923ea7a7db85846a/manifest.json",
+              "49567466efa940b4923ea7a7db85846a/run.json",
+              "49567466efa940b4923ea7a7db85846a/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-validity-v2\\pre\\fixture_default\\49567466efa940b4923ea7a7db85846a",
+          "cleanup_ok": true
+        },
+        "missing_primary_sources": [],
+        "coverage_bytes": 5557
+      },
+      {
+        "label": "fixture_targets",
+        "image_id": "sha256:7227650ec06570ea9a532bfb669d0888a4a92f7f179d2d442878f353b27ecd66",
+        "execution": {
+          "run": {
+            "run_id": "40417f824d214bbca76ac9b1750ff8a2",
+            "snapshot_digest": "a8619ff640537174353063ab63cbef4210e1b6a6cea606e806379e148fdbf69a",
+            "exit_code": 0,
+            "passed": 2,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "40417f824d214bbca76ac9b1750ff8a2/log.txt",
+              "40417f824d214bbca76ac9b1750ff8a2/junit.xml",
+              "40417f824d214bbca76ac9b1750ff8a2/manifest.json",
+              "40417f824d214bbca76ac9b1750ff8a2/run.json",
+              "40417f824d214bbca76ac9b1750ff8a2/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-validity-v2\\pre\\fixture_targets\\40417f824d214bbca76ac9b1750ff8a2",
+          "cleanup_ok": true
+        },
+        "missing_primary_sources": [],
+        "coverage_bytes": 5557
+      },
+      {
+        "label": "jinja_default",
+        "image_id": "sha256:7227650ec06570ea9a532bfb669d0888a4a92f7f179d2d442878f353b27ecd66",
+        "execution": {
+          "run": {
+            "run_id": "176e5a8a76fc449aa5720be7a896b925",
+            "snapshot_digest": "16711b5010fe5eeaed1cf6274966b65c78ad34111d0489ca344818da826fbb08",
+            "exit_code": 0,
+            "passed": 867,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "176e5a8a76fc449aa5720be7a896b925/log.txt",
+              "176e5a8a76fc449aa5720be7a896b925/junit.xml",
+              "176e5a8a76fc449aa5720be7a896b925/manifest.json",
+              "176e5a8a76fc449aa5720be7a896b925/run.json",
+              "176e5a8a76fc449aa5720be7a896b925/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-validity-v2\\pre\\jinja_default\\176e5a8a76fc449aa5720be7a896b925",
+          "cleanup_ok": true
+        },
+        "missing_primary_sources": [],
+        "coverage_bytes": 998287
+      },
+      {
+        "label": "jinja_targets",
+        "image_id": "sha256:7227650ec06570ea9a532bfb669d0888a4a92f7f179d2d442878f353b27ecd66",
+        "execution": {
+          "run": {
+            "run_id": "bc63fde6e42545068344cfb7f999b2d3",
+            "snapshot_digest": "16711b5010fe5eeaed1cf6274966b65c78ad34111d0489ca344818da826fbb08",
+            "exit_code": 1,
+            "passed": 769,
+            "failed": 98,
+            "errors": 0,
+            "skipped": 0,
+            "failure": {
+              "kind": "test_assertion",
+              "message": "Run did not verify; inspect sanitized evidence",
+              "evidence": [
+                "bc63fde6e42545068344cfb7f999b2d3/log.txt",
+                "bc63fde6e42545068344cfb7f999b2d3/junit.xml",
+                "bc63fde6e42545068344cfb7f999b2d3/manifest.json",
+                "bc63fde6e42545068344cfb7f999b2d3/run.json",
+                "bc63fde6e42545068344cfb7f999b2d3/coverage.json"
+              ]
+            },
+            "artifacts": [
+              "bc63fde6e42545068344cfb7f999b2d3/log.txt",
+              "bc63fde6e42545068344cfb7f999b2d3/junit.xml",
+              "bc63fde6e42545068344cfb7f999b2d3/manifest.json",
+              "bc63fde6e42545068344cfb7f999b2d3/run.json",
+              "bc63fde6e42545068344cfb7f999b2d3/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-validity-v2\\pre\\jinja_targets\\bc63fde6e42545068344cfb7f999b2d3",
+          "cleanup_ok": true
+        },
+        "missing_primary_sources": [],
+        "coverage_bytes": 998337
+      },
+      {
+        "label": "click_baseline",
+        "image_id": "sha256:7227650ec06570ea9a532bfb669d0888a4a92f7f179d2d442878f353b27ecd66",
+        "execution": {
+          "run": {
+            "run_id": "e25feea3b9b34ceaa63c67293a98bce5",
+            "snapshot_digest": "133c142332f51c9b6b8d37a45321bcbc5ae2290740a8e68b1ace83f1100ac397",
+            "exit_code": 0,
+            "passed": 629,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 22,
+            "failure": null,
+            "artifacts": [
+              "e25feea3b9b34ceaa63c67293a98bce5/log.txt",
+              "e25feea3b9b34ceaa63c67293a98bce5/junit.xml",
+              "e25feea3b9b34ceaa63c67293a98bce5/manifest.json",
+              "e25feea3b9b34ceaa63c67293a98bce5/run.json",
+              "e25feea3b9b34ceaa63c67293a98bce5/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-validity-v2\\pre\\click_baseline\\e25feea3b9b34ceaa63c67293a98bce5",
+          "cleanup_ok": true
+        },
+        "missing_primary_sources": [
+          "src/click/_winconsole.py"
+        ],
+        "coverage_bytes": 689153
+      }
+    ]
+  },
+  "before_fixture": {
+    "scope": "minimal own fixture override regression, no upstream test edits",
+    "tests": {
+      "tests/conftest.py": "import pytest\n@pytest.fixture\ndef env(): return 'base'\n",
+      "tests/test_a_override.py": "import pytest\n@pytest.fixture\ndef env(): return 'local'\ndef test_local(env): assert env=='local'\n",
+      "tests/test_b_normal.py": "def test_normal(env): assert env=='base'\n"
+    },
+    "model_calls": 0,
+    "results": [
+      {
+        "mode": "default",
+        "execution": {
+          "run": {
+            "run_id": "677d4b6344a143e2b6bf375fa7b3499c",
+            "snapshot_digest": "60cdcb002e64427a205d59e386cda3514295868dd63948c64ebd0ac9d430e8fe",
+            "exit_code": 0,
+            "passed": 2,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "677d4b6344a143e2b6bf375fa7b3499c/log.txt",
+              "677d4b6344a143e2b6bf375fa7b3499c/junit.xml",
+              "677d4b6344a143e2b6bf375fa7b3499c/manifest.json",
+              "677d4b6344a143e2b6bf375fa7b3499c/run.json",
+              "677d4b6344a143e2b6bf375fa7b3499c/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-validity-v2\\pre\\scope_default\\677d4b6344a143e2b6bf375fa7b3499c",
+          "cleanup_ok": true
+        }
+      },
+      {
+        "mode": "targets",
+        "execution": {
+          "run": {
+            "run_id": "9c714507ea864911a34f48251a840283",
+            "snapshot_digest": "60cdcb002e64427a205d59e386cda3514295868dd63948c64ebd0ac9d430e8fe",
+            "exit_code": 1,
+            "passed": 1,
+            "failed": 1,
+            "errors": 0,
+            "skipped": 0,
+            "failure": {
+              "kind": "test_assertion",
+              "message": "Run did not verify; inspect sanitized evidence",
+              "evidence": [
+                "9c714507ea864911a34f48251a840283/log.txt",
+                "9c714507ea864911a34f48251a840283/junit.xml",
+                "9c714507ea864911a34f48251a840283/manifest.json",
+                "9c714507ea864911a34f48251a840283/run.json",
+                "9c714507ea864911a34f48251a840283/coverage.json"
+              ]
+            },
+            "artifacts": [
+              "9c714507ea864911a34f48251a840283/log.txt",
+              "9c714507ea864911a34f48251a840283/junit.xml",
+              "9c714507ea864911a34f48251a840283/manifest.json",
+              "9c714507ea864911a34f48251a840283/run.json",
+              "9c714507ea864911a34f48251a840283/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-validity-v2\\pre\\scope_targets\\9c714507ea864911a34f48251a840283",
+          "cleanup_ok": true
+        }
+      }
+    ]
+  },
+  "after": {
+    "scope": "nonformal V2 validity diagnostics, original tests unchanged; no model calls",
+    "model_calls": 0,
+    "image_id": "sha256:1756fbdd32c39afbdc437e6595f5b69e71128c75de260e02aaae73f709506dcf",
+    "results": [
+      {
+        "label": "fixture_default",
+        "image_id": "sha256:1756fbdd32c39afbdc437e6595f5b69e71128c75de260e02aaae73f709506dcf",
+        "execution": {
+          "run": {
+            "run_id": "4dcbaf0db67d4785a67e26909da4986c",
+            "snapshot_digest": "453ce98340d4c4792503dec4ccce76dfbc71fa35aed29f93c5567d35e45be6e8",
+            "exit_code": 0,
+            "passed": 2,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "4dcbaf0db67d4785a67e26909da4986c/log.txt",
+              "4dcbaf0db67d4785a67e26909da4986c/junit.xml",
+              "4dcbaf0db67d4785a67e26909da4986c/manifest.json",
+              "4dcbaf0db67d4785a67e26909da4986c/run.json",
+              "4dcbaf0db67d4785a67e26909da4986c/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-validity-v2\\post\\fixture_default\\4dcbaf0db67d4785a67e26909da4986c",
+          "cleanup_ok": true
+        },
+        "coverage": {
+          "lines": {
+            "covered": 0,
+            "total": 1
+          },
+          "branches": {
+            "covered": 0,
+            "total": 0
+          }
+        },
+        "missing_primary_sources": [],
+        "zero_recorded_files": [],
+        "coverage_bytes": 6787
+      },
+      {
+        "label": "fixture_targets",
+        "image_id": "sha256:1756fbdd32c39afbdc437e6595f5b69e71128c75de260e02aaae73f709506dcf",
+        "execution": {
+          "run": {
+            "run_id": "be816a98209a4ca2b10a7697cabba894",
+            "snapshot_digest": "453ce98340d4c4792503dec4ccce76dfbc71fa35aed29f93c5567d35e45be6e8",
+            "exit_code": 0,
+            "passed": 2,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "be816a98209a4ca2b10a7697cabba894/log.txt",
+              "be816a98209a4ca2b10a7697cabba894/junit.xml",
+              "be816a98209a4ca2b10a7697cabba894/manifest.json",
+              "be816a98209a4ca2b10a7697cabba894/run.json",
+              "be816a98209a4ca2b10a7697cabba894/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-validity-v2\\post\\fixture_targets\\be816a98209a4ca2b10a7697cabba894",
+          "cleanup_ok": true
+        },
+        "coverage": {
+          "lines": {
+            "covered": 0,
+            "total": 1
+          },
+          "branches": {
+            "covered": 0,
+            "total": 0
+          }
+        },
+        "missing_primary_sources": [],
+        "zero_recorded_files": [],
+        "coverage_bytes": 6787
+      },
+      {
+        "label": "jinja_default",
+        "image_id": "sha256:1756fbdd32c39afbdc437e6595f5b69e71128c75de260e02aaae73f709506dcf",
+        "execution": {
+          "run": {
+            "run_id": "98439993d4234c6ba9c79a869ac47077",
+            "snapshot_digest": "16711b5010fe5eeaed1cf6274966b65c78ad34111d0489ca344818da826fbb08",
+            "exit_code": 0,
+            "passed": 867,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "98439993d4234c6ba9c79a869ac47077/log.txt",
+              "98439993d4234c6ba9c79a869ac47077/junit.xml",
+              "98439993d4234c6ba9c79a869ac47077/manifest.json",
+              "98439993d4234c6ba9c79a869ac47077/run.json",
+              "98439993d4234c6ba9c79a869ac47077/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-validity-v2\\post\\jinja_default\\98439993d4234c6ba9c79a869ac47077",
+          "cleanup_ok": true
+        },
+        "coverage": {
+          "lines": {
+            "covered": 5822,
+            "total": 6509
+          },
+          "branches": {
+            "covered": 1684,
+            "total": 2124
+          }
+        },
+        "missing_primary_sources": [],
+        "zero_recorded_files": [],
+        "coverage_bytes": 998407
+      },
+      {
+        "label": "jinja_targets",
+        "image_id": "sha256:1756fbdd32c39afbdc437e6595f5b69e71128c75de260e02aaae73f709506dcf",
+        "execution": {
+          "run": {
+            "run_id": "eecc0bd41ed7439bac54b969b87cfbab",
+            "snapshot_digest": "16711b5010fe5eeaed1cf6274966b65c78ad34111d0489ca344818da826fbb08",
+            "exit_code": 0,
+            "passed": 867,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "failure": null,
+            "artifacts": [
+              "eecc0bd41ed7439bac54b969b87cfbab/log.txt",
+              "eecc0bd41ed7439bac54b969b87cfbab/junit.xml",
+              "eecc0bd41ed7439bac54b969b87cfbab/manifest.json",
+              "eecc0bd41ed7439bac54b969b87cfbab/run.json",
+              "eecc0bd41ed7439bac54b969b87cfbab/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-validity-v2\\post\\jinja_targets\\eecc0bd41ed7439bac54b969b87cfbab",
+          "cleanup_ok": true
+        },
+        "coverage": {
+          "lines": {
+            "covered": 5822,
+            "total": 6509
+          },
+          "branches": {
+            "covered": 1684,
+            "total": 2124
+          }
+        },
+        "missing_primary_sources": [],
+        "zero_recorded_files": [],
+        "coverage_bytes": 998407
+      },
+      {
+        "label": "click_baseline",
+        "image_id": "sha256:1756fbdd32c39afbdc437e6595f5b69e71128c75de260e02aaae73f709506dcf",
+        "execution": {
+          "run": {
+            "run_id": "4fb87facc1864f7387880889ccf249e5",
+            "snapshot_digest": "133c142332f51c9b6b8d37a45321bcbc5ae2290740a8e68b1ace83f1100ac397",
+            "exit_code": 0,
+            "passed": 629,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 22,
+            "failure": null,
+            "artifacts": [
+              "4fb87facc1864f7387880889ccf249e5/log.txt",
+              "4fb87facc1864f7387880889ccf249e5/junit.xml",
+              "4fb87facc1864f7387880889ccf249e5/manifest.json",
+              "4fb87facc1864f7387880889ccf249e5/run.json",
+              "4fb87facc1864f7387880889ccf249e5/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-validity-v2\\post\\click_baseline\\4fb87facc1864f7387880889ccf249e5",
+          "cleanup_ok": true
+        },
+        "coverage": {
+          "lines": {
+            "covered": 3464,
+            "total": 4268
+          },
+          "branches": {
+            "covered": 1127,
+            "total": 1536
+          }
+        },
+        "missing_primary_sources": [],
+        "zero_recorded_files": [
+          "docs/conf.py",
+          "src/click/_winconsole.py",
+          "tests/typing/typing_aliased_group.py",
+          "tests/typing/typing_confirmation_option.py",
+          "tests/typing/typing_group_kw_options.py",
+          "tests/typing/typing_help_option.py",
+          "tests/typing/typing_options.py",
+          "tests/typing/typing_password_option.py",
+          "tests/typing/typing_simple_example.py",
+          "tests/typing/typing_version_option.py"
+        ],
+        "coverage_bytes": 719372
+      },
+      {
+        "label": "dateutil_generated_only",
+        "image_id": "sha256:1756fbdd32c39afbdc437e6595f5b69e71128c75de260e02aaae73f709506dcf",
+        "execution": {
+          "run": {
+            "run_id": "4e13ef2322104914bcc6a06827664743",
+            "snapshot_digest": "d710017e2f7c372605ee066e0217f251b7c55758b864d7bd0f6f8b5017d2cb23",
+            "exit_code": 1,
+            "passed": 3,
+            "failed": 7,
+            "errors": 0,
+            "skipped": 0,
+            "failure": {
+              "kind": "test_assertion",
+              "message": "Run did not verify; inspect sanitized evidence",
+              "evidence": [
+                "4e13ef2322104914bcc6a06827664743/log.txt",
+                "4e13ef2322104914bcc6a06827664743/junit.xml",
+                "4e13ef2322104914bcc6a06827664743/manifest.json",
+                "4e13ef2322104914bcc6a06827664743/run.json",
+                "4e13ef2322104914bcc6a06827664743/coverage.json"
+              ]
+            },
+            "artifacts": [
+              "4e13ef2322104914bcc6a06827664743/log.txt",
+              "4e13ef2322104914bcc6a06827664743/junit.xml",
+              "4e13ef2322104914bcc6a06827664743/manifest.json",
+              "4e13ef2322104914bcc6a06827664743/run.json",
+              "4e13ef2322104914bcc6a06827664743/coverage.json"
+            ]
+          },
+          "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-validity-v2\\post\\dateutil_generated_only\\4e13ef2322104914bcc6a06827664743",
+          "cleanup_ok": true
+        },
+        "coverage": {
+          "lines": {
+            "covered": 108,
+            "total": 3590
+          },
+          "branches": {
+            "covered": 27,
+            "total": 1610
+          }
+        },
+        "missing_primary_sources": [],
+        "zero_recorded_files": [
+          "src/dateutil/easter.py",
+          "src/dateutil/parser/__init__.py",
+          "src/dateutil/parser/_parser.py",
+          "src/dateutil/parser/isoparser.py",
+          "src/dateutil/rrule.py",
+          "src/dateutil/tz/__init__.py",
+          "src/dateutil/tz/_common.py",
+          "src/dateutil/tz/_factories.py",
+          "src/dateutil/tz/tz.py",
+          "src/dateutil/tz/win.py",
+          "src/dateutil/tzwin.py",
+          "src/dateutil/utils.py",
+          "src/dateutil/zoneinfo/__init__.py",
+          "src/dateutil/zoneinfo/rebuild.py",
+          "tests/property/test_isoparse_prop.py",
+          "tests/property/test_parser_prop.py",
+          "tests/property/test_tz_prop.py"
+        ],
+        "coverage_bytes": 835163
+      }
+    ]
+  },
+  "worker_unit": {
+    "run": {
+      "run_id": "e158ce284fea4df0aa5b8ad8938d1026",
+      "snapshot_digest": "15b0fe31f5e45f80264e3c78685807f27d5a9e7536ad071ae90b0b6d7d91ed02",
+      "exit_code": 0,
+      "passed": 4,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "failure": null,
+      "artifacts": [
+        "e158ce284fea4df0aa5b8ad8938d1026/log.txt",
+        "e158ce284fea4df0aa5b8ad8938d1026/junit.xml",
+        "e158ce284fea4df0aa5b8ad8938d1026/manifest.json",
+        "e158ce284fea4df0aa5b8ad8938d1026/run.json",
+        "e158ce284fea4df0aa5b8ad8938d1026/coverage.json"
+      ]
+    },
+    "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-validity-v2\\worker-unit\\e158ce284fea4df0aa5b8ad8938d1026",
+    "cleanup_ok": true
+  },
+  "worker_unit_initial_failure_retained": {
+    "run": {
+      "run_id": "07c7131d86304135b86f6307c6652c66",
+      "snapshot_digest": "6eb49bb1546c18704342c12b7c413446fee02fc146487b2af4c0b611f95e62ed",
+      "exit_code": 1,
+      "passed": 3,
+      "failed": 1,
+      "errors": 0,
+      "skipped": 0,
+      "failure": {
+        "kind": "test_assertion",
+        "message": "Run did not verify; inspect sanitized evidence",
+        "evidence": [
+          "07c7131d86304135b86f6307c6652c66/log.txt",
+          "07c7131d86304135b86f6307c6652c66/junit.xml",
+          "07c7131d86304135b86f6307c6652c66/manifest.json",
+          "07c7131d86304135b86f6307c6652c66/run.json",
+          "07c7131d86304135b86f6307c6652c66/coverage.json"
+        ]
+      },
+      "artifacts": [
+        "07c7131d86304135b86f6307c6652c66/log.txt",
+        "07c7131d86304135b86f6307c6652c66/junit.xml",
+        "07c7131d86304135b86f6307c6652c66/manifest.json",
+        "07c7131d86304135b86f6307c6652c66/run.json",
+        "07c7131d86304135b86f6307c6652c66/coverage.json"
+      ]
+    },
+    "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-validity-v2\\worker-unit\\07c7131d86304135b86f6307c6652c66",
+    "cleanup_ok": true
+  },
+  "linux_core": {
+    "scope": "Linux core; Web covered by Windows suite",
+    "execution": {
+      "run": {
+        "run_id": "24c594ad62564a15b0b4446d798b1ec0",
+        "snapshot_digest": "cff070f1c69f0f1437c7627bc8b2afdcf4af2278568a3e40a90356a7e0d34830",
+        "exit_code": 0,
+        "passed": 166,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 1,
+        "failure": null,
+        "artifacts": [
+          "24c594ad62564a15b0b4446d798b1ec0/log.txt",
+          "24c594ad62564a15b0b4446d798b1ec0/junit.xml",
+          "24c594ad62564a15b0b4446d798b1ec0/manifest.json",
+          "24c594ad62564a15b0b4446d798b1ec0/run.json",
+          "24c594ad62564a15b0b4446d798b1ec0/coverage.json"
+        ]
+      },
+      "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-validity-v2\\linux-core\\24c594ad62564a15b0b4446d798b1ec0",
+      "cleanup_ok": true
+    }
+  },
+  "image": {
+    "scope": "nonformal validity V2 only; not approved for new formal campaign",
+    "base_image": "sha256:7227650ec06570ea9a532bfb669d0888a4a92f7f179d2d442878f353b27ecd66",
+    "image_id": "sha256:1756fbdd32c39afbdc437e6595f5b69e71128c75de260e02aaae73f709506dcf",
+    "worker_sha256": "73124927bcc8500a5ec1bb345f77c48316c2d401a53d80e87109bc2408b5f42e",
+    "dependency_changes": false,
+    "model_calls": 0
+  },
+  "image_identity": {
+    "base_image": "sha256:7227650ec06570ea9a532bfb669d0888a4a92f7f179d2d442878f353b27ecd66",
+    "new_image": "sha256:1756fbdd32c39afbdc437e6595f5b69e71128c75de260e02aaae73f709506dcf",
+    "base_layers_preserved": true,
+    "added_layers": [
+      "sha256:e9e9e109044daf8d5f98659e6b834ea6d0d58f27a06e5555441bebc4265becb8",
+      "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    ],
+    "added_layer_meaning": [
+      "COPY trusted worker",
+      "empty tar layer emitted by repeated WORKDIR"
+    ],
+    "user": "65534:65534",
+    "workdir": "/workspace",
+    "base_layer_hashes": [
+      "sha256:ace34d1d784c01e3f9d156687089e8f58f786e23ccd097bdbbf337d6d28b3783",
+      "sha256:edf2e8d9a6f19eeb93e6adb712ccda0d8e687effd6a79400f258d957f40321a1",
+      "sha256:4a0992abe543a127be2561cc40cd50315516bfbf9d6169f06f3f8d30166fa6ab",
+      "sha256:de0b11a690a6e81271e41db48dea18fc39104f7ba2034e2ecf6971586f66021b",
+      "sha256:710959905036280f4eef4723e8c6b60c56a661a9f79ae86deef95c8f9665357d",
+      "sha256:1f161d49d2ce96eb7c72213ed339fc1d875b35219e88cd58663a5a08de831f4a",
+      "sha256:8c530eaf7304d595776cc735e1b18e6b3f31e227513bcc811085152697cab6ed",
+      "sha256:337fdbce194b606a577f54a9c5e29fe72650cd570606eb92242614eff811cee5",
+      "sha256:bbb8ce4a36c9bfb38491746270e3791570155ee1bcbbbfd600c888f6833bf306",
+      "sha256:18fa1fe2aeaf30847346c66eadcb17cd6f978a21610cdf296df8de10e27c254e",
+      "sha256:890a8bb2580552ec3a53be90dbc24dbb7527a9581366e4e646dd5099d31d708e",
+      "sha256:04efb5c52dbe164b4a8a4acd0cd47654488988fcb80a797481f32b4bcbab2688",
+      "sha256:79c3aacbed3ac1487ac21e3d75fc9140d29d2c6f44374f77bac3faad25bf6cb8",
+      "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef"
+    ]
+  }
+}
