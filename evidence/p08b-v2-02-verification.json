@@ -1,0 +1,163 @@
+{
+  "date": "2026-11-14",
+  "scope": "V2-02 single four-stage qualification; no formal campaign or freeze",
+  "planned_executions": 120,
+  "completed_executions": 120,
+  "qualified_tasks": 30,
+  "expected_private_assertion_runs": 30,
+  "projects": {
+    "dateutil": {
+      "tasks": 6,
+      "qualified": 6,
+      "executions": 24
+    },
+    "itsdangerous": {
+      "tasks": 6,
+      "qualified": 6,
+      "executions": 24
+    },
+    "jinja": {
+      "tasks": 6,
+      "qualified": 6,
+      "executions": 24
+    },
+    "markupsafe": {
+      "tasks": 6,
+      "qualified": 6,
+      "executions": 24
+    },
+    "click": {
+      "tasks": 6,
+      "qualified": 6,
+      "executions": 24
+    }
+  },
+  "model_calls": 0,
+  "budget_attempts": 333,
+  "windows": {
+    "total": 195,
+    "passed": 188,
+    "skipped": 7,
+    "command": ".venv/Scripts/python.exe -m unittest discover -s tests -v"
+  },
+  "linux": {
+    "scope": "Own Linux core tests only; Web covered by Windows",
+    "execution": {
+      "run": {
+        "run_id": "8d6d18b4c58e44c39e9122ece88d01df",
+        "snapshot_digest": "ba577209d674aa006cd78153d583bf0cc69a03b8cf0b17e6f0d48daf3e3ba902",
+        "exit_code": 0,
+        "passed": 179,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 1,
+        "failure": null,
+        "artifacts": [
+          "8d6d18b4c58e44c39e9122ece88d01df/log.txt",
+          "8d6d18b4c58e44c39e9122ece88d01df/junit.xml",
+          "8d6d18b4c58e44c39e9122ece88d01df/manifest.json",
+          "8d6d18b4c58e44c39e9122ece88d01df/run.json",
+          "8d6d18b4c58e44c39e9122ece88d01df/coverage.json"
+        ]
+      },
+      "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\p08b-v2-02\\linux\\8d6d18b4c58e44c39e9122ece88d01df",
+      "cleanup_ok": true
+    }
+  },
+  "preserved": [
+    {
+      "path": "experiments/formal_tasks.py",
+      "sha256": "e796b9e5640640b33279f3c06dbfae489015fe8148d81303aaa0d5089ed6a1e6",
+      "unchanged_since": "4b57251"
+    },
+    {
+      "path": "experiments/freeze.py",
+      "sha256": "6749f87d819f7cce4f00209166c1a2db7b6177c5193ea8f7b5ce2eba9b265102",
+      "unchanged_since": "4b57251"
+    },
+    {
+      "path": "experiments/campaign.py",
+      "sha256": "27cfda4d726b4ba981b53c5547ede71532b243d1faba59b6e921de75b7dbd80f",
+      "unchanged_since": "4b57251"
+    },
+    {
+      "path": "experiments/formal_tasks_v2.py",
+      "sha256": "f6cb89def8cab99dad5ed3973745919b19f75fca7a6b73d965873a389337cc81",
+      "unchanged_since": "4b57251"
+    },
+    {
+      "path": "experiments/freeze_v2.py",
+      "sha256": "fcac8ab7961afb4b2d1699becf028a618740d970af8e26de4a92c076add726c6",
+      "unchanged_since": "4b57251"
+    },
+    {
+      "path": "experiments/runtime_v2.py",
+      "sha256": "3930f9d6e12e9bdf4767f67ea08bbff2b4580b1b5a1d762fe60e8098ff00bc9e",
+      "unchanged_since": "4b57251"
+    },
+    {
+      "path": "experiments/p08b-v2-tasks.json",
+      "sha256": "45f13d2efd5dc5f2436bf7690921453aee773e6f03002aa23f26ab34b49f2f39",
+      "unchanged_since": "4b57251"
+    },
+    {
+      "path": "validation/p08b-v2-evaluation.json",
+      "sha256": "eb79e53755d118ca322a77437109ac9e7bc5d5ffab1e4ad2b2203233831fd902",
+      "unchanged_since": "4b57251"
+    },
+    {
+      "path": "experiments/p08b-v2-protocol-candidate.json",
+      "sha256": "5339d88024c0470a8eb8275a8264c316af3617d8ef028fc839bb8407c12b7506",
+      "unchanged_since": "4b57251"
+    },
+    {
+      "path": "experiments/p08b-tasks.json",
+      "sha256": "57d037e4d0935649caf3c1441b19626cfd1d2b0e69a6aee8882855bb55ae0fa2",
+      "unchanged_since": "4b57251"
+    },
+    {
+      "path": "validation/p08b-evaluation.json",
+      "sha256": "5bdbb5a579585a6bc06060282ac39cb7d3e9fb1912ad468f8d2eee26dfca70ed",
+      "unchanged_since": "4b57251"
+    },
+    {
+      "path": "experiments/p08b-protocol.json",
+      "sha256": "5320db1e1f722cc9cbc3b775838d5239666dfaa22d3ca1ad1ecbb51144951897",
+      "unchanged_since": "4b57251"
+    },
+    {
+      "path": "experiments/p08b-campaign-runtime.json",
+      "sha256": "c9ab3505fac2bc17eaf7ce6ed76023fd47d63d361dd84ae0cdcce05bf1c4ea87",
+      "unchanged_since": "4b57251"
+    },
+    {
+      "path": "execution/container_worker.py",
+      "sha256": "73124927bcc8500a5ec1bb345f77c48316c2d401a53d80e87109bc2408b5f42e",
+      "unchanged_since": "4b57251"
+    }
+  ],
+  "v1_nine_formal_receipt_raw_hashes_preserved": true,
+  "all_disk_run_manifest_junit_coverage_and_collection_targets_checked": true,
+  "all_cleanup_ok": true,
+  "formal_ready": false,
+  "limits": [
+    "Single four-stage pass, not two-round stability screening.",
+    "Qualification is not model detection/repair success; no new model proposals.",
+    "Raw artifacts/reference resources remain in local ignored folders; summaries/hashes committed.",
+    "Original V1 measurements remain historically limited and unchanged.",
+    "Initial Windows Web test connection aborted once; focused and full rerun passed, original log retained."
+  ],
+  "started_date": "2026-11-13",
+  "unique_execution_ids": 120,
+  "all_original_junit_nodes_retained": true,
+  "exact_holdout_junit_nodes_checked": true,
+  "holdout_parameterization_note": "MarkupSafe adds test_contract[markupsafe._native] plus skipped test_contract[None] under frozen autouse fixture; other projects add test_contract. Initial audit assumption of one node failed; exact expected parametrized node sets verified without changing runs or tests.",
+  "final_docker_ps_empty": true,
+  "qualification_implementation_commit": "b64396976a07065494f2dfbf50c42f937460f6b7",
+  "implementation_and_review_lf_hashes": {
+    "experiments/qualification_v2.py": "e6a17849451258ecfd1ddb6b8739b00454a3377e772ac4db86f748fa2fffca80",
+    "tests/test_qualification_v2.py": "9bb591fa2e34f346f94678e4e48816eb97f4493fe912b8f624c5da218086f448",
+    "evidence/p08b-v2-02-semantic-reviews.json": "d4ca12dea49ad8a7e691eb5dd133f8179f6d86a0f70fba41a9e07c994b74cffb"
+  },
+  "handoff_date": "2026-11-15"
+}

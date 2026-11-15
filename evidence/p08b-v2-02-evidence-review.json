@@ -1,0 +1,30 @@
+{
+  "handoff_date": "2026-11-15",
+  "reviewer": "review_v2_02_code",
+  "mode": "independent read-only actual execution evidence audit, separate from initial code review",
+  "blocking_findings": [],
+  "tasks": 30,
+  "unique_executions": 120,
+  "projects": 5,
+  "per_project_tasks": 6,
+  "per_project_executions": 24,
+  "successful_non_mutant_holdout_runs": 90,
+  "private_assertion_detection_runs": 30,
+  "checks": [
+    "Manifest file hashes match freshly loaded V2 reference/mutant sources, original/private tests and resources",
+    "Recomputed snapshot digests match run.json and manifests; saved run.json matches execution results",
+    "All 120 manifest/JUnit/coverage hashes match exports; fixed image and cleanup records agree",
+    "Explicit collection targets contain full intended inventory; original JUnit nodes retained in combined suites",
+    "MarkupSafe two extra parametrized nodes agree with frozen native/missing-speedups autouse fixture",
+    "All 120 coverage reports contain every designated primary source",
+    "All 30 review records bind current input digest and independent reviewer identity",
+    "Fourteen old V1/V2 candidate/runtime files match 4b57251; all V1 formal receipt file hashes preserved",
+    "Model budget remains 333"
+  ],
+  "metadata_note": "Reviewer saw the initial verification date 2026-11-13 and requested 2026-11-14; corrected verification date retained separately from 2026-11-15 handoff date.",
+  "limits": [
+    "No Docker or model-service contact by reviewer; image, cleanup and zero model calls checked from evidence, implementation path and unchanged budget",
+    "Review binding checks do not independently repeat semantic judgments",
+    "One four-stage pass, not repeated stability proof, formal freeze or model experiment"
+  ]
+}
