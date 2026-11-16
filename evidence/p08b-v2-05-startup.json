@@ -1,0 +1,25 @@
+{
+  "scope": "startup snapshot only, NOT final V2 results",
+  "date": "2026-11-16",
+  "captured_utc": "2026-11-16T03:55:43.222394+00:00",
+  "status": "running_incomplete",
+  "canonical_artifact_root": "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5",
+  "plan_sha256": "8977450004b1ea47105a720acfccd0d04621a0de13fa4c3f6963259c5f777c77",
+  "counts_at_capture": {
+    "pending": 357,
+    "finished": 3,
+    "interrupted_unknown": 0
+  },
+  "usage_at_capture": {
+    "known_total_tokens": 7107,
+    "unknown_requests": 1,
+    "total_tokens": null
+  },
+  "actual_returned_models": [
+    "deepseek-v4-flash-ascend",
+    "raised"
+  ],
+  "global_attempts_at_capture": 337,
+  "semantic_confirmation": "pending_V2_06",
+  "no_supplemental_attempts": true
+}

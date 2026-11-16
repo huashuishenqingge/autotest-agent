@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-16",
+  "scope": "V2-05 before formal requests",
+  "time_utc": "2026-11-16T03:46:32.716390+00:00",
+  "freeze_commit": "ab000c6193e2a08c98c0415e5f3e5c345e3c0523",
+  "runtime_commit": "b9970ff7093a9b253118561c2a8338dadc9a6cc0",
+  "accepted_declaration_commit": "139b616",
+  "plan_sha256": "8977450004b1ea47105a720acfccd0d04621a0de13fa4c3f6963259c5f777c77",
+  "canonical_artifact_root": "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5",
+  "planned_records": 360,
+  "image_id": "sha256:1756fbdd32c39afbdc437e6595f5b69e71128c75de260e02aaae73f709506dcf",
+  "origins": [
+    {
+      "project_id": "click",
+      "head": "934813e4d421071a1b3db3973c02fe2721359a6e",
+      "clean": true
+    },
+    {
+      "project_id": "jinja",
+      "head": "15206881c006c79667fe5154fe80c01c65410679",
+      "clean": true
+    },
+    {
+      "project_id": "itsdangerous",
+      "head": "096c8d42545d3b68ea21a4f890fb2b2d8979c0bd",
+      "clean": true
+    },
+    {
+      "project_id": "markupsafe",
+      "head": "297fc8e356e6836a62087949245d09a28e9f1b13",
+      "clean": true
+    },
+    {
+      "project_id": "dateutil",
+      "head": "1ae807774053c071acc9e7d3d27778fba0a7773e",
+      "clean": true
+    }
+  ],
+  "configured_alias": "deepseek-flash",
+  "model": "deepseek-v4-flash-ascend",
+  "base_url": "https://api.llm.ustc.edu.cn/v1",
+  "thinking_mode": "disabled",
+  "frozen_model_listed": true,
+  "read_only_provider_queries": 1,
+  "completion_requests": 0,
+  "global_budget_before": {
+    "version": 3,
+    "attempts": 333,
+    "approved_limit": null
+  },
+  "env_unchanged": true
+}
