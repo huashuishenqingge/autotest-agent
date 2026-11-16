@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-16",
+  "scope": "Mac ARM64 local development only; saved proposals, no model calls; not V2 formal experiment",
+  "unit": {
+    "total": 200,
+    "passed": 196,
+    "skipped": 4
+  },
+  "container_measurement": {
+    "total": 4,
+    "passed": 4,
+    "skipped": 0
+  },
+  "isolation_cases": [
+    {
+      "case": "original_and_generated",
+      "run_id": "1435ed6c17d14d9e80a06b1dc1085d00",
+      "cleanup_ok": true
+    },
+    {
+      "case": "assertion",
+      "run_id": "be4ac70a32f84b31aaa1d55fc771488e",
+      "cleanup_ok": true
+    },
+    {
+      "case": "collection",
+      "run_id": "06cc619f7b324435b48c456cffa04b9f",
+      "cleanup_ok": true
+    },
+    {
+      "case": "empty",
+      "run_id": "bbbaee208c7d4368a9a2856ea9d18ca5",
+      "cleanup_ok": true
+    },
+    {
+      "case": "skipped",
+      "run_id": "90a3b4da651742fe8b8b0a17c55c0e44",
+      "cleanup_ok": true
+    },
+    {
+      "case": "timeout",
+      "run_id": "9ffe9dbbbb6a4353ac3757bf04d102f3",
+      "cleanup_ok": true
+    },
+    {
+      "case": "long_log",
+      "run_id": "de7cf380a1e54632b8fa91f4bb940455",
+      "cleanup_ok": true
+    },
+    {
+      "case": "continuous_log",
+      "run_id": "4c73ed98e898474ab20505999d4d3b6f",
+      "cleanup_ok": true
+    },
+    {
+      "case": "restrictions",
+      "run_id": "77260a5e8e6142e08eeed9582cc21a6d",
+      "cleanup_ok": true
+    }
+  ],
+  "workflow": [
+    {
+      "case_id": "age_threshold",
+      "status": "verified",
+      "task_id": "69f2128c3d2b4425877f2863a4dc3a7c"
+    },
+    {
+      "case_id": "take_first",
+      "status": "verified",
+      "task_id": "795a2597fcf14d21a17fc4d149f9e5e1"
+    },
+    {
+      "case_id": "sum_inclusive",
+      "status": "verified",
+      "task_id": "42d91e839d61490c8267a5a73a30698e"
+    },
+    {
+      "case_id": "age_threshold-coverage-child",
+      "status": "verified",
+      "task_id": "281c15b314b042b1af11d91185d312a4"
+    }
+  ],
+  "model_calls": 0,
+  "initial_failure": "Docker Desktop exposes inactive tunnel interfaces; original exact lo-only enumeration rejected. Corrected acceptance checks no active nonloop interfaces, no IPv4 routes and retains blocked external socket test. Original failure preserved locally.",
+  "local_reports": {
+    "artifacts/local-dev-20261116/isolation-rerun/summary.json": "c8f08d650ddfc1bac9f1ff572c882f1d65e1e1a0d6d33e8c5ae838b0740a2158",
+    "artifacts/local-dev-20261116/workflow.json": "31f0b439573a8ee5fb05135074b1580213931de8f9f302ad22f43d8112f38b35"
+  }
+}

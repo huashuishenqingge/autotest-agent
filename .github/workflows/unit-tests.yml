@@ -1,0 +1,27 @@
+name: Unit and local HTTP tests
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  unit:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Use canonical macOS temporary directory
+        if: runner.os == 'macOS'
+        shell: bash
+        run: python -c "import os,pathlib,tempfile; open(os.environ['GITHUB_ENV'],'a').write('TMPDIR='+str(pathlib.Path(tempfile.gettempdir()).resolve())+'\n')"
+      - name: Run standard-library tests without model credentials
+        run: python -m unittest discover -s tests -v

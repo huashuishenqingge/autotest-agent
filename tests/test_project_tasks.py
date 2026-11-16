@@ -51,3 +51,14 @@ class ProjectTaskTests(unittest.TestCase):
                 else:visible['target']['path']='src/other/__init__.py'
                 with self.assertRaises(ValueError):
                     self.load(root,visible,private,project,metadata)
+
+    def test_relative_reference_root_is_normalized(self):
+        from contextlib import chdir
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder).resolve()
+            data = self.setup_files(root)
+            # Relative roots passed by CLI callers must behave like absolute roots.
+            # The temporary parent is writable on both Windows and a read-only
+            # container snapshot, and using it avoids cross-drive relpath.
+            with chdir(root.parent):
+                self.load(Path(root.name), *data)
