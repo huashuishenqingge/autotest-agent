@@ -231,7 +231,7 @@ def handler(app):
         def log_message(self, *args):
             pass
 
-        def send(self, status, data, kind='application/json; charset=utf-8', download=False):
+        def send(self, status, data, kind='application/json; charset=utf-8', download=False, filename='task-result.json'):
             payload = data if isinstance(data, bytes) else json.dumps(data, ensure_ascii=False).encode()
             self.send_response(status)
             self.send_header('Content-Type', kind)
@@ -240,7 +240,7 @@ def handler(app):
             self.send_header('X-Content-Type-Options', 'nosniff')
             self.send_header('Content-Security-Policy', "default-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'none'")
             if download:
-                self.send_header('Content-Disposition', 'attachment; filename="task-result.json"')
+                self.send_header('Content-Disposition', f'attachment; filename="{filename}"')
             self.end_headers()
             self.wfile.write(payload)
 
@@ -263,10 +263,13 @@ def handler(app):
             if not self.boundary():
                 return
             path = urlsplit(self.path).path
-            if path in {'/', '/app.js', '/style.css'}:
-                name = {'/': 'index.html', '/app.js': 'app.js', '/style.css': 'style.css'}[path]
-                mime = {'/': 'text/html; charset=utf-8', '/app.js': 'text/javascript; charset=utf-8', '/style.css': 'text/css; charset=utf-8'}[path]
+            if path in {'/', '/app.js', '/style.css', '/experiments', '/experiments.js'}:
+                name = {'/': 'index.html', '/app.js': 'app.js', '/style.css': 'style.css', '/experiments':'experiments.html', '/experiments.js':'experiments.js'}[path]
+                mime = 'text/html; charset=utf-8' if path in ('/', '/experiments') else 'text/css; charset=utf-8' if path == '/style.css' else 'text/javascript; charset=utf-8'
                 return self.send(200, (STATIC / name).read_bytes(), mime)
+            from web.experiments import serve
+            if serve(self):
+                return
             if path == '/api/info':
                 return self.send(200, {'schema': 1, 'mode': app.mode, 'cases': app.cases, 'token': app.token, 'can_submit': app.mode != 'evidence'})
             if path == '/api/tasks':

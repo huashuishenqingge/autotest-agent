@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>五项目实验 · AutoTest Agent</title><link rel="stylesheet" href="/style.css"><script src="/experiments.js" defer></script></head>
+<body class="experiments-page">
+<header><p>软件工程实践 · AutoTest Agent</p><h1>五项目实验</h1><p>从生成测试到补丁复核，查看每一次尝试的真实结果。</p><nav><a href="/">返回任务中心</a><span>历史真实实验 · V2</span></nav></header>
+<main>
+<p id="experiment-message" role="status" aria-live="polite">正在校验并载入实验结果…</p>
+<section aria-labelledby="overview-title"><h2 id="overview-title">实验总览</h2><p id="experiment-notice"></p><div id="experiment-stats" class="experiment-stats"></div>
+<div class="table-scroll"><table><caption>四种方法对照 · 每组固定90条</caption><thead><tr><th>方法</th><th>生成与反馈</th><th>有效检出</th><th>技术验证通过</th><th>语义确认修复</th><th>确认率</th></tr></thead><tbody id="method-rows"></tbody></table></div>
+<p class="experiment-note">技术验证通过表示测试通过；语义确认还需独立检查补丁是否符合需求。失败记录保留在分母中。</p>
+<div class="actions"><a href="/api/experiments/download?format=json" download>下载汇总 JSON</a><a href="/api/experiments/download?format=csv" download>下载汇总 CSV</a></div>
+<details><summary>实验范围与结果限制</summary><ul id="experiment-limits"></ul></details></section>
+<section><h2>项目结果</h2><p>每项目6个不同缺陷，各方法重复3次；下表为语义确认数，每格分母18。</p><div class="table-scroll"><table><thead><tr><th>项目 / 固定版本</th><th>B0</th><th>B1</th><th>B2</th><th>A0</th></tr></thead><tbody id="project-rows"></tbody></table></div></section>
+<section><h2>实验记录</h2><form id="experiment-filters">
+<label>项目<select id="filter-project" name="project"><option value="">全部项目</option></select></label>
+<label>方法<select id="filter-method" name="method"><option value="">全部方法</option></select></label>
+<label>缺陷类型<select id="filter-defect" name="defect_type"><option value="">全部类型</option></select></label>
+<label>执行结果<select id="filter-status" name="status"><option value="">全部结果</option></select></label>
+<label>语义结果<select id="filter-semantic" name="semantic"><option value="">全部语义结果</option><option value="confirmed">确认正确</option><option value="rejected">不符合语义</option><option value="uncertain">尚不确定</option><option value="not_verified">未获技术验证</option></select></label>
+<button type="reset">清除筛选</button></form>
+<p id="record-count" aria-live="polite"></p><div class="table-scroll"><table><thead><tr><th>项目 / 目标函数</th><th>方法 / 重复</th><th>缺陷类型</th><th>执行结果</th><th>语义结果</th><th>耗时</th><th>详情</th></tr></thead><tbody id="record-rows"></tbody></table></div>
+<div class="actions experiment-pagination"><button id="records-prev" disabled>上一页</button><span id="records-page"></span><button id="records-next" disabled>下一页</button></div></section>
+<section id="experiment-detail" aria-labelledby="detail-title"><h2 id="detail-title">记录详情</h2><p id="detail-summary">点击记录右侧“查看”，检查测试、补丁与审查依据。</p><a id="detail-download" hidden download>下载本条结果 JSON</a>
+<div id="detail-content" hidden><h3>需求与目标</h3><pre id="detail-requirements"></pre><h3>生成测试</h3><div id="detail-tests"></div><h3>源码补丁与语义审查</h3><div id="detail-patches"></div><h3>覆盖率原始值</h3><div class="table-scroll"><table><thead><tr><th>阶段</th><th>行覆盖率</th><th>分支覆盖率</th></tr></thead><tbody id="detail-coverage"></tbody></table></div><h3>模型用量与生成状态</h3><pre id="detail-usage"></pre><p id="detail-log-notice" class="experiment-note"></p><details><summary>完整导出结果</summary><pre id="detail-raw"></pre></details></div></section>
+</main><footer>已保存实验结果 · 浏览和下载不会重新调用模型</footer>
+</body></html>

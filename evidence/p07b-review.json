@@ -1,0 +1,9 @@
+{
+  "review": "P07B 五项目实验网页接入",
+  "reviewer": "review_p07b_web",
+  "baseline": "1bfcb82",
+  "verdict": "approved",
+  "findings": [{"id":"P07B-WEB-001","priority":"P2","file":"web/experiments.py","location":"dataset","title":"永久缓存使证据变化后仍返回旧数据","status":"fixed","resolution":"独立静态复查确认lru_cache已删除；dataset每次调用重新构造ExperimentData，重新读取并校验固定证据文件。","regression_test":{"file":"tests/test_web_experiments.py","name":"test_changed_evidence_after_success_returns_unavailable","verified_statically":true,"assertions":"先请求summary断言200；模拟正式结果文件损坏，再次请求summary断言503。","execution":"实施者运行；复核者未运行测试。"}}],
+  "remaining_blockers": [],
+  "verification_scope": "独立只读静态复查；未运行项目代码、测试或实验，未写入文件。此前检查未发现其他确定P1/P2。"
+}

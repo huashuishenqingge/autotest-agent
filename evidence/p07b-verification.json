@@ -1,0 +1,102 @@
+{
+  "scope": "P07B saved V2 web view; no new formal experiment",
+  "new_model_requests": 0,
+  "model_budget_attempts": 754,
+  "native": {
+    "command": ".venv/Scripts/python.exe -m unittest discover -s tests -v",
+    "total": 241,
+    "passed": 234,
+    "skipped": 7,
+    "failed": 0,
+    "seconds": 40.13
+  },
+  "new_tests": {
+    "total": 8,
+    "passed": 8,
+    "red_observed": [
+      "missing web.experiments module",
+      "changed evidence returned 200 instead of503 before removing cache"
+    ]
+  },
+  "javascript_syntax": "node --check web/static/experiments.js passed",
+  "browser": {
+    "browser": "Chrome headless",
+    "page_errors": [],
+    "desktop": [
+      1440,
+      1100
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "verified": [
+      "homepage navigation",
+      "four-method summary",
+      "20-row pagination",
+      "combined project/method/semantic filters",
+      "technical verified but semantic rejected",
+      "three patch reviews",
+      "record download",
+      "clear filters",
+      "next page",
+      "125 generation failures",
+      "66 technical verified",
+      "confirmed success detail",
+      "mobile no document overflow"
+    ],
+    "model_requests": 0
+  },
+  "browser_initial_mobile_overflow": "Long test-path summary corrected with overflow-wrap:anywhere; final 390px document overflow check passed.",
+  "integrity": {
+    "frozen_files_unchanged": true,
+    "runtime_additions_unchanged": true,
+    "original_receipt_files": 10,
+    "analysis_receipt_files": 14,
+    "portable_metrics_match": true
+  },
+  "files": [
+    {
+      "path": "web/experiments.py",
+      "lf_sha256": "76688f5bfc51e139172b4ea3bb4219c6dfaefa8ae587b5c0db6842905bfe0101"
+    },
+    {
+      "path": "web/server.py",
+      "lf_sha256": "41dd58e4eaad29847fd8c498aee7f4e4601106b8713898dc25fb26ed424fddb5"
+    },
+    {
+      "path": "web/static/index.html",
+      "lf_sha256": "9dd7d0e38c242829a4728a05045fc92146591c451ed66a8507e9c0691866ddf2"
+    },
+    {
+      "path": "web/static/style.css",
+      "lf_sha256": "84c575c9ccd01491e232fb9f9e852068bab13ac384437b0b8fe4f01d72766e4d"
+    },
+    {
+      "path": "web/static/experiments.html",
+      "lf_sha256": "47dd001c945863e6a92ee285f0eb0b7a781cf2c770863600c10a881d795a42da"
+    },
+    {
+      "path": "web/static/experiments.js",
+      "lf_sha256": "3b953f8d85678c85645b48adab51845b7623ca377168d73c536a3a05a311a113"
+    },
+    {
+      "path": "tests/test_web_experiments.py",
+      "lf_sha256": "f44bbb7edf8c4b2a6879e8c52768296d9917f0d7835f1d149214d033f4ce2fba"
+    },
+    {
+      "path": "specs/P07B-五项目实验网页接入.md",
+      "lf_sha256": "c5820e2f54d7d2d7d566a8f98db8b62f2444a14789f42cae4be8ff14a4f7491e"
+    },
+    {
+      "path": "阶段7B_五项目实验网页接入.md",
+      "lf_sha256": "bf4feeee71e3a5dbc1d3b46ceaabb9d24f8e012f992f82e3645d9982beb72e42"
+    }
+  ],
+  "limits": [
+    "Independent reviewer performed static review, not independent test execution.",
+    "Browser screenshots retained locally in ignored artifacts/p07b-preview.",
+    "No cross-machine deployment or load testing.",
+    "User acceptance pending."
+  ]
+}
