@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-16",
+  "reviewer": "review_v205_evidence",
+  "mode": "independent read-only raw execution evidence audit",
+  "blocking_findings": [],
+  "records_verified": 360,
+  "request_records_verified": 421,
+  "returned_requests": 409,
+  "raised_wrapper_unknown_requests": 12,
+  "returned_model_names": ["deepseek-v4-flash-ascend"],
+  "actual_execution_artifacts_verified": 1510,
+  "snapshot_digests_recomputed": 1510,
+  "manifest_junit_log_hashes_match": true,
+  "all_manifest_cleanup_flags_true": true,
+  "patches_pending_semantic_review": 68,
+  "known_total_tokens": 1015730,
+  "aggregate_total_tokens": null,
+  "checks": ["All unique claim/outcome/raw-result/export identities and hashes", "All six status categories and failures retained", "All execution manifest hashes and sorted file snapshot digests", "All exported patches retain pending_V2_06"],
+  "metadata_correction": "Reviewer corrected initial misreading: transport metadata is present in records[].generation_rounds[].transport_metadata, including B2 length/4429; usage-notes summarizes12 wrapper-unknown slots. Wrapper accounting unchanged.",
+  "limits": ["No Docker, model/API or upstream execution by reviewer", "Request caps, runtime/Git binding and live engine cleanup separately verified by implementer", "No patch semantic correctness or model effectiveness conclusion"]
+}

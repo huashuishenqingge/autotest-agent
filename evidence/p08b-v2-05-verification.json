@@ -1,0 +1,117 @@
+{
+  "scope": "V2-05 final raw provenance audit, not model effectiveness or semantic confirmation",
+  "plan_sha256": "8977450004b1ea47105a720acfccd0d04621a0de13fa4c3f6963259c5f777c77",
+  "counts": {
+    "pending": 0,
+    "finished": 360,
+    "interrupted_unknown": 0
+  },
+  "groups": {
+    "B0": {
+      "records": 90,
+      "request_attempts": 0,
+      "known_total_tokens": 0,
+      "unknown_usage_requests": 0
+    },
+    "B1": {
+      "records": 90,
+      "request_attempts": 125,
+      "known_total_tokens": 298797,
+      "unknown_usage_requests": 1
+    },
+    "B2": {
+      "records": 90,
+      "request_attempts": 152,
+      "known_total_tokens": 380032,
+      "unknown_usage_requests": 6
+    },
+    "A0": {
+      "records": 90,
+      "request_attempts": 144,
+      "known_total_tokens": 336901,
+      "unknown_usage_requests": 5
+    }
+  },
+  "request_attempts": 421,
+  "returned_model_names": [
+    "deepseek-v4-flash-ascend"
+  ],
+  "returned_requests": 409,
+  "raised_requests": 12,
+  "usage": {
+    "known_total_tokens": 1015730,
+    "unknown_requests": 12,
+    "total_tokens": null
+  },
+  "budget_before": 333,
+  "budget_after": 754,
+  "actual_executions": 1510,
+  "coverage_primary_inventories_complete": 1510,
+  "owned_containers_remaining": [],
+  "base_frozen_files_unchanged": true,
+  "runtime_additions_match_Git": true,
+  "model_requests_during_export_audit": 0,
+  "semantic_confirmation": "all pending_V2_06",
+  "files": [
+    {
+      "path": "evidence/p08b-v2-formal-results.json",
+      "sha256": "5fcb5b62de62c692d65ded30140173135f7af6f85aec0ecda5623a8f1c85405a",
+      "bytes": 1515969
+    },
+    {
+      "path": "evidence/p08b-v2-formal-executions.json",
+      "sha256": "f5d8381cc6906e93054c8757fcc1272b2b95bb0d84028231dba8e12e2eb68d2a",
+      "bytes": 1263210
+    },
+    {
+      "path": "evidence/p08b-v2-formal-generated-tests.json",
+      "sha256": "b308ea2a8be1800c3f6f79365af454654564c234f9489722d6447ca24978e3b3",
+      "bytes": 428928
+    },
+    {
+      "path": "evidence/p08b-v2-formal-patches.json",
+      "sha256": "72634a392a1070409d683ccfa8ca6cdb9b0abf76678c34a7f6434ed8f64cea76",
+      "bytes": 85035
+    },
+    {
+      "path": "evidence/p08b-v2-formal-alignment.csv",
+      "sha256": "3afd9428aec3dfb26ccac121274e5d2d67905b0935d828c25e03201c52c07730",
+      "bytes": 69314
+    }
+  ],
+  "limits": [
+    "Wrapper unknown usage remains null even when transport metadata may retain provider token counts; do not silently overwrite original accounting.",
+    "Technical verified outcomes and patches are not independently semantically confirmed.",
+    "All failures retained, no supplementary attempts or method/input changes.",
+    "Full raw container artifacts remain in ignored local directory; exports are indexes and selected content."
+  ],
+  "date": "2026-11-16",
+  "source_checkouts_postflight": [
+    {
+      "project_id": "click",
+      "head": "934813e4d421071a1b3db3973c02fe2721359a6e",
+      "clean": true
+    },
+    {
+      "project_id": "jinja",
+      "head": "15206881c006c79667fe5154fe80c01c65410679",
+      "clean": true
+    },
+    {
+      "project_id": "itsdangerous",
+      "head": "096c8d42545d3b68ea21a4f890fb2b2d8979c0bd",
+      "clean": true
+    },
+    {
+      "project_id": "markupsafe",
+      "head": "297fc8e356e6836a62087949245d09a28e9f1b13",
+      "clean": true
+    },
+    {
+      "project_id": "dateutil",
+      "head": "1ae807774053c071acc9e7d3d27778fba0a7773e",
+      "clean": true
+    }
+  ],
+  "implementation_code_changed_during_run": false
+}

@@ -1,0 +1,1773 @@
+{
+  "scope": "All applied formal attempt diffs, including rollbacks; no semantic confirmation",
+  "patches": [
+    {
+      "slot_id": "007d44248ba3f62f4da61ead5e3ba954",
+      "attempt": 1,
+      "patch_diff": "--- a/src/dateutil/relativedelta.py\n+++ b/src/dateutil/relativedelta.py\n@@ -379,7 +379,7 @@\n         repl = {\"year\": year, \"month\": month, \"day\": day}\r\n         for attr in [\"hour\", \"minute\", \"second\", \"microsecond\"]:\r\n             value = getattr(self, attr)\r\n-            if value:\r\n+            if value is not None:\r\n                 repl[attr] = value\r\n         days = self.days\r\n         if self.leapdays and month > 2 and calendar.isleap(year):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2703,
+          "completion_tokens": 1110,
+          "total_tokens": 3813
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/007d44248ba3f62f4da61ead5e3ba954/repair/5497ea79de3245d99d38cf506603a0f5/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "75a56a46df5c4d42a6f37069106ce86b",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "803085ffcf7d3579974d81504f9854fa",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -1050,7 +1050,7 @@\n \r\n def do_striptags(value: \"t.Union[str, HasHTML]\") -> str:\r\n     \"\"\"Strip SGML/XML tags and replace adjacent whitespace by one space.\"\"\"\r\n-    if False and hasattr(value, \"__html__\"):\r\n+    if hasattr(value, \"__html__\"):\r\n         value = t.cast(\"HasHTML\", value).__html__()\r\n \r\n     return Markup(str(value)).striptags()\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1784,
+          "completion_tokens": 285,
+          "total_tokens": 2069
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/803085ffcf7d3579974d81504f9854fa/repair/66a9c46bab424028a743de1f3ac0535d/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "39767019404f43ff83f82f2f461d2da3",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "97482a53bf84b8d473dfbade94bacfb3",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -324,7 +324,7 @@\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n-            return self\r\n+            raise ValueError(\"Unsupported format specification for Markup.\")\r\n \r\n         return self\r\n \r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1490,
+          "completion_tokens": 238,
+          "total_tokens": 1728
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/97482a53bf84b8d473dfbade94bacfb3/repair/cc5a748eeff9406097aa3eedeadf9263/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "43f0f9380a034cd7a978355ab74193f6",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "f2dd7c89fa82c93f691ce2255344be51",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/types.py\n+++ b/src/click/types.py\n@@ -379,7 +379,7 @@\n         self, value: t.Any, param: t.Optional[\"Parameter\"], ctx: t.Optional[\"Context\"]\r\n     ) -> t.Any:\r\n         if isinstance(value, datetime):\r\n-            return value.isoformat()\r\n+            return value\r\n \r\n         for format in self.formats:\r\n             converted = self._try_to_convert_date(value, format)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1815,
+          "completion_tokens": 388,
+          "total_tokens": 2203
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/f2dd7c89fa82c93f691ce2255344be51/repair/f4f4cef30d52437280654d301bce4a5e/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "a32a3c2c85894da8ba4dc608167e4816",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "dbfd21c98bdc00ff6fb8f028ab3e22b0",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/utils.py\n+++ b/src/click/utils.py\n@@ -510,7 +510,7 @@\n         except OSError as e:\r\n             import errno\r\n \r\n-            if e.errno == errno.EPIPE:\r\n+            if e.errno != errno.EPIPE:\r\n                 raise\r\n \r\n     def __getattr__(self, attr: str) -> t.Any:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1660,
+          "completion_tokens": 280,
+          "total_tokens": 1940
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/dbfd21c98bdc00ff6fb8f028ab3e22b0/repair/f0e08bff217f459cb5bef4688e954938/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "d600aeb101604dc88945de9fac3f6d5b",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "aa017c3220f7d94e4fb75246dea0ecb3",
+      "attempt": 1,
+      "patch_diff": "--- a/src/dateutil/rrule.py\n+++ b/src/dateutil/rrule.py\n@@ -261,7 +261,7 @@\n         n = 0\r\n         for d in gen:\r\n             if comp(d, dt):\r\n-                if count:\r\n+                if count is not None:\r\n                     n += 1\r\n                     if n > count:\r\n                         break\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2074,
+          "completion_tokens": 487,
+          "total_tokens": 2561
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/aa017c3220f7d94e4fb75246dea0ecb3/repair/a85139c4552243ed95f2f5c613c8365f/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "439e23824a614cfabaaf3a730004c99a",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "0a7feedff171bba81c842105a8744e22",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -369,7 +369,7 @@\n     elif by == \"value\":\r\n         pos = 1\r\n     else:\r\n-        pos = 0\r\n+        raise FilterArgumentError('You can only sort by either \"key\" or \"value\"')\r\n \r\n     def sort_func(item: t.Tuple[t.Any, t.Any]) -> t.Any:\r\n         value = item[pos]\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2092,
+          "completion_tokens": 564,
+          "total_tokens": 2656
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/0a7feedff171bba81c842105a8744e22/repair/b9da74611e3f4ea6b5c83697d9176b03/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "60d21bff10934a048e0aaab1de0509fb",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "39342e8c71452205857f94a9ba8ef733",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -369,7 +369,7 @@\n     elif by == \"value\":\r\n         pos = 1\r\n     else:\r\n-        pos = 0\r\n+        raise FilterArgumentError('You can only sort by either \"key\" or \"value\"')\r\n \r\n     def sort_func(item: t.Tuple[t.Any, t.Any]) -> t.Any:\r\n         value = item[pos]\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2104,
+          "completion_tokens": 562,
+          "total_tokens": 2666
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/39342e8c71452205857f94a9ba8ef733/repair/1e54a98f84814018b03de3494549a5e8/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "3a27764a5b0f4bff8aa40d1c7953e122",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "b89534e61067231fe1d5c27110dc947e",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -1176,7 +1176,7 @@\n             -> 43\r\n     \"\"\"\r\n     if method not in {\"common\", \"ceil\", \"floor\"}:\r\n-        return value\r\n+        raise FilterArgumentError(\"method must be 'common', 'ceil', or 'floor'\")\r\n \r\n     if method == \"common\":\r\n         return round(value, precision)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2035,
+          "completion_tokens": 540,
+          "total_tokens": 2575
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/b89534e61067231fe1d5c27110dc947e/repair/b8e2676b7d2d42d084f48f2c2d88c07b/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "9473606a947c457d996ef13f119b372e",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "d03a29bf2598aff6a45587e8d5ed1f25",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -1330,7 +1330,7 @@\n        The ``attribute`` parameter was added to allow summing up over\r\n        attributes.  Also the ``start`` parameter was moved on to the right.\r\n     \"\"\"\r\n-    if attribute:\r\n+    if attribute is not None:\r\n         iterable = map(make_attrgetter(environment, attribute), iterable)\r\n \r\n     return sum(iterable, start)  # type: ignore[no-any-return, call-overload]\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2117,
+          "completion_tokens": 424,
+          "total_tokens": 2541
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/d03a29bf2598aff6a45587e8d5ed1f25/repair/0de09ce808974402aed1d60337938a22/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "7e4bacd766c04f37b3dda01014b0c034",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "43c6043e16239c0a84628317c19a8650",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -320,7 +320,7 @@\n         /,\r\n     ) -> te.Self:\r\n         formatter = EscapeFormatter(self.escape)\r\n-        return formatter.vformat(self, (), mapping)\r\n+        return self.__class__(formatter.vformat(self, (), mapping))\r\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1490,
+          "completion_tokens": 261,
+          "total_tokens": 1751
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/43c6043e16239c0a84628317c19a8650/repair/b678665868c04e41993998a9ac6e102c/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "603b9b6d8e0a4e28a67b68c1bff00054",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "60317c0f70587172cbe8947ac7783195",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -320,7 +320,7 @@\n         /,\r\n     ) -> te.Self:\r\n         formatter = EscapeFormatter(self.escape)\r\n-        return formatter.vformat(self, (), mapping)\r\n+        return self.__class__(formatter.vformat(self, (), mapping))\r\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1533,
+          "completion_tokens": 265,
+          "total_tokens": 1798
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/60317c0f70587172cbe8947ac7783195/repair/f714bb9dea904c9095e06ae8c2593247/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "9779cd18c03e47299e7473d0deec24fc",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "f3b62aed477415aa9a0b02c4b15c4edc",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/_textwrap.py\n+++ b/src/click/_textwrap.py\n@@ -41,7 +41,7 @@\n         for idx, line in enumerate(text.splitlines()):\r\n             indent = self.initial_indent\r\n \r\n-            if idx > 1:\r\n+            if idx > 0:\r\n                 indent = self.subsequent_indent\r\n \r\n             rv.append(f\"{indent}{line}\")\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1565,
+          "completion_tokens": 282,
+          "total_tokens": 1847
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/f3b62aed477415aa9a0b02c4b15c4edc/repair/79e4b2cc36c143ad87029542bc4ed282/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "6feafb27279c45288644f56abb05420b",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "1d3f56cc11d7a05d87f830aa462e60a7",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/_textwrap.py\n+++ b/src/click/_textwrap.py\n@@ -41,7 +41,7 @@\n         for idx, line in enumerate(text.splitlines()):\r\n             indent = self.initial_indent\r\n \r\n-            if idx > 1:\r\n+            if idx > 0:\r\n                 indent = self.subsequent_indent\r\n \r\n             rv.append(f\"{indent}{line}\")\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1605,
+          "completion_tokens": 289,
+          "total_tokens": 1894
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/1d3f56cc11d7a05d87f830aa462e60a7/repair/63399e23e108430da8b30318849de9bc/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "7deb3b55be694ce893721673d62b6527",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "49174084505036ea802ed1746ea31042",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/exc.py\n+++ b/src/itsdangerous/exc.py\n@@ -86,7 +86,7 @@\n \r\n         #: If available, the error that indicates why the payload was\r\n         #: not valid. This might be ``None``.\r\n-        self.original_error: Exception | None = None\r\n+        self.original_error: Exception | None = original_error\r\n \r\n \r\n class BadPayload(BadData):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1481,
+          "completion_tokens": 317,
+          "total_tokens": 1798
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/49174084505036ea802ed1746ea31042/repair/28e4bbd33cca48b3a55af712d1b5784d/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "9534ba09ad4348eab302315f98f03a54",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "64c0828e2d371b1292be43fdca6cc634",
+      "attempt": 1,
+      "patch_diff": "--- a/src/dateutil/relativedelta.py\n+++ b/src/dateutil/relativedelta.py\n@@ -379,7 +379,7 @@\n         repl = {\"year\": year, \"month\": month, \"day\": day}\r\n         for attr in [\"hour\", \"minute\", \"second\", \"microsecond\"]:\r\n             value = getattr(self, attr)\r\n-            if value:\r\n+            if value is not None:\r\n                 repl[attr] = value\r\n         days = self.days\r\n         if self.leapdays and month > 2 and calendar.isleap(year):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2773,
+          "completion_tokens": 1116,
+          "total_tokens": 3889
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/64c0828e2d371b1292be43fdca6cc634/repair/6c198404d3ea42dd89609f5284bfb12f/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "f58d14d9d48b4b0589e7f9a22fc2bc75",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "a97c8ba2d8c5a91a13f48195800438ca",
+      "attempt": 1,
+      "patch_diff": "--- a/src/dateutil/relativedelta.py\n+++ b/src/dateutil/relativedelta.py\n@@ -234,7 +234,7 @@\n             div, mod = divmod(self.microseconds * s, 1000000)\r\n             self.microseconds = mod * s\r\n             self.seconds += div * s\r\n-        if abs(self.seconds) > 60:\r\n+        if abs(self.seconds) >= 60:\r\n             s = _sign(self.seconds)\r\n             div, mod = divmod(self.seconds * s, 60)\r\n             self.seconds = mod * s\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1981,
+          "completion_tokens": 593,
+          "total_tokens": 2574
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/a97c8ba2d8c5a91a13f48195800438ca/repair/e6529be0774641f6abf6e297415274d7/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "3af8fb10581543ca90d66b1668b1a2be",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "863a5e3510e0e68df1b5e904546ae329",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/signer.py\n+++ b/src/itsdangerous/signer.py\n@@ -192,7 +192,7 @@\n         .. versionchanged:: 2.0\r\n             Added the ``secret_key`` parameter.\r\n         \"\"\"\r\n-        if not secret_key:\r\n+        if secret_key is None:\r\n             secret_key = self.secret_keys[-1]\r\n         else:\r\n             secret_key = want_bytes(secret_key)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1967,
+          "completion_tokens": 564,
+          "total_tokens": 2531
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/863a5e3510e0e68df1b5e904546ae329/repair/2926989a7e814459a25d7b6b96f96b38/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "39e6e10084e548e5a8543d0260c07d82",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "b3ce0f5733670a86fd703129613a0aa6",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/signer.py\n+++ b/src/itsdangerous/signer.py\n@@ -192,7 +192,7 @@\n         .. versionchanged:: 2.0\r\n             Added the ``secret_key`` parameter.\r\n         \"\"\"\r\n-        if not secret_key:\r\n+        if secret_key is None:\r\n             secret_key = self.secret_keys[-1]\r\n         else:\r\n             secret_key = want_bytes(secret_key)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2020,
+          "completion_tokens": 572,
+          "total_tokens": 2592
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/b3ce0f5733670a86fd703129613a0aa6/repair/a7ced95f71bf47a68ca9eff2bbe6fd57/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "4befd9ec60764ce18a61eeaf90624286",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "abd4325c96028f93d1e41e8d85660715",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -1050,7 +1050,7 @@\n \r\n def do_striptags(value: \"t.Union[str, HasHTML]\") -> str:\r\n     \"\"\"Strip SGML/XML tags and replace adjacent whitespace by one space.\"\"\"\r\n-    if False and hasattr(value, \"__html__\"):\r\n+    if hasattr(value, \"__html__\"):\r\n         value = t.cast(\"HasHTML\", value).__html__()\r\n \r\n     return Markup(str(value)).striptags()\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1748,
+          "completion_tokens": 288,
+          "total_tokens": 2036
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/abd4325c96028f93d1e41e8d85660715/repair/3152f4e42efa447996a59339974c4bfc/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "1ac63c3352104b30b9cf12cf7edd6ace",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "94efe397716cfc3669ec1d53238f0002",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -324,7 +324,7 @@\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n-            return self\r\n+            raise ValueError(\"Format specification is not supported for Markup.\")\r\n \r\n         return self\r\n \r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1642,
+          "completion_tokens": 238,
+          "total_tokens": 1880
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/94efe397716cfc3669ec1d53238f0002/repair/05c0ca48ecf344fa903abfae316123ce/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "1d75292870f049088bf3f3c56da944b6",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "1f18a29e11c890ffcae4299095a5dffb",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/types.py\n+++ b/src/click/types.py\n@@ -379,7 +379,7 @@\n         self, value: t.Any, param: t.Optional[\"Parameter\"], ctx: t.Optional[\"Context\"]\r\n     ) -> t.Any:\r\n         if isinstance(value, datetime):\r\n-            return value.isoformat()\r\n+            return value\r\n \r\n         for format in self.formats:\r\n             converted = self._try_to_convert_date(value, format)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1817,
+          "completion_tokens": 382,
+          "total_tokens": 2199
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/1f18a29e11c890ffcae4299095a5dffb/repair/f299db7fd4fd4f288f14252d3c7643b8/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "fec6fa48ba244590b495b202cd7a1fc0",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "f0cc940ee34ef00206cce0ee2852507a",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/utils.py\n+++ b/src/click/utils.py\n@@ -510,7 +510,7 @@\n         except OSError as e:\r\n             import errno\r\n \r\n-            if e.errno == errno.EPIPE:\r\n+            if e.errno != errno.EPIPE:\r\n                 raise\r\n \r\n     def __getattr__(self, attr: str) -> t.Any:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1695,
+          "completion_tokens": 242,
+          "total_tokens": 1937
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/f0cc940ee34ef00206cce0ee2852507a/repair/ea796908d086426d89d52fd3c96f1dbc/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "086f48a581e84b0eb94a5d3e5127a3e8",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "8a476da9dc22147b53794f6ecc7ad8f2",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/types.py\n+++ b/src/click/types.py\n@@ -209,7 +209,6 @@\n             try:\r\n                 value = value.decode(enc)\r\n             except UnicodeError:\r\n-                return value\r\n                 fs_enc = sys.getfilesystemencoding()\r\n                 if fs_enc != enc:\r\n                     try:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1768,
+          "completion_tokens": 370,
+          "total_tokens": 2138
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/8a476da9dc22147b53794f6ecc7ad8f2/repair/921e48d11a7b4d9ea591302b6bfe52a6/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "0f13430b8fd749d3b8816f922e69ef6f",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "9e4805142fa63b551b321f91716ac07b",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/types.py\n+++ b/src/click/types.py\n@@ -209,7 +209,6 @@\n             try:\r\n                 value = value.decode(enc)\r\n             except UnicodeError:\r\n-                return value\r\n                 fs_enc = sys.getfilesystemencoding()\r\n                 if fs_enc != enc:\r\n                     try:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1711,
+          "completion_tokens": 356,
+          "total_tokens": 2067
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/9e4805142fa63b551b321f91716ac07b/repair/a2fb046a181b48d9b32633a4f3e9570e/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "d0560a36743044eba7f088fe4d53069f",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "2fa3b88dba9a45742f992a1d70369f2e",
+      "attempt": 1,
+      "patch_diff": "--- a/src/dateutil/rrule.py\n+++ b/src/dateutil/rrule.py\n@@ -261,7 +261,7 @@\n         n = 0\r\n         for d in gen:\r\n             if comp(d, dt):\r\n-                if count:\r\n+                if count is not None:\r\n                     n += 1\r\n                     if n > count:\r\n                         break\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1979,
+          "completion_tokens": 485,
+          "total_tokens": 2464
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/2fa3b88dba9a45742f992a1d70369f2e/repair/fee7dba336824ee3874df4b55769123c/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "e0f7e36c599e401eb88471393e5373c2",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "74ef6d79c0c674fdb99eeaa3de5f025f",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -369,7 +369,7 @@\n     elif by == \"value\":\r\n         pos = 1\r\n     else:\r\n-        pos = 0\r\n+        raise FilterArgumentError('You can only sort by either \"key\" or \"value\"')\r\n \r\n     def sort_func(item: t.Tuple[t.Any, t.Any]) -> t.Any:\r\n         value = item[pos]\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2070,
+          "completion_tokens": 559,
+          "total_tokens": 2629
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/74ef6d79c0c674fdb99eeaa3de5f025f/repair/c567a6518e814edab14cbd9140af3e26/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "25ae555ad37d427cbbeccad592217c91",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "24728703edb7d2f3527f6c8d7f21ab95",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -369,7 +369,7 @@\n     elif by == \"value\":\r\n         pos = 1\r\n     else:\r\n-        pos = 0\r\n+        raise FilterArgumentError('You can only sort by either \"key\" or \"value\"')\r\n \r\n     def sort_func(item: t.Tuple[t.Any, t.Any]) -> t.Any:\r\n         value = item[pos]\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2124,
+          "completion_tokens": 567,
+          "total_tokens": 2691
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/24728703edb7d2f3527f6c8d7f21ab95/repair/1cea9fea8a03489e9ba1c9b7e0d384d9/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "27066dbab18c430caf6dfae0ec18488b",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "b1961dcecc193f5a3f2e5258691359a6",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -908,7 +908,7 @@\n     assert length >= len(end), f\"expected length >= {len(end)}, got {length}\"\r\n     assert leeway >= 0, f\"expected leeway >= 0, got {leeway}\"\r\n \r\n-    if len(s) < length + leeway:\r\n+    if len(s) <= length + leeway:\r\n         return s\r\n \r\n     if killwords:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2223,
+          "completion_tokens": 722,
+          "total_tokens": 2945
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/b1961dcecc193f5a3f2e5258691359a6/repair/3dc8b9bfe2a94c18a283c741a6c4ff53/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "0dd2e0d920bc4b52a3c9f847220f44b7",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "448da5365496875cf1f798250777f4f7",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/_textwrap.py\n+++ b/src/click/_textwrap.py\n@@ -41,7 +41,7 @@\n         for idx, line in enumerate(text.splitlines()):\r\n             indent = self.initial_indent\r\n \r\n-            if idx > 1:\r\n+            if idx > 0:\r\n                 indent = self.subsequent_indent\r\n \r\n             rv.append(f\"{indent}{line}\")\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1538,
+          "completion_tokens": 299,
+          "total_tokens": 1837
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/448da5365496875cf1f798250777f4f7/repair/60ad6d27a32c4b4aa4cde61cea2ec1f9/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "9cebcec1e2844ba58908d290269c9f7a",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "91edf79cf48bfb3bf7e3f8aba9aad55f",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/_textwrap.py\n+++ b/src/click/_textwrap.py\n@@ -41,7 +41,7 @@\n         for idx, line in enumerate(text.splitlines()):\r\n             indent = self.initial_indent\r\n \r\n-            if idx > 1:\r\n+            if idx > 0:\r\n                 indent = self.subsequent_indent\r\n \r\n             rv.append(f\"{indent}{line}\")\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1608,
+          "completion_tokens": 291,
+          "total_tokens": 1899
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/91edf79cf48bfb3bf7e3f8aba9aad55f/repair/69d4e9221010481c9413d2e0a61fd9e2/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "95f3c80e568c487290d6bf641a64a0d0",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "27d1e2cb161d780adac27f24eaa5645a",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/_textwrap.py\n+++ b/src/click/_textwrap.py\n@@ -41,7 +41,7 @@\n         for idx, line in enumerate(text.splitlines()):\r\n             indent = self.initial_indent\r\n \r\n-            if idx > 1:\r\n+            if idx > 0:\r\n                 indent = self.subsequent_indent\r\n \r\n             rv.append(f\"{indent}{line}\")\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1607,
+          "completion_tokens": 287,
+          "total_tokens": 1894
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/27d1e2cb161d780adac27f24eaa5645a/repair/2f2088209ada435f8809f81b3a6b225a/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "49c03c45d0f44411a34de3c5ddb226da",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "5562bbb585144c3a90c26c07b9d3d8f7",
+      "attempt": 1,
+      "patch_diff": "--- a/src/dateutil/relativedelta.py\n+++ b/src/dateutil/relativedelta.py\n@@ -379,7 +379,7 @@\n         repl = {\"year\": year, \"month\": month, \"day\": day}\r\n         for attr in [\"hour\", \"minute\", \"second\", \"microsecond\"]:\r\n             value = getattr(self, attr)\r\n-            if value:\r\n+            if value is not None:\r\n                 repl[attr] = value\r\n         days = self.days\r\n         if self.leapdays and month > 2 and calendar.isleap(year):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2704,
+          "completion_tokens": 1118,
+          "total_tokens": 3822
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/5562bbb585144c3a90c26c07b9d3d8f7/repair/b296959d834b4783b22e0d82339ea79a/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "68c44e2a764047f6a0b4d210989656d2",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "c120db9f1dac94c35cddee275735407c",
+      "attempt": 1,
+      "patch_diff": "--- a/src/dateutil/relativedelta.py\n+++ b/src/dateutil/relativedelta.py\n@@ -379,7 +379,7 @@\n         repl = {\"year\": year, \"month\": month, \"day\": day}\r\n         for attr in [\"hour\", \"minute\", \"second\", \"microsecond\"]:\r\n             value = getattr(self, attr)\r\n-            if value:\r\n+            if value is not None:\r\n                 repl[attr] = value\r\n         days = self.days\r\n         if self.leapdays and month > 2 and calendar.isleap(year):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2710,
+          "completion_tokens": 1112,
+          "total_tokens": 3822
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/c120db9f1dac94c35cddee275735407c/repair/d71561cfaad043b48265341309087c2f/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "9481770bbfb84cab97e16df481f7d129",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "2a2e54d56751ffa30a9ae124c1338870",
+      "attempt": 1,
+      "patch_diff": "--- a/src/dateutil/relativedelta.py\n+++ b/src/dateutil/relativedelta.py\n@@ -379,7 +379,7 @@\n         repl = {\"year\": year, \"month\": month, \"day\": day}\r\n         for attr in [\"hour\", \"minute\", \"second\", \"microsecond\"]:\r\n             value = getattr(self, attr)\r\n-            if value:\r\n+            if value is not None:\r\n                 repl[attr] = value\r\n         days = self.days\r\n         if self.leapdays and month > 2 and calendar.isleap(year):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2544,
+          "completion_tokens": 1098,
+          "total_tokens": 3642
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/2a2e54d56751ffa30a9ae124c1338870/repair/edce144cbc7f4d2da162ae10e3490197/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "237ba4f5e4854221a05019351ca4eb1c",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "af0ef4975a4f736274587bce689b1458",
+      "attempt": 1,
+      "patch_diff": "--- a/src/dateutil/relativedelta.py\n+++ b/src/dateutil/relativedelta.py\n@@ -526,7 +526,7 @@\n             if self.weekday.weekday != other.weekday.weekday:\r\n                 return False\r\n             n1, n2 = self.weekday.n, other.weekday.n\r\n-            if n1 != n2 and not ((n1 == 1) and (not n2 or n2 == 1)):\r\n+            if n1 != n2 and not ((n1 in (0, 1)) and (n2 in (0, 1))):\r\n                 return False\r\n         return (self.years == other.years and\r\n                 self.months == other.months and\r\n",
+      "rollback_ok": true,
+      "classification": "test_assertion",
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1926,
+          "completion_tokens": 579,
+          "total_tokens": 2505
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/af0ef4975a4f736274587bce689b1458/repair/86ab8aeb00534928909374a239508cab/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "7e5351e0e04b4c6fa7e1cbf4cf41d25f",
+        "original_regression_run": "34f231eb6b494dc588117acc28dba9b6",
+        "refreshed_failure": "c3b6afcc24f84b44bb241791675752f0"
+      }
+    },
+    {
+      "slot_id": "af0ef4975a4f736274587bce689b1458",
+      "attempt": 2,
+      "patch_diff": "--- a/src/dateutil/relativedelta.py\n+++ b/src/dateutil/relativedelta.py\n@@ -526,7 +526,7 @@\n             if self.weekday.weekday != other.weekday.weekday:\r\n                 return False\r\n             n1, n2 = self.weekday.n, other.weekday.n\r\n-            if n1 != n2 and not ((n1 == 1) and (not n2 or n2 == 1)):\r\n+            if n1 != n2 and not ((n1 in (0, 1)) and (n2 in (0, 1))):\r\n                 return False\r\n         return (self.years == other.years and\r\n                 self.months == other.months and\r\n",
+      "rollback_ok": true,
+      "classification": "test_assertion",
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1919,
+          "completion_tokens": 565,
+          "total_tokens": 2484
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/af0ef4975a4f736274587bce689b1458/repair/86ab8aeb00534928909374a239508cab/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "fbb801a4f391438aacec78c541622432",
+        "original_regression_run": "08d523685145422eb29c3ce57a87944b",
+        "refreshed_failure": "a499d4c43b5d4a108798a7c984c26b2c"
+      }
+    },
+    {
+      "slot_id": "af0ef4975a4f736274587bce689b1458",
+      "attempt": 3,
+      "patch_diff": "--- a/src/dateutil/relativedelta.py\n+++ b/src/dateutil/relativedelta.py\n@@ -526,7 +526,7 @@\n             if self.weekday.weekday != other.weekday.weekday:\r\n                 return False\r\n             n1, n2 = self.weekday.n, other.weekday.n\r\n-            if n1 != n2 and not ((n1 == 1) and (not n2 or n2 == 1)):\r\n+            if n1 != n2 and not ((n1 in (1, None)) and (n2 in (1, None))):\r\n                 return False\r\n         return (self.years == other.years and\r\n                 self.months == other.months and\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1923,
+          "completion_tokens": 553,
+          "total_tokens": 2476
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/af0ef4975a4f736274587bce689b1458/repair/86ab8aeb00534928909374a239508cab/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "16f2ccf25b0c4c3dbf4fa0d2384361af",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "8c35abfd7347e6f0e51278ce5c94de54",
+      "attempt": 1,
+      "patch_diff": "--- a/src/dateutil/relativedelta.py\n+++ b/src/dateutil/relativedelta.py\n@@ -234,7 +234,7 @@\n             div, mod = divmod(self.microseconds * s, 1000000)\r\n             self.microseconds = mod * s\r\n             self.seconds += div * s\r\n-        if abs(self.seconds) > 60:\r\n+        if abs(self.seconds) >= 60:\r\n             s = _sign(self.seconds)\r\n             div, mod = divmod(self.seconds * s, 60)\r\n             self.seconds = mod * s\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1948,
+          "completion_tokens": 587,
+          "total_tokens": 2535
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/8c35abfd7347e6f0e51278ce5c94de54/repair/bb6262d2752144c0a7da845912330afa/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "7a258ef65d8b4e35abe3a46e2dc27e03",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "ea67e12f60c77871e937864f2acb84af",
+      "attempt": 1,
+      "patch_diff": "--- a/src/dateutil/relativedelta.py\n+++ b/src/dateutil/relativedelta.py\n@@ -234,7 +234,7 @@\n             div, mod = divmod(self.microseconds * s, 1000000)\r\n             self.microseconds = mod * s\r\n             self.seconds += div * s\r\n-        if abs(self.seconds) > 60:\r\n+        if abs(self.seconds) >= 60:\r\n             s = _sign(self.seconds)\r\n             div, mod = divmod(self.seconds * s, 60)\r\n             self.seconds = mod * s\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1960,
+          "completion_tokens": 596,
+          "total_tokens": 2556
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/ea67e12f60c77871e937864f2acb84af/repair/a1f15fe1842f4bb3bfd5c1ccdcfc63db/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "ae353e7cba2348e0a71be8b89e31be98",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "14e58ae4a77202e93859c6bb28c3c179",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/signer.py\n+++ b/src/itsdangerous/signer.py\n@@ -192,7 +192,7 @@\n         .. versionchanged:: 2.0\r\n             Added the ``secret_key`` parameter.\r\n         \"\"\"\r\n-        if not secret_key:\r\n+        if secret_key is None:\r\n             secret_key = self.secret_keys[-1]\r\n         else:\r\n             secret_key = want_bytes(secret_key)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2025,
+          "completion_tokens": 571,
+          "total_tokens": 2596
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/14e58ae4a77202e93859c6bb28c3c179/repair/4fd922651f8d4aae8fa026f7ed244932/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "d9d42347773d44049a4055b333faf43a",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "2ffcbcd0adb660967b6707851ece3745",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -137,7 +137,7 @@\n         if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n             return self.__class__(super().__add__(self.escape(value)))\r\n \r\n-        return self\r\n+        return NotImplemented\r\n \r\n     def __radd__(self, value: str | _HasHTML, /) -> te.Self:\r\n         if isinstance(value, str) or hasattr(value, \"__html__\"):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1525,
+          "completion_tokens": 248,
+          "total_tokens": 1773
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/2ffcbcd0adb660967b6707851ece3745/repair/bfd5cc8a350b417bba2f37eb67b2bd44/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "ccd478fad1f54356b7f593bba7c55b86",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "9b306da2486a83c743ff32e1009156dd",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -240,7 +240,7 @@\n         return rv  # type: ignore[return-value]\r\n \r\n     def __getitem__(self, key: t.SupportsIndex | slice, /) -> te.Self:\r\n-        return self.__class__(super().__getitem__(key + 1 if isinstance(key, int) else key))\r\n+        return self.__class__(super().__getitem__(key))\r\n \r\n     def capitalize(self, /) -> te.Self:\r\n         return self.__class__(super().capitalize())\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1538,
+          "completion_tokens": 246,
+          "total_tokens": 1784
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/9b306da2486a83c743ff32e1009156dd/repair/332cb26fc20d4374a7a5964031a0bb14/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "4c394cd7d9474236880afb5ae716237c",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "2f3d3f33acd93aac30fb46992d096664",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -240,7 +240,7 @@\n         return rv  # type: ignore[return-value]\r\n \r\n     def __getitem__(self, key: t.SupportsIndex | slice, /) -> te.Self:\r\n-        return self.__class__(super().__getitem__(key + 1 if isinstance(key, int) else key))\r\n+        return self.__class__(super().__getitem__(key))\r\n \r\n     def capitalize(self, /) -> te.Self:\r\n         return self.__class__(super().capitalize())\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1643,
+          "completion_tokens": 238,
+          "total_tokens": 1881
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/2f3d3f33acd93aac30fb46992d096664/repair/29be1cbc740344eeb055b2f793dd4077/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "9769a9877b6c453c9db3f4156cd8f53e",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "e71a894878f2755b66570dfcc240e187",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -324,7 +324,7 @@\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n-            return self\r\n+            raise ValueError(\"Format specification is not supported for Markup.\")\r\n \r\n         return self\r\n \r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1528,
+          "completion_tokens": 240,
+          "total_tokens": 1768
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/e71a894878f2755b66570dfcc240e187/repair/e9be10efb98246bb87b59412f8891cd7/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "fc1798cfc1154d3ebf766eda0d89ca58",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "208f20b465234bac2390081d8195f8b8",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -324,7 +324,7 @@\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n-            return self\r\n+            raise ValueError(\"Format specification is not supported.\")\r\n \r\n         return self\r\n \r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1483,
+          "completion_tokens": 234,
+          "total_tokens": 1717
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/208f20b465234bac2390081d8195f8b8/repair/1a375cdef35b43039c749b568fc62842/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "130f3bc14ba440bebd7d89b75a218f5a",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "40ec25a51c330f9b122f00121dbb6c1a",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/types.py\n+++ b/src/click/types.py\n@@ -379,7 +379,7 @@\n         self, value: t.Any, param: t.Optional[\"Parameter\"], ctx: t.Optional[\"Context\"]\r\n     ) -> t.Any:\r\n         if isinstance(value, datetime):\r\n-            return value.isoformat()\r\n+            return value\r\n \r\n         for format in self.formats:\r\n             converted = self._try_to_convert_date(value, format)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1852,
+          "completion_tokens": 392,
+          "total_tokens": 2244
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/40ec25a51c330f9b122f00121dbb6c1a/repair/a265237ce2014a0c9f6e16e6bdb8ee0f/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "56c0d8b81b854404b6d512afa9a9f9ec",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "7b85e54f2f4892371bd4393dbd145ac8",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/types.py\n+++ b/src/click/types.py\n@@ -379,7 +379,7 @@\n         self, value: t.Any, param: t.Optional[\"Parameter\"], ctx: t.Optional[\"Context\"]\r\n     ) -> t.Any:\r\n         if isinstance(value, datetime):\r\n-            return value.isoformat()\r\n+            return value\r\n \r\n         for format in self.formats:\r\n             converted = self._try_to_convert_date(value, format)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1797,
+          "completion_tokens": 380,
+          "total_tokens": 2177
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/7b85e54f2f4892371bd4393dbd145ac8/repair/8b2893b629ee4f34b725819baf6cccb4/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "03662c74b70147c5b893b1cab386d019",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "ff98e76096fa52489c57f6dbfdaf7273",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/utils.py\n+++ b/src/click/utils.py\n@@ -510,7 +510,7 @@\n         except OSError as e:\r\n             import errno\r\n \r\n-            if e.errno == errno.EPIPE:\r\n+            if e.errno != errno.EPIPE:\r\n                 raise\r\n \r\n     def __getattr__(self, attr: str) -> t.Any:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1696,
+          "completion_tokens": 254,
+          "total_tokens": 1950
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/ff98e76096fa52489c57f6dbfdaf7273/repair/fb69b8fefb9a45bfbc2ff555994fd01c/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "51a0669e13974deb941cb5b1257d3e3f",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "58a8688ae125aeb1ff6f055b202152e3",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/types.py\n+++ b/src/click/types.py\n@@ -209,7 +209,6 @@\n             try:\r\n                 value = value.decode(enc)\r\n             except UnicodeError:\r\n-                return value\r\n                 fs_enc = sys.getfilesystemencoding()\r\n                 if fs_enc != enc:\r\n                     try:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1672,
+          "completion_tokens": 347,
+          "total_tokens": 2019
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/58a8688ae125aeb1ff6f055b202152e3/repair/ea3214ebb3ec4c35a0289638eb909030/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "449a1418639b415a8aa30235fcbb681f",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "34b6ab75a12a7add0f0ce11c95ff603d",
+      "attempt": 1,
+      "patch_diff": "--- a/src/dateutil/rrule.py\n+++ b/src/dateutil/rrule.py\n@@ -261,7 +261,7 @@\n         n = 0\r\n         for d in gen:\r\n             if comp(d, dt):\r\n-                if count:\r\n+                if count is not None:\r\n                     n += 1\r\n                     if n > count:\r\n                         break\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2050,
+          "completion_tokens": 486,
+          "total_tokens": 2536
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/34b6ab75a12a7add0f0ce11c95ff603d/repair/1cbac663b60a4044ab471734dc3e83cd/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "c163af78fd534a3d9b6c00ec48d0a98d",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "88272b631f875ba33e6c8df125905ac8",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -369,7 +369,7 @@\n     elif by == \"value\":\r\n         pos = 1\r\n     else:\r\n-        pos = 0\r\n+        raise FilterArgumentError('You can only sort by either \"key\" or \"value\"')\r\n \r\n     def sort_func(item: t.Tuple[t.Any, t.Any]) -> t.Any:\r\n         value = item[pos]\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2131,
+          "completion_tokens": 566,
+          "total_tokens": 2697
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/88272b631f875ba33e6c8df125905ac8/repair/3c9bc6eb2414445d8a17a3924b92750d/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "9a7b0c94d43e4779ab8f5ac0c007305f",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "557799f551e7ed26a260e5f123c6cf4c",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -369,7 +369,7 @@\n     elif by == \"value\":\r\n         pos = 1\r\n     else:\r\n-        pos = 0\r\n+        raise FilterArgumentError('You can only sort by either \"key\" or \"value\"')\r\n \r\n     def sort_func(item: t.Tuple[t.Any, t.Any]) -> t.Any:\r\n         value = item[pos]\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2100,
+          "completion_tokens": 551,
+          "total_tokens": 2651
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/557799f551e7ed26a260e5f123c6cf4c/repair/358f901b159049dd830ce916c180b7dc/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "4926de6566d841e4b32508c7c99ad606",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "334725630e92118e72f8b36a880e85c4",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -1176,7 +1176,9 @@\n             -> 43\r\n     \"\"\"\r\n     if method not in {\"common\", \"ceil\", \"floor\"}:\r\n-        return value\r\n+        raise FilterArgumentError(\r\n+            \"method must be 'common', 'ceil', or 'floor'\"\r\n+        )\r\n \r\n     if method == \"common\":\r\n         return round(value, precision)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1952,
+          "completion_tokens": 539,
+          "total_tokens": 2491
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/334725630e92118e72f8b36a880e85c4/repair/17bba6ee779947bc9ed227347f4e0cf4/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "0d59404c4d334c69b0ed05c678531068",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "a66bc0a57a646e2d871a0c88887da88f",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -1176,7 +1176,9 @@\n             -> 43\r\n     \"\"\"\r\n     if method not in {\"common\", \"ceil\", \"floor\"}:\r\n-        return value\r\n+        raise FilterArgumentError(\r\n+            \"method must be 'common', 'ceil', or 'floor'\"\r\n+        )\r\n \r\n     if method == \"common\":\r\n         return round(value, precision)\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1955,
+          "completion_tokens": 538,
+          "total_tokens": 2493
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/a66bc0a57a646e2d871a0c88887da88f/repair/19d288c581b04b27830823fd3cc82638/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "ae3abb0ed5794379b1642f16af13cb45",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "5aa1496b83d0346ce28c7868f7719f7a",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -908,7 +908,7 @@\n     assert length >= len(end), f\"expected length >= {len(end)}, got {length}\"\r\n     assert leeway >= 0, f\"expected leeway >= 0, got {leeway}\"\r\n \r\n-    if len(s) < length + leeway:\r\n+    if len(s) <= length + leeway:\r\n         return s\r\n \r\n     if killwords:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2206,
+          "completion_tokens": 720,
+          "total_tokens": 2926
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/5aa1496b83d0346ce28c7868f7719f7a/repair/9b2f26421d744f43b194ea255ed643d5/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "981e0b5576f34c4eb872e47aef2dae72",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "0d04e69587c7777631248843e397e979",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -908,7 +908,7 @@\n     assert length >= len(end), f\"expected length >= {len(end)}, got {length}\"\r\n     assert leeway >= 0, f\"expected leeway >= 0, got {leeway}\"\r\n \r\n-    if len(s) < length + leeway:\r\n+    if len(s) <= length + leeway:\r\n         return s\r\n \r\n     if killwords:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2202,
+          "completion_tokens": 723,
+          "total_tokens": 2925
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/0d04e69587c7777631248843e397e979/repair/4ca597cde10849d2acf64e8644c63252/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "1e354034af36449abd81d36eb03e5bcc",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "38d66adf372f6a4a317f587397a7e73b",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -1330,7 +1330,7 @@\n        The ``attribute`` parameter was added to allow summing up over\r\n        attributes.  Also the ``start`` parameter was moved on to the right.\r\n     \"\"\"\r\n-    if attribute:\r\n+    if attribute is not None:\r\n         iterable = map(make_attrgetter(environment, attribute), iterable)\r\n \r\n     return sum(iterable, start)  # type: ignore[no-any-return, call-overload]\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2144,
+          "completion_tokens": 433,
+          "total_tokens": 2577
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/38d66adf372f6a4a317f587397a7e73b/repair/2ed11108c9c94df8be6ab78b16d1fd85/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "d0df3ed8a653472f96806a4f0d719454",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "08fc03d01751d09102331bab23f15041",
+      "attempt": 1,
+      "patch_diff": "--- a/src/jinja2/filters.py\n+++ b/src/jinja2/filters.py\n@@ -1330,7 +1330,7 @@\n        The ``attribute`` parameter was added to allow summing up over\r\n        attributes.  Also the ``start`` parameter was moved on to the right.\r\n     \"\"\"\r\n-    if attribute:\r\n+    if attribute is not None:\r\n         iterable = map(make_attrgetter(environment, attribute), iterable)\r\n \r\n     return sum(iterable, start)  # type: ignore[no-any-return, call-overload]\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 2116,
+          "completion_tokens": 420,
+          "total_tokens": 2536
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/08fc03d01751d09102331bab23f15041/repair/2e813b3a6013478f8092b7ff9a1a453d/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "84ce0144fa0148018ba14981dde8c52a",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "0f1444407db06db2ad542987bafc7622",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -234,7 +234,7 @@\n         \"\"\"\r\n         rv = escape(s)\r\n \r\n-        if False and rv.__class__ is not cls:\r\n+        if rv.__class__ is not cls:\r\n             return cls(rv)\r\n \r\n         return rv  # type: ignore[return-value]\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1626,
+          "completion_tokens": 295,
+          "total_tokens": 1921
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/0f1444407db06db2ad542987bafc7622/repair/13026dde5e904c28a27fb6af3d2a5a2a/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "27b46d9ee4eb4b7eb9b1c0d1379dd003",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "de8efda31af74766d59f8d215cb9fde2",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -234,7 +234,7 @@\n         \"\"\"\r\n         rv = escape(s)\r\n \r\n-        if False and rv.__class__ is not cls:\r\n+        if rv.__class__ is not cls:\r\n             return cls(rv)\r\n \r\n         return rv  # type: ignore[return-value]\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1643,
+          "completion_tokens": 286,
+          "total_tokens": 1929
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/de8efda31af74766d59f8d215cb9fde2/repair/30185ed89e8341f09280368c066349f8/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "3b9d676b52fb4124bdccdb5c5a8977a2",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "7f58f3bdca15bd8adba1edc08be6a181",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -234,7 +234,7 @@\n         \"\"\"\r\n         rv = escape(s)\r\n \r\n-        if False and rv.__class__ is not cls:\r\n+        if rv.__class__ is not cls:\r\n             return cls(rv)\r\n \r\n         return rv  # type: ignore[return-value]\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1724,
+          "completion_tokens": 286,
+          "total_tokens": 2010
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/7f58f3bdca15bd8adba1edc08be6a181/repair/d0ebeec480474a608268afa7012471ea/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "f2400eecde6541ebadd000a90a830061",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "69bebc0f2e1f6a14f34d9b8e683014f5",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -320,7 +320,7 @@\n         /,\r\n     ) -> te.Self:\r\n         formatter = EscapeFormatter(self.escape)\r\n-        return formatter.vformat(self, (), mapping)\r\n+        return self.__class__(formatter.vformat(self, (), mapping))\r\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1552,
+          "completion_tokens": 262,
+          "total_tokens": 1814
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/69bebc0f2e1f6a14f34d9b8e683014f5/repair/1c565acdc2cc4053bacf62e67075c0d5/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "4e18524c6ea34259b7bd33c669ebae44",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "1018aa71f69e6e717f69eabfa056fdd0",
+      "attempt": 1,
+      "patch_diff": "--- a/src/markupsafe/__init__.py\n+++ b/src/markupsafe/__init__.py\n@@ -320,7 +320,7 @@\n         /,\r\n     ) -> te.Self:\r\n         formatter = EscapeFormatter(self.escape)\r\n-        return formatter.vformat(self, (), mapping)\r\n+        return self.__class__(formatter.vformat(self, (), mapping))\r\n \r\n     def __html_format__(self, format_spec: str, /) -> te.Self:\r\n         if format_spec:\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1463,
+          "completion_tokens": 266,
+          "total_tokens": 1729
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/1018aa71f69e6e717f69eabfa056fdd0/repair/c9975feb4f6d40ec8538b97cdff8cb2a/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "890f36f1900843ec9623783c57d26af8",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "02dc938596b42e240939aecb3d418083",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/_textwrap.py\n+++ b/src/click/_textwrap.py\n@@ -41,7 +41,7 @@\n         for idx, line in enumerate(text.splitlines()):\r\n             indent = self.initial_indent\r\n \r\n-            if idx > 1:\r\n+            if idx > 0:\r\n                 indent = self.subsequent_indent\r\n \r\n             rv.append(f\"{indent}{line}\")\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1610,
+          "completion_tokens": 286,
+          "total_tokens": 1896
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/02dc938596b42e240939aecb3d418083/repair/5c3cf322d68444d583a13817d8441d47/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "1f473966ee2e4d939ce9b851f2dbdcf0",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "67d366ac621e08897bb061170f476257",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/_textwrap.py\n+++ b/src/click/_textwrap.py\n@@ -41,7 +41,7 @@\n         for idx, line in enumerate(text.splitlines()):\r\n             indent = self.initial_indent\r\n \r\n-            if idx > 1:\r\n+            if idx > 0:\r\n                 indent = self.subsequent_indent\r\n \r\n             rv.append(f\"{indent}{line}\")\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1553,
+          "completion_tokens": 288,
+          "total_tokens": 1841
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/67d366ac621e08897bb061170f476257/repair/1501b102b96441899f1df023e0941dac/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "0bb613837efd4f2ca5423d5279b40041",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "0432979588d5aee01d2225b2b34666c9",
+      "attempt": 1,
+      "patch_diff": "--- a/src/click/_textwrap.py\n+++ b/src/click/_textwrap.py\n@@ -41,7 +41,7 @@\n         for idx, line in enumerate(text.splitlines()):\r\n             indent = self.initial_indent\r\n \r\n-            if idx > 1:\r\n+            if idx > 0:\r\n                 indent = self.subsequent_indent\r\n \r\n             rv.append(f\"{indent}{line}\")\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1615,
+          "completion_tokens": 290,
+          "total_tokens": 1905
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/0432979588d5aee01d2225b2b34666c9/repair/6703666fd4ad4272ba93663a07a41de1/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "d4a908a097454577a0e58243865eb941",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    },
+    {
+      "slot_id": "88d584538e3bbf9573385a085dfc7aa2",
+      "attempt": 1,
+      "patch_diff": "--- a/src/itsdangerous/exc.py\n+++ b/src/itsdangerous/exc.py\n@@ -86,7 +86,7 @@\n \r\n         #: If available, the error that indicates why the payload was\r\n         #: not valid. This might be ``None``.\r\n-        self.original_error: Exception | None = None\r\n+        self.original_error: Exception | None = original_error\r\n \r\n \r\n class BadPayload(BadData):\r\n",
+      "rollback_ok": null,
+      "classification": null,
+      "completion": {
+        "model": "deepseek-v4-flash-ascend",
+        "usage": {
+          "prompt_tokens": 1481,
+          "completion_tokens": 333,
+          "total_tokens": 1814
+        },
+        "usage_available": true
+      },
+      "semantic_review": "pending_V2_06",
+      "evidence_sources": [
+        "main_result",
+        "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5/runs/88d584538e3bbf9573385a085dfc7aa2/repair/b3c7e2c3f2b34a459d0a5fcc771f4369/repair.json"
+      ],
+      "run_refs": {
+        "visible_run": "2952cfb1fb8c4858b9ae04238d507983",
+        "original_regression_run": null,
+        "refreshed_failure": null
+      }
+    }
+  ]
+}
