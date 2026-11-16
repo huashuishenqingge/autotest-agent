@@ -7,7 +7,7 @@
 <p id="experiment-message" role="status" aria-live="polite">正在校验并载入实验结果…</p>
 <section aria-labelledby="overview-title"><h2 id="overview-title">实验总览</h2><p id="experiment-notice"></p><div id="experiment-stats" class="experiment-stats"></div>
 <div class="table-scroll"><table><caption>四种方法对照 · 每组固定90条</caption><thead><tr><th>方法</th><th>生成与反馈</th><th>有效检出</th><th>技术验证通过</th><th>语义确认修复</th><th>确认率</th></tr></thead><tbody id="method-rows"></tbody></table></div>
-<p class="experiment-note">技术验证通过表示测试通过；语义确认还需独立检查补丁是否符合需求。失败记录保留在分母中。</p>
+<div class="model-purpose"><h3>大模型在这里做什么？</h3><p>根据需求和源码生成测试，依据失败证据提出修复。程序负责实际执行、回归验证，独立审查再判断补丁语义。</p><button id="model-example" type="button">查看一次真实模型调用示例</button></div><p class="experiment-note">技术验证通过表示测试通过；语义确认还需独立检查补丁是否符合需求。失败记录保留在分母中。</p>
 <div class="actions"><a href="/api/experiments/download?format=json" download>下载汇总 JSON</a><a href="/api/experiments/download?format=csv" download>下载汇总 CSV</a></div>
 <details><summary>实验范围与结果限制</summary><ul id="experiment-limits"></ul></details></section>
 <section><h2>项目结果</h2><p>每项目6个不同缺陷，各方法重复3次；下表为语义确认数，每格分母18。</p><div class="table-scroll"><table><thead><tr><th>项目 / 固定版本</th><th>B0</th><th>B1</th><th>B2</th><th>A0</th></tr></thead><tbody id="project-rows"></tbody></table></div></section>
@@ -21,6 +21,6 @@
 <p id="record-count" aria-live="polite"></p><div class="table-scroll"><table><thead><tr><th>项目 / 目标函数</th><th>方法 / 重复</th><th>缺陷类型</th><th>执行结果</th><th>语义结果</th><th>耗时</th><th>详情</th></tr></thead><tbody id="record-rows"></tbody></table></div>
 <div class="actions experiment-pagination"><button id="records-prev" disabled>上一页</button><span id="records-page"></span><button id="records-next" disabled>下一页</button></div></section>
 <section id="experiment-detail" aria-labelledby="detail-title"><h2 id="detail-title">记录详情</h2><p id="detail-summary">点击记录右侧“查看”，检查测试、补丁与审查依据。</p><a id="detail-download" hidden download>下载本条结果 JSON</a>
-<div id="detail-content" hidden><h3>需求与目标</h3><pre id="detail-requirements"></pre><h3>生成测试</h3><div id="detail-tests"></div><h3>源码补丁与语义审查</h3><div id="detail-patches"></div><h3>覆盖率原始值</h3><div class="table-scroll"><table><thead><tr><th>阶段</th><th>行覆盖率</th><th>分支覆盖率</th></tr></thead><tbody id="detail-coverage"></tbody></table></div><h3>模型用量与生成状态</h3><pre id="detail-usage"></pre><p id="detail-log-notice" class="experiment-note"></p><details><summary>完整导出结果</summary><pre id="detail-raw"></pre></details></div></section>
+<div id="detail-content" hidden><h3>模型在这次任务中做了什么</h3><p id="model-activity-notice" class="experiment-note"></p><div id="model-activity"></div><h3>实际模型调用记录</h3><div class="table-scroll"><table><thead><tr><th>调用 / 用途</th><th>返回模型</th><th>记录时间</th><th>返回状态</th><th>tokens</th></tr></thead><tbody id="model-call-rows"></tbody></table></div><h3>需求与目标</h3><pre id="detail-requirements"></pre><h3>生成测试</h3><div id="detail-tests"></div><h3>源码补丁与语义审查</h3><div id="detail-patches"></div><h3>覆盖率原始值</h3><div class="table-scroll"><table><thead><tr><th>阶段</th><th>行覆盖率</th><th>分支覆盖率</th></tr></thead><tbody id="detail-coverage"></tbody></table></div><h3>模型用量与生成状态</h3><pre id="detail-usage"></pre><p id="detail-log-notice" class="experiment-note"></p><details><summary>完整导出结果</summary><pre id="detail-raw"></pre></details></div></section>
 </main><footer>已保存实验结果 · 浏览和下载不会重新调用模型</footer>
 </body></html>

@@ -69,6 +69,37 @@ class ExperimentDataTests(unittest.TestCase):
         self.assertNotIn('result_path', detail['record'])
         self.assertIn('未', detail['log_notice'])
 
+    def test_model_role_links_real_calls_outputs_and_validation(self):
+        detail = self.data.detail('007d44248ba3f62f4da61ead5e3ba954')
+        activity = detail['model_activity']
+        self.assertEqual([r['role'] for r in activity['requests']], ['test_generation','source_repair'])
+        self.assertEqual(activity['requests'][0]['model'], 'deepseek-v4-flash-ascend')
+        self.assertEqual(activity['baseline']['failed'], 0)
+        generation = activity['generation'][0]
+        self.assertEqual(generation['reference_run']['exit_code'], 0)
+        self.assertGreater(generation['mutant_run']['failed'], 0)
+        self.assertEqual(generation['output_paths'], [t['path'] for t in detail['tests']])
+        self.assertEqual(activity['repair']['independent_validation']['failed'], 0)
+        self.assertFalse(activity['full_prompt_available'])
+
+    def test_baseline_has_no_model_activity_and_failure_is_not_invented_success(self):
+        baseline = next(r for r in self.data.rows if r['group']=='B0')
+        activity = self.data.detail(baseline['slot_id'])['model_activity']
+        self.assertEqual(activity['requests'], [])
+        self.assertEqual(activity['generation'], [])
+        self.assertIsNone(activity['repair'])
+        failed = next(r for r in self.data.rows if r['status']=='generation_failed' and any(q['usage'] is None for q in r['requests']))
+        activity = self.data.detail(failed['slot_id'])['model_activity']
+        self.assertIsNone(activity['requests'][0]['usage'])
+        self.assertIsNone(activity['generation'][0]['reference_run'])
+        self.assertEqual(activity['generation'][0]['output_paths'], [])
+
+    def test_feedback_role_uses_frozen_method_definition(self):
+        for method, expected in [('B2', True), ('A0', False)]:
+            item = next(r for r in self.data.rows if r['group']==method and len(r['generation_rounds'])==2)
+            activity = self.data.detail(item['slot_id'])['model_activity']
+            self.assertEqual(activity['generation'][1]['coverage_feedback'], expected)
+
 
 class ExperimentHTTPTests(unittest.TestCase):
     def setUp(self):

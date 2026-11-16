@@ -47,6 +47,11 @@ class ExperimentData:
         self.projects = {p['id']:p for p in bound('experiments/projects.json')['projects']}
         protocol = bound('experiments/p08b-v2-protocol.json')
         self.methods = {m['id']:m for m in protocol['methods']}
+        self.configured_model = protocol['runtime']['model']
+        executions = bound('evidence/p08b-v2-formal-executions.json')['runs']
+        self.runs = {run['run_id']:run for run in executions}
+        if len(self.runs) != len(executions):
+            raise ValueError('duplicate execution identity')
         if raw['schema'] != 'p08-formal-raw-export-v1' or self.metrics['schema'] != 'p08-v2-metrics-v1':
             raise ValueError('unsupported experiment schema')
         computed = evaluate(inputs['records'], inputs['bindings'], sidecar['patches'])
@@ -86,6 +91,10 @@ class ExperimentData:
             raise ValueError('missing applied patch')
         self.semantic = {}
         for row in self.rows:
+            if [q['request_index'] for q in row['requests']] != list(range(1,len(row['requests'])+1)):
+                raise ValueError('unordered request identities')
+            for ref in row['execution_refs']:
+                self._execution(row,ref['run_id'])
             final = [p['review'] for p in self.patches.get(row['slot_id'], []) if p['review']['is_last_attempt']]
             if row['status'] == 'verified' and len(final) != 1:
                 raise ValueError('verified slot missing final review')
@@ -139,8 +148,47 @@ class ExperimentData:
             'project':{k:self.projects[row['project_id']][k] for k in ('id','tag','commit')},
             'tests':self.tests.get(slot, []),'patches':self.patches.get(slot, []),
             'coverage':row['coverage'],'generation_rounds':row['generation_rounds'],
+            'model_activity':self._model_activity(row),
             'usage':{'requests':len(requests),'known_tokens':known,'unknown_requests':unknown,'total_tokens':None if unknown else known},
             'log_notice':'原始完整日志未包含在Git共享导出中；此处显示已保存的状态、测试与补丁，未重新执行。'}
+
+    def _execution(self, row, run_id):
+        run = self.runs[run_id]
+        if '/'+row['slot_id']+'/' not in run['artifact_directory']:
+            raise ValueError('execution belongs to another slot')
+        return {k:run[k] for k in ('run_id','exit_code','passed','failed','errors','skipped','failure_kind','cleanup_ok')}
+
+    def _model_activity(self, row):
+        refs = {r['label']:r['run_id'] for r in row['execution_refs']}
+        def execution(label):
+            return self._execution(row,refs[label]) if label in refs else None
+        generation = []
+        for item in row['generation_rounds']:
+            number = item['round']
+            generation.append({'round':number,'status':item['status'], 'failure':item['failure'],
+                'coverage_feedback':self.methods[row['group']]['coverage_feedback'] and number==2,
+                'output_paths':item['generated_paths'],
+                'reference_run':execution(f'reference-{number}'),
+                'mutant_run':execution(f'round-{number}')})
+        requests = []
+        for item in row['requests']:
+            index = item['request_index']
+            is_generation = index <= len(generation)
+            requests.append({'request_index':index,'role':'test_generation' if is_generation else 'source_repair',
+                'round':index if is_generation else index-len(generation),
+                'time':item['time'],'status':item['status'],'model':item.get('model'),
+                'usage':item['usage'],'error_type':item.get('error_type'),
+                'finish_reason':(item.get('transport_metadata') or {}).get('finish_reason')})
+        repair = row['repair']
+        repair_view = None
+        if repair is not None:
+            validation = repair.get('independent_validation')
+            repair_view = {'status':repair['status'],'attempts':repair['attempts'],
+                'independent_validation':self._execution(row,validation['run_id']) if validation else None}
+        return {'configured_model':self.configured_model,'requests':requests,'generation':generation,
+            'baseline':execution('baseline'),'generated_only':execution('generated-only'),
+            'repair':repair_view,'full_prompt_available':False,'full_raw_response_available':False,
+            'input_description_notice':'输入用途按冻结流程说明；共享导出不含逐次完整提示词或原始模型回复，以下说明不是请求原文。'}
 
 
 def dataset():

@@ -1,0 +1,88 @@
+{
+  "scope": "P07B model contribution presentation; saved V2 evidence only",
+  "baseline": "46a9ce6",
+  "records_checked": 360,
+  "request_roles": {
+    "test_generation": 353,
+    "source_repair": 68
+  },
+  "original_known_tokens": 1015730,
+  "original_unknown_usage": 12,
+  "all_B0_zero_calls": true,
+  "all_verified_independent_runs_pass": true,
+  "B2_A0_feedback_roles_checked": true,
+  "new_model_requests": 0,
+  "budget_attempts": 754,
+  "frozen_files_and_original_receipts_unchanged": true,
+  "full_prompt_available": false,
+  "full_raw_response_available": false,
+  "browser": {
+    "browser": "Chrome headless",
+    "page_errors": [],
+    "desktop": [
+      1440,
+      1100
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "verified": [
+      "homepage navigation",
+      "four-method summary",
+      "real model role example",
+      "generation and repair call metadata",
+      "no invented full prompt",
+      "baseline zero calls",
+      "20-row pagination",
+      "combined project/method/semantic filters",
+      "technical verified but semantic rejected",
+      "three patch reviews",
+      "record download",
+      "clear filters",
+      "next page",
+      "125 generation failures",
+      "66 technical verified",
+      "confirmed success detail",
+      "mobile no document overflow"
+    ],
+    "model_requests": 0
+  },
+  "red_observed": "Three new tests raised KeyError model_activity before implementation",
+  "native_regression": {
+    "command": ".venv/Scripts/python.exe -m unittest discover -s tests -v",
+    "total": 244,
+    "passed": 237,
+    "skipped": 7,
+    "failed": 0,
+    "seconds": 44.27
+  },
+  "web_experiment_tests": {
+    "total": 11,
+    "passed": 11,
+    "failed": 0
+  },
+  "files": [
+    {
+      "path": "web/experiments.py",
+      "lf_sha256": "dcae870afa81e0be2d5c7be874fcd5347620b25e2fef2c46b65ce52744ac7288"
+    },
+    {
+      "path": "web/static/experiments.html",
+      "lf_sha256": "ea3ecc1590f1fbccf52bd6de212dd9cf0cc4df439d3b58472c6e42b5bbad074d"
+    },
+    {
+      "path": "web/static/experiments.js",
+      "lf_sha256": "e7a45dc2106d9e7dcf71607e88775d78fb32b104af535d37e1f46ab57097dcfd"
+    },
+    {
+      "path": "web/static/style.css",
+      "lf_sha256": "06d70bfb8bfc61fce72fff17de4169120d93fe54e36bb971f37039b24c64c010"
+    },
+    {
+      "path": "tests/test_web_experiments.py",
+      "lf_sha256": "478b3ca8927c59d34a2c2477ab971f89ad6db8ed69b53419bc88aa31082e71c0"
+    }
+  ],
+  "user_acceptance": "pending"
+}
