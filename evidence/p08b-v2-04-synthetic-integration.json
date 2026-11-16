@@ -1,0 +1,18 @@
+{
+  "scope": "Nonformal synthetic integration only; real campaign/runner/generator/repairer; Docker runner and model are offline stubs",
+  "slots_completed": 12,
+  "offline_completion_calls": 24,
+  "real_model_calls": 0,
+  "real_docker_executions": 0,
+  "stub_execution_invocations": 105,
+  "resume_extra_completions": 0,
+  "resume_extra_stub_executions": 0,
+  "statuses": {
+    "baseline_survives": 3,
+    "verified": 9
+  },
+  "unknown_usage_requests": 24,
+  "private_test_absent_from_requests": true,
+  "export_sha256": "e24d2dfd630cd8f3172e0857f0a47d06970e64602e1ad1e63b83ef4e725dd672",
+  "formal_records_executed": 0
+}
