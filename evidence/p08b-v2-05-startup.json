@@ -16,10 +16,10 @@
     "total_tokens": null
   },
   "actual_returned_models": [
-    "deepseek-v4-flash-ascend",
-    "raised"
+    "deepseek-v4-flash-ascend"
   ],
   "global_attempts_at_capture": 337,
   "semantic_confirmation": "pending_V2_06",
-  "no_supplemental_attempts": true
+  "no_supplemental_attempts": true,
+  "model_name_note": "Exception records lack a Completion model field; raised is a status, not an actual model name."
 }
