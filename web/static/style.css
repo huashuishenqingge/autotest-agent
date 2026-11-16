@@ -2,6 +2,8 @@
 
 .experiment-home-link{color:#bceff0}
 
+.explanation-guide{padding:20px;border:1px solid #dfd4a9;border-left:4px solid #b78b28;background:#fffbed;border-radius:6px;margin:20px 0;overflow-wrap:anywhere}.explanation-guide h3{margin-top:0}.explanation-guide p{font-size:14px}.guide-conclusion{font-weight:600}.explanation-guide td{min-width:130px}
+
 .model-purpose{margin:24px 0;padding:20px;background:#edf6f6;border-left:4px solid #087f8c;border-radius:6px}.model-purpose h3{margin-top:0}.model-step{border:1px solid #dbe4e9;border-left:4px solid #087f8c;border-radius:6px;margin:14px 0;padding:16px;background:#f7fafb;overflow-wrap:anywhere}.model-step h4{margin:0 0 12px}.model-step p{margin:8px 0;font-size:14px}#model-call-rows td{min-width:130px}
 
 .experiments-page summary{overflow-wrap:anywhere}.experiments-page section,.experiments-page details{min-width:0}

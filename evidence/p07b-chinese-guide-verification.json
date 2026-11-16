@@ -1,0 +1,95 @@
+{
+  "scope": "Chinese editorial guides alongside saved model replies",
+  "baseline": "4d45499",
+  "tasks_with_chinese_guides": 30,
+  "records_checked": 360,
+  "original_model_replies_unmodified": true,
+  "new_model_requests": 0,
+  "model_budget_attempts": 754,
+  "frozen_files_runtime_and_receipts_unchanged": true,
+  "new_tests": {
+    "count": 4,
+    "passed": 4,
+    "red_observed": "ModuleNotFoundError web.explanations before implementation"
+  },
+  "native_regression": {
+    "command": ".venv/Scripts/python.exe -m unittest discover -s tests -v",
+    "total": 251,
+    "passed": 244,
+    "skipped": 7,
+    "failed": 0,
+    "seconds": 45.487
+  },
+  "browser": {
+    "browser": "Chrome headless",
+    "page_errors": [],
+    "desktop": [
+      1440,
+      1100
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "verified": [
+      "homepage navigation",
+      "four-method summary",
+      "real model role example",
+      "generation and repair call metadata",
+      "no invented full prompt",
+      "baseline zero calls",
+      "20-row pagination",
+      "combined project/method/semantic filters",
+      "technical verified but semantic rejected",
+      "three patch reviews",
+      "record download",
+      "clear filters",
+      "next page",
+      "125 generation failures",
+      "66 technical verified",
+      "confirmed success detail",
+      "mobile no document overflow"
+    ],
+    "model_requests": 0
+  },
+  "additional_browser_assertions": [
+    "Chinese hour-zero task guide is visible",
+    "Guide explicitly is not model original text",
+    "Original rationale/diagnosis can be expanded",
+    "Actual complete JSON remains expandable",
+    "Chinese rejection guide does not claim success",
+    "390px document has no horizontal overflow"
+  ],
+  "visual_inspection": "Chrome screenshot of actual Chinese guide viewed; local artifacts/p07b-preview/chinese-guide.png",
+  "files": [
+    {
+      "path": "web/explanations.py",
+      "lf_sha256": "862465bfaf842323fb0685f9073b34cb672f8f12be65633db49567f58bc4421c"
+    },
+    {
+      "path": "web/experiments.py",
+      "lf_sha256": "f39baa7ef8bf18c5cfcc5408630d3044c8ad25284d070f7f91c235fef137f29d"
+    },
+    {
+      "path": "web/static/experiments.html",
+      "lf_sha256": "4657a269bec8d90c173defb16c162a20f73a343e62ed5f07a8218d52a4435740"
+    },
+    {
+      "path": "web/static/experiments.js",
+      "lf_sha256": "bcbfc202c0427f9d5dd19ddfc5569e42e2041b4e0a5876c72b537af953c8b42f"
+    },
+    {
+      "path": "web/static/style.css",
+      "lf_sha256": "7784e132d6cb2625b571df894c0dc4bfadbcd530b9f9821b354faf3d5b281c05"
+    },
+    {
+      "path": "tests/test_web_explanations.py",
+      "lf_sha256": "d2920f4245ea0aa124016b40ed7250993f5a682121922813aec2d476b68bbf1f"
+    }
+  ],
+  "limits": [
+    "Editorial task and result guide, not verbatim translation or new correctness evidence.",
+    "Reviewer read code and all requirements; did not rerun tests."
+  ],
+  "user_acceptance": "pending"
+}

@@ -161,7 +161,7 @@ class ExperimentData:
         requests = row['requests']
         known = sum(q['usage']['total_tokens'] for q in requests if q['usage'] is not None)
         unknown = sum(q['usage'] is None for q in requests)
-        return {'record':self._record(row),'target':row['target'],
+        result = {'record':self._record(row),'target':row['target'],
             'requirements':task['requirements'],'requirement_sources':task['requirement_sources'],
             'project':{k:self.projects[row['project_id']][k] for k in ('id','tag','commit')},
             'tests':self.tests.get(slot, []),'patches':self.patches.get(slot, []),
@@ -170,6 +170,9 @@ class ExperimentData:
             'saved_model_responses':self._saved_responses(row),
             'usage':{'requests':len(requests),'known_tokens':known,'unknown_requests':unknown,'total_tokens':None if unknown else known},
             'log_notice':'原始完整日志未包含在Git共享导出中；此处显示已保存的状态、测试与补丁，未重新执行。'}
+        from web.explanations import explain
+        result['explanation'] = explain(result)
+        return result
 
     def _execution(self, row, run_id):
         run = self.runs[run_id]
