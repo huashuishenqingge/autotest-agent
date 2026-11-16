@@ -1,0 +1,93 @@
+{
+  "schema": "p08-v2-formal-receipt-v1",
+  "date": "2026-11-16",
+  "data_commit": "bb2536d79901b46782a821fcbffeab546f23d101",
+  "runtime_commit": "b9970ff7093a9b253118561c2a8338dadc9a6cc0",
+  "freeze_commit": "ab000c6193e2a08c98c0415e5f3e5c345e3c0523",
+  "plan_sha256": "8977450004b1ea47105a720acfccd0d04621a0de13fa4c3f6963259c5f777c77",
+  "records": 360,
+  "counts": {
+    "pending": 0,
+    "finished": 360,
+    "interrupted_unknown": 0
+  },
+  "request_attempts": 421,
+  "known_total_tokens": 1015730,
+  "wrapper_unknown_usage_requests": 12,
+  "aggregate_total_tokens": null,
+  "technical_verified": 66,
+  "semantic_confirmation": "all pending_V2_06",
+  "files": [
+    {
+      "path": "evidence/p08b-v2-formal-results.json",
+      "working_bytes_sha256": "5fcb5b62de62c692d65ded30140173135f7af6f85aec0ecda5623a8f1c85405a",
+      "lf_sha256": "11d5fde4ca7d6c70c2ea575101e6986c38ad4feaa3f49d89a9368d749a89ba84",
+      "git_blob_sha256": "11d5fde4ca7d6c70c2ea575101e6986c38ad4feaa3f49d89a9368d749a89ba84",
+      "bytes": 1515969
+    },
+    {
+      "path": "evidence/p08b-v2-formal-executions.json",
+      "working_bytes_sha256": "f5d8381cc6906e93054c8757fcc1272b2b95bb0d84028231dba8e12e2eb68d2a",
+      "lf_sha256": "e5b7b38a0485621aa1403aec0b4b4361cc0d69209866b87b7d05e495641bf9b0",
+      "git_blob_sha256": "e5b7b38a0485621aa1403aec0b4b4361cc0d69209866b87b7d05e495641bf9b0",
+      "bytes": 1263210
+    },
+    {
+      "path": "evidence/p08b-v2-formal-generated-tests.json",
+      "working_bytes_sha256": "b308ea2a8be1800c3f6f79365af454654564c234f9489722d6447ca24978e3b3",
+      "lf_sha256": "4aa0bee8345c566ad6dc62dc9342fb4ced2620f9c08ead2ececbc506a556f851",
+      "git_blob_sha256": "4aa0bee8345c566ad6dc62dc9342fb4ced2620f9c08ead2ececbc506a556f851",
+      "bytes": 428928
+    },
+    {
+      "path": "evidence/p08b-v2-formal-patches.json",
+      "working_bytes_sha256": "72634a392a1070409d683ccfa8ca6cdb9b0abf76678c34a7f6434ed8f64cea76",
+      "lf_sha256": "854430d7edef4f19f73389e501f090d76e91d666f928dbdf244e08f55aa331e0",
+      "git_blob_sha256": "854430d7edef4f19f73389e501f090d76e91d666f928dbdf244e08f55aa331e0",
+      "bytes": 85035
+    },
+    {
+      "path": "evidence/p08b-v2-formal-alignment.csv",
+      "working_bytes_sha256": "3afd9428aec3dfb26ccac121274e5d2d67905b0935d828c25e03201c52c07730",
+      "lf_sha256": "c6c0cf37ae48f50369298fb73e06a83004f24e7b542253b98cb63eba2e518910",
+      "git_blob_sha256": "c6c0cf37ae48f50369298fb73e06a83004f24e7b542253b98cb63eba2e518910",
+      "bytes": 69314
+    },
+    {
+      "path": "evidence/p08b-v2-05-preflight.json",
+      "working_bytes_sha256": "4723df8a1394f6936f31c20110e70cabb75089dfcebefce483f9195030fd20d0",
+      "lf_sha256": "e140f8b4807395825fbe35fde7dfd7802afc86a7e85a1a5227814278aaa66070",
+      "git_blob_sha256": "e140f8b4807395825fbe35fde7dfd7802afc86a7e85a1a5227814278aaa66070",
+      "bytes": 1643
+    },
+    {
+      "path": "evidence/p08b-v2-05-startup.json",
+      "working_bytes_sha256": "abbd529be4c96f807a16455bac6efe65c8a576c38c48cbba5051334ade697013",
+      "lf_sha256": "bd14d8a0fa3a644fafaa69fa7cd1b214092c32870da9b59c4cdd446240aa8f19",
+      "git_blob_sha256": "bd14d8a0fa3a644fafaa69fa7cd1b214092c32870da9b59c4cdd446240aa8f19",
+      "bytes": 888
+    },
+    {
+      "path": "evidence/p08b-v2-05-verification.json",
+      "working_bytes_sha256": "434dacea5c64a0688b9aa2bc2d5fcdc9ad27358bf88db03b1cebc7cb773918bd",
+      "lf_sha256": "bc7de43cc0a87fb1c867e0c4d7c1988c49a04be783a750db914c4fa82805ddf1",
+      "git_blob_sha256": "bc7de43cc0a87fb1c867e0c4d7c1988c49a04be783a750db914c4fa82805ddf1",
+      "bytes": 3624
+    },
+    {
+      "path": "evidence/p08b-v2-05-review.json",
+      "working_bytes_sha256": "5fdd9b306573ee4e7985f37e637c94ed6333bd3f49a67b6c54d4ed2cee77d138",
+      "lf_sha256": "5fdd9b306573ee4e7985f37e637c94ed6333bd3f49a67b6c54d4ed2cee77d138",
+      "git_blob_sha256": "5fdd9b306573ee4e7985f37e637c94ed6333bd3f49a67b6c54d4ed2cee77d138",
+      "bytes": 1356
+    },
+    {
+      "path": "evidence/p08b-v2-05-usage-notes.json",
+      "working_bytes_sha256": "14559ddf586c54f30e9a071fd9d35853a7b95ae941103ebfc12530e1ea1c604c",
+      "lf_sha256": "61928d45f6420c0e5f7a5239063bec7e92ef9451734d66f22a64b0aeb217c1cb",
+      "git_blob_sha256": "61928d45f6420c0e5f7a5239063bec7e92ef9451734d66f22a64b0aeb217c1cb",
+      "bytes": 8255
+    }
+  ],
+  "note": "Receipt committed after data to avoid self-reference. Raw working and Git blob hashes are distinct; LF digest supports portable checkout. Startup snapshot is historical, not final counts. Transport usage notes do not overwrite original wrapper accounting."
+}
