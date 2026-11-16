@@ -1,0 +1,11 @@
+{
+  "schema": "p08-v2-campaign-runtime-v1",
+  "freeze_commit": "ab000c6193e2a08c98c0415e5f3e5c345e3c0523",
+  "freeze_manifest_lf_sha256": "c748ec9fd3a7fb785a405275eb4a4ec376a6509ae26aa7d47834d001942f3db9",
+  "implementation_commit": "b9970ff7093a9b253118561c2a8338dadc9a6cc0",
+  "additions": {
+    "experiments/campaign_v2.py": "a09141c03055803e2999c5eba224f8e617cea6bf8a3846373f73897288a6eb7f",
+    "experiments/runner_v2.py": "f1e0a09a0231120a0b96f74c67696af93c154511cc0af3ecbcadf6d7cb230f44",
+    "tests/test_campaign_v2.py": "228123a3ff187b972d12322f1dcbc6d9dad05ce0c956e98acabef64adff934fe"
+  }
+}

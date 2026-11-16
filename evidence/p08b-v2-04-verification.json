@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-16",
+  "status": "V2-04_technical_delivery_pending_user_acceptance",
+  "implementation_commit": "b9970ff7093a9b253118561c2a8338dadc9a6cc0",
+  "base_freeze_commit": "ab000c6193e2a08c98c0415e5f3e5c345e3c0523",
+  "runtime_lf_sha256": "8b05764d164913959e17c76ddfd63c48a4d066774528f3ea959e8667bef15d57",
+  "declaration_lf_sha256": "d0db952ea80fee02c8d9fb3c88e82e49f040ecc8346b1430a9fe3866a1c830cc",
+  "readiness": {
+    "schema": "p08-v2-campaign-readiness-v1",
+    "planned_records": 360,
+    "plan_sha256": "8977450004b1ea47105a720acfccd0d04621a0de13fa4c3f6963259c5f777c77",
+    "canonical_artifact_root": "artifacts/p08b-v2-campaign/094180dbcb74b4ec15544a9bc1a745f5",
+    "model_calls": 0,
+    "launch_authorized": false
+  },
+  "slots": 360,
+  "method_counts": {
+    "B0": 90,
+    "B1": 90,
+    "B2": 90,
+    "A0": 90
+  },
+  "formal_records_executed": 0,
+  "formal_directory_exists": false,
+  "v1_slot_id_intersection": 0,
+  "model_calls": 0,
+  "observed_budget_attempts": 333,
+  "windows": {
+    "total": 227,
+    "passed": 220,
+    "skipped": 7
+  },
+  "linux_core": {
+    "run": {
+      "run_id": "2092354e7dbe4eaa95116fbdfaf0105f",
+      "snapshot_digest": "00b04c53faf18fcf3c88cece3f6e71504d12765c0937047429b4896d9da5751e",
+      "exit_code": 0,
+      "passed": 205,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 1,
+      "failure": null,
+      "artifacts": [
+        "2092354e7dbe4eaa95116fbdfaf0105f/log.txt",
+        "2092354e7dbe4eaa95116fbdfaf0105f/junit.xml",
+        "2092354e7dbe4eaa95116fbdfaf0105f/manifest.json",
+        "2092354e7dbe4eaa95116fbdfaf0105f/run.json",
+        "2092354e7dbe4eaa95116fbdfaf0105f/coverage.json"
+      ]
+    },
+    "artifact_directory": "D:\\Users\\Desktop\\科软上学期\\工程实践\\autotest-agent\\artifacts\\v2-04-linux\\2092354e7dbe4eaa95116fbdfaf0105f",
+    "cleanup_ok": true
+  },
+  "base_frozen_file_checks": "all unchanged",
+  "docker_readonly_check": {
+    "engine": "linux x86_64",
+    "image_id": "sha256:1756fbdd32c39afbdc437e6595f5b69e71128c75de260e02aaae73f709506dcf",
+    "image_present": true
+  },
+  "synthetic_evidence": "evidence/p08b-v2-04-synthetic-integration.json",
+  "limits": [
+    "Readiness does not establish model service/credential availability; no model service requests made.",
+    "No formal directory, claim, or paid campaign created.",
+    "Synthetic12 integration mocks _admit and Docker/model; real gate separately verified.",
+    "Scheduler is version-specific copy; future changes need both-version regression.",
+    "Original full raw artifacts and reference resources remain local ignored files."
+  ]
+}
