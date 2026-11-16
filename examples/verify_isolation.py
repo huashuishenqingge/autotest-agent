@@ -41,7 +41,12 @@ def test_restrictions():
     for mountpoint in ('/', '/workspace'):
         mount = next(parts for parts in mounts if parts[1] == mountpoint)
         assert 'ro' in mount[3].split(',')
-    assert sorted(p.name for p in Path('/sys/class/net').iterdir()) == ['lo']
+    # Docker Desktop kernels may expose inactive tunnel devices even with --network none.
+    interfaces = [p for p in Path('/sys/class/net').iterdir() if p.is_dir()]
+    assert any(p.name == 'lo' for p in interfaces)
+    assert all(int((p / 'flags').read_text().strip(), 16) & 1 == 0
+               for p in interfaces if p.name != 'lo')
+    assert not Path('/proc/net/route').read_text().splitlines()[1:]
     tmp_mount = next(line for line in Path('/proc/mounts').read_text().splitlines()
                      if line.split()[1] == '/tmp')
     assert 'size=65536k' in tmp_mount
