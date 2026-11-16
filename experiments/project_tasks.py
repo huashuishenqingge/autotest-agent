@@ -15,6 +15,10 @@ def _fields(value, expected):
 
 
 def load_project_admission(visible_path, private_path, catalog_path, reference_root):
+    reference_root = Path(reference_root)
+    if reference_root.is_symlink() or getattr(reference_root.lstat(), 'st_file_attributes', 0) & 0x400:
+        raise ValueError('linked reference root rejected')
+    reference_root = reference_root.resolve(strict=True)
     visible, private = _read(visible_path), _read(private_path)
     _fields(visible, 'schema scope id project_id dependency_project_ids target defect_type requirements original_tests baseline_origin support')
     _fields(private, 'schema id mutation description holdout_tests')
@@ -46,6 +50,9 @@ def load_project_admission(visible_path, private_path, catalog_path, reference_r
     for project_id in [primary] + dependencies:
         project = catalog[project_id]
         root = Path(reference_root) / project_id
+        if root.is_symlink() or getattr(root.lstat(), 'st_file_attributes', 0) & 0x400:
+            raise ValueError('linked project root rejected')
+        root = root.resolve(strict=True)
         inspected = inspect_project(root, project)
         if inspected['issues']:
             raise ValueError('project inspection issues')

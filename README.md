@@ -251,3 +251,10 @@ T4待用户确认，正式运行0/360、真实模型调用0，T5未开始。T4�
 已经独立核验两项需T6优先审查的执行问题：Jinja相同字节/镜像但收集入口不同导致结果并存差异；一例dateutil generated-only coverage缺14项、与全量门槛ValueError控制流强一致。未改变本批或泛化所有失败根因，详见p08b-t5-protocol-anomalies.json。不能直接把本批状态解释成可靠模型成功率。
 
 导出360对齐JSON/CSV、实际执行索引/摘要、生成测试及全部patch，独立只读审查见evidence/p08b-t5-review.json；完整统计口径/命令/限制见阶段8_正式执行记录与交接.md。T5记录交付待确认，T6未开始；P06独立确认及P09维持原状态。
+### 2026-11-10 稳定性修复
+
+Web任务列表现在分页返回摘要：`GET /api/tasks?limit=25&offset=0`（limit上限100）。完整结果由`GET /api/tasks/<id>`或下载入口获取；前端仅在选中任务updated变化时重新拉取。旧列表调用方若使用`task.result`，须改为详情接口。
+
+正常Ctrl+C停服会停止接收新任务并等待当前worker保存结果/清理后退出，再释放server.lock；排队任务标记interrupted。若有在途模型请求，终端可能需要等待其超时或返回，不能承诺立即停服。不要在旧进程仍运行时删除锁；强制杀进程/断电后的清理仍需检查。
+
+P08A支持相对参考目录和macOS路径别名规范化，同时拒绝符号链接及Windows reparse根。GitHub Actions新增Linux/Windows/macOS Python3.12标准库与本机HTTP测试；不在CI调用模型或Docker，平台状态须以实际Actions结果为准。

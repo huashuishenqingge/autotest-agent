@@ -1,0 +1,2 @@
+# V2 approved dependency hash binds CRLF bytes on every platform.
+execution/requirements-p08.lock text eol=crlf
