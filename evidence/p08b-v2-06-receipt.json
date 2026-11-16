@@ -1,0 +1,63 @@
+{
+  "schema": "p08-v2-analysis-receipt-v1",
+  "original_data_commit": "bb2536d79901b46782a821fcbffeab546f23d101",
+  "scope": "Offline sidecars and analysis only; original receipt and experiment inputs unchanged",
+  "files": [
+    {
+      "path": "evaluation/experiments.py",
+      "lf_sha256": "3241f2b664d3ae92b78f41df5f2fc31463ada8bf4b22b0c5d04faa1391758bde"
+    },
+    {
+      "path": "evaluation/report_v2.py",
+      "lf_sha256": "9104612a76b98e8f255faf0929b1505adf4ec393fe778c262258271ee308dee8"
+    },
+    {
+      "path": "evidence/p08b-v2-06-failure-analysis.json",
+      "lf_sha256": "c93c5e1a7039826edfcb1295125b07426b2f3607f317f4510158d330497ff229"
+    },
+    {
+      "path": "evidence/p08b-v2-06-linux-verification.json",
+      "lf_sha256": "7557c8a62988e09f6fc62030046dc34966bf06bb57fa48363a816ed0aeba3b46"
+    },
+    {
+      "path": "evidence/p08b-v2-06-metric-inputs.json",
+      "lf_sha256": "709e45d015151e40f00cdb7b635758135867791b8f085e5ba522085f5edf3113"
+    },
+    {
+      "path": "evidence/p08b-v2-06-metrics.json",
+      "lf_sha256": "9cb03f2f5a3d7028bedaa8cb96a55d3616c91a0f96c4d5f57c7ea2f0d746c7c2"
+    },
+    {
+      "path": "evidence/p08b-v2-06-review.json",
+      "lf_sha256": "134fe98a5f8887c4235ba8765893379df714590a3fc3fbe0b05754e7d6a3e5f6"
+    },
+    {
+      "path": "evidence/p08b-v2-06-semantic-reviews.json",
+      "lf_sha256": "230d257c0c6580771b61782878a7fb1ddcdd39db44c7bf554435d3331ab5e2fc"
+    },
+    {
+      "path": "evidence/p08b-v2-06-summary.csv",
+      "lf_sha256": "ac91728f81fb010ce3a1a978c8a64c9672c831282eb1a1ce5c143a85d637beab"
+    },
+    {
+      "path": "evidence/p08b-v2-06-usage-reconciliation.json",
+      "lf_sha256": "fbb093d28664c66acf83c855df0a1d191c2a2588dcb47e08515a3f1e71ef90fa"
+    },
+    {
+      "path": "evidence/p08b-v2-06-verification.json",
+      "lf_sha256": "eb2d8b3ebad9a89bfaf9d0cd2fbc10049dbee2d1a933745236bfc1e2b4da0d29"
+    },
+    {
+      "path": "specs/P08B-V2-06统计与复核计划.md",
+      "lf_sha256": "a40728143ea492b13416e7e43ca0a0ccaa347426e4ec85c47280e7c823259520"
+    },
+    {
+      "path": "tests/test_experiment_metrics.py",
+      "lf_sha256": "349087d9f8aaddd6c5623e2e39b73c998598b25821bd8b90b17aadefdd8058a1"
+    },
+    {
+      "path": "阶段8_V2统计与语义复核.md",
+      "lf_sha256": "d517bc6ffe980229abcfa4e11bd6715fec7bfcbe0ded5e689696dbde1419f7d6"
+    }
+  ]
+}

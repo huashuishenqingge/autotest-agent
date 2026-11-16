@@ -1,0 +1,2520 @@
+{
+  "groups": {
+    "B0": {
+      "planned": 90,
+      "status_counts": {
+        "baseline_survives": 90
+      },
+      "technical_verified": 0,
+      "technical_rate": 0.0,
+      "semantic_confirmed": 0,
+      "semantic_rate": 0.0,
+      "detected": 0,
+      "repair_session_entered": 0,
+      "slots_with_applied_patch": 0,
+      "applied_patch_attempts": 0,
+      "semantic_given_repair_session": null,
+      "generation_coverage": {
+        "paired_records": 0,
+        "branch_paired_records": 0,
+        "missing_records": 90,
+        "denominator_mismatches": 0,
+        "line_delta_pp_mean": null,
+        "branch_delta_pp_mean": null
+      },
+      "elapsed": {
+        "samples": 90,
+        "total_seconds": 1039.292,
+        "mean_seconds": 11.547688888888889,
+        "median_seconds": 11.0465
+      },
+      "usage": {
+        "request_attempts": 0,
+        "known_total_tokens": 0,
+        "unknown_requests": 0,
+        "total_tokens": 0
+      }
+    },
+    "B1": {
+      "planned": 90,
+      "status_counts": {
+        "verified": 35,
+        "invalid_test_oracle": 13,
+        "generation_failed": 33,
+        "repair_not_reproducible": 6,
+        "generation_execution_failed": 3
+      },
+      "technical_verified": 35,
+      "technical_rate": 0.3888888888888889,
+      "semantic_confirmed": 35,
+      "semantic_rate": 0.3888888888888889,
+      "detected": 41,
+      "repair_session_entered": 41,
+      "slots_with_applied_patch": 35,
+      "applied_patch_attempts": 35,
+      "semantic_given_repair_session": 0.8536585365853658,
+      "generation_coverage": {
+        "paired_records": 44,
+        "branch_paired_records": 44,
+        "missing_records": 46,
+        "denominator_mismatches": 0,
+        "line_delta_pp_mean": 0.12368483247715306,
+        "branch_delta_pp_mean": 0.17776561375928937
+      },
+      "elapsed": {
+        "samples": 90,
+        "total_seconds": 7460.28,
+        "mean_seconds": 82.892,
+        "median_seconds": 54.062
+      },
+      "usage": {
+        "request_attempts": 125,
+        "known_total_tokens": 298797,
+        "unknown_requests": 1,
+        "total_tokens": null
+      }
+    },
+    "B2": {
+      "planned": 90,
+      "status_counts": {
+        "generation_failed": 51,
+        "invalid_test_oracle": 13,
+        "verified": 16,
+        "repair_not_reproducible": 5,
+        "generation_execution_failed": 5
+      },
+      "technical_verified": 16,
+      "technical_rate": 0.17777777777777778,
+      "semantic_confirmed": 15,
+      "semantic_rate": 0.16666666666666666,
+      "detected": 21,
+      "repair_session_entered": 21,
+      "slots_with_applied_patch": 16,
+      "applied_patch_attempts": 18,
+      "semantic_given_repair_session": 0.7142857142857143,
+      "generation_coverage": {
+        "paired_records": 49,
+        "branch_paired_records": 49,
+        "missing_records": 41,
+        "denominator_mismatches": 0,
+        "line_delta_pp_mean": 0.20356752532841124,
+        "branch_delta_pp_mean": 0.16107705924335225
+      },
+      "elapsed": {
+        "samples": 90,
+        "total_seconds": 8058.549,
+        "mean_seconds": 89.53943333333333,
+        "median_seconds": 60.8595
+      },
+      "usage": {
+        "request_attempts": 152,
+        "known_total_tokens": 380032,
+        "unknown_requests": 6,
+        "total_tokens": null
+      }
+    },
+    "A0": {
+      "planned": 90,
+      "status_counts": {
+        "generation_failed": 41,
+        "invalid_test_oracle": 24,
+        "verified": 15,
+        "repair_not_reproducible": 7,
+        "generation_execution_failed": 3
+      },
+      "technical_verified": 15,
+      "technical_rate": 0.16666666666666666,
+      "semantic_confirmed": 15,
+      "semantic_rate": 0.16666666666666666,
+      "detected": 22,
+      "repair_session_entered": 22,
+      "slots_with_applied_patch": 15,
+      "applied_patch_attempts": 15,
+      "semantic_given_repair_session": 0.6818181818181818,
+      "generation_coverage": {
+        "paired_records": 42,
+        "branch_paired_records": 42,
+        "missing_records": 48,
+        "denominator_mismatches": 0,
+        "line_delta_pp_mean": 0.19420109523967816,
+        "branch_delta_pp_mean": 0.1880657293755505
+      },
+      "elapsed": {
+        "samples": 90,
+        "total_seconds": 6923.236,
+        "mean_seconds": 76.92484444444445,
+        "median_seconds": 63.343999999999994
+      },
+      "usage": {
+        "request_attempts": 144,
+        "known_total_tokens": 336901,
+        "unknown_requests": 5,
+        "total_tokens": null
+      }
+    }
+  },
+  "by_project": {
+    "click": {
+      "B0": {
+        "planned": 18,
+        "status_counts": {
+          "baseline_survives": 18
+        },
+        "technical_verified": 0,
+        "technical_rate": 0.0,
+        "semantic_confirmed": 0,
+        "semantic_rate": 0.0,
+        "detected": 0,
+        "repair_session_entered": 0,
+        "slots_with_applied_patch": 0,
+        "applied_patch_attempts": 0,
+        "semantic_given_repair_session": null,
+        "generation_coverage": {
+          "paired_records": 0,
+          "branch_paired_records": 0,
+          "missing_records": 18,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": null,
+          "branch_delta_pp_mean": null
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 201.684,
+          "mean_seconds": 11.204666666666666,
+          "median_seconds": 11.0465
+        },
+        "usage": {
+          "request_attempts": 0,
+          "known_total_tokens": 0,
+          "unknown_requests": 0,
+          "total_tokens": 0
+        }
+      },
+      "B1": {
+        "planned": 18,
+        "status_counts": {
+          "verified": 9,
+          "generation_failed": 6,
+          "invalid_test_oracle": 2,
+          "repair_not_reproducible": 1
+        },
+        "technical_verified": 9,
+        "technical_rate": 0.5,
+        "semantic_confirmed": 9,
+        "semantic_rate": 0.5,
+        "detected": 10,
+        "repair_session_entered": 10,
+        "slots_with_applied_patch": 9,
+        "applied_patch_attempts": 9,
+        "semantic_given_repair_session": 0.9,
+        "generation_coverage": {
+          "paired_records": 10,
+          "branch_paired_records": 10,
+          "missing_records": 8,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.04686695309170601,
+          "branch_delta_pp_mean": 0.052083333333333336
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 1513.749,
+          "mean_seconds": 84.09716666666667,
+          "median_seconds": 105.211
+        },
+        "usage": {
+          "request_attempts": 27,
+          "known_total_tokens": 59831,
+          "unknown_requests": 0,
+          "total_tokens": 59831
+        }
+      },
+      "B2": {
+        "planned": 18,
+        "status_counts": {
+          "generation_failed": 8,
+          "verified": 5,
+          "repair_not_reproducible": 2,
+          "generation_execution_failed": 1,
+          "invalid_test_oracle": 2
+        },
+        "technical_verified": 5,
+        "technical_rate": 0.2777777777777778,
+        "semantic_confirmed": 5,
+        "semantic_rate": 0.2777777777777778,
+        "detected": 7,
+        "repair_session_entered": 7,
+        "slots_with_applied_patch": 5,
+        "applied_patch_attempts": 5,
+        "semantic_given_repair_session": 0.7142857142857143,
+        "generation_coverage": {
+          "paired_records": 11,
+          "branch_paired_records": 11,
+          "missing_records": 7,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.06177646668556727,
+          "branch_delta_pp_mean": 0.06510416666666667
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 1642.968,
+          "mean_seconds": 91.276,
+          "median_seconds": 64.578
+        },
+        "usage": {
+          "request_attempts": 33,
+          "known_total_tokens": 79122,
+          "unknown_requests": 1,
+          "total_tokens": null
+        }
+      },
+      "A0": {
+        "planned": 18,
+        "status_counts": {
+          "generation_failed": 8,
+          "invalid_test_oracle": 2,
+          "generation_execution_failed": 1,
+          "verified": 4,
+          "repair_not_reproducible": 3
+        },
+        "technical_verified": 4,
+        "technical_rate": 0.2222222222222222,
+        "semantic_confirmed": 4,
+        "semantic_rate": 0.2222222222222222,
+        "detected": 7,
+        "repair_session_entered": 7,
+        "slots_with_applied_patch": 4,
+        "applied_patch_attempts": 4,
+        "semantic_given_repair_session": 0.5714285714285714,
+        "generation_coverage": {
+          "paired_records": 12,
+          "branch_paired_records": 12,
+          "missing_records": 6,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.06639649945150002,
+          "branch_delta_pp_mean": 0.0705295138888889
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 1666.175,
+          "mean_seconds": 92.56527777777778,
+          "median_seconds": 72.8675
+        },
+        "usage": {
+          "request_attempts": 33,
+          "known_total_tokens": 73996,
+          "unknown_requests": 1,
+          "total_tokens": null
+        }
+      }
+    },
+    "dateutil": {
+      "B0": {
+        "planned": 18,
+        "status_counts": {
+          "baseline_survives": 18
+        },
+        "technical_verified": 0,
+        "technical_rate": 0.0,
+        "semantic_confirmed": 0,
+        "semantic_rate": 0.0,
+        "detected": 0,
+        "repair_session_entered": 0,
+        "slots_with_applied_patch": 0,
+        "applied_patch_attempts": 0,
+        "semantic_given_repair_session": null,
+        "generation_coverage": {
+          "paired_records": 0,
+          "branch_paired_records": 0,
+          "missing_records": 18,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": null,
+          "branch_delta_pp_mean": null
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 390.72,
+          "mean_seconds": 21.706666666666667,
+          "median_seconds": 21.5945
+        },
+        "usage": {
+          "request_attempts": 0,
+          "known_total_tokens": 0,
+          "unknown_requests": 0,
+          "total_tokens": 0
+        }
+      },
+      "B1": {
+        "planned": 18,
+        "status_counts": {
+          "verified": 8,
+          "invalid_test_oracle": 4,
+          "generation_failed": 3,
+          "generation_execution_failed": 3
+        },
+        "technical_verified": 8,
+        "technical_rate": 0.4444444444444444,
+        "semantic_confirmed": 8,
+        "semantic_rate": 0.4444444444444444,
+        "detected": 8,
+        "repair_session_entered": 8,
+        "slots_with_applied_patch": 8,
+        "applied_patch_attempts": 8,
+        "semantic_given_repair_session": 1.0,
+        "generation_coverage": {
+          "paired_records": 11,
+          "branch_paired_records": 11,
+          "missing_records": 7,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.010050756319413035,
+          "branch_delta_pp_mean": 0.04517221908526256
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 2604.356,
+          "mean_seconds": 144.68644444444445,
+          "median_seconds": 102.37450000000001
+        },
+        "usage": {
+          "request_attempts": 26,
+          "known_total_tokens": 71164,
+          "unknown_requests": 0,
+          "total_tokens": 71164
+        }
+      },
+      "B2": {
+        "planned": 18,
+        "status_counts": {
+          "generation_failed": 11,
+          "generation_execution_failed": 4,
+          "verified": 3
+        },
+        "technical_verified": 3,
+        "technical_rate": 0.16666666666666666,
+        "semantic_confirmed": 2,
+        "semantic_rate": 0.1111111111111111,
+        "detected": 3,
+        "repair_session_entered": 3,
+        "slots_with_applied_patch": 3,
+        "applied_patch_attempts": 5,
+        "semantic_given_repair_session": 0.6666666666666666,
+        "generation_coverage": {
+          "paired_records": 9,
+          "branch_paired_records": 9,
+          "missing_records": 9,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.024568515447454087,
+          "branch_delta_pp_mean": 0.041407867494824016
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 2487.515,
+          "mean_seconds": 138.1952777777778,
+          "median_seconds": 98.648
+        },
+        "usage": {
+          "request_attempts": 28,
+          "known_total_tokens": 74239,
+          "unknown_requests": 2,
+          "total_tokens": null
+        }
+      },
+      "A0": {
+        "planned": 18,
+        "status_counts": {
+          "generation_failed": 10,
+          "invalid_test_oracle": 5,
+          "generation_execution_failed": 2,
+          "verified": 1
+        },
+        "technical_verified": 1,
+        "technical_rate": 0.05555555555555555,
+        "semantic_confirmed": 1,
+        "semantic_rate": 0.05555555555555555,
+        "detected": 1,
+        "repair_session_entered": 1,
+        "slots_with_applied_patch": 1,
+        "applied_patch_attempts": 1,
+        "semantic_given_repair_session": 1.0,
+        "generation_coverage": {
+          "paired_records": 8,
+          "branch_paired_records": 8,
+          "missing_records": 10,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.013819789939192924,
+          "branch_delta_pp_mean": 0.031055900621118012
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 1839.7179999999998,
+          "mean_seconds": 102.20655555555555,
+          "median_seconds": 82.25
+        },
+        "usage": {
+          "request_attempts": 25,
+          "known_total_tokens": 56536,
+          "unknown_requests": 4,
+          "total_tokens": null
+        }
+      }
+    },
+    "itsdangerous": {
+      "B0": {
+        "planned": 18,
+        "status_counts": {
+          "baseline_survives": 18
+        },
+        "technical_verified": 0,
+        "technical_rate": 0.0,
+        "semantic_confirmed": 0,
+        "semantic_rate": 0.0,
+        "detected": 0,
+        "repair_session_entered": 0,
+        "slots_with_applied_patch": 0,
+        "applied_patch_attempts": 0,
+        "semantic_given_repair_session": null,
+        "generation_coverage": {
+          "paired_records": 0,
+          "branch_paired_records": 0,
+          "missing_records": 18,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": null,
+          "branch_delta_pp_mean": null
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 96.156,
+          "mean_seconds": 5.342,
+          "median_seconds": 5.164
+        },
+        "usage": {
+          "request_attempts": 0,
+          "known_total_tokens": 0,
+          "unknown_requests": 0,
+          "total_tokens": 0
+        }
+      },
+      "B1": {
+        "planned": 18,
+        "status_counts": {
+          "generation_failed": 5,
+          "repair_not_reproducible": 5,
+          "invalid_test_oracle": 5,
+          "verified": 3
+        },
+        "technical_verified": 3,
+        "technical_rate": 0.16666666666666666,
+        "semantic_confirmed": 3,
+        "semantic_rate": 0.16666666666666666,
+        "detected": 8,
+        "repair_session_entered": 8,
+        "slots_with_applied_patch": 3,
+        "applied_patch_attempts": 3,
+        "semantic_given_repair_session": 0.375,
+        "generation_coverage": {
+          "paired_records": 8,
+          "branch_paired_records": 8,
+          "missing_records": 10,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.3184713375796178,
+          "branch_delta_pp_mean": 0.0
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 748.593,
+          "mean_seconds": 41.588499999999996,
+          "median_seconds": 34.453
+        },
+        "usage": {
+          "request_attempts": 21,
+          "known_total_tokens": 48140,
+          "unknown_requests": 0,
+          "total_tokens": 48140
+        }
+      },
+      "B2": {
+        "planned": 18,
+        "status_counts": {
+          "generation_failed": 12,
+          "repair_not_reproducible": 3,
+          "verified": 2,
+          "invalid_test_oracle": 1
+        },
+        "technical_verified": 2,
+        "technical_rate": 0.1111111111111111,
+        "semantic_confirmed": 2,
+        "semantic_rate": 0.1111111111111111,
+        "detected": 5,
+        "repair_session_entered": 5,
+        "slots_with_applied_patch": 2,
+        "applied_patch_attempts": 2,
+        "semantic_given_repair_session": 0.4,
+        "generation_coverage": {
+          "paired_records": 10,
+          "branch_paired_records": 10,
+          "missing_records": 8,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.1910828025477707,
+          "branch_delta_pp_mean": 0.0
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 909.722,
+          "mean_seconds": 50.54011111111111,
+          "median_seconds": 45.695499999999996
+        },
+        "usage": {
+          "request_attempts": 30,
+          "known_total_tokens": 74307,
+          "unknown_requests": 1,
+          "total_tokens": null
+        }
+      },
+      "A0": {
+        "planned": 18,
+        "status_counts": {
+          "generation_failed": 8,
+          "invalid_test_oracle": 6,
+          "repair_not_reproducible": 4
+        },
+        "technical_verified": 0,
+        "technical_rate": 0.0,
+        "semantic_confirmed": 0,
+        "semantic_rate": 0.0,
+        "detected": 4,
+        "repair_session_entered": 4,
+        "slots_with_applied_patch": 0,
+        "applied_patch_attempts": 0,
+        "semantic_given_repair_session": 0.0,
+        "generation_coverage": {
+          "paired_records": 8,
+          "branch_paired_records": 8,
+          "missing_records": 10,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.34501061571125263,
+          "branch_delta_pp_mean": 0.0
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 823.091,
+          "mean_seconds": 45.72727777777778,
+          "median_seconds": 40.68
+        },
+        "usage": {
+          "request_attempts": 26,
+          "known_total_tokens": 61533,
+          "unknown_requests": 0,
+          "total_tokens": 61533
+        }
+      }
+    },
+    "jinja": {
+      "B0": {
+        "planned": 18,
+        "status_counts": {
+          "baseline_survives": 18
+        },
+        "technical_verified": 0,
+        "technical_rate": 0.0,
+        "semantic_confirmed": 0,
+        "semantic_rate": 0.0,
+        "detected": 0,
+        "repair_session_entered": 0,
+        "slots_with_applied_patch": 0,
+        "applied_patch_attempts": 0,
+        "semantic_given_repair_session": null,
+        "generation_coverage": {
+          "paired_records": 0,
+          "branch_paired_records": 0,
+          "missing_records": 18,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": null,
+          "branch_delta_pp_mean": null
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 287.655,
+          "mean_seconds": 15.980833333333333,
+          "median_seconds": 16.125
+        },
+        "usage": {
+          "request_attempts": 0,
+          "known_total_tokens": 0,
+          "unknown_requests": 0,
+          "total_tokens": 0
+        }
+      },
+      "B1": {
+        "planned": 18,
+        "status_counts": {
+          "verified": 9,
+          "generation_failed": 8,
+          "invalid_test_oracle": 1
+        },
+        "technical_verified": 9,
+        "technical_rate": 0.5,
+        "semantic_confirmed": 9,
+        "semantic_rate": 0.5,
+        "detected": 9,
+        "repair_session_entered": 9,
+        "slots_with_applied_patch": 9,
+        "applied_patch_attempts": 9,
+        "semantic_given_repair_session": 1.0,
+        "generation_coverage": {
+          "paired_records": 9,
+          "branch_paired_records": 9,
+          "missing_records": 9,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.015361245320755479,
+          "branch_delta_pp_mean": 0.03135779241141424
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 1954.814,
+          "mean_seconds": 108.60077777777778,
+          "median_seconds": 114.7895
+        },
+        "usage": {
+          "request_attempts": 27,
+          "known_total_tokens": 68367,
+          "unknown_requests": 0,
+          "total_tokens": 68367
+        }
+      },
+      "B2": {
+        "planned": 18,
+        "status_counts": {
+          "generation_failed": 10,
+          "verified": 3,
+          "invalid_test_oracle": 5
+        },
+        "technical_verified": 3,
+        "technical_rate": 0.16666666666666666,
+        "semantic_confirmed": 3,
+        "semantic_rate": 0.16666666666666666,
+        "detected": 3,
+        "repair_session_entered": 3,
+        "slots_with_applied_patch": 3,
+        "applied_patch_attempts": 3,
+        "semantic_given_repair_session": 1.0,
+        "generation_coverage": {
+          "paired_records": 9,
+          "branch_paired_records": 9,
+          "missing_records": 9,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.010240655401945725,
+          "branch_delta_pp_mean": 0.03135779241141424
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 1971.998,
+          "mean_seconds": 109.55544444444445,
+          "median_seconds": 72.77350000000001
+        },
+        "usage": {
+          "request_attempts": 30,
+          "known_total_tokens": 81146,
+          "unknown_requests": 1,
+          "total_tokens": null
+        }
+      },
+      "A0": {
+        "planned": 18,
+        "status_counts": {
+          "generation_failed": 7,
+          "verified": 5,
+          "invalid_test_oracle": 6
+        },
+        "technical_verified": 5,
+        "technical_rate": 0.2777777777777778,
+        "semantic_confirmed": 5,
+        "semantic_rate": 0.2777777777777778,
+        "detected": 5,
+        "repair_session_entered": 5,
+        "slots_with_applied_patch": 5,
+        "applied_patch_attempts": 5,
+        "semantic_given_repair_session": 1.0,
+        "generation_coverage": {
+          "paired_records": 7,
+          "branch_paired_records": 7,
+          "missing_records": 11,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.019749835418038184,
+          "branch_delta_pp_mean": 0.040317161671818307
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 1866.955,
+          "mean_seconds": 103.71972222222222,
+          "median_seconds": 64.2975
+        },
+        "usage": {
+          "request_attempts": 30,
+          "known_total_tokens": 78553,
+          "unknown_requests": 0,
+          "total_tokens": 78553
+        }
+      }
+    },
+    "markupsafe": {
+      "B0": {
+        "planned": 18,
+        "status_counts": {
+          "baseline_survives": 18
+        },
+        "technical_verified": 0,
+        "technical_rate": 0.0,
+        "semantic_confirmed": 0,
+        "semantic_rate": 0.0,
+        "detected": 0,
+        "repair_session_entered": 0,
+        "slots_with_applied_patch": 0,
+        "applied_patch_attempts": 0,
+        "semantic_given_repair_session": null,
+        "generation_coverage": {
+          "paired_records": 0,
+          "branch_paired_records": 0,
+          "missing_records": 18,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": null,
+          "branch_delta_pp_mean": null
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 63.077,
+          "mean_seconds": 3.504277777777778,
+          "median_seconds": 3.539
+        },
+        "usage": {
+          "request_attempts": 0,
+          "known_total_tokens": 0,
+          "unknown_requests": 0,
+          "total_tokens": 0
+        }
+      },
+      "B1": {
+        "planned": 18,
+        "status_counts": {
+          "generation_failed": 11,
+          "verified": 6,
+          "invalid_test_oracle": 1
+        },
+        "technical_verified": 6,
+        "technical_rate": 0.3333333333333333,
+        "semantic_confirmed": 6,
+        "semantic_rate": 0.3333333333333333,
+        "detected": 6,
+        "repair_session_entered": 6,
+        "slots_with_applied_patch": 6,
+        "applied_patch_attempts": 6,
+        "semantic_given_repair_session": 1.0,
+        "generation_coverage": {
+          "paired_records": 6,
+          "branch_paired_records": 6,
+          "missing_records": 12,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.36281381167339827,
+          "branch_delta_pp_mean": 1.0869565217391304
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 638.768,
+          "mean_seconds": 35.48711111111111,
+          "median_seconds": 29.8825
+        },
+        "usage": {
+          "request_attempts": 24,
+          "known_total_tokens": 51295,
+          "unknown_requests": 1,
+          "total_tokens": null
+        }
+      },
+      "B2": {
+        "planned": 18,
+        "status_counts": {
+          "generation_failed": 10,
+          "invalid_test_oracle": 5,
+          "verified": 3
+        },
+        "technical_verified": 3,
+        "technical_rate": 0.16666666666666666,
+        "semantic_confirmed": 3,
+        "semantic_rate": 0.16666666666666666,
+        "detected": 3,
+        "repair_session_entered": 3,
+        "slots_with_applied_patch": 3,
+        "applied_patch_attempts": 3,
+        "semantic_given_repair_session": 1.0,
+        "generation_coverage": {
+          "paired_records": 10,
+          "branch_paired_records": 10,
+          "missing_records": 8,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.7071157044428605,
+          "branch_delta_pp_mean": 0.6521739130434783
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 1046.346,
+          "mean_seconds": 58.13033333333333,
+          "median_seconds": 44.0625
+        },
+        "usage": {
+          "request_attempts": 31,
+          "known_total_tokens": 71218,
+          "unknown_requests": 1,
+          "total_tokens": null
+        }
+      },
+      "A0": {
+        "planned": 18,
+        "status_counts": {
+          "generation_failed": 8,
+          "verified": 5,
+          "invalid_test_oracle": 5
+        },
+        "technical_verified": 5,
+        "technical_rate": 0.2777777777777778,
+        "semantic_confirmed": 5,
+        "semantic_rate": 0.2777777777777778,
+        "detected": 5,
+        "repair_session_entered": 5,
+        "slots_with_applied_patch": 5,
+        "applied_patch_attempts": 5,
+        "semantic_given_repair_session": 1.0,
+        "generation_coverage": {
+          "paired_records": 7,
+          "branch_paired_records": 7,
+          "missing_records": 11,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.6215422733598072,
+          "branch_delta_pp_mean": 0.9316770186335404
+        },
+        "elapsed": {
+          "samples": 18,
+          "total_seconds": 727.297,
+          "mean_seconds": 40.405388888888886,
+          "median_seconds": 30.2345
+        },
+        "usage": {
+          "request_attempts": 30,
+          "known_total_tokens": 66283,
+          "unknown_requests": 0,
+          "total_tokens": 66283
+        }
+      }
+    }
+  },
+  "by_defect_type": {
+    "boundary": {
+      "B0": {
+        "planned": 30,
+        "status_counts": {
+          "baseline_survives": 30
+        },
+        "technical_verified": 0,
+        "technical_rate": 0.0,
+        "semantic_confirmed": 0,
+        "semantic_rate": 0.0,
+        "detected": 0,
+        "repair_session_entered": 0,
+        "slots_with_applied_patch": 0,
+        "applied_patch_attempts": 0,
+        "semantic_given_repair_session": null,
+        "generation_coverage": {
+          "paired_records": 0,
+          "branch_paired_records": 0,
+          "missing_records": 30,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": null,
+          "branch_delta_pp_mean": null
+        },
+        "elapsed": {
+          "samples": 30,
+          "total_seconds": 350.61,
+          "mean_seconds": 11.687,
+          "median_seconds": 10.922
+        },
+        "usage": {
+          "request_attempts": 0,
+          "known_total_tokens": 0,
+          "unknown_requests": 0,
+          "total_tokens": 0
+        }
+      },
+      "B1": {
+        "planned": 30,
+        "status_counts": {
+          "generation_failed": 12,
+          "verified": 10,
+          "invalid_test_oracle": 7,
+          "repair_not_reproducible": 1
+        },
+        "technical_verified": 10,
+        "technical_rate": 0.3333333333333333,
+        "semantic_confirmed": 10,
+        "semantic_rate": 0.3333333333333333,
+        "detected": 11,
+        "repair_session_entered": 11,
+        "slots_with_applied_patch": 10,
+        "applied_patch_attempts": 10,
+        "semantic_given_repair_session": 0.9090909090909091,
+        "generation_coverage": {
+          "paired_records": 11,
+          "branch_paired_records": 11,
+          "missing_records": 19,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.005585812037424941,
+          "branch_delta_pp_mean": 0.04670735211861638
+        },
+        "elapsed": {
+          "samples": 30,
+          "total_seconds": 2530.517,
+          "mean_seconds": 84.35056666666667,
+          "median_seconds": 45.0155
+        },
+        "usage": {
+          "request_attempts": 40,
+          "known_total_tokens": 95763,
+          "unknown_requests": 0,
+          "total_tokens": 95763
+        }
+      },
+      "B2": {
+        "planned": 30,
+        "status_counts": {
+          "generation_failed": 15,
+          "invalid_test_oracle": 8,
+          "verified": 5,
+          "repair_not_reproducible": 2
+        },
+        "technical_verified": 5,
+        "technical_rate": 0.16666666666666666,
+        "semantic_confirmed": 5,
+        "semantic_rate": 0.16666666666666666,
+        "detected": 7,
+        "repair_session_entered": 7,
+        "slots_with_applied_patch": 5,
+        "applied_patch_attempts": 5,
+        "semantic_given_repair_session": 0.7142857142857143,
+        "generation_coverage": {
+          "paired_records": 14,
+          "branch_paired_records": 14,
+          "missing_records": 16,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.17143897351466852,
+          "branch_delta_pp_mean": 0.029543534265622482
+        },
+        "elapsed": {
+          "samples": 30,
+          "total_seconds": 2348.842,
+          "mean_seconds": 78.29473333333334,
+          "median_seconds": 57.2655
+        },
+        "usage": {
+          "request_attempts": 49,
+          "known_total_tokens": 126753,
+          "unknown_requests": 0,
+          "total_tokens": 126753
+        }
+      },
+      "A0": {
+        "planned": 30,
+        "status_counts": {
+          "generation_failed": 12,
+          "invalid_test_oracle": 11,
+          "repair_not_reproducible": 3,
+          "verified": 4
+        },
+        "technical_verified": 4,
+        "technical_rate": 0.13333333333333333,
+        "semantic_confirmed": 4,
+        "semantic_rate": 0.13333333333333333,
+        "detected": 7,
+        "repair_session_entered": 7,
+        "slots_with_applied_patch": 4,
+        "applied_patch_attempts": 4,
+        "semantic_given_repair_session": 0.5714285714285714,
+        "generation_coverage": {
+          "paired_records": 14,
+          "branch_paired_records": 14,
+          "missing_records": 16,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.1897928700813068,
+          "branch_delta_pp_mean": 0.05236754158594192
+        },
+        "elapsed": {
+          "samples": 30,
+          "total_seconds": 2370.783,
+          "mean_seconds": 79.0261,
+          "median_seconds": 63.343999999999994
+        },
+        "usage": {
+          "request_attempts": 48,
+          "known_total_tokens": 112761,
+          "unknown_requests": 2,
+          "total_tokens": null
+        }
+      }
+    },
+    "exception_handling": {
+      "B0": {
+        "planned": 30,
+        "status_counts": {
+          "baseline_survives": 30
+        },
+        "technical_verified": 0,
+        "technical_rate": 0.0,
+        "semantic_confirmed": 0,
+        "semantic_rate": 0.0,
+        "detected": 0,
+        "repair_session_entered": 0,
+        "slots_with_applied_patch": 0,
+        "applied_patch_attempts": 0,
+        "semantic_given_repair_session": null,
+        "generation_coverage": {
+          "paired_records": 0,
+          "branch_paired_records": 0,
+          "missing_records": 30,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": null,
+          "branch_delta_pp_mean": null
+        },
+        "elapsed": {
+          "samples": 30,
+          "total_seconds": 341.325,
+          "mean_seconds": 11.3775,
+          "median_seconds": 11.148
+        },
+        "usage": {
+          "request_attempts": 0,
+          "known_total_tokens": 0,
+          "unknown_requests": 0,
+          "total_tokens": 0
+        }
+      },
+      "B1": {
+        "planned": 30,
+        "status_counts": {
+          "generation_failed": 12,
+          "verified": 11,
+          "repair_not_reproducible": 3,
+          "generation_execution_failed": 3,
+          "invalid_test_oracle": 1
+        },
+        "technical_verified": 11,
+        "technical_rate": 0.36666666666666664,
+        "semantic_confirmed": 11,
+        "semantic_rate": 0.36666666666666664,
+        "detected": 14,
+        "repair_session_entered": 14,
+        "slots_with_applied_patch": 11,
+        "applied_patch_attempts": 11,
+        "semantic_given_repair_session": 0.7857142857142857,
+        "generation_coverage": {
+          "paired_records": 17,
+          "branch_paired_records": 17,
+          "missing_records": 13,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.27795038551826484,
+          "branch_delta_pp_mean": 0.41455820384925207
+        },
+        "elapsed": {
+          "samples": 30,
+          "total_seconds": 2162.48,
+          "mean_seconds": 72.08266666666667,
+          "median_seconds": 54.8825
+        },
+        "usage": {
+          "request_attempts": 41,
+          "known_total_tokens": 92349,
+          "unknown_requests": 0,
+          "total_tokens": 92349
+        }
+      },
+      "B2": {
+        "planned": 30,
+        "status_counts": {
+          "generation_failed": 18,
+          "invalid_test_oracle": 2,
+          "verified": 4,
+          "repair_not_reproducible": 1,
+          "generation_execution_failed": 5
+        },
+        "technical_verified": 4,
+        "technical_rate": 0.13333333333333333,
+        "semantic_confirmed": 4,
+        "semantic_rate": 0.13333333333333333,
+        "detected": 5,
+        "repair_session_entered": 5,
+        "slots_with_applied_patch": 4,
+        "applied_patch_attempts": 4,
+        "semantic_given_repair_session": 0.8,
+        "generation_coverage": {
+          "paired_records": 18,
+          "branch_paired_records": 18,
+          "missing_records": 12,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.2341185100704294,
+          "branch_delta_pp_mean": 0.4010416531410488
+        },
+        "elapsed": {
+          "samples": 30,
+          "total_seconds": 2489.843,
+          "mean_seconds": 82.99476666666666,
+          "median_seconds": 55.8755
+        },
+        "usage": {
+          "request_attempts": 47,
+          "known_total_tokens": 112450,
+          "unknown_requests": 2,
+          "total_tokens": null
+        }
+      },
+      "A0": {
+        "planned": 30,
+        "status_counts": {
+          "generation_failed": 16,
+          "verified": 7,
+          "repair_not_reproducible": 2,
+          "invalid_test_oracle": 2,
+          "generation_execution_failed": 3
+        },
+        "technical_verified": 7,
+        "technical_rate": 0.23333333333333334,
+        "semantic_confirmed": 7,
+        "semantic_rate": 0.23333333333333334,
+        "detected": 9,
+        "repair_session_entered": 9,
+        "slots_with_applied_patch": 7,
+        "applied_patch_attempts": 7,
+        "semantic_given_repair_session": 0.7777777777777778,
+        "generation_coverage": {
+          "paired_records": 17,
+          "branch_paired_records": 17,
+          "missing_records": 13,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.2844556965382192,
+          "branch_delta_pp_mean": 0.4023584834256824
+        },
+        "elapsed": {
+          "samples": 30,
+          "total_seconds": 2325.921,
+          "mean_seconds": 77.5307,
+          "median_seconds": 56.8435
+        },
+        "usage": {
+          "request_attempts": 51,
+          "known_total_tokens": 116709,
+          "unknown_requests": 0,
+          "total_tokens": 116709
+        }
+      }
+    },
+    "null_type": {
+      "B0": {
+        "planned": 30,
+        "status_counts": {
+          "baseline_survives": 30
+        },
+        "technical_verified": 0,
+        "technical_rate": 0.0,
+        "semantic_confirmed": 0,
+        "semantic_rate": 0.0,
+        "detected": 0,
+        "repair_session_entered": 0,
+        "slots_with_applied_patch": 0,
+        "applied_patch_attempts": 0,
+        "semantic_given_repair_session": null,
+        "generation_coverage": {
+          "paired_records": 0,
+          "branch_paired_records": 0,
+          "missing_records": 30,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": null,
+          "branch_delta_pp_mean": null
+        },
+        "elapsed": {
+          "samples": 30,
+          "total_seconds": 347.357,
+          "mean_seconds": 11.578566666666667,
+          "median_seconds": 11.0705
+        },
+        "usage": {
+          "request_attempts": 0,
+          "known_total_tokens": 0,
+          "unknown_requests": 0,
+          "total_tokens": 0
+        }
+      },
+      "B1": {
+        "planned": 30,
+        "status_counts": {
+          "verified": 14,
+          "invalid_test_oracle": 5,
+          "generation_failed": 9,
+          "repair_not_reproducible": 2
+        },
+        "technical_verified": 14,
+        "technical_rate": 0.4666666666666667,
+        "semantic_confirmed": 14,
+        "semantic_rate": 0.4666666666666667,
+        "detected": 16,
+        "repair_session_entered": 16,
+        "slots_with_applied_patch": 14,
+        "applied_patch_attempts": 14,
+        "semantic_given_repair_session": 0.875,
+        "generation_coverage": {
+          "paired_records": 16,
+          "branch_paired_records": 16,
+          "missing_records": 14,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.040970758923284875,
+          "branch_delta_pp_mean": 0.016276041666666668
+        },
+        "elapsed": {
+          "samples": 30,
+          "total_seconds": 2767.283,
+          "mean_seconds": 92.24276666666667,
+          "median_seconds": 65.828
+        },
+        "usage": {
+          "request_attempts": 44,
+          "known_total_tokens": 110685,
+          "unknown_requests": 1,
+          "total_tokens": null
+        }
+      },
+      "B2": {
+        "planned": 30,
+        "status_counts": {
+          "generation_failed": 18,
+          "invalid_test_oracle": 3,
+          "verified": 7,
+          "repair_not_reproducible": 2
+        },
+        "technical_verified": 7,
+        "technical_rate": 0.23333333333333334,
+        "semantic_confirmed": 6,
+        "semantic_rate": 0.2,
+        "detected": 9,
+        "repair_session_entered": 9,
+        "slots_with_applied_patch": 7,
+        "applied_patch_attempts": 9,
+        "semantic_given_repair_session": 0.6666666666666666,
+        "generation_coverage": {
+          "paired_records": 17,
+          "branch_paired_records": 17,
+          "missing_records": 13,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.197678231212886,
+          "branch_delta_pp_mean": 0.015318627450980393
+        },
+        "elapsed": {
+          "samples": 30,
+          "total_seconds": 3219.864,
+          "mean_seconds": 107.3288,
+          "median_seconds": 71.44550000000001
+        },
+        "usage": {
+          "request_attempts": 56,
+          "known_total_tokens": 140829,
+          "unknown_requests": 4,
+          "total_tokens": null
+        }
+      },
+      "A0": {
+        "planned": 30,
+        "status_counts": {
+          "generation_failed": 13,
+          "invalid_test_oracle": 11,
+          "verified": 4,
+          "repair_not_reproducible": 2
+        },
+        "technical_verified": 4,
+        "technical_rate": 0.13333333333333333,
+        "semantic_confirmed": 4,
+        "semantic_rate": 0.13333333333333333,
+        "detected": 6,
+        "repair_session_entered": 6,
+        "slots_with_applied_patch": 4,
+        "applied_patch_attempts": 4,
+        "semantic_given_repair_session": 0.6666666666666666,
+        "generation_coverage": {
+          "paired_records": 11,
+          "branch_paired_records": 11,
+          "missing_records": 19,
+          "denominator_mismatches": 0,
+          "line_delta_pp_mean": 0.06032717979804188,
+          "branch_delta_pp_mean": 0.029592803030303032
+        },
+        "elapsed": {
+          "samples": 30,
+          "total_seconds": 2226.532,
+          "mean_seconds": 74.21773333333333,
+          "median_seconds": 68.0
+        },
+        "usage": {
+          "request_attempts": 45,
+          "known_total_tokens": 107431,
+          "unknown_requests": 3,
+          "total_tokens": null
+        }
+      }
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "dateutil_relativedelta___add",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 3,
+        "B2": 1,
+        "A0": 1
+      }
+    },
+    {
+      "task_id": "dateutil_relativedelta___eq",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 0,
+        "B2": 0,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "dateutil_relativedelta__fix",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 2,
+        "B2": 1,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "itsdangerous_serializer_iter_unsigners",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 0,
+        "B2": 0,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "itsdangerous_signer_derive_key",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 1,
+        "B2": 2,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "jinja_do_striptags",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 2,
+        "B2": 0,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "markupsafe_markup___add",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 1,
+        "B2": 0,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "markupsafe_markup___getitem",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 0,
+        "B2": 1,
+        "A0": 1
+      }
+    },
+    {
+      "task_id": "markupsafe_markup___html_format",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 2,
+        "B2": 0,
+        "A0": 2
+      }
+    },
+    {
+      "task_id": "markupsafe_markup_split",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 0,
+        "B2": 0,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "v2_click_datetime_convert",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 3,
+        "B2": 1,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "v2_click_pacifyflushwrapper_flush",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 2,
+        "B2": 1,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "v2_click_stringparamtype_convert",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 1,
+        "B2": 0,
+        "A0": 2
+      }
+    },
+    {
+      "task_id": "v2_click_uuidparametertype_convert",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 0,
+        "B2": 0,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "v2_dateutil_rrulebase_xafter",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 3,
+        "B2": 0,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "v2_jinja_do_dictsort",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 1,
+        "B2": 2,
+        "A0": 3
+      }
+    },
+    {
+      "task_id": "v2_jinja_do_round",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 2,
+        "B2": 1,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "v2_jinja_do_truncate",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 2,
+        "B2": 0,
+        "A0": 1
+      }
+    },
+    {
+      "task_id": "v2_jinja_sync_do_sum",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 2,
+        "B2": 0,
+        "A0": 1
+      }
+    },
+    {
+      "task_id": "v2_markupsafe_markup_escape",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 1,
+        "B2": 1,
+        "A0": 1
+      }
+    },
+    {
+      "task_id": "v2_markupsafe_markup_format_map",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 2,
+        "B2": 1,
+        "A0": 1
+      }
+    },
+    {
+      "task_id": "v3_click_textwrapper__handle_long_word",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 0,
+        "B2": 0,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "v3_click_textwrapper_indent_only",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 3,
+        "B2": 3,
+        "A0": 2
+      }
+    },
+    {
+      "task_id": "v3_itsdangerous_signer_verify_signature",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 0,
+        "B2": 0,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "v3_jinja_do_indent",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 0,
+        "B2": 0,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "v4_dateutil_parsererror___str",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 0,
+        "B2": 0,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "v5_itsdangerous_hmacalgorithm_get_signature",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 0,
+        "B2": 0,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "v5_itsdangerous_signer_get_signature",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 0,
+        "B2": 0,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "v6_dateutil_validate_fromutc_inputs",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 0,
+        "B2": 0,
+        "A0": 0
+      }
+    },
+    {
+      "task_id": "v6_itsdangerous_badheader___init",
+      "semantic_confirmed": {
+        "B0": 0,
+        "B1": 2,
+        "B2": 0,
+        "A0": 0
+      }
+    }
+  ],
+  "a0_vs_b2_tasks": {
+    "a0_more": 5,
+    "equal": 19,
+    "b2_more": 6
+  },
+  "schema": "p08-v2-metrics-v1",
+  "data_commit": "bb2536d79901b46782a821fcbffeab546f23d101",
+  "original_receipt_sha256": "f6f7b7ee9cdecab2d9a3605ba0b2bef54eced1fcccd51d84ef036a32cafc6cad",
+  "semantic_sidecar_lf_sha256": "230d257c0c6580771b61782878a7fb1ddcdd39db44c7bf554435d3331ab5e2fc",
+  "semantic_patch_counts": {
+    "confirmed": 65,
+    "rejected": 3
+  },
+  "semantic_group_counts": {
+    "confirmed": 22,
+    "rejected": 2
+  },
+  "failure_counts": {
+    "generation_failed": 125,
+    "invalid_test_oracle": 50,
+    "repair_not_reproducible": 18,
+    "generation_execution_failed": 11
+  },
+  "repaired_coverage_records": [
+    {
+      "slot_id": "007d44248ba3f62f4da61ead5e3ba954",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3195,
+        "total": 3618
+      },
+      "branches": {
+        "covered": 1380,
+        "total": 1610
+      }
+    },
+    {
+      "slot_id": "803085ffcf7d3579974d81504f9854fa",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 5823,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1686,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "97482a53bf84b8d473dfbade94bacfb3",
+      "group": "A0",
+      "status": "verified",
+      "lines": {
+        "covered": 143,
+        "total": 184
+      },
+      "branches": {
+        "covered": 35,
+        "total": 46
+      }
+    },
+    {
+      "slot_id": "f2dd7c89fa82c93f691ce2255344be51",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3465,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1128,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "dbfd21c98bdc00ff6fb8f028ab3e22b0",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3471,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1129,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "aa017c3220f7d94e4fb75246dea0ecb3",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3195,
+        "total": 3618
+      },
+      "branches": {
+        "covered": 1380,
+        "total": 1610
+      }
+    },
+    {
+      "slot_id": "0a7feedff171bba81c842105a8744e22",
+      "group": "A0",
+      "status": "verified",
+      "lines": {
+        "covered": 5823,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1686,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "39342e8c71452205857f94a9ba8ef733",
+      "group": "B2",
+      "status": "verified",
+      "lines": {
+        "covered": 5823,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1686,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "b89534e61067231fe1d5c27110dc947e",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 5823,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1686,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "d03a29bf2598aff6a45587e8d5ed1f25",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 5822,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1685,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "43c6043e16239c0a84628317c19a8650",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 142,
+        "total": 184
+      },
+      "branches": {
+        "covered": 34,
+        "total": 46
+      }
+    },
+    {
+      "slot_id": "60317c0f70587172cbe8947ac7783195",
+      "group": "A0",
+      "status": "verified",
+      "lines": {
+        "covered": 142,
+        "total": 184
+      },
+      "branches": {
+        "covered": 34,
+        "total": 46
+      }
+    },
+    {
+      "slot_id": "f3b62aed477415aa9a0b02c4b15c4edc",
+      "group": "B2",
+      "status": "verified",
+      "lines": {
+        "covered": 3464,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1127,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "1d3f56cc11d7a05d87f830aa462e60a7",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3464,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1127,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "49174084505036ea802ed1746ea31042",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 458,
+        "total": 471
+      },
+      "branches": {
+        "covered": 104,
+        "total": 120
+      }
+    },
+    {
+      "slot_id": "64c0828e2d371b1292be43fdca6cc634",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3195,
+        "total": 3618
+      },
+      "branches": {
+        "covered": 1380,
+        "total": 1610
+      }
+    },
+    {
+      "slot_id": "a97c8ba2d8c5a91a13f48195800438ca",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3195,
+        "total": 3618
+      },
+      "branches": {
+        "covered": 1380,
+        "total": 1610
+      }
+    },
+    {
+      "slot_id": "863a5e3510e0e68df1b5e904546ae329",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 455,
+        "total": 471
+      },
+      "branches": {
+        "covered": 104,
+        "total": 120
+      }
+    },
+    {
+      "slot_id": "b3ce0f5733670a86fd703129613a0aa6",
+      "group": "B2",
+      "status": "verified",
+      "lines": {
+        "covered": 455,
+        "total": 471
+      },
+      "branches": {
+        "covered": 104,
+        "total": 120
+      }
+    },
+    {
+      "slot_id": "abd4325c96028f93d1e41e8d85660715",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 5823,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1686,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "94efe397716cfc3669ec1d53238f0002",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 143,
+        "total": 184
+      },
+      "branches": {
+        "covered": 35,
+        "total": 46
+      }
+    },
+    {
+      "slot_id": "1f18a29e11c890ffcae4299095a5dffb",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3465,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1128,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "f0cc940ee34ef00206cce0ee2852507a",
+      "group": "B2",
+      "status": "verified",
+      "lines": {
+        "covered": 3471,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1129,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "8a476da9dc22147b53794f6ecc7ad8f2",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3468,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1128,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "9e4805142fa63b551b321f91716ac07b",
+      "group": "A0",
+      "status": "verified",
+      "lines": {
+        "covered": 3468,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1128,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "2fa3b88dba9a45742f992a1d70369f2e",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3195,
+        "total": 3618
+      },
+      "branches": {
+        "covered": 1380,
+        "total": 1610
+      }
+    },
+    {
+      "slot_id": "74ef6d79c0c674fdb99eeaa3de5f025f",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 5823,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1686,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "24728703edb7d2f3527f6c8d7f21ab95",
+      "group": "A0",
+      "status": "verified",
+      "lines": {
+        "covered": 5823,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1686,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "b1961dcecc193f5a3f2e5258691359a6",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 5822,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1686,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "448da5365496875cf1f798250777f4f7",
+      "group": "A0",
+      "status": "verified",
+      "lines": {
+        "covered": 3464,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1127,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "91edf79cf48bfb3bf7e3f8aba9aad55f",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3464,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1127,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "27d1e2cb161d780adac27f24eaa5645a",
+      "group": "B2",
+      "status": "verified",
+      "lines": {
+        "covered": 3464,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1127,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "5562bbb585144c3a90c26c07b9d3d8f7",
+      "group": "B2",
+      "status": "verified",
+      "lines": {
+        "covered": 3195,
+        "total": 3618
+      },
+      "branches": {
+        "covered": 1380,
+        "total": 1610
+      }
+    },
+    {
+      "slot_id": "c120db9f1dac94c35cddee275735407c",
+      "group": "A0",
+      "status": "verified",
+      "lines": {
+        "covered": 3195,
+        "total": 3618
+      },
+      "branches": {
+        "covered": 1380,
+        "total": 1610
+      }
+    },
+    {
+      "slot_id": "2a2e54d56751ffa30a9ae124c1338870",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3195,
+        "total": 3618
+      },
+      "branches": {
+        "covered": 1380,
+        "total": 1610
+      }
+    },
+    {
+      "slot_id": "af0ef4975a4f736274587bce689b1458",
+      "group": "B2",
+      "status": "verified",
+      "lines": {
+        "covered": 3195,
+        "total": 3618
+      },
+      "branches": {
+        "covered": 1380,
+        "total": 1610
+      }
+    },
+    {
+      "slot_id": "8c35abfd7347e6f0e51278ce5c94de54",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3195,
+        "total": 3618
+      },
+      "branches": {
+        "covered": 1380,
+        "total": 1610
+      }
+    },
+    {
+      "slot_id": "ea67e12f60c77871e937864f2acb84af",
+      "group": "B2",
+      "status": "verified",
+      "lines": {
+        "covered": 3195,
+        "total": 3618
+      },
+      "branches": {
+        "covered": 1380,
+        "total": 1610
+      }
+    },
+    {
+      "slot_id": "14e58ae4a77202e93859c6bb28c3c179",
+      "group": "B2",
+      "status": "verified",
+      "lines": {
+        "covered": 455,
+        "total": 471
+      },
+      "branches": {
+        "covered": 104,
+        "total": 120
+      }
+    },
+    {
+      "slot_id": "2ffcbcd0adb660967b6707851ece3745",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 143,
+        "total": 184
+      },
+      "branches": {
+        "covered": 35,
+        "total": 46
+      }
+    },
+    {
+      "slot_id": "9b306da2486a83c743ff32e1009156dd",
+      "group": "B2",
+      "status": "verified",
+      "lines": {
+        "covered": 143,
+        "total": 184
+      },
+      "branches": {
+        "covered": 34,
+        "total": 46
+      }
+    },
+    {
+      "slot_id": "2f3d3f33acd93aac30fb46992d096664",
+      "group": "A0",
+      "status": "verified",
+      "lines": {
+        "covered": 143,
+        "total": 184
+      },
+      "branches": {
+        "covered": 34,
+        "total": 46
+      }
+    },
+    {
+      "slot_id": "e71a894878f2755b66570dfcc240e187",
+      "group": "A0",
+      "status": "verified",
+      "lines": {
+        "covered": 143,
+        "total": 184
+      },
+      "branches": {
+        "covered": 35,
+        "total": 46
+      }
+    },
+    {
+      "slot_id": "208f20b465234bac2390081d8195f8b8",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 143,
+        "total": 184
+      },
+      "branches": {
+        "covered": 35,
+        "total": 46
+      }
+    },
+    {
+      "slot_id": "40ec25a51c330f9b122f00121dbb6c1a",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3465,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1128,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "7b85e54f2f4892371bd4393dbd145ac8",
+      "group": "B2",
+      "status": "verified",
+      "lines": {
+        "covered": 3465,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1128,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "ff98e76096fa52489c57f6dbfdaf7273",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3471,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1129,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "58a8688ae125aeb1ff6f055b202152e3",
+      "group": "A0",
+      "status": "verified",
+      "lines": {
+        "covered": 3468,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1128,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "34b6ab75a12a7add0f0ce11c95ff603d",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3195,
+        "total": 3618
+      },
+      "branches": {
+        "covered": 1382,
+        "total": 1610
+      }
+    },
+    {
+      "slot_id": "88272b631f875ba33e6c8df125905ac8",
+      "group": "B2",
+      "status": "verified",
+      "lines": {
+        "covered": 5824,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1686,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "557799f551e7ed26a260e5f123c6cf4c",
+      "group": "A0",
+      "status": "verified",
+      "lines": {
+        "covered": 5824,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1686,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "334725630e92118e72f8b36a880e85c4",
+      "group": "B2",
+      "status": "verified",
+      "lines": {
+        "covered": 5823,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1686,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "a66bc0a57a646e2d871a0c88887da88f",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 5823,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1686,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "5aa1496b83d0346ce28c7868f7719f7a",
+      "group": "A0",
+      "status": "verified",
+      "lines": {
+        "covered": 5822,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1686,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "0d04e69587c7777631248843e397e979",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 5822,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1686,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "38d66adf372f6a4a317f587397a7e73b",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 5823,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1685,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "08fc03d01751d09102331bab23f15041",
+      "group": "A0",
+      "status": "verified",
+      "lines": {
+        "covered": 5823,
+        "total": 6510
+      },
+      "branches": {
+        "covered": 1685,
+        "total": 2126
+      }
+    },
+    {
+      "slot_id": "0f1444407db06db2ad542987bafc7622",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 143,
+        "total": 184
+      },
+      "branches": {
+        "covered": 35,
+        "total": 46
+      }
+    },
+    {
+      "slot_id": "de8efda31af74766d59f8d215cb9fde2",
+      "group": "B2",
+      "status": "verified",
+      "lines": {
+        "covered": 143,
+        "total": 184
+      },
+      "branches": {
+        "covered": 35,
+        "total": 46
+      }
+    },
+    {
+      "slot_id": "7f58f3bdca15bd8adba1edc08be6a181",
+      "group": "A0",
+      "status": "verified",
+      "lines": {
+        "covered": 143,
+        "total": 184
+      },
+      "branches": {
+        "covered": 35,
+        "total": 46
+      }
+    },
+    {
+      "slot_id": "69bebc0f2e1f6a14f34d9b8e683014f5",
+      "group": "B2",
+      "status": "verified",
+      "lines": {
+        "covered": 142,
+        "total": 184
+      },
+      "branches": {
+        "covered": 34,
+        "total": 46
+      }
+    },
+    {
+      "slot_id": "1018aa71f69e6e717f69eabfa056fdd0",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 142,
+        "total": 184
+      },
+      "branches": {
+        "covered": 34,
+        "total": 46
+      }
+    },
+    {
+      "slot_id": "02dc938596b42e240939aecb3d418083",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 3464,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1127,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "67d366ac621e08897bb061170f476257",
+      "group": "B2",
+      "status": "verified",
+      "lines": {
+        "covered": 3464,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1127,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "0432979588d5aee01d2225b2b34666c9",
+      "group": "A0",
+      "status": "verified",
+      "lines": {
+        "covered": 3464,
+        "total": 4268
+      },
+      "branches": {
+        "covered": 1127,
+        "total": 1536
+      }
+    },
+    {
+      "slot_id": "88d584538e3bbf9573385a085dfc7aa2",
+      "group": "B1",
+      "status": "verified",
+      "lines": {
+        "covered": 458,
+        "total": 471
+      },
+      "branches": {
+        "covered": 104,
+        "total": 120
+      }
+    }
+  ]
+}

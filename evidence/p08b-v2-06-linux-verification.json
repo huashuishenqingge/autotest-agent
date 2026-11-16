@@ -1,0 +1,21 @@
+{
+  "run": {
+    "run_id": "b528b382bd3a4cfc84000aa848c2d6a6",
+    "snapshot_digest": "cfd439c27bddb775a1536b7cad41fd508f854afc5b4288e8c4bdfd4c52ce7283",
+    "exit_code": 0,
+    "passed": 211,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 1,
+    "failure": null,
+    "artifacts": [
+      "b528b382bd3a4cfc84000aa848c2d6a6/log.txt",
+      "b528b382bd3a4cfc84000aa848c2d6a6/junit.xml",
+      "b528b382bd3a4cfc84000aa848c2d6a6/manifest.json",
+      "b528b382bd3a4cfc84000aa848c2d6a6/run.json",
+      "b528b382bd3a4cfc84000aa848c2d6a6/coverage.json"
+    ]
+  },
+  "artifact_directory": "D:\\Users\\Desktop\\\u79d1\u8f6f\u4e0a\u5b66\u671f\\\u5de5\u7a0b\u5b9e\u8df5\\autotest-agent\\artifacts\\v2-06-linux\\b528b382bd3a4cfc84000aa848c2d6a6",
+  "cleanup_ok": true
+}

@@ -1,0 +1,53 @@
+{
+  "scope": "V2-06 offline implementation verification; not new formal experiments",
+  "date": "2026-11-16",
+  "implementer": "current_assistant",
+  "metrics_unit_tests": {
+    "command": ".venv/Scripts/python.exe -m unittest tests.test_experiment_metrics -v",
+    "passed": 6,
+    "failed": 0,
+    "red_observed": "Before implementation import raised ModuleNotFoundError: evaluation.experiments"
+  },
+  "windows_regression": {
+    "command": ".venv/Scripts/python.exe -m unittest discover -s tests -v",
+    "total": 233,
+    "passed": 226,
+    "skipped": 7,
+    "failed": 0,
+    "seconds": 44.886
+  },
+  "discarded_discovery": {
+    "command": ".venv/Scripts/python.exe -m unittest discover -v",
+    "tests_found": 0,
+    "used_as_pass_evidence": false
+  },
+  "linux_core": {
+    "passed": 211,
+    "skipped": 1,
+    "failed": 0,
+    "cleanup_ok": true,
+    "run_id": "b528b382bd3a4cfc84000aa848c2d6a6",
+    "evidence": "evidence/p08b-v2-06-linux-verification.json"
+  },
+  "rebuild": {
+    "command": ".venv/Scripts/python.exe -m evaluation.report_v2",
+    "original_receipt_files_verified": 10,
+    "raw_results_verified": 360,
+    "patch_bindings_verified": 68,
+    "primary_source_inventory_verified": true
+  },
+  "portable": {
+    "command": ".venv/Scripts/python.exe -m evaluation.report_v2 --portable",
+    "matches": true,
+    "limits": "Derived metrics only; does not re-audit original snapshots"
+  },
+  "new_model_requests": 0,
+  "original_formal_records_modified": false,
+  "user_acceptance": "pending",
+  "final_integrity": {
+    "base_frozen_files_unchanged": true,
+    "runtime_additions_unchanged": true,
+    "old_receipt_files_verified": 10,
+    "model_budget_attempts": 754
+  }
+}

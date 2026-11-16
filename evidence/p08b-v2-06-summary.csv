@@ -1,0 +1,5 @@
+﻿group,planned,detected,technical_verified,semantic_confirmed,semantic_rate,repair_session_entered,slots_with_applied_patch,applied_patch_attempts
+B0,90,0,0,0,0.0,0,0,0
+B1,90,41,35,35,0.3888888888888889,41,35,35
+B2,90,21,16,15,0.16666666666666666,21,16,18
+A0,90,22,15,15,0.16666666666666666,22,15,15
