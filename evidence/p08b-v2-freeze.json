@@ -1,7 +1,7 @@
 {
   "schema": "p08-v2-freeze-v1",
   "scope": "frozen_inputs_no_launch",
-  "implementation_commit": "2551f54ccfc602b71903a6fbe2cf3fe85151786a",
+  "implementation_commit": "5ecad469b6fc9ecc2a705c827071117b02fb7d33",
   "files": [
     {
       "path": "agents/__init__.py",
@@ -151,7 +151,7 @@
     {
       "path": "experiments/p08b-v2-protocol.json",
       "normalization": "lf",
-      "sha256": "9de8d1299d4885986e9eaa8cf8872d79aa8b0a2df70fce166f543800d7827c5f"
+      "sha256": "9181ad9dbdf4c8b361ee321643bb9642af69850e01efb3319aa14b7a882f7612"
     },
     {
       "path": "experiments/p08b-v2-tasks.json",
@@ -171,7 +171,7 @@
     {
       "path": "experiments/project_tasks.py",
       "normalization": "lf",
-      "sha256": "50ccfdf8b079eec5e05471ffb1817ba8b97c1f393d61e2af667ec2ec056267cc"
+      "sha256": "41b40cfe8e3951af132bf33fc060e69e3eb154568aa4811681808ea2c333d97a"
     },
     {
       "path": "experiments/projects.json",
@@ -341,7 +341,7 @@
     {
       "path": "tests/test_project_tasks.py",
       "normalization": "lf",
-      "sha256": "53b3b3a03bb5a6ae7a7da287830dfd2ab83c2b0e9ceb9c8ae57eac0d65c4db3e"
+      "sha256": "ff1d7197e81dc0c08002e7421875e56804540b2cb8284e8d74b4190c73df9c07"
     },
     {
       "path": "tests/test_qualification_v2.py",
@@ -391,7 +391,7 @@
     {
       "path": "tests/test_web.py",
       "normalization": "lf",
-      "sha256": "b43745eddbadaa868d664c53ea614bcb263ff64871dd2ce4df9c04231d28c8a9"
+      "sha256": "8ff6eebcf0497e2944637986cfcff6c0416d71ee978ee9aa71ddb7fca19e847a"
     },
     {
       "path": "tests/test_worker_measurement.py",

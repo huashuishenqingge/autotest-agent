@@ -1,7 +1,7 @@
 {
   "schema": "p08-protocol-v2",
   "status": "frozen_inputs",
-  "source_commit": "2551f54ccfc602b71903a6fbe2cf3fe85151786a",
+  "source_commit": "5ecad469b6fc9ecc2a705c827071117b02fb7d33",
   "selection_rule": "unchanged_V1_thirty_tasks",
   "methods": [
     {
