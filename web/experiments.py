@@ -61,6 +61,24 @@ class ExperimentData:
         self.by_slot = {r['slot_id']:r for r in self.rows}
         if len(self.by_slot) != 360 or len(self.rows) != 360:
             raise ValueError('duplicate or incomplete slots')
+        response_receipt = self._read('evidence/p07b-model-responses-receipt.json')
+        if (response_receipt['schema'] != 'p07b-model-response-receipt-v1'
+                or response_receipt['path'] != 'evidence/p07b-model-responses.json'
+                or response_receipt['source_export_lf_sha256'] != hashes['evidence/p08b-v2-formal-results.json']):
+            raise ValueError('unsupported response receipt')
+        responses = self._read('evidence/p07b-model-responses.json',response_receipt['lf_sha256'])
+        if (responses['schema'] != 'p07b-parsed-model-responses-v1'
+                or responses['source_export_lf_sha256'] != response_receipt['source_export_lf_sha256']):
+            raise ValueError('unsupported response export')
+        self.responses = {r['slot_id']:r for r in responses['records']}
+        if len(self.responses) != len(responses['records']) or set(self.responses) != set(self.by_slot):
+            raise ValueError('incomplete or duplicate model response slots')
+        for row in self.rows:
+            saved = self.responses[row['slot_id']]
+            if (saved['result_sha256'] != row['result_sha256']
+                    or [g['round'] for g in saved['generation']] != [g['round'] for g in row['generation_rounds']]
+                    or len(saved['repair']) != (row['repair'] or {}).get('attempts',0)):
+                raise ValueError('stale model response association')
         if Counter(r['group'] for r in self.rows) != {g:90 for g in self.methods}:
             raise ValueError('wrong group denominator')
         self.tests, self.patches, self.reviews = {}, {}, {}
@@ -149,6 +167,7 @@ class ExperimentData:
             'tests':self.tests.get(slot, []),'patches':self.patches.get(slot, []),
             'coverage':row['coverage'],'generation_rounds':row['generation_rounds'],
             'model_activity':self._model_activity(row),
+            'saved_model_responses':self._saved_responses(row),
             'usage':{'requests':len(requests),'known_tokens':known,'unknown_requests':unknown,'total_tokens':None if unknown else known},
             'log_notice':'原始完整日志未包含在Git共享导出中；此处显示已保存的状态、测试与补丁，未重新执行。'}
 
@@ -157,6 +176,17 @@ class ExperimentData:
         if '/'+row['slot_id']+'/' not in run['artifact_directory']:
             raise ValueError('execution belongs to another slot')
         return {k:run[k] for k in ('run_id','exit_code','passed','failed','errors','skipped','failure_kind','cleanup_ok')}
+
+    def _saved_responses(self, row):
+        saved = self.responses[row['slot_id']]
+        repairs = []
+        for attempt in saved['repair']:
+            operations = {key:self._execution(row,attempt[key+'_id']) if attempt[key+'_id'] else None
+                          for key in ('visible_run','regression_run')}
+            repairs.append(attempt | operations)
+        return {'format':'saved_parsed_json','byte_exact_reply_available':False,
+            'notice':'以下是本机原始运行文件保存的模型回复解析后JSON，未重新生成。原始字符串格式及完整请求原文未保存。操作记录由程序产生，不是模型自行执行命令。',
+            'generation':saved['generation'],'repair':repairs}
 
     def _model_activity(self, row):
         refs = {r['label']:r['run_id'] for r in row['execution_refs']}
@@ -188,7 +218,7 @@ class ExperimentData:
         return {'configured_model':self.configured_model,'requests':requests,'generation':generation,
             'baseline':execution('baseline'),'generated_only':execution('generated-only'),
             'repair':repair_view,'full_prompt_available':False,'full_raw_response_available':False,
-            'input_description_notice':'输入用途按冻结流程说明；共享导出不含逐次完整提示词或原始模型回复，以下说明不是请求原文。'}
+            'input_description_notice':'输入用途按冻结流程说明；共享导出不含逐次完整提示词或回复的原始字符串，保存的真实JSON见上方。以下用途说明不是请求原文。'}
 
 
 def dataset():

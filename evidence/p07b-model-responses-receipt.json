@@ -1,0 +1,8 @@
+{
+  "schema": "p07b-model-response-receipt-v1",
+  "source_data_commit": "bb2536d79901b46782a821fcbffeab546f23d101",
+  "path": "evidence/p07b-model-responses.json",
+  "lf_sha256": "433cfa93fe76ffab411f4a4c9600f1bd73cda2c4d099288903355d3fe656c751",
+  "source_export_lf_sha256": "11d5fde4ca7d6c70c2ea575101e6986c38ad4feaa3f49d89a9368d749a89ba84",
+  "raw_results_verified": 360
+}

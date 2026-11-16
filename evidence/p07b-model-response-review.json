@@ -1,0 +1,11 @@
+{
+  "review": "P07B 已保存模型回复与程序操作展示",
+  "reviewer": "review_p07b_web",
+  "baseline": "63b11c8",
+  "verdict": "approved",
+  "findings": [],
+  "remaining_blockers": [],
+  "checked": ["固定摘要绑定原导出、完整槽集合、result_sha256、生成轮次及修复尝试数。", "抽查成功槽原始运行文件，rationale/diagnosis与sidecar相符。", "明确解析后JSON非字节原回复，完整请求未保存，解析不等于通过验证。", "缺回复保留null，不反向补造。", "执行索引核对槽归属，程序操作与模型回复分别标注。", "内容用textContent，不引入任意路径访问或模型调用。"],
+  "verification": {"independent":"只读检查当前差异、回执、sidecar样例及对应本机原始运行样例；未运行项目代码或测试，未写入文件。", "limits":"未逐项独立复算360原始摘要，未独立执行浏览器验收。", "implementer_reported":"新增测试先失败后通过；最终完整回归和浏览器验收由实施者另行记录。"},
+  "evidence_handling":"本增量另存，保留之前P07B验收记录。"
+}

@@ -100,6 +100,26 @@ class ExperimentDataTests(unittest.TestCase):
             activity = self.data.detail(item['slot_id'])['model_activity']
             self.assertEqual(activity['generation'][1]['coverage_feedback'], expected)
 
+    def test_saved_model_reply_is_actual_parsed_json_with_operation_records(self):
+        detail = self.data.detail('007d44248ba3f62f4da61ead5e3ba954')
+        saved = detail['saved_model_responses']
+        self.assertEqual(saved['format'], 'saved_parsed_json')
+        response = saved['generation'][0]['parsed_response']
+        self.assertIn('absolute hour=0',response['rationale'])
+        self.assertEqual(response['files'][0]['content'],detail['tests'][0]['content'])
+        repair = saved['repair'][0]
+        self.assertIn('if value is not None:',repair['parsed_response']['diagnosis'])
+        self.assertTrue(repair['patch_applied'])
+        self.assertEqual(repair['visible_run']['exit_code'],0)
+        self.assertTrue(saved['generation'][0]['transitions'])
+        self.assertFalse(saved['byte_exact_reply_available'])
+
+    def test_missing_parsed_reply_is_not_reconstructed_from_other_outputs(self):
+        failed=next(r for r in self.data.rows if r['status']=='generation_failed' and any(q['usage'] is None for q in r['requests']))
+        saved=self.data.detail(failed['slot_id'])['saved_model_responses']
+        self.assertIsNone(saved['generation'][0]['parsed_response'])
+        self.assertIsNotNone(saved['generation'][0]['failure'])
+
 
 class ExperimentHTTPTests(unittest.TestCase):
     def setUp(self):
@@ -155,3 +175,10 @@ class ExperimentHTTPTests(unittest.TestCase):
             return original(path)
         with patch.object(Path, 'read_bytes', damaged):
             self.assertEqual(self.get('/api/experiments/summary')[0],503)
+
+    def test_response_export_tampering_is_unavailable(self):
+        original=Path.read_bytes
+        def damaged(path):
+            return b'{}' if path.name=='p07b-model-responses.json' else original(path)
+        with patch.object(Path,'read_bytes',damaged):
+            self.assertEqual(self.get('/api/experiments/records/007d44248ba3f62f4da61ead5e3ba954')[0],503)

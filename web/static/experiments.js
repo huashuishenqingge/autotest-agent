@@ -66,6 +66,34 @@ function runText(value) {
   const verdict = value.exit_code===0 && value.passed>0 && value.failed===0 && value.errors===0 ? '通过' : value.failure_kind==='test_assertion' ? '断言失败' : '未通过';
   return `${verdict} · ${value.passed}项通过 / ${value.failed}项失败 / ${value.errors}项错误`;
 }
+function drawSavedResponses(data) {
+  const saved=data.saved_model_responses, host=el('saved-replies');
+  el('saved-replies-notice').textContent=saved.notice+' 保存了JSON不代表该回复通过了协议或测试验证。';
+  host.replaceChildren();
+  function reply(title, candidate) {
+    const box=node('article');box.className='model-step';box.appendChild(node('h4',title));
+    if(candidate===null) box.appendChild(node('p','本次未保存可展示的模型回复JSON，不能恢复或重新构造原回复。'));
+    else {
+      const explanation=candidate && typeof candidate==='object' && !Array.isArray(candidate) ? candidate.rationale || candidate.diagnosis : null;
+      if(typeof explanation==='string') {box.append(node('p','模型原文：'),node('pre',explanation));}
+      codeBlock(box,'展开模型实际返回的完整 JSON（解析后）',JSON.stringify(candidate,null,2));
+    }
+    host.appendChild(box);return box;
+  }
+  for(const generation of saved.generation) {
+    const box=reply(`生成测试 · 第${generation.round}轮`,generation.parsed_response);
+    codeBlock(box,'程序实际状态流转（不是模型回复）',JSON.stringify(generation.transitions,null,2));
+    if(generation.failure)box.appendChild(node('p',`程序记录的生成失败：${generation.failure.message}`));
+  }
+  for(const repair of saved.repair) {
+    const box=reply(`源码修复 · 第${repair.attempt}次`,repair.parsed_response);
+    box.appendChild(node('p',repair.patch_applied?'程序记录：已应用补丁，源码差异见下方。':'程序未记录实际应用的补丁。'));
+    box.appendChild(node('p',`应用后的可见测试：${runText(repair.visible_run)}`));
+    box.appendChild(node('p',`原测试回归执行：${runText(repair.regression_run)}`));
+    box.appendChild(node('p',`回滚结果：${repair.rollback_ok===null?'未记录':repair.rollback_ok?'成功':'失败'}`));
+  }
+  if(!saved.generation.length&&!saved.repair.length)host.appendChild(node('p','B0没有调用模型，因此没有模型回复或修复操作。'));
+}
 function drawModelActivity(data) {
   const activity=data.model_activity, host=el('model-activity');
   host.replaceChildren(); el('model-call-rows').replaceChildren();
@@ -117,6 +145,7 @@ async function showDetail(slot) {
     const data = await api(`/api/experiments/records/${slot}`);
     if(version !== detailVersion) return;
     const r = data.record;
+    drawSavedResponses(data);
     drawModelActivity(data);
     el('detail-summary').textContent = `${r.project_id} · ${r.group} · 第${r.repeat}次 · ${statusNames[r.status]} · ${semanticNames[r.semantic]}\n记录 ${slot}`;
     el('detail-download').href = `/api/experiments/records/${slot}/download`; el('detail-download').hidden = false;

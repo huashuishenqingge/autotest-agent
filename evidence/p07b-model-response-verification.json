@@ -1,0 +1,93 @@
+{
+  "scope": "Saved parsed model responses and actual program operation records",
+  "baseline": "63b11c8",
+  "raw_result_hashes_checked": 360,
+  "saved_generation_replies": 288,
+  "saved_repair_replies": 68,
+  "parsed_replies_equal_original_model_candidate": true,
+  "generation_transitions_equal_original": true,
+  "byte_exact_reply_strings_saved": false,
+  "complete_request_prompts_saved": false,
+  "frozen_files_and_original_receipts_unchanged": true,
+  "new_model_requests": 0,
+  "model_budget_attempts": 754,
+  "browser": {
+    "browser": "Chrome headless",
+    "page_errors": [],
+    "desktop": [
+      1440,
+      1100
+    ],
+    "mobile": [
+      390,
+      844
+    ],
+    "verified": [
+      "homepage navigation",
+      "four-method summary",
+      "real model role example",
+      "generation and repair call metadata",
+      "no invented full prompt",
+      "baseline zero calls",
+      "20-row pagination",
+      "combined project/method/semantic filters",
+      "technical verified but semantic rejected",
+      "three patch reviews",
+      "record download",
+      "clear filters",
+      "next page",
+      "125 generation failures",
+      "66 technical verified",
+      "confirmed success detail",
+      "mobile no document overflow"
+    ],
+    "model_requests": 0
+  },
+  "additional_browser_assertions": [
+    "Actual hour=0 rationale and if value is not None diagnosis visible",
+    "Full saved model JSON expands and contains generated test code",
+    "Parsed-versus-original notice visible",
+    "Baseline does not invent model replies"
+  ],
+  "new_tests_red": "Two model response tests raised KeyError saved_model_responses before implementation",
+  "native_regression": {
+    "command": ".venv/Scripts/python.exe -m unittest discover -s tests -v",
+    "total": 247,
+    "passed": 240,
+    "skipped": 7,
+    "failed": 0,
+    "seconds": 44.164
+  },
+  "experiment_web_tests": {
+    "total": 14,
+    "passed": 14,
+    "failed": 0
+  },
+  "source_files": [
+    {
+      "path": "web/experiments.py",
+      "lf_sha256": "3a1a36c06ad2dcef196d541dcd688c9aa1c3cc9df438c066235256049493b4f6"
+    },
+    {
+      "path": "web/static/experiments.html",
+      "lf_sha256": "2f0caa6ab42b344d2544f8e671e5ba8d33b7150a389b0746feac1e0d3da6244b"
+    },
+    {
+      "path": "web/static/experiments.js",
+      "lf_sha256": "1802eea13fd9391fca552a7c1b38688339613cd35543939c98b5c8e613eaed3a"
+    },
+    {
+      "path": "tests/test_web_experiments.py",
+      "lf_sha256": "14fe55c70d956ce1422f4a4d9daf9cff371f1b0868f24b475ecbdcd6d3133a1d"
+    },
+    {
+      "path": "evidence/p07b-model-responses.json",
+      "lf_sha256": "433cfa93fe76ffab411f4a4c9600f1bd73cda2c4d099288903355d3fe656c751"
+    },
+    {
+      "path": "evidence/p07b-model-responses-receipt.json",
+      "lf_sha256": "0d06e36ce7ecdea5c92c7b0a32bd7014ac307932d16d129d35558881b980c6cf"
+    }
+  ],
+  "user_acceptance": "pending"
+}
